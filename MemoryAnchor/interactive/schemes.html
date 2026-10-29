@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>十二个记忆方案 · 六变量编码库</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--gray:#5f6368;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif}
+header{padding:24px 5vw 14px;border-bottom:2px solid var(--red);background:#fff}
+h1{margin:0 0 6px;font-size:23px}
+.sub{color:#555;font-size:13px;line-height:1.7}
+.wrap{padding:16px 5vw 52px;max-width:1180px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.card{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px}
+.card .k{font-size:12px;color:#666}.card .v{font-size:21px;font-weight:700;margin-top:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;
+     border:1px solid #e3e0d8;border-radius:6px;padding:11px;margin:6px 0 14px;font-size:13px}
+select,input[type=search]{padding:5px 8px;border:1px solid #ccc;border-radius:4px;
+     background:#fff;font-size:13px;font-family:inherit}
+input[type=search]{min-width:180px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid #e8e5dd;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:#fbf8f1}
+tbody tr.sel td{background:#f6efe0}
+.tag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;color:#fff;background:var(--gray)}
+.detail{background:#fff;border:1px solid #e3e0d8;border-radius:8px;padding:16px;
+        position:sticky;top:12px;min-height:220px}
+.detail h2{margin:0 0 10px;font-size:18px}
+.detail .row{margin:9px 0}
+.detail .k{font-size:11px;color:#999;letter-spacing:.06em}
+.detail .v{font-size:13.5px;line-height:1.7;margin-top:2px}
+.note{font-size:12px;color:#666;line-height:1.8;margin-top:14px}
+.hint{font-size:12px;color:#888}
+.empty{padding:40px;text-align:center;color:#999}
+</style></head><body>
+<header><h1>十二个记忆方案 · 六变量编码库</h1><div class="sub">从 schemes.csv 生成；左表筛选，点行看详情。六变量定义见正文 3.1，判定规则见 3.3。</div></header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar" id="bar"></div>
+  <div class="grid">
+    <div style="overflow:auto;max-height:72vh;border:1px solid #e3e0d8;border-radius:6px">
+      <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+    </div>
+    <div class="detail" id="detail"><div class="hint">点左侧任意一行。</div></div>
+  </div>
+  <div class="note">数据：data/schemes.py（唯一数据源，12 方案 × 12 字段）；编码：六变量与判定规则（正文 3.1—3.3）；边界：这是编码库不是性能数据，本文无实验，最高等级 B。</div>
+</div>
+<script>
+const DATA = {"rows": [{"id": "S01", "name": "RAG（检索增强生成）", "kind": "检索", "granular": "片段", "anchor": "无", "cues": "1", "hetero": "无", "judge": "无", "failmode": "检索噪声", "grade": "A", "refs": "[2]", "note": "单一语义索引；检索到的是原文片段，没有情景线索"}, {"id": "S02", "name": "Generative Agents 记忆流", "kind": "架构", "granular": "片段", "anchor": "部分", "cues": "3", "hetero": "同源", "judge": "自评", "failmode": "检索噪声", "grade": "B", "refs": "[3]", "note": "记忆流 + 新近度/重要性/相关度三因子；有重要性标签但无空间键"}, {"id": "S03", "name": "MemGPT（分页式上下文）", "kind": "分层", "granular": "摘要", "anchor": "无", "cues": "2", "hetero": "同源", "judge": "自评", "failmode": "摘要漂移", "grade": "B", "refs": "[4]", "note": "把上下文当操作系统，热/冷分层；压缩由同一个模型做，故漂移同源"}, {"id": "S04", "name": "CoALA 认知架构", "kind": "架构", "granular": "片段", "anchor": "无", "cues": "3", "hetero": "同源", "judge": "无", "failmode": "无（是框架）", "grade": "B", "refs": "[5]", "note": "工作/情节/语义/程序四类记忆的**分类学**，不规定实现"}, {"id": "S05", "name": "知识图谱记忆", "kind": "关联", "granular": "字段", "anchor": "部分", "cues": "4", "hetero": "无", "judge": "无", "failmode": "检索噪声", "grade": "B", "refs": "[6]", "note": "实体—关系—实体；结构强、但重建要靠模板，缺情景"}, {"id": "S06", "name": "现代 Hopfield 关联记忆", "kind": "关联", "granular": "字段", "anchor": "无", "cues": "1", "hetero": "无", "judge": "无", "failmode": "幻觉", "grade": "A", "refs": "[7][8]", "note": "内容寻址的吸引子；能容错但要靠数学结构，不是靠日志"}, {"id": "S07", "name": "KV cache / 长上下文窗口", "kind": "窗口", "granular": "全文", "anchor": "无", "cues": "1", "hetero": "无", "judge": "无", "failmode": "窗口满", "grade": "A", "refs": "[9]", "note": "不压缩、只堆窗口；窗口一满就「死」，成本随长度平方增长"}, {"id": "S08", "name": "滚动摘要式长期记忆", "kind": "摘要", "granular": "摘要", "anchor": "无", "cues": "1", "hetero": "同源", "judge": "无", "failmode": "摘要漂移", "grade": "C", "refs": "[10]", "note": "每次把对话压成摘要再接着聊；错误会被下一次摘要固化"}, {"id": "S09", "name": "Transformer 注意力即检索", "kind": "关联", "granular": "全文", "anchor": "无", "cues": "1", "hetero": "无", "judge": "无", "failmode": "窗口满", "grade": "A", "refs": "[1]", "note": "注意力本身是内容寻址，但它是「一次性」的，不跨会话"}, {"id": "S10", "name": "同质多 Agent 投票（初版设想）", "kind": "架构", "granular": "片段", "anchor": "无", "cues": "2", "hetero": "同源", "judge": "交叉", "failmode": "共识幻觉", "grade": "C", "refs": "[11]", "note": "十几个同源 Agent 各背一遍再投票；共模故障会投出同一个错误"}, {"id": "S11", "name": "人环记忆（人工复核）", "kind": "人工", "granular": "片段", "anchor": "有", "cues": "3", "hetero": "无", "judge": "带锚裁决", "failmode": "人工瓶颈", "grade": "B", "refs": "[12]", "note": "由人做锚点与裁决；准，但不可扩展，延迟以小时计"}, {"id": "S12", "name": "本文提案（书记员＋异构回忆者＋裁判）", "kind": "提案", "granular": "字段", "anchor": "有", "cues": "5", "hetero": "跨模型", "judge": "带锚裁决", "failmode": "待测", "grade": "C", "refs": "本文", "note": "硬日志锚点 + 跨模型异构重建 + 带锚裁决；未做实验，见附录 D"}], "cols": {"filters": ["kind", "anchor", "hetero", "judge", "failmode"], "search": ["name", "note", "granular", "failmode"], "table": ["id", "name", "anchor", "hetero", "judge"], "detail": ["kind", "granular", "cues", "failmode", "grade", "refs", "note"]}, "conf": {"slug": "schemes"}};
+const ROWS = DATA.rows, COLS = DATA.cols, CONF = DATA.conf;
+const state = {q: "", sel: null, f: {}};
+COLS.filters.forEach(k => state.f[k] = "");
+
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function init(){
+  document.getElementById("thead").innerHTML = "<tr>" + COLS.table.map(c=>`<th>${esc(c)}</th>`).join("") + "</tr>";
+  const bar = document.getElementById("bar");
+  COLS.filters.forEach(k=>{
+    const vals = [...new Set(ROWS.map(r=>r[k]).filter(v=>v!=null && v!==""))].sort();
+    const sel = document.createElement("select");
+    sel.innerHTML = `<option value="">${esc(k)}：全部</option>` + vals.map(v=>`<option>${esc(v)}</option>`).join("");
+    sel.onchange = e => { state.f[k] = e.target.value; render(); };
+    bar.appendChild(sel);
+  });
+  const q = document.createElement("input");
+  q.type = "search"; q.placeholder = "搜索：" + COLS.search.join(" / ");
+  q.oninput = e => { state.q = e.target.value.toLowerCase(); render(); };
+  bar.appendChild(q);
+}
+
+function filtered(){
+  const q = state.q;
+  return ROWS.filter(r =>
+    COLS.filters.every(k => !state.f[k] || r[k] === state.f[k]) &&
+    (!q || COLS.search.some(k => String(r[k]||"").toLowerCase().includes(q))));
+}
+
+function render(){
+  const f = filtered();
+  document.getElementById("cards").innerHTML = [
+    ["当前条数", f.length],
+    ["总计", ROWS.length]
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  const tb = document.getElementById("tbody");
+  if (!f.length){ tb.innerHTML = `<tr><td colspan="${COLS.table.length}"><div class="empty">没有符合条件的记录。</div></td></tr>`; return; }
+  tb.innerHTML = f.map((r,i)=>`<tr data-i="${ROWS.indexOf(r)}" class="${ROWS.indexOf(r)===state.sel?"sel":""}">` +
+    COLS.table.map(c=>`<td>${esc(r[c])}</td>`).join("") + "</tr>").join("");
+  [...tb.querySelectorAll("tr")].forEach(tr=>tr.onclick=()=>show(+tr.dataset.i));
+}
+
+function show(i){
+  state.sel = i; const r = ROWS[i];
+  document.getElementById("detail").innerHTML =
+    `<h2>${esc(r[COLS.table[0]])}</h2>` +
+    COLS.detail.map(k=>`<div class="row"><div class="k">${esc(k)}</div><div class="v">${esc(r[k])}</div></div>`).join("");
+  render();
+}
+
+init(); render();
+</script></body></html>

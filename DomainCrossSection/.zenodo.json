@@ -1,0 +1,127 @@
+{
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-28",
+  "version": "2026-10-28",
+  "title": "领域的剖面：四个问题、二十个领域与八十字段的审计 / The Cross-Section of Domains: Four Questions, Twenty Fields, and an Audit of Eighty Cells",
+  "description": "<p><b>中文摘要。</b>「把复杂领域压成几句话」是当代最流行的智力动作，也最容易退化成口头禅。本文把它固定成四条可判定的问题：<b>Q1 瓶颈</b>（为哪项稀缺资源付账）、<b>Q2 置换</b>（让出了什么）、<b>Q3 可写性</b>（核心机制能否写成十行）、<b>Q4 承担者</b>（代价落在谁身上，他是否在场），并对二十个日常领域逐条编码，共 <b>80 个字段</b>，全部可复算。四问不是六核心之外的新框架，而是它的操作化压缩：Q1＝看见，Q2＝选择，Q3＝讲述＋临界，Q4＝讲述的扩展——置信度分配之外，再加一列<b>代价分配</b>。</p>\n<p><b>主要读数。</b>瓶颈：协调 5／延迟 5／正确 4／容量 3／注意力 2／信任 1／<b>预算 0</b>——预算只是「次瓶颈的常客、主瓶颈的陌生人」。动作：拆分 19／20、预计算与复制各 17／20、试探 10、绕开 9、抽象 9、<b>合并只有 2／20</b>。可写性呈纺锤形：A 6／B 13／C 1（唯一的 C 是外交谈判）。把可写性与承担者的在场性交叉：A 级 4／6（67%）、B 级 4／13（31%）、C 级 0／1（0%）——<b>越写不出核心的领域，代价越可能落在分散的、不在场的人身上</b>（只登记 C 级，拒绝 p 值）。主次瓶颈互换后 <b>5／20</b> 改判：四问是「在一个瓶颈假设下的读数」，不是判决书。本版新增<b>附录 M</b>：第十四篇补录 D21（agent 平台）后，D21 以<b>预算</b>为主瓶颈，<b>单例否证</b>本文 T3；而 D21 的可写性是 A、代价却落在不在场者，使 T5 在此域失效（<b>规则可写 ≠ 后果可写</b>），据此第十四篇给在场性加第五档「<b>在场而不知情</b>」。</p>\n<p><b>边界。</b>全部字段是<b>规范读数</b>（de jure），依据公开规范、程序法与行业标准，不是现场观察；第 6 章列出六个「规范说了、行为没做」的落差。样本是目的抽样，偏向有规范文本的领域，街头摊贩与照护经济不在其中；编码由一人完成，没有第二编码者。九条命题中五条支持、两条部分、一条待检验、一条被本文自己撤回（T9：七个瓶颈类型不能穷举）。</p>\n<p><b>Abstract (English).</b> Compressing a complex field into a few sentences is among the most popular intellectual moves of the age, and among the easiest to degrade into a catchphrase. This paper fixes the move into four checkable questions — <b>bottleneck</b> (which scarce resource is paid for), <b>substitution</b> (what is given up), <b>writability</b> (whether the core fits in ten lines), <b>bearer</b> (who ends up paying, and whether that party is present) — and codes twenty everyday fields on <b>eighty cells</b>. Bottlenecks: coordination 5, delay 5, correctness 4, capacity 3, attention 2, trust 1, <b>budget 0</b>. Actions: splitting in 19 of 20 fields, precomputation and replication 17 each, <b>merging only 2</b>. Writability is spindle-shaped (A 6 / B 13 / C 1); crossed with the bearer's presence it gives A 67%, B 31%, C 0% — <b>the less writable a field's core, the more likely the cost falls on the dispersed and the absent</b>, registered at grade C with no p-value. A swap test of primary and secondary bottlenecks changes the verdict in 5 of 20 fields. This second edition adds Appendix M: field D21 (agent platforms) pays primarily in budget, a <b>single-case falsification</b> of T3, and its high writability combined with an absent bearer suspends T5 — so a fifth presence grade, <i>present but uninformed</i>, is proposed there.</p>\n<p><b>Files.</b>论文（PDF 52 页 / HTML / Markdown / README）；8 幅图；<code>domains.csv</code>（20 领域 × 15 字段）；<code>MANIFEST.txt</code>。</p>\n<p><b>系列 / Series。</b>同一作者的独立研究系列：九本书与十四篇工作论文。<b>系列入口与外部登记库：</b>https://github.com/lyp0746/knowledge-tradeoffs；源码与复现脚本：https://github.com/lyp0746</p>",
+  "keywords": [
+    "四问",
+    "瓶颈",
+    "置换",
+    "可写性",
+    "承担者",
+    "领域分析",
+    "编码审计",
+    "六核心",
+    "证据分级",
+    "four questions",
+    "bottleneck",
+    "writability",
+    "bearer",
+    "coding audit",
+    "evidence grading"
+  ],
+  "notes": "工作论文/预印本。第二版（2026-10-28，52 页）：新增附录 M（两处跨篇相撞与登记）。数据与二十领域编码未变。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601983",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602360",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602364",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603015",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603016",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23611782",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23611799",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23612202",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "谁在切时间轴：六十部世界史分期的门、位置与排他性，附一份自证方案"
+abstract: >-
+  把六十部世界史教材、通史与工具书（核心 46 部，另 14 部前现代与非欧洲编年史）的分期方案
+  编码成 252 条时间轴边界，检验十条预先写定的命题。边界年高度集中（前十 69.7%），但机制是
+  模板复制（40 部来源只用 32 套顶层切线）；三组传统的门不同（全球史 1000—1225/1750，
+  中国教材 1640/1917，欧洲中心 1500）；交叉曲线是边际分布的恒等式，不构成独立证据；
+  跨三组通用的门只有 1500 与 1914。四条命题未获支持（W4、W5 后半、W6、W9）。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+license: CC-BY-4.0
+doi: 10.5281/zenodo.23602364
+concept-doi: 10.5281/zenodo.23573011
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23573011
+    description: "Concept DOI (all versions)"
+url: "https://doi.org/10.5281/zenodo.23602364"
+keywords:
+  - 历史分期
+  - 世界史
+  - 欧洲中心
+  - 边界年
+  - 分区距离
+type: article

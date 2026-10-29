@@ -1,0 +1,108 @@
+{
+  "title": "谁在切时间轴：六十部世界史分期的门、位置与排他性，附一份自证方案 / Who Cuts the Timeline? Gates, Positions and Exclusivity in Sixty World-History Periodizations, with a Self-Application",
+  "description": "<p><b>中文摘要。</b>分期不是事实，是切线。同一段时间轴，欧洲中心教材在 476、1500、1789、1914 下刀，全球史教材在 1000、1500、1750、1914 下刀，中国教材在 1500、1640、1917、1945 下刀；十四部前现代与非欧洲编年史里，五部根本不印绝对年份。本文把六十部来源编码成 252 条时间轴边界，检验十条预先写定的命题与一条识别性结果。</p><p><b>方法。</b>六十部来源（核心 46 部现代世界史教材、通史与工具书；扩展 14 部前现代编年史与圣史）逐条编码边界年、时期名、区域、时代标签、命名类型与分区层级；十条命题先写否证条件；分区距离用 ARI，交叉用置换检验；编码一致性由 20% 复编估计。</p><p><b>主要发现。</b>（1）边界年高度集中：前十承担 69.7%（零模型 10.1%），但机制是模板复制——四十部世界／区域史只用 32 套顶层切线，模板级前十 75.0%。（2）三组传统的门不同：全球史 64% 含 1000—1225、71% 含 1750±15；中国教材 82% 含 1640、91% 含 1917；欧洲中心分别为 13%／7% 与 0%／0%；1500 三组共有（73%／71%／64%）。（3）交叉曲线是边际分布的恒等式（R²=1.0000），不构成独立证据，降为派生展示。（4）分区距离组内 0.65 高于组间 0.51（p=0.0005），但传统只解释 29%；全窗上中国教材更像欧洲中心，近代段反转——相似性来自 1500 年前“双方都不切”。（5）1500 没有消失，但排他性相反（0.40／1.00／0.14）；跨三组通用的门只有 1500 与 1914。</p><p><b>负面结果（照实写出）。</b>W4 方向相反（世界史最粗 3.5 条、区域史最细 4.9 条，p=0.008）；W5 后半失败（全球史 71% 保留 1500）；W6 只有方向没有强度（ρ=−0.01／−0.48／−0.41）；W9 层级 κ 仅 0.53。扩展语料另给一条：边界年只是现代教材体裁的变量——十四部前现代来源中九部印年，纪年零点有六套，核心语料的门几乎不出现。</p><p><b>边界。</b>不评价哪个分期正确；核心语料非抽样；只编码年份与时期名；编码依据目录与课程框架；单一编码者自曝，扩展环无复编；分区距离依赖窗口；核心语料中非洲为 0 条。</p><p><b>Abstract (English).</b> Periodization is not a fact but a cut. On one timeline, Western-civilization textbooks cut at 476, 1500, 1789 and 1914; global-history textbooks at 1000, 1500, 1750 and 1914; Chinese textbooks at 1500, 1640, 1917 and 1945. Among fourteen premodern and non-European chronicles, five print no absolute year at all. This paper codes sixty sources into 252 boundary entries and tests ten pre-registered propositions plus one identification result. Boundary years are concentrated (top ten 69.7% vs 10.1% under a uniform null), but the mechanism is template replication: forty world/regional sources use only 32 distinct top-level cut sets; the three traditions place different gates (global 64% at 1000–1225 and 71% at 1750±15; Chinese 82% at 1640 and 91% at 1917; Eurocentric 13%/7% and 0%/0%); 1500 is shared (73%/71%/64%). The crossing curve is an identity with the marginal distribution (R²=1.0000) and is demoted to a derived display. Partition distance is higher within traditions (0.65) than between (0.51; permutation p=0.0005), yet tradition explains only 29% of variance. 1500 survives but its exclusivity reverses (0.40/1.00/0.14); only 1500 and 1914 travel across all three traditions. Four propositions are not supported: W4 runs backwards, the second half of W5 fails, W6 has direction but no strength, and W9's level component fails (κ=0.53).</p><p><b>Files.</b> 论文（PDF 50 页 / HTML / Markdown）；17 幅图；编码库 <code>schemes.csv</code>（252 条）；交互页 <code>periodization-explorer.html</code>；<code>MANIFEST.txt</code>。</p><p><b>本版新增（2026-10-24）。</b>本次修订（2026-10-24）：标题改为《谁在切时间轴》；新增第 5 章「把切线切在自己身上」——作者提出的四道门（前 3200／1500／1800／1970）用本文自己的三个量自评：出现率 0%／61%／35%／0%，排他性 1.00，分区距离不可计算，结论是「一份完全自洽、完全不传播的分期」；新增附录 E（六核心对照表）。全文 53 页。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "历史分期",
+    "periodization",
+    "世界史",
+    "world history",
+    "欧洲中心",
+    "Eurocentrism",
+    "边界年",
+    "boundary years",
+    "分区距离",
+    "partition distance",
+    "模板复制",
+    "template replication",
+    "前现代编年史",
+    "premodern chronicles",
+    "证据分级",
+    "evidence grading"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本；60 部来源、252 条边界、17 幅图；四条命题未获支持（W4、W5 后半、W6、W9）。 系列共 14 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23529087",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23528958",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23531431",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601732",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601749",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

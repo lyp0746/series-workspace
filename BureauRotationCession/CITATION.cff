@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "轮换的让渡：中国官制三千年（西周—2026）的有限系统取舍分析"
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+doi: 10.5281/zenodo.23602311
+concept-doi: 10.5281/zenodo.23497841
+url: "https://doi.org/10.5281/zenodo.23602311"
+license: CC-BY-4.0

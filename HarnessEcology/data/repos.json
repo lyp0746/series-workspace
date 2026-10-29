@@ -1,0 +1,129 @@
+{
+ "deepseek-ai/deepseek-harness": {
+  "full_name": "deepseek-ai/deepseek-harness",
+  "created_at": "2026-08-13T11:56:32Z",
+  "pushed_at": "2026-10-17T08:16:09Z",
+  "stargazers_count": 258888,
+  "forks_count": 31253,
+  "description": "DeepSeek Harness: Everything is a Plugin.",
+  "homepage": "https://deepseek.com/harness",
+  "license": "MIT",
+  "topics": [
+   "ai-agents",
+   "cordis",
+   "dsh",
+   "dsh-plugin"
+  ],
+  "language": "TypeScript"
+ },
+ "anthropics/skills": {
+  "full_name": "anthropics/skills",
+  "created_at": "2025-09-22T15:53:31Z",
+  "pushed_at": "2026-10-09T18:45:52Z",
+  "stargazers_count": 183165,
+  "forks_count": 21688,
+  "description": "Public repository for Agent Skills",
+  "homepage": "",
+  "license": null,
+  "topics": [
+   "agent-skills"
+  ],
+  "language": "Python"
+ },
+ "search:agentskills in:name": [
+  [
+   "agentskills/agentskills",
+   "2025-12-16",
+   26488,
+   "Specification and documentation for Agent Skills"
+  ],
+  [
+   "littleben/awesomeAgentskills",
+   "2025-10-18",
+   191,
+   "A curated collection of skills for Claude Code and other AI agents | 精"
+  ],
+  [
+   "aws-samples/sample-strands-agents-agentskills",
+   "2026-01-04",
+   91,
+   "Agent Skills implementation for Strands Agents SDK"
+  ],
+  [
+   "lasoons/AgentSkillsManager",
+   "2026-01-09",
+   90,
+   "AgentSkills multi-IDE management extension: browse and install skill r"
+  ],
+  [
+   "scienceaix/agentskills",
+   "2026-02-12",
+   89,
+   "Awesome Agent Skills collection list, papers, tools, projects, and res"
+  ]
+ ],
+ "search:koishi in:name": [
+  [
+   "koishijs/koishi",
+   "2019-12-03",
+   6281,
+   "Cross-platform chatbot framework made with love"
+  ],
+  [
+   "Koishi-Star/Euler-Smea-Dyn-Sampler",
+   "2024-04-02",
+   225,
+   "A sampler base on Euler, aim at generating better picture/一种基于Euler的采样"
+  ],
+  [
+   "koishijs/koishi-desktop",
+   "2022-04-13",
+   128,
+   "Launch Koishi from your desktop"
+  ],
+  [
+   "koishi-shangxue-plugins/koishi-shangxue-apps",
+   "2024-09-10",
+   98,
+   "小学在koishi的插件合集？ "
+  ],
+  [
+   "Lucky-Koishi/KoishiEx",
+   "2017-10-07",
+   90,
+   "恋恋のEX兔子版源代码以及KoishiExAPI源代码"
+  ]
+ ],
+ "search:cordis in:name": [
+  [
+   "cordiverse/cordis",
+   "2022-05-17",
+   9344,
+   "Meta-Framework of Spatiotemporal Composability"
+  ],
+  [
+   "mini-yifan/dsh-orb-cordis",
+   "2026-09-28",
+   277,
+   "Deepseek Harness悬浮球插件。"
+  ],
+  [
+   "Chinesezjc/CordisClaw",
+   "2026-03-10",
+   65,
+   ""
+  ],
+  [
+   "dshbox/cordis-rs",
+   "2026-08-15",
+   60,
+   "A typed runtime for long-lived, plugin-oriented Rust applications — li"
+  ],
+  [
+   "adpanru/cordis-mini",
+   "2026-08-20",
+   40,
+   "用约 600 行纯 Python，从零实现 Cordis / deepseek-harness 的核心 Agent 插件架构：插件系统、Co"
+  ]
+ ]
+}

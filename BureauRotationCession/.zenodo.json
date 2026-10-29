@@ -1,0 +1,110 @@
+{
+  "title": "轮换的让渡：中国官制三千年（西周—2026）的有限系统取舍分析 / The Rotation of Concessions: A Bounded-System Analysis of Chinese Officialdom, Western Zhou to 2026",
+  "description": "<p><b>中文摘要。</b>中国官制反复出现同一形状的循环：低阶的侍从、监察或副贰之职因特殊事件骤获实权，其持有者借此废立、专擅或割据之后，该职遭禁戒、虚化，而权力转注入新的低阶职位。既有研究以“皇权与相权”“内朝与外朝”“监察区变行政区”概括这一现象，但对三点回答不足：循环为何不能靠废除终止；内廷与外派两条路径为何走向不同的失控形态；历代为何反复把兵权与诏令权分开。</p><p><b>方法。</b>本文以作者提出的完备性（C）、可组合性（A）、传递性（T）三角为分析工具（框架而非定理，成立条件为交互惩罚 ψ&gt;0），把三项操作化为官制中可观察的指标，提出七个可反驳命题，并建立覆盖西周至 2026 年、24 个时期、121 个官职的编码库，逐案记录起家、保有两项、让出一项、触发事件与结局。</p><p><b>主要发现。</b>（1）三条路径对应三种两项组合：正官保 A、T 让 C；内廷保 C、T 让 A；外派保 C、A 让 T。（2）补 A 即失 C；不补 A 则跨朝代的传递性弱——前者解释尚书、中书、门下的正官化—虚化，后者解释内阁、军机处的长期存续但依附皇权。（3）禁戒有废除、虚衔化、拆分、换名、祖训五种形式，皆作用于“名”而不作用于“配置”，故循环不会因禁戒终止。（4）并立线数本身不预测稳定，真正的共同项是“是否存在一条线同时占满三项”（融合线）。（5）时间错配 τ 只解释“为何必须授权”，不解释“为何授权会失控”；后者取决于财权、兵权、人事是否分立（安禄山、三藩、东南互保三个反例）。（6）日常轮换是二阶的（连续、可逆），融合线出现后进入一阶崩解（有滞后、回不去），汉末与唐末是候选。（7）演化形态有四种：三阶段循环、双极摆动、分裂并行、顶点驻留。</p><p><b>量化检验（n=121）。</b>（1）在所选案例内，外派线的割据率显著高于内廷线（12/31 对 1/25，Fisher p=0.003）；（2）内廷线让出 A 的比例为 93%（95% CI 81—98），外派线让出 T 的比例为 60%（45—73）；（3）时滞不能区分两条线（34 年对 29 年，p=0.33）；（4）融合线与崩解方向一致但功效不足（p=0.48）。<b>对照样本（新增）。</b>为进一步检验选择偏误，另建唐宋 67 个官职类型的类型级风险集（含从未变化者）：两条线的<strong>变化概率</strong>无显著差异（IRR 0.70，95% CI 0.25—1.91；log-rank p=0.60），但<strong>割据只出现在外派</strong>（5/31 对 0/20，Fisher p=0.14），虚化/禁戒集中于内廷。因此路径决定的是失败形态，不是变化概率；p=0.003 应读作条件关联，而非边际效应。</p><p><b>本轮新增（2026-10-21）。</b>（1）<b>编码信度</b>：15 个边界案例盲复测，一致率 86.7%，Cohen's κ=0.55；歧义集中在“前后期转移”“名分归属”“军权是否计入 A”三处，已提出三条 codebook 修订，但未重编全样本。（2）<b>断裂事件史</b>：把“崩解”扩为 28 起宪制断裂事件（禅代、废立、清洗、割据、政变、内战、挟持），融合期事件率 1.53/100 年，非融合期 0.28/100 年（IRR 5.4，p=0.09）；进一步做领先—滞后编码：禅代 13/13 在事前 30 年内已有融合线，其他类型仅 3/15（p≈1.5×10⁻⁵），融合领先禅代 1—16 年（中位 2 年）。因此融合是禅代的前置条件，不是清洗与政变的前兆。</p><p><b>扩展检验（2026-10-21）。</b>合并唐宋明清 109 类、39 次变化：外派 OR 0.66（0.22—1.98），品级 1.74（0.77—3.96），边疆 1.28（0.43—3.84），正官 0.16（0.03—0.91）；割据 6/6 在外派。融合的预算门槛由记账不等式给出：K ≥ 3+λ，故“够三项”的 K=3 仍不够，融合只出现在危机抬高的预算下。另附 1949—2026 的结构编码表（12 类，C 级）。<p><b>边界。</b>本文是工作论文/预印本：121 例由单一编码者完成，未做第二编码者一致性检验；ψ 未被测量；中古史料个别年代与职名有争议；现代部分只能给方向，不能做对照实验；参考文献页码未逐条核对。</p><p><b>Abstract (English).</b> Chinese officialdom displays a recurring shape: a low-ranking attendant, censor or deputy acquires real power in a crisis; after its holder deposes an emperor, monopolises authority or secedes, the office is proscribed and hollowed out, and power migrates to a new low-ranking post. Existing scholarship documents the facts but leaves three questions open: why proscription never ends the cycle; why the inner-court and outposted paths produce different failure modes; and why designers repeatedly separate military from edict authority. Using the completeness–composability–transfer (C–A–T) triangle as an analytical instrument (a framework, not a theorem; precondition ψ&gt;0), the paper operationalises the three requirements, states seven falsifiable propositions, and codes 121 offices across 24 periods from the Western Zhou to 2026. Findings: the three paths correspond to three two-vertex combinations; adding A costs C, while not adding A weakens cross-dynasty transfer; proscription has five forms, all targeting the name rather than the configuration; the number of parallel lines does not predict stability—the common factor is a “fusion line” holding all three vertices; temporal mismatch τ explains why delegation is necessary, not why it fails; daily rotation is second-order while fusion lines produce first-order collapse; and there are four evolution modes. Three negative results are reported, including the retraction of the author’s earlier claim that coordinates sum to a constant.</p><p><b>Files.</b> Paper (PDF, HTML, Markdown); 12 figures; <code>cases.csv</code> with the full coding; <code>make_figures.py</code> and <code>generate_publication_suite.py</code> for reproduction.</p><p><b>本版新增（2026-10-24）。</b>本次修订（2026-10-24）把表 18 改为按六个核心编排（核心—专著—概念—用法—关系—等级），以便与系列其余五篇的对照表直接比较；并与其余五篇统一完成日期与口径表述。全文 72 页。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "官制流变",
+    "Chinese bureaucracy",
+    "使职化",
+    "shi-zhi-ification",
+    "内廷与外朝",
+    "inner court",
+    "监察区",
+    "surveillance districts",
+    "不可能三角",
+    "impossibility triangle",
+    "时间错配",
+    "temporal mismatch",
+    "并立线",
+    "parallel lines",
+    "临界",
+    "criticality",
+    "证据分级",
+    "evidence grading"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。121 例、24 期编码；单一编码者；ψ 未测量；含两条已核销的失败记录（F1、F2）。 系列共 14 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23529087",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23531431",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23573012",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601732",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601749",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

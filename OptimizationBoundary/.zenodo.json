@@ -1,0 +1,107 @@
+{
+  "title": "优化的边界：目标函数、搜索空间与六核心的停止规则 / The Boundary of Optimization: Objective Functions, Search Spaces and Stopping Rules",
+  "description": "<p><b>中文摘要。</b>「优化」听起来像方法，实际上是一个四前提结构：目标函数、搜索空间、预算与时钟、停止规则。缺任一项，优化就变成另一种东西——指标失真、锁定、无限投入或反噬。</p><p><b>定位。</b>本文把优化安放在六核心之间：目标由「讲述」提供（给竞争指标分配置信度），空间由「看见」划定，预算由「记住」与「跟上」提供，停止由「临界」判定。因此优化不是第七个核心，而是横切四核心的「搜索—评估—停止」循环；把它升为核心，就会把「取舍」误读成「调参」。</p><p><b>结果。</b>编码 20 个越界案例（目标 7、空间 5、停止 5、预算 2、反例 1）：目标越界最普遍且多致指标失真（苏联总产值、考试分数、影响因子、VaR）；停止越界后果最重（5 例中 4 例「重」：ACCORD 强化降糖、抗生素常规预防、农药加量、算法最大化停留）；预算越界最容易被漏记，因为「新建可剪彩、维护不能」。</p><p><b>反例。</b>进化没有目标函数与全局停止规则，只有局部搜索与压缩账单——这否证了「优化是普遍结构」，也解释了为什么不能把它提升为核心。</p><p><b>Abstract.</b> Optimization is a four-premise structure. Twenty cases of overreach are coded; target overreach is most common, stopping-rule overreach most severe, budget overreach least recorded. Evolution serves as the counter-example.</p><p><b>Files.</b> 论文（PDF 33 页 / HTML / Markdown）；7 幅图；<code>cases.csv</code>（20 例）；<code>MANIFEST.txt</code>。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "优化",
+    "目标函数",
+    "搜索空间",
+    "停止规则",
+    "局部最优",
+    "指标失真",
+    "optimization",
+    "objective function",
+    "stopping rule",
+    "metric distortion"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。全文 33 页；含六核心×六专著对照表与可复算编码库。 系列共 17 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601983",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602360",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602364",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603015",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603016",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

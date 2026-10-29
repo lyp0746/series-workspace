@@ -1,0 +1,11 @@
+中文摘要。「把复杂领域压成几句话」是当代最流行的智力动作，也最容易退化成口头禅。本文把它固定成四条可判定的问题：Q1 瓶颈（为哪项稀缺资源付账）、Q2 置换（让出了什么）、Q3 可写性（核心机制能否写成十行）、Q4 承担者（代价落在谁身上，他是否在场），并对二十个日常领域逐条编码，共 80 个字段，全部可复算。四问不是六核心之外的新框架，而是它的操作化压缩：Q1＝看见，Q2＝选择，Q3＝讲述＋临界，Q4＝讲述的扩展——置信度分配之外，再加一列代价分配。
+
+主要读数。瓶颈：协调 5／延迟 5／正确 4／容量 3／注意力 2／信任 1／预算 0——预算只是「次瓶颈的常客、主瓶颈的陌生人」。动作：拆分 19／20、预计算与复制各 17／20、试探 10、绕开 9、抽象 9、合并只有 2／20。可写性呈纺锤形：A 6／B 13／C 1（唯一的 C 是外交谈判）。把可写性与承担者的在场性交叉：A 级 4／6（67%）、B 级 4／13（31%）、C 级 0／1（0%）——越写不出核心的领域，代价越可能落在分散的、不在场的人身上（只登记 C 级，拒绝 p 值）。主次瓶颈互换后 5／20 改判：四问是「在一个瓶颈假设下的读数」，不是判决书。本版新增附录 M：第十四篇补录 D21（agent 平台）后，D21 以预算为主瓶颈，单例否证本文 T3；而 D21 的可写性是 A、代价却落在不在场者，使 T5 在此域失效（规则可写 ≠ 后果可写），据此第十四篇给在场性加第五档「在场而不知情」。
+
+边界。全部字段是规范读数（de jure），依据公开规范、程序法与行业标准，不是现场观察；第 6 章列出六个「规范说了、行为没做」的落差。样本是目的抽样，偏向有规范文本的领域，街头摊贩与照护经济不在其中；编码由一人完成，没有第二编码者。九条命题中五条支持、两条部分、一条待检验、一条被本文自己撤回（T9：七个瓶颈类型不能穷举）。
+
+Abstract (English). Compressing a complex field into a few sentences is among the most popular intellectual moves of the age, and among the easiest to degrade into a catchphrase. This paper fixes the move into four checkable questions — bottleneck (which scarce resource is paid for), substitution (what is given up), writability (whether the core fits in ten lines), bearer (who ends up paying, and whether that party is present) — and codes twenty everyday fields on eighty cells. Bottlenecks: coordination 5, delay 5, correctness 4, capacity 3, attention 2, trust 1, budget 0. Actions: splitting in 19 of 20 fields, precomputation and replication 17 each, merging only 2. Writability is spindle-shaped (A 6 / B 13 / C 1); crossed with the bearer's presence it gives A 67%, B 31%, C 0% — the less writable a field's core, the more likely the cost falls on the dispersed and the absent, registered at grade C with no p-value. A swap test of primary and secondary bottlenecks changes the verdict in 5 of 20 fields. This second edition adds Appendix M: field D21 (agent platforms) pays primarily in budget, a single-case falsification of T3, and its high writability combined with an absent bearer suspends T5 — so a fifth presence grade, present but uninformed, is proposed there.
+
+Files.论文（PDF 52 页 / HTML / Markdown / README）；8 幅图；domains.csv（20 领域 × 15 字段）；MANIFEST.txt。
+
+系列 / Series。同一作者的独立研究系列：九本书与十四篇工作论文。系列入口与外部登记库：https://github.com/lyp0746/knowledge-tradeoffs；源码与复现脚本：https://github.com/lyp0746

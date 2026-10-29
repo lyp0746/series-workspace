@@ -1,0 +1,228 @@
+{
+ "year": {
+  "n": 32,
+  "po": 1.0,
+  "pe": 0.0859375,
+  "kappa": 1.0,
+  "conf": {
+   "476": {
+    "476": 2
+   },
+   "1350": {
+    "1350": 1
+   },
+   "1517": {
+    "1517": 1
+   },
+   "1648": {
+    "1648": 2
+   },
+   "1789": {
+    "1789": 3
+   },
+   "1914": {
+    "1914": 4
+   },
+   "1945": {
+    "1945": 3
+   },
+   "1500": {
+    "1500": 5
+   },
+   "1453": {
+    "1453": 1
+   },
+   "1000": {
+    "1000": 2
+   },
+   "1750": {
+    "1750": 2
+   },
+   "1640": {
+    "1640": 2
+   },
+   "1760": {
+    "1760": 1
+   },
+   "1917": {
+    "1917": 2
+   },
+   "1800": {
+    "1800": 1
+   }
+  }
+ },
+ "era": {
+  "n": 32,
+  "po": 0.90625,
+  "pe": 0.296875,
+  "kappa": 0.8666666666666667,
+  "conf": {
+   "medieval": {
+    "medieval": 4
+   },
+   "early_modern": {
+    "early_modern": 8,
+    "medieval": 1,
+    "modern": 1
+   },
+   "modern": {
+    "modern": 12,
+    "early_modern": 1
+   },
+   "contemporary": {
+    "contemporary": 5
+   }
+  }
+ },
+ "level": {
+  "n": 32,
+  "po": 0.90625,
+  "pe": 0.80078125,
+  "kappa": 0.5294117647058824,
+  "conf": {
+   "part": {
+    "part": 27,
+    "chapter": 3
+   },
+   "chapter": {
+    "chapter": 2
+   }
+  }
+ },
+ "row": {
+  "n": 32,
+  "po": 0.8125,
+  "pe": 0.0732421875,
+  "kappa": 0.79768177028451,
+  "conf": {
+   "(476, 'medieval', 'part')": {
+    "(476, 'medieval', 'part')": 2
+   },
+   "(1350, 'early_modern', 'part')": {
+    "(1350, 'early_modern', 'part')": 1
+   },
+   "(1517, 'early_modern', 'chapter')": {
+    "(1517, 'early_modern', 'chapter')": 1
+   },
+   "(1648, 'early_modern', 'chapter')": {
+    "(1648, 'early_modern', 'chapter')": 1
+   },
+   "(1789, 'modern', 'part')": {
+    "(1789, 'modern', 'part')": 2,
+    "(1789, 'modern', 'chapter')": 1
+   },
+   "(1914, 'modern', 'part')": {
+    "(1914, 'modern', 'part')": 4
+   },
+   "(1945, 'contemporary', 'part')": {
+    "(1945, 'contemporary', 'part')": 3
+   },
+   "(1500, 'early_modern', 'part')": {
+    "(1500, 'early_modern', 'part')": 4,
+    "(1500, 'modern', 'part')": 1
+   },
+   "(1648, 'early_modern', 'part')": {
+    "(1648, 'early_modern', 'chapter')": 1
+   },
+   "(1453, 'early_modern', 'part')": {
+    "(1453, 'medieval', 'part')": 1
+   },
+   "(1000, 'medieval', 'part')": {
+    "(1000, 'medieval', 'part')": 2
+   },
+   "(1750, 'modern', 'part')": {
+    "(1750, 'modern', 'part')": 2
+   },
+   "(1640, 'modern', 'part')": {
+    "(1640, 'modern', 'part')": 2
+   },
+   "(1760, 'modern', 'part')": {
+    "(1760, 'modern', 'chapter')": 1
+   },
+   "(1917, 'contemporary', 'part')": {
+    "(1917, 'contemporary', 'part')": 2
+   },
+   "(1800, 'modern', 'part')": {
+    "(1800, 'early_modern', 'part')": 1
+   }
+  }
+ },
+ "n_sources": 9,
+ "n_items": 32,
+ "n_sources_total": 46,
+ "disagreements": [
+  {
+   "source": "Palmer/Colton《现代世界史》第11版",
+   "year": 1648,
+   "period": "旧制度",
+   "a_era": "early_modern",
+   "b_era": "early_modern",
+   "a_level": "part",
+   "b_level": "chapter",
+   "a_year": 1648,
+   "b_year": 1648
+  },
+  {
+   "source": "《剑桥中世纪史》",
+   "year": 1453,
+   "period": "中世纪的终结",
+   "a_era": "early_modern",
+   "b_era": "medieval",
+   "a_level": "part",
+   "b_level": "part",
+   "a_year": 1453,
+   "b_year": 1453
+  },
+  {
+   "source": "Bentley《世界史中的跨文化互动与分期》（AHR 1996）",
+   "year": 1500,
+   "period": "全球体系的形成",
+   "a_era": "early_modern",
+   "b_era": "modern",
+   "a_level": "part",
+   "b_level": "part",
+   "a_year": 1500,
+   "b_year": 1500
+  },
+  {
+   "source": "人教版《世界历史》九年级",
+   "year": 1760,
+   "period": "工业革命",
+   "a_era": "modern",
+   "b_era": "modern",
+   "a_level": "part",
+   "b_level": "chapter",
+   "a_year": 1760,
+   "b_year": 1760
+  },
+  {
+   "source": "苏联科学院《世界通史》十卷本（中译）",
+   "year": 1789,
+   "period": "法国革命",
+   "a_era": "modern",
+   "b_era": "modern",
+   "a_level": "part",
+   "b_level": "chapter",
+   "a_year": 1789,
+   "b_year": 1789
+  },
+  {
+   "source": "Wikipedia《Early modern period》",
+   "year": 1800,
+   "period": "现代",
+   "a_era": "modern",
+   "b_era": "early_modern",
+   "a_level": "part",
+   "b_level": "part",
+   "a_year": 1800,
+   "b_year": 1800
+  }
+ ],
+ "pass": {
+  "year": true,
+  "era": true,
+  "level": false
+ },
+ "min_kappa": 0.5294117647058824
+}

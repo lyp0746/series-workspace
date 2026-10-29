@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>二十个领域 · 四问编码库</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--gray:#5f6368;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif}
+header{padding:24px 5vw 14px;border-bottom:2px solid var(--red);background:#fff}
+h1{margin:0 0 6px;font-size:23px}
+.sub{color:#555;font-size:13px;line-height:1.7}
+.wrap{padding:16px 5vw 52px;max-width:1180px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.card{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px}
+.card .k{font-size:12px;color:#666}.card .v{font-size:21px;font-weight:700;margin-top:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;
+     border:1px solid #e3e0d8;border-radius:6px;padding:11px;margin:6px 0 14px;font-size:13px}
+select,input[type=search]{padding:5px 8px;border:1px solid #ccc;border-radius:4px;
+     background:#fff;font-size:13px;font-family:inherit}
+input[type=search]{min-width:180px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid #e8e5dd;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:#fbf8f1}
+tbody tr.sel td{background:#f6efe0}
+.tag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;color:#fff;background:var(--gray)}
+.detail{background:#fff;border:1px solid #e3e0d8;border-radius:8px;padding:16px;
+        position:sticky;top:12px;min-height:220px}
+.detail h2{margin:0 0 10px;font-size:18px}
+.detail .row{margin:9px 0}
+.detail .k{font-size:11px;color:#999;letter-spacing:.06em}
+.detail .v{font-size:13.5px;line-height:1.7;margin-top:2px}
+.note{font-size:12px;color:#666;line-height:1.8;margin-top:14px}
+.hint{font-size:12px;color:#888}
+.empty{padding:40px;text-align:center;color:#999}
+</style></head><body>
+<header><h1>二十个领域 · 四问编码库</h1><div class="sub">从 domains.csv 生成；左表筛选，点行看详情。四问判据见正文 2.2—2.5。</div></header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar" id="bar"></div>
+  <div class="grid">
+    <div style="overflow:auto;max-height:72vh;border:1px solid #e3e0d8;border-radius:6px">
+      <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+    </div>
+    <div class="detail" id="detail"><div class="hint">点左侧任意一行。</div></div>
+  </div>
+  <div class="note">数据：data/domains.py（唯一数据源，20 领域 × 15 字段）；编码：四问判据（正文 2.2—2.5）与附录 A 的字段字典；边界：全部为规范读数（de jure），不是现场行为观察（de facto），见第 6 章。</div>
+</div>
+<script>
+const DATA = {"rows": [{"id": "D01", "domain": "急诊分诊", "q1a": "延迟", "q1b": "正确", "swap": "Y", "swapnote": "若把「信任」升为主瓶颈，置换动作加「绕开（社工与家属沟通）」，主承担者由被判断者移到操作者（护士的情绪劳动）", "q2": "拆分,预计算,试探,绕开", "q3": "A", "q3core": "生命体征→分级→处置路径，一棵三层判定树", "q4": "被判断者", "presence": "在场", "gaveup": "对每个个体的充分评估（分级以总量安全换个体精度）", "basis": "规范文本", "grade": "A", "refs": "[7][8]", "q2l": "['拆分', '预计算', '试探', '绕开']"}, {"id": "D02", "domain": "法律诉讼", "q1a": "正确", "q1b": "信任", "swap": "N", "swapnote": "信任升为主瓶颈时置换集不变（仍走程序与证据），只是举证标准收紧", "q2": "拆分,复制,抽象,绕开,预计算", "q3": "B", "q3core": "立案→举证→庭审→判决→上诉，状态机可写；事实认定不可写成十行", "q4": "被判断者", "presence": "延迟", "gaveup": "事实的完整还原（程序以可采性换完整性）", "basis": "规范文本", "grade": "A", "refs": "[9][10]", "q2l": "['拆分', '复制', '抽象', '绕开', '预计算']"}, {"id": "D03", "domain": "临床试验", "q1a": "正确", "q1b": "信任", "swap": "N", "swapnote": "两瓶颈互换不改变置换集：随机、对照、盲法同时服务两者", "q2": "复制,试探,绕开,预计算", "q3": "A", "q3core": "随机+对照+盲法，三条规则加样本量公式", "q4": "被判断者", "presence": "延迟", "gaveup": "个体化治疗的最优性（试验以群体效应对个体换确定性）", "basis": "规范文本", "grade": "A", "refs": "[11][12]", "q2l": "['复制', '试探', '绕开', '预计算']"}, {"id": "D04", "domain": "供应链管理", "q1a": "协调", "q1b": "预算", "swap": "Y", "swapnote": "若把「预算（现金）」升为主瓶颈，动作从「复制（安全库存）」翻转为「拆分（多级延迟）+绕开（直连）」，安全库存从手段变成负担", "q2": "拆分,复制,预计算,绕开", "q3": "B", "q3core": "EOQ 公式加牛鞭效应的两级放大系数", "q4": "下游", "presence": "分散", "gaveup": "局部效率（多点库存以现金占用换服务水平）", "basis": "公开统计", "grade": "B", "refs": "[13][14]", "q2l": "['拆分', '复制', '预计算', '绕开']"}, {"id": "D05", "domain": "城市规划", "q1a": "协调", "q1b": "延迟", "swap": "N", "swapnote": "延迟升为主瓶颈时置换集不变，但时间尺度拉长到三十年，Q4 更偏向「下一代」", "q2": "拆分,复制,绕开,抽象", "q3": "B", "q3core": "分区+容积率+路网三张图，规则可写，权衡不可写", "q4": "不在场者", "presence": "不在场", "gaveup": "土地的整体最优使用（分区以城市整体效率换地块自由）", "basis": "规范文本", "grade": "B", "refs": "[15][16]", "q2l": "['拆分', '复制', '绕开', '抽象']"}, {"id": "D06", "domain": "金融风控", "q1a": "正确", "q1b": "信任", "swap": "Y", "swapnote": "若以「预算（资本充足率）」为主瓶颈，动作重心从「预计算（评分卡）」转向「复制（担保/再保险）+拆分（分层）」，Q4 从被拒者移回储户（系统性风险）", "q2": "拆分,预计算,复制,试探", "q3": "B", "q3core": "评分卡+阈值+止损规则，模型可写，尾部不可写", "q4": "被判断者", "presence": "分散", "gaveup": "个体情境（软信息被硬指标挤掉）", "basis": "公开统计", "grade": "B", "refs": "[17][18]", "q2l": "['拆分', '预计算', '复制', '试探']"}, {"id": "D07", "domain": "新闻编辑", "q1a": "延迟", "q1b": "信任", "swap": "N", "swapnote": "信任升为主瓶颈时置换集不变，只是「预计算（选题会）」的比重上升、「绕开（快发）」被关闭", "q2": "拆分,复制,预计算,抽象,绕开", "q3": "B", "q3core": "信源核验+编辑流程+发布清单，清单可写，判断不可写", "q4": "下游", "presence": "分散", "gaveup": "完整语境（时效以语境换速度）", "basis": "公开文献", "grade": "B", "refs": "[19][20]", "q2l": "['拆分', '复制', '预计算', '抽象', '绕开']"}, {"id": "D08", "domain": "外交谈判", "q1a": "信任", "q1b": "协调", "swap": "N", "swapnote": "协调升为主瓶颈时置换集不变；两者在谈判桌上同时失效，无法分离", "q2": "拆分,预计算,试探,抽象", "q3": "C", "q3core": "利益映射+议题链接+承诺机制，三条都是方向，不是规则", "q4": "不在场者", "presence": "不在场", "gaveup": "单一议题的最优解（议题链接以单点收益换整体可签）", "basis": "公开文献", "grade": "C", "refs": "[21][22]", "q2l": "['拆分', '预计算', '试探', '抽象']"}, {"id": "D09", "domain": "农业种植", "q1a": "容量", "q1b": "延迟", "swap": "N", "swapnote": "延迟升为主瓶颈时置换集不变：轮作与育种同时服务土地与周期", "q2": "复制,预计算,拆分,绕开,合并", "q3": "B", "q3core": "作物轮作表+水肥日程，两张表可写", "q4": "环境", "presence": "不在场", "gaveup": "当季产量最大化（轮作以当年产量换地力）", "basis": "公开统计", "grade": "B", "refs": "[23][24]", "q2l": "['复制', '预计算', '拆分', '绕开', '合并']"}, {"id": "D10", "domain": "军事后勤", "q1a": "协调", "q1b": "延迟", "swap": "N", "swapnote": "延迟升为主瓶颈时动作从「复制（冗余库存）」转向「绕开（空运/前置）」，Q3 不变", "q2": "拆分,复制,预计算,绕开", "q3": "B", "q3core": "需求预测+库存节点+运输网络，网络可写，需求不可写", "q4": "操作者", "presence": "分散", "gaveup": "单点效率（冗余以成本换韧性）", "basis": "公开文献", "grade": "B", "refs": "[25]", "q2l": "['拆分', '复制', '预计算', '绕开']"}, {"id": "D11", "domain": "博物馆策展", "q1a": "容量", "q1b": "协调", "swap": "Y", "swapnote": "若以「注意力」为主瓶颈，动作从「拆分（主题展）」转为「预计算（动线）+试探（观众反馈）」，Q4 从不在场者（被忽略的叙事）移到在场的观众", "q2": "拆分,复制,抽象,试探", "q3": "B", "q3core": "展品清单+空间动线+叙事线，清单与动线可写，叙事不可写", "q4": "不在场者", "presence": "不在场", "gaveup": "藏品的完整叙事（展线以叙事完整换观看节奏）", "basis": "公开文献", "grade": "B", "refs": "[26][27]", "q2l": "['拆分', '复制', '抽象', '试探']"}, {"id": "D12", "domain": "婚礼策划", "q1a": "协调", "q1b": "预算", "swap": "N", "swapnote": "预算升为主瓶颈时置换集不变，只是「复制（备选方案）」增加", "q2": "拆分,预计算,复制,试探", "q3": "A", "q3core": "时间线+预算表+供应商清单，三张表可写", "q4": "操作者", "presence": "在场", "gaveup": "个性化上限（预算表以定制空间换可执行）", "basis": "推断", "grade": "C", "refs": "[28]", "q2l": "['拆分', '预计算', '复制', '试探']"}, {"id": "D13", "domain": "体育训练", "q1a": "容量", "q1b": "延迟", "swap": "N", "swapnote": "延迟升为主瓶颈时置换集不变：周期化同时服务负荷与恢复", "q2": "拆分,预计算,试探,复制", "q3": "B", "q3core": "强度×频率×恢复的三列周期表，可写；个体反应不可写", "q4": "操作者", "presence": "延迟", "gaveup": "短期成绩峰值（周期化以峰值换可持续）", "basis": "公开统计", "grade": "B", "refs": "[29][30]", "q2l": "['拆分', '预计算', '试探', '复制']"}, {"id": "D14", "domain": "图书馆分类", "q1a": "注意力", "q1b": "容量", "swap": "N", "swapnote": "容量升为主瓶颈时置换集不变：分类号同时服务检索与排架", "q2": "抽象,复制,拆分", "q3": "A", "q3core": "分类号+排架规则，两条规则可写", "q4": "下游", "presence": "不在场", "gaveup": "知识的连续邻接（分类以单一位置换多维检索）", "basis": "规范文本", "grade": "A", "refs": "[31][32]", "q2l": "['抽象', '复制', '拆分']"}, {"id": "D15", "domain": "软件架构", "q1a": "协调", "q1b": "延迟", "swap": "N", "swapnote": "延迟升为主瓶颈时动作加「复制（缓存）」，Q2 集合扩大，Q3 不变", "q2": "拆分,复制,抽象,绕开,预计算", "q3": "B", "q3core": "服务边界+数据流+失败模式，边界可写，失败模式不可穷举", "q4": "操作者", "presence": "分散", "gaveup": "局部性能最优（服务边界以调用开销换团队自治）", "basis": "公开文献", "grade": "B", "refs": "[33][34]", "q2l": "['拆分', '复制', '抽象', '绕开', '预计算']"}, {"id": "D16", "domain": "烹饪", "q1a": "延迟", "q1b": "容量", "swap": "N", "swapnote": "容量升为主瓶颈时动作加「合并（一锅出）」，Q4 从厨师移到食材浪费", "q2": "合并,拆分,预计算,复制", "q3": "A", "q3core": "火候曲线+投料顺序，两条可写", "q4": "操作者", "presence": "在场", "gaveup": "单菜的极致（出餐节奏以单菜上限换同时上桌）", "basis": "公开文献", "grade": "B", "refs": "[35]", "q2l": "['合并', '拆分', '预计算', '复制']"}, {"id": "D17", "domain": "编程面试", "q1a": "延迟", "q1b": "信任", "swap": "N", "swapnote": "信任升为主瓶颈时置换集不变，只是「试探（提示）」被关闭", "q2": "抽象,预计算,拆分,试探", "q3": "A", "q3core": "问题→思路→代码→复杂度，四步可写", "q4": "被判断者", "presence": "分散", "gaveup": "真实工作能力的判别（四十五分钟以可测性换效度）", "basis": "推断", "grade": "C", "refs": "[36]", "q2l": "['抽象', '预计算', '拆分', '试探']"}, {"id": "D18", "domain": "保险定价", "q1a": "正确", "q1b": "信任", "swap": "N", "swapnote": "信任升为主瓶颈时动作加「绕开（政府背书/强制险）」，Q3 不变", "q2": "拆分,预计算,复制,试探", "q3": "B", "q3core": "风险因子+赔付率+安全边际，三列可写", "q4": "被判断者", "presence": "分散", "gaveup": "个体公平（风险池以个体定价换可保性）", "basis": "规范文本", "grade": "B", "refs": "[37][38]", "q2l": "['拆分', '预计算', '复制', '试探']"}, {"id": "D19", "domain": "教材编写", "q1a": "注意力", "q1b": "协调", "swap": "N", "swapnote": "协调升为主瓶颈时动作加「拆分（模块对齐课时）」，Q3 不变", "q2": "拆分,预计算,抽象,复制", "q3": "B", "q3core": "知识图谱+难度梯度+练习设计，图谱可写，梯度靠判断", "q4": "下游", "presence": "延迟", "gaveup": "学科完整前沿（教材以覆盖面换可学性）", "basis": "公开统计", "grade": "B", "refs": "[39][40]", "q2l": "['拆分', '预计算', '抽象', '复制']"}, {"id": "D20", "domain": "城市应急管理", "q1a": "延迟", "q1b": "协调", "swap": "Y", "swapnote": "若以「协调」为主瓶颈，动作从「拆分（预案分级）」转为「抽象（统一指挥与信息共享）」，Q3 由 B 降 C：跨部门协同写不出十行", "q2": "拆分,复制,预计算,试探", "q3": "B", "q3core": "事件分级+响应流程+资源调度，分级可写，协同不可写", "q4": "不在场者", "presence": "延迟", "gaveup": "预案的完备性（分级以覆盖面换响应速度）", "basis": "规范文本", "grade": "B", "refs": "[41][42]", "q2l": "['拆分', '复制', '预计算', '试探']"}], "cols": {"filters": ["q1a", "q3", "presence", "grade"], "search": ["domain", "q2", "q3core", "gaveup", "q4"], "table": ["id", "domain", "q1a", "q3", "presence"], "detail": ["q1b", "q2", "q3core", "q4", "gaveup", "swap", "swapnote", "basis", "grade", "refs"]}, "conf": {"slug": "domains"}};
+const ROWS = DATA.rows, COLS = DATA.cols, CONF = DATA.conf;
+const state = {q: "", sel: null, f: {}};
+COLS.filters.forEach(k => state.f[k] = "");
+
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function init(){
+  document.getElementById("thead").innerHTML = "<tr>" + COLS.table.map(c=>`<th>${esc(c)}</th>`).join("") + "</tr>";
+  const bar = document.getElementById("bar");
+  COLS.filters.forEach(k=>{
+    const vals = [...new Set(ROWS.map(r=>r[k]).filter(v=>v!=null && v!==""))].sort();
+    const sel = document.createElement("select");
+    sel.innerHTML = `<option value="">${esc(k)}：全部</option>` + vals.map(v=>`<option>${esc(v)}</option>`).join("");
+    sel.onchange = e => { state.f[k] = e.target.value; render(); };
+    bar.appendChild(sel);
+  });
+  const q = document.createElement("input");
+  q.type = "search"; q.placeholder = "搜索：" + COLS.search.join(" / ");
+  q.oninput = e => { state.q = e.target.value.toLowerCase(); render(); };
+  bar.appendChild(q);
+}
+
+function filtered(){
+  const q = state.q;
+  return ROWS.filter(r =>
+    COLS.filters.every(k => !state.f[k] || r[k] === state.f[k]) &&
+    (!q || COLS.search.some(k => String(r[k]||"").toLowerCase().includes(q))));
+}
+
+function render(){
+  const f = filtered();
+  document.getElementById("cards").innerHTML = [
+    ["当前条数", f.length],
+    ["总计", ROWS.length]
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  const tb = document.getElementById("tbody");
+  if (!f.length){ tb.innerHTML = `<tr><td colspan="${COLS.table.length}"><div class="empty">没有符合条件的记录。</div></td></tr>`; return; }
+  tb.innerHTML = f.map((r,i)=>`<tr data-i="${ROWS.indexOf(r)}" class="${ROWS.indexOf(r)===state.sel?"sel":""}">` +
+    COLS.table.map(c=>`<td>${esc(r[c])}</td>`).join("") + "</tr>").join("");
+  [...tb.querySelectorAll("tr")].forEach(tr=>tr.onclick=()=>show(+tr.dataset.i));
+}
+
+function show(i){
+  state.sel = i; const r = ROWS[i];
+  document.getElementById("detail").innerHTML =
+    `<h2>${esc(r[COLS.table[0]])}</h2>` +
+    COLS.detail.map(k=>`<div class="row"><div class="k">${esc(k)}</div><div class="v">${esc(r[k])}</div></div>`).join("");
+  render();
+}
+
+init(); render();
+</script></body></html>

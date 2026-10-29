@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you cite this work, please use the metadata below."
+title: "开明君主与两层竞争：agent 价目表上的执行、方向与代价承担者"
+title-en: "The Enlightened Sovereign and Two-Tier Competition: Execution, Direction, and Who Pays on the Agent Price Sheet"
+abstract: >-
+  价目表把「执行」与「方向」分开定价：294 个模型的重放—判断价差（输出价 ÷ 缓存读价）中位
+  34.5 倍，闭源 50 倍、开放 19 倍，而在一手价目页上可到 200 倍；九家里六家同时经营可自托管层与
+  独占层，溢价 2.9—83 倍。量（开放权重 62—79% token）与钱（闭源 73% 消费额）分离。
+authors:
+  - family-names: "李"
+    given-names: "毅芃"
+    name: "李毅芃"
+date-released: 2026-10-30
+type: report
+license: CC-BY-4.0
+keywords:
+  - two-tier competition
+  - replay-judgement spread
+  - transferability
+  - seat pricing
+  - evidence grading
+doi: 10.5281/zenodo.23695757
+concept-doi: 10.5281/zenodo.23695756
+version: "2026-10-30"
+url: "https://doi.org/10.5281/zenodo.23695757"

@@ -1,0 +1,107 @@
+{
+  "title": "被点燃的生态：两个社区、五种口径与三个标记 / An Ignited Ecosystem: Two Communities, Five Resolutions, Three Markers",
+  "description": "<p><b>中文摘要。</b>2026 年 8 月 13 日 DeepSeek 的插件框架 Harness 开源，当日到次日出现一次数量级的新建仓库跳变；十周之后，围绕“技能”的另一条仓库线仍在加速。两条线常被合称“一个生态”，也常被当作“社区涌现”的当代样本。本文用 103 条 GitHub 公开接口查询（快照 2026-10-23）检验这个说法，判据取自《涌现的临界》第三章的三标记（序参量跃变、临界慢化、宏观更好用）与第十八章 18.5 节为“技术转型”写下的升级条款（给出“采用率阈值 + 可观测的事前信号”则由隐喻级升为诊断级）。</p><p><b>方法。</b>观测对象不是“社区”，而是划线：`dsh-plugin`（22,001 个仓库）与 `agent-skills`（35,894 个仓库）两条 topic 线。全部数值为搜索接口的 `total_count`（命中总数），不做抽样——逐仓库抽样试过两次均失败，因该接口只支持按 stars／forks／updated 排序，任何 page 抽样都落在热门仓库上。查询含 19 天日尺度、5 个 Harness 期段、14 个 skills 期段、五档星标门槛、24 条队列存活率、两条线交集与两个“回溯贴标”探针，逐条记录抓取时刻与原始响应。</p><p><b>主要发现。</b>（1）跳变与官方仓库创建日精确对齐（日新建 38 → 615 → 峰值 1,841），但发布前 7 天基线为 23.9/日 而非零，且 651 个“发布前”仓库中 47 个创建于 2026 年之前、155 个已有 ★≥100——基线是回溯贴标，不是先前的活动，因此满足“陡”而不满足“从无到有”。（2）换一台仪器结论就换一个方向：9 月→10 月，原始日均 +62%、★≥10 −36%、★≥100 −19%、队列存活率 +46%、合格率 −61%，跨度 123 个百分点，远大于数据误差；符号翻转的交叉点落在 ★≥1 与 ★≥10 之间。（3）两条 topic 线只重叠 414 个仓库（Jaccard 0.7%），“Harness 及其配套 skills 社区”在标签层面不成立；dsh 星标榜前 50 名中有 35 个（70%）出生在划线之前。三标记判定为“中 0 个、缺两格”：序参量缺仓库间关系数据，慢化缺冲击前的事前窗口，宏观更好用缺逐仓库面板。</p><p><b>负面结果（照实写出）。</b>F1 序参量不可判——日增流量不能冒充状态量；F2 事前慢化不可测——事前窗口仅 7 天且被回溯贴标污染，平台型生态里“恢复时间”可能根本不存在；F3 合格率下降无法归因——贴标膨胀与年龄偏差同向，截面数据分不开；F4 抽样路径失败（已核销，改为计数）；F5 08-20 二次反弹与 10 月原始计数回升的原因未核。据此提出一道“可测性门槛”（取不到的量记“不可判”，不进判定表）与三条失败模式（强度量冒充序参量、后事污染事前、出生史冒充入籍史），并自评为“框架提供记账格式，不提供新预测”。</p><p><b>边界。</b>工作论文/预印本。计数不是行为，标签不是社区，快照不是面板；只覆盖一个平台上的两条 topic 线，不提供对任何具体平台的政策判断；计数是活数据，重跑会得到略大的数，故 `data/raw/` 中的抓取时刻是结果的一部分；Cordis／Koishi 与 Harness 的架构关系为生态内说法，本文未核验。</p><p><b>Abstract (English).</b> On 13 August 2026 DeepSeek open-sourced its plugin framework Harness; within a day a new-repository series jumped by an order of magnitude, and ten weeks later a second series around “skills” was still accelerating. The two are often called one ecosystem and treated as a contemporary specimen of community emergence. Using 103 queries against the public GitHub search API (snapshot 2026-10-23), the paper tests that claim with the three markers of the author’s monograph on emergence (order-parameter jump, critical slowing down, macroscopic predictive advantage). Results: (1) the jump aligns exactly with the launch, but the pre-launch baseline is 23.9 repositories per day, not zero, and 651 “pre-launch” repositories are largely retro-tagged; (2) five measurement resolutions over the same month yield two opposite directions, from +62% to −61%, a spread far larger than the data error, with the sign flip located between the ★≥1 and ★≥10 thresholds; (3) the two topic lines share only 414 repositories (Jaccard 0.7%), so “Harness and its companion skills community” does not hold at the label level. The three-marker verdict is zero of three with two cells unmeasurable, i.e. the criterion is inapplicable rather than refuted. Five negative results are reported, and a “measurability gate” is proposed: before applying the markers, ask whether each required quantity can be obtained at all.</p><p><b>Files.</b> 论文（PDF 24 页 / HTML / Markdown）；10 幅图（fig01—fig10）；交互台账 <code>harness-explorer.html</code>；<code>MANIFEST.txt</code> 为文件清单。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "涌现",
+    "emergence",
+    "临界",
+    "critical transition",
+    "序参量",
+    "order parameter",
+    "临界慢化",
+    "critical slowing down",
+    "分辨率",
+    "resolution",
+    "开源社区",
+    "open source community",
+    "技术扩散",
+    "technology diffusion",
+    "测量口径",
+    "measurement protocol",
+    "回溯贴标",
+    "retroactive tagging",
+    "证据分级",
+    "evidence grading"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。103 条公开接口查询、快照 2026-10-23；10 图 7 表；主结果为“判据不适用”（三标记中 0 个、缺 2 格）；未经同行评审；计数是活数据。 系列共 13 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23529087",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23528958",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23531431",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23573012",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

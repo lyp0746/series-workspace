@@ -1,0 +1,103 @@
+{
+  "title": "线外的残余：被埋没的理论为何被重新发现，为何永久沉默 / Residuals Outside the Line: Why Buried Theories Return, and Why Some Never Do",
+  "description": "<p><b>中文摘要。</b>有些命题提出时无人反对也无人理睬，几十年后才被“重新发现”：孟德尔沉寂 34 年，魏格纳 48 年，玻尔兹曼 36 年。本文把这种“延迟承认”当作记忆问题处理：命题被埋没不是因为共同体忘了它，而是因为旧范式把它压进了线外；它能回来也不是因为有人重读旧文献，而是因为另一套工具使旧残余重新可读。</p><p><b>方法。</b>把《遗忘的边界》的容量—压缩—遗忘从个体认知推到共同体与跨范式两个尺度；建立 24 个案例的编码库（18 恢复、3 重发明、3 沉默），逐案编码残余信号类型、旧范式坐标、解码器及其可用年、翻译成本、可重建性、恢复的三层完整度与证据等级；两个 2×2 表用 Fisher 精确检验。</p><p><b>主要发现。</b>（1）恢复组的沉寂中位为 37.5 年（15—2156），而解码器出现到被承认的中位滞后为 0 年、上限 5 年（18/18）：被埋没的是文献，起作用的是解码器。（2）旧坐标决定回归路径：不合法→范式更替，异常→新工具，被误解→重新命名，接收端成本→跨域连接，主动撤回→模型化。（3）三例重发明全部发生在命题可由新框架自行重建时（3/3 对 2/18，Fisher p=0.0075），“翻译成本低于重新发明”应修正为“可重建性”。（4）三标记在此不能当打分表：恢复组 18/18 命中 ≥2，但永久沉默的燃素说与热质说各命中 2；解码器是必要条件（18/18 对 0/6）。（5）恢复是分层的：方法 17/18、作者 13/18、术语 10/18。</p><p><b>负面清单。</b>载体销毁（玛雅抄本）与残余被吸收（燃素说、热质说）是两条结构性沉默路径；拒绝“正确终将被想起”的目的论；“范式转移是相变”判为隐喻级（三标记 0 个可判、1 个未通过、1 个未测）。</p><p><b>边界。</b>工作论文/预印本。n=24，全部比例限于样本内；单一编码者、无 κ；“解码器”为事后归因（已说明锁死不等于因果）；样本只含“有名字”的案例，沉默比例严重低估。</p><p><b>Abstract (English).</b> Some propositions are neither refuted nor used. Coding twenty-four cases of delayed recognition (eighteen recoveries, three re-inventions, three permanent silences), the paper shows that the median silence is 37.5 years while the median lag from decoder availability to recognition is zero (never above five); that the old-paradigm coordinate predicts the return path; that re-invention occurs only where the proposition is re-derivable from the new framework's own resources (3/3 versus 2/18, Fisher p=0.0075); and that the three markers cannot be used as a score, since two permanently silent theories also hit two of three — what separates them is a necessary condition, the decoder (18/18 versus 0/6). Recovery is layered: method 17/18, authorship 13/18, terminology 10/18.</p><p><b>Files.</b> 论文（PDF 51 页 / HTML / Markdown）；13 幅图；编码库 <code>cases.csv</code>；<code>MANIFEST.txt</code> 为文件清单。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "延迟承认",
+    "delayed recognition",
+    "重新发现",
+    "rediscovery",
+    "范式转移",
+    "paradigm shift",
+    "压缩与遗忘",
+    "compression and forgetting",
+    "解码器",
+    "decoder",
+    "可重建性",
+    "re-derivability",
+    "必要条件",
+    "necessary condition",
+    "证据分级",
+    "evidence grading"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。24 个延迟承认案例、13 图、10 附录；单一编码者、无 κ；含负面清单与五条竞争解释的排除。 系列共 14 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23529087",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23528958",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23531431",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23573012",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

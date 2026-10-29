@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>被点燃的生态 · 计数台账</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--gray:#5f6368;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif}
+header{padding:24px 5vw 14px;border-bottom:2px solid var(--red);background:#fff}
+h1{margin:0 0 6px;font-size:23px}
+.sub{color:#555;font-size:13px;line-height:1.7}
+.wrap{padding:16px 5vw 52px;max-width:1180px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.card{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px}
+.card .k{font-size:12px;color:#666}.card .v{font-size:21px;font-weight:700;margin-top:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;
+     border:1px solid #e3e0d8;border-radius:6px;padding:11px;margin:6px 0 14px;font-size:13px}
+select,input[type=search]{padding:5px 8px;border:1px solid #ccc;border-radius:4px;
+     background:#fff;font-size:13px;font-family:inherit}
+input[type=search]{min-width:180px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid #e8e5dd;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:#fbf8f1}
+tbody tr.sel td{background:#f6efe0}
+.tag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;color:#fff;background:var(--gray)}
+.detail{background:#fff;border:1px solid #e3e0d8;border-radius:8px;padding:16px;
+        position:sticky;top:12px;min-height:220px}
+.detail h2{margin:0 0 10px;font-size:18px}
+.detail .row{margin:9px 0}
+.detail .k{font-size:11px;color:#999;letter-spacing:.06em}
+.detail .v{font-size:13.5px;line-height:1.7;margin-top:2px}
+.note{font-size:12px;color:#666;line-height:1.8;margin-top:14px}
+.hint{font-size:12px;color:#888}
+.empty{padding:40px;text-align:center;color:#999}
+</style></head><body>
+<header><h1>被点燃的生态 · 计数台账</h1><div class="sub">四块台账：期段计数、队列存活、星标阶梯、两线交集。左表筛选，点行看详情；每个数字与论文里的表 1—表 7 同源，同一份 data/counts.json。</div></header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar" id="bar"></div>
+  <div class="grid">
+    <div style="overflow:auto;max-height:72vh;border:1px solid #e3e0d8;border-radius:6px">
+      <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+    </div>
+    <div class="detail" id="detail"><div class="hint">点左侧任意一行。</div></div>
+  </div>
+  <div class="note">数据：GitHub 公开搜索接口 total_count，快照 2026-10-23（附录取数时刻见 data/raw/）。口径：按 created 分桶；★≥10 且非 fork；日均 = 计数 ÷ 天数。边界：发布前一行的天数是名义分母，日均不可解释为速率；计数不等于行为，标签不等于社区。</div>
+</div>
+<script>
+const DATA = {"rows": [{"block": "期段", "line": "dsh-plugin", "label": "发布前 (<08-13)", "days": "71", "metric": "全部仓库", "value": "651", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "发布前 (<08-13)", "days": "71", "metric": "★≥10", "value": "305", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "发布前 (<08-13)", "days": "71", "metric": "★≥100", "value": "155", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "全部仓库", "value": "7770", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥10", "value": "881", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥100", "value": "174", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "08-20–31", "days": "12", "metric": "全部仓库", "value": "4546", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "08-20–31", "days": "12", "metric": "★≥10", "value": "170", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "全部仓库", "value": "4035", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥10", "value": "178", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥100", "value": "24", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "全部仓库", "value": "5002", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥10", "value": "87", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥100", "value": "15", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "发布前 (<2025-09-22)", "days": "178", "metric": "全部仓库", "value": "277", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "发布前 (<2025-09-22)", "days": "178", "metric": "★≥10", "value": "145", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "09-22–10/31", "days": "40", "metric": "全部仓库", "value": "80", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "09-22–10/31", "days": "40", "metric": "★≥10", "value": "52", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "11 月", "days": "30", "metric": "全部仓库", "value": "61", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "11 月", "days": "30", "metric": "★≥10", "value": "26", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "12 月", "days": "31", "metric": "全部仓库", "value": "110", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "12 月", "days": "31", "metric": "★≥10", "value": "67", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-01", "days": "30", "metric": "全部仓库", "value": "474", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-01", "days": "30", "metric": "★≥10", "value": "222", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-02", "days": "30", "metric": "全部仓库", "value": "835", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-02", "days": "30", "metric": "★≥10", "value": "278", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-03", "days": "30", "metric": "全部仓库", "value": "1655", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-03", "days": "30", "metric": "★≥10", "value": "404", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-04", "days": "30", "metric": "全部仓库", "value": "1947", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-04", "days": "30", "metric": "★≥10", "value": "325", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-05", "days": "30", "metric": "全部仓库", "value": "2196", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-05", "days": "30", "metric": "★≥10", "value": "326", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-06", "days": "30", "metric": "全部仓库", "value": "2931", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-06", "days": "30", "metric": "★≥10", "value": "340", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-07", "days": "30", "metric": "全部仓库", "value": "4985", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-07", "days": "30", "metric": "★≥10", "value": "418", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-08", "days": "30", "metric": "全部仓库", "value": "6262", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-08", "days": "30", "metric": "★≥10", "value": "428", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-09", "days": "30", "metric": "全部仓库", "value": "7219", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-09", "days": "30", "metric": "★≥10", "value": "320", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-10 (1–23)", "days": "23", "metric": "全部仓库", "value": "6866", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "期段", "line": "agent-skills", "label": "2026-10 (1–23)", "days": "23", "metric": "★≥10", "value": "205", "note": "按 created 分桶；发布前一行为名义分母"}, {"block": "存活", "line": "dsh-plugin", "label": "8/13–19", "days": "69", "metric": "队列总量", "value": "7770", "note": "仓龄中位 69 天"}, {"block": "存活", "line": "dsh-plugin", "label": "8/13–19", "days": "69", "metric": "近7天有推送", "value": "958", "note": "仓龄中位 69 天"}, {"block": "存活", "line": "dsh-plugin", "label": "8/13–19", "days": "69", "metric": "近7天有推送且★≥10", "value": "389", "note": "仓龄中位 69 天"}, {"block": "存活", "line": "dsh-plugin", "label": "8/20–31", "days": "60", "metric": "队列总量", "value": "4546", "note": "仓龄中位 60 天"}, {"block": "存活", "line": "dsh-plugin", "label": "8/20–31", "days": "60", "metric": "近7天有推送", "value": "484", "note": "仓龄中位 60 天"}, {"block": "存活", "line": "dsh-plugin", "label": "8/20–31", "days": "60", "metric": "近7天有推送且★≥10", "value": "81", "note": "仓龄中位 60 天"}, {"block": "存活", "line": "dsh-plugin", "label": "9 月", "days": "36", "metric": "队列总量", "value": "4037", "note": "仓龄中位 36 天"}, {"block": "存活", "line": "dsh-plugin", "label": "9 月", "days": "36", "metric": "近7天有推送", "value": "972", "note": "仓龄中位 36 天"}, {"block": "存活", "line": "dsh-plugin", "label": "9 月", "days": "36", "metric": "近7天有推送且★≥10", "value": "118", "note": "仓龄中位 36 天"}, {"block": "存活", "line": "dsh-plugin", "label": "10/1–9", "days": "19", "metric": "队列总量", "value": "1550", "note": "仓龄中位 19 天"}, {"block": "存活", "line": "dsh-plugin", "label": "10/1–9", "days": "19", "metric": "近7天有推送", "value": "545", "note": "仓龄中位 19 天"}, {"block": "存活", "line": "dsh-plugin", "label": "10/1–9", "days": "19", "metric": "近7天有推送且★≥10", "value": "33", "note": "仓龄中位 19 天"}, {"block": "存活", "line": "agent-skills", "label": "1 月", "days": "276", "metric": "队列总量", "value": "474", "note": "仓龄中位 276 天"}, {"block": "存活", "line": "agent-skills", "label": "1 月", "days": "276", "metric": "近7天有推送", "value": "108", "note": "仓龄中位 276 天"}, {"block": "存活", "line": "agent-skills", "label": "1 月", "days": "276", "metric": "近7天有推送且★≥10", "value": "71", "note": "仓龄中位 276 天"}, {"block": "存活", "line": "agent-skills", "label": "6 月", "days": "130", "metric": "队列总量", "value": "2931", "note": "仓龄中位 130 天"}, {"block": "存活", "line": "agent-skills", "label": "6 月", "days": "130", "metric": "近7天有推送", "value": "439", "note": "仓龄中位 130 天"}, {"block": "存活", "line": "agent-skills", "label": "6 月", "days": "130", "metric": "近7天有推送且★≥10", "value": "88", "note": "仓龄中位 130 天"}, {"block": "存活", "line": "agent-skills", "label": "9 月", "days": "47", "metric": "队列总量", "value": "7219", "note": "仓龄中位 47 天"}, {"block": "存活", "line": "agent-skills", "label": "9 月", "days": "47", "metric": "近7天有推送", "value": "1074", "note": "仓龄中位 47 天"}, {"block": "存活", "line": "agent-skills", "label": "9 月", "days": "47", "metric": "近7天有推送且★≥10", "value": "111", "note": "仓龄中位 47 天"}, {"block": "存活", "line": "agent-skills", "label": "10/1–9", "days": "18", "metric": "队列总量", "value": "2313", "note": "仓龄中位 18 天"}, {"block": "存活", "line": "agent-skills", "label": "10/1–9", "days": "18", "metric": "近7天有推送", "value": "594", "note": "仓龄中位 18 天"}, {"block": "存活", "line": "agent-skills", "label": "10/1–9", "days": "18", "metric": "近7天有推送且★≥10", "value": "36", "note": "仓龄中位 18 天"}, {"block": "阶梯", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥0", "value": "7770", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥1", "value": "5132", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥10", "value": "881", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥100", "value": "174", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "第 1 周 08-13–19", "days": "7", "metric": "★≥1000", "value": "23", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "08-20–31", "days": "12", "metric": "★≥0", "value": "4546", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "08-20–31", "days": "12", "metric": "★≥1", "value": "1830", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "08-20–31", "days": "12", "metric": "★≥10", "value": "170", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "08-20–31", "days": "12", "metric": "★≥1000", "value": "0", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥0", "value": "4035", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥1", "value": "1903", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥10", "value": "178", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥100", "value": "24", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "9 月", "days": "30", "metric": "★≥1000", "value": "3", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥0", "value": "5002", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥1", "value": "1712", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥10", "value": "87", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥100", "value": "15", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "阶梯", "line": "dsh-plugin", "label": "10-01–23", "days": "23", "metric": "★≥1000", "value": "4", "note": "星标随时间积累，高度不可跨期段比较"}, {"block": "交集", "line": "两条线", "label": "topic:dsh-plugin", "days": "2026-10-23", "metric": "仓库数", "value": "22001", "note": "快照总量"}, {"block": "交集", "line": "两条线", "label": "topic:agent-skills", "days": "2026-10-23", "metric": "仓库数", "value": "35894", "note": "快照总量"}, {"block": "交集", "line": "两条线", "label": "两者重叠", "days": "2026-10-23", "metric": "仓库数", "value": "414", "note": "Jaccard 0.7%"}], "cols": {"filters": ["block", "line"], "search": ["label", "metric", "note"], "table": ["block", "label", "metric", "value"], "detail": ["line", "days", "note"]}, "conf": {"slug": "harness-explorer"}};
+const ROWS = DATA.rows, COLS = DATA.cols, CONF = DATA.conf;
+const state = {q: "", sel: null, f: {}};
+COLS.filters.forEach(k => state.f[k] = "");
+
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function init(){
+  document.getElementById("thead").innerHTML = "<tr>" + COLS.table.map(c=>`<th>${esc(c)}</th>`).join("") + "</tr>";
+  const bar = document.getElementById("bar");
+  COLS.filters.forEach(k=>{
+    const vals = [...new Set(ROWS.map(r=>r[k]).filter(v=>v!=null && v!==""))].sort();
+    const sel = document.createElement("select");
+    sel.innerHTML = `<option value="">${esc(k)}：全部</option>` + vals.map(v=>`<option>${esc(v)}</option>`).join("");
+    sel.onchange = e => { state.f[k] = e.target.value; render(); };
+    bar.appendChild(sel);
+  });
+  const q = document.createElement("input");
+  q.type = "search"; q.placeholder = "搜索：" + COLS.search.join(" / ");
+  q.oninput = e => { state.q = e.target.value.toLowerCase(); render(); };
+  bar.appendChild(q);
+}
+
+function filtered(){
+  const q = state.q;
+  return ROWS.filter(r =>
+    COLS.filters.every(k => !state.f[k] || r[k] === state.f[k]) &&
+    (!q || COLS.search.some(k => String(r[k]||"").toLowerCase().includes(q))));
+}
+
+function render(){
+  const f = filtered();
+  document.getElementById("cards").innerHTML = [
+    ["当前条数", f.length],
+    ["总计", ROWS.length]
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  const tb = document.getElementById("tbody");
+  if (!f.length){ tb.innerHTML = `<tr><td colspan="${COLS.table.length}"><div class="empty">没有符合条件的记录。</div></td></tr>`; return; }
+  tb.innerHTML = f.map((r,i)=>`<tr data-i="${ROWS.indexOf(r)}" class="${ROWS.indexOf(r)===state.sel?"sel":""}">` +
+    COLS.table.map(c=>`<td>${esc(r[c])}</td>`).join("") + "</tr>").join("");
+  [...tb.querySelectorAll("tr")].forEach(tr=>tr.onclick=()=>show(+tr.dataset.i));
+}
+
+function show(i){
+  state.sel = i; const r = ROWS[i];
+  document.getElementById("detail").innerHTML =
+    `<h2>${esc(r[COLS.table[0]])}</h2>` +
+    COLS.detail.map(k=>`<div class="row"><div class="k">${esc(k)}</div><div class="v">${esc(r[k])}</div></div>`).join("");
+  render();
+}
+
+init(); render();
+</script></body></html>

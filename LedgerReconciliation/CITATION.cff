@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "六张账单的对账：六核心的可测代理、失败模式与尺度边界"
+abstract: >-
+  六篇工作论文各自把六个核心中的一个或两个做深了。本文不做综述，只做对账：把六篇附录里全部 48 条登记命题逐条抽出，按八列重新编码，做状态审计（已核销 31、未核销 14、撤回 3；被自己打掉 9 条，18.8%）、等级审计（A 2／B 25／C 21，且 C 级几乎全落在待检验与开放里）与冲突审计（五处同名不同物：τ、容量、门、记忆、压缩）。审计给出一个结构性事实：48 条命题里个体层 0 条、谱系层 0 条，全部落在命题、共同体、制度三个尺度上——这正是「记住」的容量端至今没有测量的原因。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+doi: 10.5281/zenodo.23695813
+concept-doi: 10.5281/zenodo.23611757
+url: "https://doi.org/10.5281/zenodo.23695813"
+license: CC-BY-4.0
+type: article

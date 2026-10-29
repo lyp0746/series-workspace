@@ -1,0 +1,107 @@
+{
+  "title": "容量的三个代理：分期槽位、编码槽位与标签槽位 / Three Proxies for Capacity: Periodization Slots, Coding Slots, Label Slots",
+  "description": "<p><b>中文摘要。</b>《遗忘的边界》的容量—压缩—遗忘有一个始终没补上的缺口：容量从未被测量。本文给容量找三个可数的代理，用三篇既有论文的原始数据检验一句直觉——「容量越大，忘得越少」。</p><p><b>三个代理。</b>分期槽位（一部世界史教材使用多少个顶层边界）、编码槽位（一个县的驿铺条目数与并镇次数）、标签槽位（一条 topic 线的日均新建量与合格率）。</p><p><b>三种结果。</b>第一，分期槽位<b>支持</b>直觉：槽位越多越少依赖通货门，分箱中位 0.50→0.33→0.20→0.14，r=−0.245（51 部来源）。第二，编码槽位<b>与直觉相反但不可判</b>：r=−0.682（n=6），而「撤县年数」的 r=−0.835 更强，两者混淆。第三，标签槽位<b>反向</b>：日均新建越大合格率越高（r=+0.932，n=4），直接证伪「名额紧张导致质量稀释」。</p><p><b>冷结论。</b>容量不是保护，至少不是单方向的保护——槽位越多，压缩时能失去的也越多。附带更正：214 条顶层边界里，前十道门覆盖 73.4%，所以「槽位多」不等于「门多」。</p><p><b>Abstract.</b> Three countable proxies for capacity are proposed and tested on existing data. Periodization slots support the intuition; coding slots are confounded with time; label slots run against it. Capacity is not unidirectional protection.</p><p><b>Files.</b> 论文（PDF 22 页 / HTML / Markdown）；8 幅图；三份数据的算式与来源见附录 B；<code>MANIFEST.txt</code>。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "容量",
+    "槽位",
+    "代理",
+    "压缩",
+    "遗忘",
+    "保留率",
+    "capacity",
+    "proxy",
+    "slot",
+    "forgetting"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。全文 22 页；含六核心×六专著对照表与可复算编码库。 系列共 17 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601983",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602360",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602364",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603015",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603016",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

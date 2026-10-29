@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "被点燃的生态：两个社区、五种口径与三个标记"
+abstract: >-
+  用 103 条 GitHub 公开接口查询（快照 2026-10-23）检验"社区涌现是否一场质变"：Harness 发布日
+  日新建从 38 跳到 615 再到 1,841，但发布前基线 23.9/日 并非零，651 个"发布前"仓库多为回溯贴标；
+  同一段时间在五种口径下给出两个相反方向（+62% 至 −61%）；两条 topic 线只重叠 414 个仓库
+  （Jaccard 0.7%）；dsh 星标榜前 50 名中 70% 出生在划线之前。三标记判定为中 0 个、缺两格，
+  故判据不适用；提出"可测性门槛"与三条失败模式（强度量冒充序参量、后事污染事前、
+  出生史冒充入籍史）。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+doi: 10.5281/zenodo.23603015
+concept-doi: 10.5281/zenodo.23601731
+url: "https://doi.org/10.5281/zenodo.23603015"
+license: CC-BY-4.0
+keywords:
+  - 涌现
+  - 临界
+  - 序参量
+  - 分辨率
+  - 开源社区
+  - 技术扩散
+  - 测量口径
+type: article

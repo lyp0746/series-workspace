@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "线外的残余：被埋没的理论为何被重新发现，为何永久沉默"
+abstract: >-
+  24 个延迟承认案例（18 恢复、3 重发明、3 沉默）。恢复组沉寂中位 37.5 年，而解码器出现到被承认的
+  中位滞后为 0 年、上限 5 年（18/18）；三例重发明全部发生在命题可由新框架自行重建时（3/3 对 2/18）；
+  三标记在此不能当打分表（燃素说与热质说各命中 2 条却永久沉默），解码器是必要条件（18/18 对 0/6）。
+  恢复还是分层的：方法保留 17/18、作者 13/18、术语 10/18。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+doi: 10.5281/zenodo.23603016
+concept-doi: 10.5281/zenodo.23601748
+url: "https://doi.org/10.5281/zenodo.23603016"
+license: CC-BY-4.0
+keywords:
+  - 延迟承认
+  - 重新发现
+  - 范式转移
+  - 压缩与遗忘
+  - 解码器
+  - 可重建性
+type: article

@@ -1,0 +1,144 @@
+{
+  "title": "锚点的下限：情景记忆的模拟对照实验与 0.57 的覆盖率阈值 / The Floor of Anchoring: A Simulation Study of Episodic Memory and the 0.57 Coverage Threshold",
+  "description": "<p><b>中文摘要。</b>上一篇《记忆的锚点》提出三层记忆架构（书记员字段级硬日志／异构重建／带锚裁决），并把自己的关键命题 T9「能把几天延长到几周」撤回，因为没有实验。本文把那套架构实现成可复算的机制模拟，去回答一个更窄的问题：<b>它在什么条件下才比一张摘要更好？</b>配置：5 个页面 × 2 个表面标签（负迁移陷阱）× 4 个条件（M0 无记忆／M1 摘要／M2 情景／M2w 允许回写），12000 步主对照、80000 步覆盖率扫描、81 组敏感性，另有<b>四条预先登记的否证条件</b>。</p>\n<p><b>主要读数。</b>（1）准确率：情景 <b>0.441</b> ＞ 摘要 0.339 ＞ 无记忆 0.000；但跨页面污染率是 <b>摘要 0.625</b>、无记忆 0.187、情景 0.179——<b>摘要是最危险的记忆</b>，污染是「无记忆」的 3.3 倍。（2）自我打击一条：情景在不可逆动作上并未胜过摘要（误动作 0.209 对 0.196），预注册的 <b>F1 部分触发</b>。（3）覆盖率扫描给出交叉点 <b>0.569</b>（自举 95% 区间 0.44—0.74）：低于它不如摘要，高于它才开始赢；换参数后阈值移动约 ±0.10，因此 <b>0.57 不是常数</b>。（4）允许重建回写（M2w）：200 步内准确率 0.338→0.151、误动作 0.209→0.273，而人环转介反而下降——<b>污染让系统更自信</b>，这是「重建不得回写账本」的量化版本。（5）相关 ρ 从 0 到 0.7：误动作 0.092→0.118、人环 0.55→2.40；集成规模 K 的收益在 <b>K=3 处饱和</b>（K=5 只再降 0.001，代价 +554 ms）。（6）参数 vs 覆盖率：把采样量提高到三倍，误动作只从 0.106 变到 0.110（几乎不动）；而覆盖率 0.5→0.9 让它 0.210→0.080（约 32 倍）——<b>补账本比换模型有效</b>。十条命题：八支持、一未检验（T9 仍撤回）、一撤回（T10：0.57 不可迁移）。</p>\n<p><b>边界。</b><b>这是机制模拟，不是 LLM 实验。</b>环境、日志、重建与裁决全部由代码定义，因此结论只对「这套机制」成立，不外推到真实模型；T9（能延长真实账号存活）仍为未检验。另有两处教训写在正文：一次失败的 M1 设计，一次参数误设；并附 ODD 九项自查与「如果重做会改哪三处」。</p>\n<p><b>Abstract (English).</b> A recomputable mechanism simulation of the three-layer memory architecture proposed in the previous paper: five screens with two surface labels (a negative-transfer trap), four conditions (no memory / summary / episodic / episodic with write-back), 12,000 main steps, an 80,000-step coverage sweep, an 81-cell sensitivity grid, and <b>four preregistered falsification conditions</b>. This is a simulation of the mechanism, not an LLM experiment. Episodic recall reaches accuracy <b>0.441</b> against 0.339 for a summary and 0.000 for no memory, yet <b>does not beat the summary on irreversible-action errors</b> (0.209 vs 0.196), so the preregistered F1 is partially triggered. Cross-page contamination is <b>0.625 for the summary</b> — 3.3 times that of no memory — against 0.187 for no memory and 0.179 for episodic recall: <b>the summary is the most dangerous memory</b>. The coverage crossover is <b>0.569</b> (bootstrap 95% interval 0.44–0.74), and it moves by about ±0.10 when parameters change, so 0.57 is not a constant. Allowing reconstructions to be written back to the log halves accuracy within 200 steps while <i>reducing</i> human escalation: contamination makes the system more confident. Correlation rho from 0 to 0.7 worsens both accuracy and cost; the ensemble gain saturates at K = 3; and raising coverage from 0.5 to 0.9 cuts the irreversible-action rate from 0.210 to 0.080, far more than tripling the sample rate does — <b>improving the ledger beats upgrading the model</b>. Of ten propositions, eight are supported, one remains untested (T9 stays withdrawn) and one is withdrawn (T10: 0.57 is not transferable).</p>\n<p><b>Files.</b>论文（PDF 51 页 / HTML / Markdown / README）；8 幅图；<code>explorer_sample.csv</code>（抽样轨迹）；<code>MANIFEST.txt</code>。主对照、覆盖率扫描与 81 组敏感性的参数、种子与脚本随仓库公开，可重跑。</p>\n<p><b>系列 / Series。</b>同一作者的独立研究系列：九本书与十四篇工作论文。<b>系列入口与外部登记库：</b>https://github.com/lyp0746/knowledge-tradeoffs；源码与复现脚本：https://github.com/lyp0746</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "情景记忆",
+    "日志锚定",
+    "模拟实验",
+    "预注册",
+    "覆盖率阈值",
+    "共模故障",
+    "负迁移",
+    "Agent 记忆",
+    "证据分级",
+    "episodic memory",
+    "log anchoring",
+    "simulation study",
+    "preregistration",
+    "coverage threshold",
+    "common-mode failure",
+    "negative transfer",
+    "agent memory"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-26",
+  "version": "2026-10-26",
+  "notes": "工作论文/预印本。系列第十三篇（测试篇）。51 页；机制模拟而非 LLM 实验；四条预注册否证条件。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601983",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602360",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602364",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603015",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603016",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23611782",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23611799",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23612202",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23664233",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23663027",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23665882",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

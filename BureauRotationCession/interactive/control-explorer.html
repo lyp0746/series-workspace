@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>唐宋官职类型 · 对照样本探索器</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--green:#2e6b4f;--gray:#5f6368;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif}
+header{padding:28px 6vw 18px;border-bottom:2px solid var(--red);background:#fff}
+h1{margin:0 0 6px;font-size:26px}
+.sub{color:#555;font-size:14px}
+.wrap{padding:22px 6vw 60px;max-width:1200px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.card{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:14px}
+.card .k{font-size:12px;color:#666}.card .v{font-size:24px;font-weight:700;margin-top:4px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:12px;margin:8px 0 18px}
+select,label{font-size:13px}
+select{padding:5px 8px;border:1px solid #ccc;border-radius:4px;background:#fff}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid #ddd;border-radius:20px;cursor:pointer;background:#fafafa}
+.pill input{accent-color:var(--red)}
+h2{font-size:17px;margin:26px 0 8px}
+#chart{width:100%;height:260px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid #e8e5dd;text-align:left;vertical-align:top}
+th{background:#efece4;cursor:pointer;position:sticky;top:0}
+tr:hover td{background:#fbf8f1}
+.tag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;color:#fff}
+.note{font-size:12px;color:#666;line-height:1.7;margin-top:16px}
+.legend{font-size:12px;color:#444;display:flex;gap:14px;flex-wrap:wrap;margin:6px 0}
+.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
+</style></head><body>
+<header>
+  <h1>唐宋官职类型 · 对照样本探索器</h1>
+  <div class="sub">67 个官职类型，24 次性质变化；按线、朝代与结局筛选。编码为探索性（B/C），不是定论。</div>
+</header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar">
+    <label>朝代 <select id="dyn"><option value="">全部</option><option>唐</option><option>宋</option></select></label>
+    <label>结局 <select id="kind"><option value="">全部</option><option>割据</option><option>虚化/禁戒</option><option>正官化</option><option>无变化</option></select></label>
+    <span id="lines"></span>
+  </div>
+  <h2>结局构成</h2>
+  <div class="legend" id="legend"></div>
+  <svg id="chart" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet"></svg>
+  <h2>逐条记录</h2>
+  <table id="tbl"><thead><tr>
+    <th data-k="office">官职</th><th data-k="dyn">朝代</th><th data-k="line_cn">线</th>
+    <th data-k="start">始</th><th data-k="end">终</th><th data-k="year">变化年</th>
+    <th data-k="kind">结局</th><th data-k="note">备注</th><th data-k="grade">等级</th>
+  </tr></thead><tbody></tbody></table>
+  <div class="note">
+    <b>读法。</b>“任何变化”的发生率：外派/内廷 IRR=0.7（95% CI 0.25—1.91），log-rank p=0.6；
+    说明两条线<strong>变化的概率</strong>没有显著差异。“结局构成”则显示：割据只出现在外派（5/31 对 0/20，Fisher p=0.143），
+    虚化/禁戒集中于内廷。因此路径预测的是<strong>失败形态</strong>，不是<strong>变化概率</strong>。<br>
+    <b>边界。</b>类型级样本，非每一次任命；事件年份取正史与制度史通行系年；未控制品级与朝代；样本小，只作方向。数据：<code>data/control_tangsong.csv</code>。
+  </div>
+</div>
+<script>
+const DATA = {"rows": [{"id": "T01", "dyn": "唐", "office": "尚书令", "line": "inner", "line_cn": "内廷", "rank": "高", "start": 618, "end": 907, "event": 1, "year": 626, "type": "虚化", "kind": "虚化/禁戒", "note": "太宗即位后不授", "grade": "B"}, {"id": "T02", "dyn": "唐", "office": "中书令", "line": "inner", "line_cn": "内廷", "rank": "高", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "正官，终唐之世", "grade": "B"}, {"id": "T03", "dyn": "唐", "office": "侍中", "line": "inner", "line_cn": "内廷", "rank": "高", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "正官，唐后期权轻", "grade": "B"}, {"id": "T04", "dyn": "唐", "office": "同平章事", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 682, "end": 907, "event": 1, "year": 723, "type": "正官化", "kind": "正官化", "note": "政事堂改中书门下", "grade": "B"}, {"id": "T05", "dyn": "唐", "office": "翰林学士", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 738, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "内相，未正官化于唐", "grade": "B"}, {"id": "T06", "dyn": "唐", "office": "枢密使", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 765, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "宦官传宣，五代正官化", "grade": "B"}, {"id": "T07", "dyn": "唐", "office": "神策中尉", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 796, "end": 907, "event": 1, "year": 903, "type": "禁戒", "kind": "虚化/禁戒", "note": "朱温诛宦官", "grade": "A"}, {"id": "T08", "dyn": "唐", "office": "中书舍人", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "掌诏诰常职", "grade": "B"}, {"id": "T09", "dyn": "唐", "office": "给事中", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "封驳之职", "grade": "B"}, {"id": "T10", "dyn": "唐", "office": "内侍监", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 684, "end": 907, "event": 1, "year": 903, "type": "禁戒", "kind": "虚化/禁戒", "note": "宦官首领，与神策同诛", "grade": "B"}, {"id": "T11", "dyn": "唐", "office": "刺史", "line": "outer", "line_cn": "外派", "rank": "中", "start": 618, "end": 907, "event": 1, "year": 755, "type": "割据", "kind": "割据", "note": "安史后藩镇化", "grade": "A"}, {"id": "T12", "dyn": "唐", "office": "都督", "line": "outer", "line_cn": "外派", "rank": "中", "start": 618, "end": 907, "event": 1, "year": 711, "type": "虚化", "kind": "虚化/禁戒", "note": "节度使取代", "grade": "B"}, {"id": "T13", "dyn": "唐", "office": "节度使", "line": "outer", "line_cn": "外派", "rank": "高", "start": 711, "end": 907, "event": 1, "year": 755, "type": "割据", "kind": "割据", "note": "安史之乱后自立", "grade": "A"}, {"id": "T14", "dyn": "唐", "office": "观察使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 758, "end": 907, "event": 1, "year": 780, "type": "割据", "kind": "割据", "note": "与节度合一", "grade": "B"}, {"id": "T15", "dyn": "唐", "office": "转运使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 760, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "财权使职，宋为正官", "grade": "B"}, {"id": "T16", "dyn": "唐", "office": "盐铁使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 758, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "财权使职", "grade": "B"}, {"id": "T17", "dyn": "唐", "office": "团练使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 755, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "地方军职", "grade": "C"}, {"id": "T18", "dyn": "唐", "office": "防御使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 755, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "地方军职", "grade": "C"}, {"id": "T19", "dyn": "唐", "office": "留后", "line": "outer", "line_cn": "外派", "rank": "中", "start": 755, "end": 907, "event": 1, "year": 763, "type": "割据", "kind": "割据", "note": "河朔世袭", "grade": "B"}, {"id": "T20", "dyn": "唐", "office": "监军", "line": "outer", "line_cn": "外派", "rank": "低", "start": 740, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "宦官监军，未正官化", "grade": "B"}, {"id": "T21", "dyn": "唐", "office": "判官", "line": "outer", "line_cn": "外派", "rank": "低", "start": 755, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "幕职，宋降为选人", "grade": "B"}, {"id": "T22", "dyn": "唐", "office": "采访使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 710, "end": 907, "event": 1, "year": 758, "type": "正官化", "kind": "正官化", "note": "改观察处置使", "grade": "B"}, {"id": "T23", "dyn": "唐", "office": "按察使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 627, "end": 907, "event": 1, "year": 710, "type": "虚化", "kind": "虚化/禁戒", "note": "采访使取代", "grade": "C"}, {"id": "T24", "dyn": "唐", "office": "县令", "line": "regular", "line_cn": "正官", "rank": "中", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "正官", "grade": "B"}, {"id": "T25", "dyn": "唐", "office": "十六卫大将军", "line": "military", "line_cn": "军职", "rank": "高", "start": 618, "end": 907, "event": 1, "year": 750, "type": "虚化", "kind": "虚化/禁戒", "note": "府兵坏，名存", "grade": "B"}, {"id": "T26", "dyn": "唐", "office": "羽林军", "line": "military", "line_cn": "军职", "rank": "中", "start": 662, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "禁军之一", "grade": "B"}, {"id": "T27", "dyn": "唐", "office": "神策军", "line": "military", "line_cn": "军职", "rank": "高", "start": 754, "end": 907, "event": 1, "year": 903, "type": "禁戒", "kind": "虚化/禁戒", "note": "宦官统禁军，903 解散", "grade": "A"}, {"id": "T28", "dyn": "唐", "office": "都统", "line": "military", "line_cn": "军职", "rank": "高", "start": 756, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "战时统帅", "grade": "C"}, {"id": "T29", "dyn": "唐", "office": "招讨使", "line": "military", "line_cn": "军职", "rank": "中", "start": 755, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "战时使职", "grade": "C"}, {"id": "T30", "dyn": "唐", "office": "折冲都尉", "line": "military", "line_cn": "军职", "rank": "中", "start": 618, "end": 907, "event": 1, "year": 750, "type": "虚化", "kind": "虚化/禁戒", "note": "府兵制瓦解", "grade": "B"}, {"id": "T31", "dyn": "唐", "office": "三师三公", "line": "regular", "line_cn": "正官", "rank": "高", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "尊位，本已虚", "grade": "B"}, {"id": "T32", "dyn": "唐", "office": "御史大夫", "line": "outer", "line_cn": "外派", "rank": "高", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "监察长官", "grade": "B"}, {"id": "T33", "dyn": "唐", "office": "九寺卿", "line": "regular", "line_cn": "正官", "rank": "中", "start": 618, "end": 907, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "事务官", "grade": "B"}, {"id": "S01", "dyn": "宋", "office": "同平章事", "line": "inner", "line_cn": "内廷", "rank": "高", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "宰相正官", "grade": "B"}, {"id": "S02", "dyn": "宋", "office": "参知政事", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 963, "end": 1279, "event": 1, "year": 1000, "type": "正官化", "kind": "正官化", "note": "副相入宰执", "grade": "B"}, {"id": "S03", "dyn": "宋", "office": "枢密使", "line": "inner", "line_cn": "内廷", "rank": "高", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "二府之一", "grade": "A"}, {"id": "S04", "dyn": "宋", "office": "翰林学士", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "清贵之职", "grade": "B"}, {"id": "S05", "dyn": "宋", "office": "台谏", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 1017, "end": 1279, "event": 1, "year": 1200, "type": "虚化", "kind": "虚化/禁戒", "note": "南宋权相压制", "grade": "B"}, {"id": "S06", "dyn": "宋", "office": "知制诰", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "掌诏诰", "grade": "B"}, {"id": "S07", "dyn": "宋", "office": "入内内侍省", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "宦官受限", "grade": "B"}, {"id": "S08", "dyn": "宋", "office": "走马承受", "line": "inner", "line_cn": "内廷", "rank": "低", "start": 1000, "end": 1279, "event": 1, "year": 1127, "type": "禁戒", "kind": "虚化/禁戒", "note": "南宋废", "grade": "C"}, {"id": "S09", "dyn": "宋", "office": "转运使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "一路监司", "grade": "A"}, {"id": "S10", "dyn": "宋", "office": "提点刑狱", "line": "outer", "line_cn": "外派", "rank": "中", "start": 991, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "监司", "grade": "A"}, {"id": "S11", "dyn": "宋", "office": "提举常平", "line": "outer", "line_cn": "外派", "rank": "中", "start": 1072, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "监司", "grade": "B"}, {"id": "S12", "dyn": "宋", "office": "安抚使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 1000, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "路级军政", "grade": "B"}, {"id": "S13", "dyn": "宋", "office": "制置使", "line": "outer", "line_cn": "外派", "rank": "高", "start": 1130, "end": 1279, "event": 1, "year": 1207, "type": "割据", "kind": "割据", "note": "吴曦之叛", "grade": "C"}, {"id": "S14", "dyn": "宋", "office": "知州", "line": "outer", "line_cn": "外派", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "差遣", "grade": "A"}, {"id": "S15", "dyn": "宋", "office": "通判", "line": "outer", "line_cn": "外派", "rank": "中", "start": 963, "end": 1279, "event": 1, "year": 1200, "type": "降格", "kind": "虚化/禁戒", "note": "南宋降为副贰", "grade": "B"}, {"id": "S16", "dyn": "宋", "office": "知县", "line": "outer", "line_cn": "外派", "rank": "低", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "差遣", "grade": "B"}, {"id": "S17", "dyn": "宋", "office": "判官", "line": "outer", "line_cn": "外派", "rank": "低", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "选人阶官", "grade": "B"}, {"id": "S18", "dyn": "宋", "office": "节度使", "line": "outer", "line_cn": "外派", "rank": "高", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "虚衔", "grade": "A"}, {"id": "S19", "dyn": "宋", "office": "观察使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "虚衔", "grade": "B"}, {"id": "S20", "dyn": "宋", "office": "防御使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "虚衔", "grade": "B"}, {"id": "S21", "dyn": "宋", "office": "留守", "line": "outer", "line_cn": "外派", "rank": "高", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "陪都长官", "grade": "B"}, {"id": "S22", "dyn": "宋", "office": "宣抚使", "line": "outer", "line_cn": "外派", "rank": "高", "start": 1000, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "战时军政", "grade": "C"}, {"id": "S23", "dyn": "宋", "office": "提举市舶", "line": "outer", "line_cn": "外派", "rank": "中", "start": 971, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "财权监司", "grade": "B"}, {"id": "S24", "dyn": "宋", "office": "发运使", "line": "outer", "line_cn": "外派", "rank": "中", "start": 960, "end": 1279, "event": 1, "year": 1100, "type": "虚化", "kind": "虚化/禁戒", "note": "转般法坏", "grade": "C"}, {"id": "S25", "dyn": "宋", "office": "三司使", "line": "inner", "line_cn": "内廷", "rank": "高", "start": 960, "end": 1279, "event": 1, "year": 1080, "type": "正官化", "kind": "正官化", "note": "元丰改户部", "grade": "A"}, {"id": "S26", "dyn": "宋", "office": "审刑院", "line": "inner", "line_cn": "内廷", "rank": "中", "start": 991, "end": 1279, "event": 1, "year": 1080, "type": "禁戒", "kind": "虚化/禁戒", "note": "元丰废", "grade": "B"}, {"id": "S27", "dyn": "宋", "office": "殿前都点检", "line": "military", "line_cn": "军职", "rank": "高", "start": 960, "end": 1279, "event": 1, "year": 961, "type": "禁戒", "kind": "虚化/禁戒", "note": "陈桥后不再授", "grade": "A"}, {"id": "S28", "dyn": "宋", "office": "三衙", "line": "military", "line_cn": "军职", "rank": "高", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "分掌禁军", "grade": "A"}, {"id": "S29", "dyn": "宋", "office": "都统制", "line": "military", "line_cn": "军职", "rank": "中", "start": 1130, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "南宋军职", "grade": "B"}, {"id": "S30", "dyn": "宋", "office": "厢军都指挥使", "line": "military", "line_cn": "军职", "rank": "中", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "厢军役兵化", "grade": "B"}, {"id": "S31", "dyn": "宋", "office": "巡检", "line": "outer", "line_cn": "外派", "rank": "低", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "地方治安", "grade": "B"}, {"id": "S32", "dyn": "宋", "office": "三师三公", "line": "regular", "line_cn": "正官", "rank": "高", "start": 960, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "尊位", "grade": "B"}, {"id": "S33", "dyn": "宋", "office": "六部", "line": "regular", "line_cn": "正官", "rank": "中", "start": 1080, "end": 1279, "event": 0, "year": null, "type": "", "kind": "无变化", "note": "元丰后正官", "grade": "A"}, {"id": "S34", "dyn": "宋", "office": "九寺五监", "line": "regular", "line_cn": "正官", "rank": "中", "start": 960, "end": 1279, "event": 1, "year": 1100, "type": "虚化", "kind": "虚化/禁戒", "note": "职事归六部", "grade": "C"}], "summary": {"n": 67, "events": 24, "irr": 0.7, "irr_lo": 0.25, "irr_hi": 1.91, "logrank_p": 0.6, "sec_outer": 5, "outer_n": 31, "sec_inner": 0, "inner_n": 20, "sec_p": 0.143}, "lines": {"inner": "内廷", "outer": "外派", "military": "军职", "regular": "正官"}, "colors": {"inner": "#b3261e", "outer": "#1f4e79", "military": "#2e6b4f", "regular": "#5f6368"}};
+const rows = DATA.rows, S = DATA.summary, LINE = DATA.lines, COL = DATA.colors;
+let state = {dyn:"", kind:"", lines:new Set(Object.keys(LINE)), sortK:"office", asc:true};
+
+function filtered(){
+  return rows.filter(r => (!state.dyn || r.dyn===state.dyn) && (!state.kind || r.kind===state.kind) && state.lines.has(r.line));
+}
+function cards(){
+  const f = filtered();
+  const ev = f.filter(r=>r.event).length;
+  const sec = f.filter(r=>r.kind==="割据").length;
+  document.getElementById("cards").innerHTML = [
+    ["筛选后类型", f.length], ["其中发生变化", ev], ["其中割据", sec],
+    ["全样本 IRR（外派/内廷）", S.irr + " (" + S.irr_lo + "—" + S.irr_hi + ")"],
+    ["割据 Fisher p", S.sec_p]
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+}
+function legend(){
+  document.getElementById("legend").innerHTML =
+    `<span><i class="dot" style="background:#b3261e"></i>割据</span>
+     <span><i class="dot" style="background:#a8791f"></i>虚化/禁戒/降格</span>
+     <span><i class="dot" style="background:#c9c9c9"></i>无变化</span>
+     <span><i class="dot" style="background:#2e6b4f"></i>正官化</span>`;
+}
+function draw(){
+  const f = filtered();
+  const lines = Object.keys(LINE).filter(l=>state.lines.has(l));
+  const kinds = [["割据","#b3261e"],["虚化/禁戒","#a8791f"],["正官化","#2e6b4f"],["无变化","#c9c9c9"]];
+  const counts = {};
+  lines.forEach(l=>{counts[l]={}; kinds.forEach(([k])=>counts[l][k]=0);});
+  f.forEach(r=>{ if(counts[r.line]) counts[r.line][r.kind] = (counts[r.line][r.kind]||0)+1; });
+  const max = Math.max(1, ...lines.map(l=>kinds.reduce((a,[k])=>a+counts[l][k],0)));
+  const W=720,H=260, padL=50, padB=40, bw=Math.min(70, (W-padL-30)/Math.max(1,lines.length)-20);
+  let svg = `<line x1="${padL}" y1="${H-padB}" x2="${W-10}" y2="${H-padB}" stroke="#999"/>`;
+  for(let g=0; g<=4; g++){
+    const y=H-padB-(H-padB-20)*g/4;
+    svg += `<line x1="${padL}" y1="${y}" x2="${W-10}" y2="${y}" stroke="#eee"/>`;
+    svg += `<text x="${padL-8}" y="${y+4}" font-size="10" fill="#666" text-anchor="end">${Math.round(max*g/4)}</text>`;
+  }
+  lines.forEach((l,i)=>{
+    const x = padL + 30 + i*((W-padL-60)/Math.max(1,lines.length));
+    let y0 = H-padB;
+    kinds.forEach(([k,c])=>{
+      const v = counts[l][k]; if(!v) return;
+      const h = (H-padB-20)*v/max; y0 -= h;
+      svg += `<rect x="${x}" y="${y0}" width="${bw}" height="${h}" fill="${c}"><title>${LINE[l]} · ${k}: ${v}</title></rect>`;
+    });
+    svg += `<text x="${x+bw/2}" y="${H-padB+16}" font-size="12" fill="#333" text-anchor="middle">${LINE[l]}</text>`;
+  });
+  document.getElementById("chart").innerHTML = svg;
+}
+function table(){
+  const f = filtered().slice().sort((a,b)=>{
+    const k=state.sortK; let va=a[k], vb=b[k];
+    if(va==null) va=-1; if(vb==null) vb=-1;
+    if(typeof va==="string") return state.asc? va.localeCompare(vb,"zh"): vb.localeCompare(va,"zh");
+    return state.asc? va-vb : vb-va;
+  });
+  document.querySelector("#tbl tbody").innerHTML = f.map(r=>{
+    const c = r.kind==="割据"?"#b3261e":r.kind==="虚化/禁戒"?"#a8791f":r.kind==="正官化"?"#2e6b4f":"#999";
+    return `<tr><td>${r.office}</td><td>${r.dyn}</td><td>${r.line_cn}</td><td>${r.start}</td><td>${r.end}</td>
+      <td>${r.year??"—"}</td><td><span class="tag" style="background:${c}">${r.kind}</span></td>
+      <td>${r.note}</td><td>${r.grade}</td></tr>`;
+  }).join("");
+}
+function render(){ cards(); draw(); table(); }
+document.getElementById("dyn").onchange = e => {state.dyn=e.target.value; render();};
+document.getElementById("kind").onchange = e => {state.kind=e.target.value; render();};
+document.getElementById("lines").innerHTML = Object.keys(LINE).map(l=>
+  `<label class="pill"><input type="checkbox" checked value="${l}">${LINE[l]}</label>`).join(" ");
+document.querySelectorAll("#lines input").forEach(cb=>{
+  cb.onchange = ()=>{ cb.checked? state.lines.add(cb.value): state.lines.delete(cb.value); render(); };
+});
+document.querySelectorAll("#tbl th").forEach(th=>{
+  th.onclick = ()=>{ const k=th.dataset.k; state.asc = state.sortK===k? !state.asc : true; state.sortK=k; table(); };
+});
+legend(); render();
+</script></body></html>

@@ -1,0 +1,11 @@
+中文摘要。本文给「两个领域像不像」定价。它提出一条四级强度阶梯——严格／伴随／函子／比喻——并要求每条跨域声明给出可观测的断裂探针：在哪个观察点上，这个「像」会断。四十条声明按五个母题组编码（对偶、泛性质、不变量、结构、过程），配四问式判据与负迁移登记。结论有一个不太舒服的形状：最危险的不是明说是比喻的那一档，而是看起来像证明的那两档。
+
+主要读数。强度分布：严格 12、伴随 11、函子 12、比喻 5（四十条，严格不到三分之一）。断裂层：复合 16、等价 12、态射 8、对象 4——七成断裂不在对象层，而公共争论几乎全部停在对象层。负迁移共 15／40（38%），分档为 严格 17%、伴随 60%、函子 50%、比喻 36%：负迁移率不随强度单调下降。母题组的通货性有差异：泛性质跨域最弱（6／10 降为比喻）；而争论最激烈的那几条，恰恰落在伴随与函子两档。本版新增附录 P（第四十一条声明）：「人＝君主，agent＝臣民」——强度＝比喻、断裂层＝复合、负迁移＝Y；五条断裂探针（责任／继承／叛乱／启蒙／规模）里四条一碰就断：一个不能叛乱的臣民不是臣民，是工具。该声明不计入四十条统计，正文全部比例不变。
+
+边界。四级阶梯是判据，不是度量：它判「能不能写成复合律」，不能判「这个类比值多少」。四十条是一个封闭集，因此附录 P 的第四十一条只登记、不并入统计。本文最大的自我限制写在正文第 11 章：把本文自己的四十条声明也过一遍探针——能通过的那几条，都不是本文最想说的那几条。
+
+Abstract (English). This paper prices the claim that two fields resemble each other. It proposes a four-rung ladder — strict, adjunction, functor, metaphor — and requires every cross-domain declaration to supply an observable fracture probe: the point at which the resemblance breaks. Forty declarations are coded across five motif groups (duality, universal property, invariant, structure, process). Distribution: strict 12, adjunction 11, functor 12, metaphor 5 — strict isomorphism covers under a third. Fracture layer: composition 16, equivalence 12, morphism 8, object 4 — seventy per cent of fractures are not at the object layer, where almost all public argument sits. Negative transfer: 15 of 40 (38%), and it does not fall monotonically with strength (strict 17%, adjunction 60%, functor 50%, metaphor 36%): the dangerous rungs are the ones that look like proofs. This edition adds Appendix P, a forty-first declaration ("the person is the sovereign, the agent the subject"), coded at the metaphor rung with its fracture at the composition layer; four of its five probes cut immediately, because a subject that cannot rebel is a tool, not a subject. It is kept outside the closed set of forty, so every proportion in the main text is unchanged.
+
+Files.论文（PDF 51 页 / HTML / Markdown / README）；8 幅图；motifs.csv（40 条声明 × 14 字段）；MANIFEST.txt。
+
+系列 / Series。同一作者的独立研究系列：九本书与十四篇工作论文。系列入口与外部登记库：https://github.com/lyp0746/knowledge-tradeoffs；源码与复现脚本：https://github.com/lyp0746

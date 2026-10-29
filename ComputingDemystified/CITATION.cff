@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "术语的账单：从芯片到 Agent 的八十个计算机概念"
+abstract: >-
+  把八十条计算机术语还原成"瓶颈—置换—可写性—承担者"四问的账单，跨八层（芯片、系统、网络、
+  存储、分布式、工程、大模型、Agent）；用 C-A-T 三角、τ、容量—压缩—遗忘、区分、临界与置信度
+  六坐标读数；报告四条负面结果（不预测、跨主体只是伴随条件、简单原理不等于简单工程、涌现与
+  提示注入上还原失效）。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+license: CC-BY-4.0
+doi: 10.5281/zenodo.23602360
+concept-doi: 10.5281/zenodo.23531430
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23531430
+    description: "Concept DOI (all versions)"
+url: "https://doi.org/10.5281/zenodo.23602360"
+keywords:
+  - 计算机术语
+  - 还原论
+  - AI Agent
+  - 大模型推理
+  - 证据分级
+type: article

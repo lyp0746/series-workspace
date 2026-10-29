@@ -1,0 +1,326 @@
+{
+ "Spielvogel《西方文明史简编》第9版": {
+  "n": 5,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "McKay《西方社会史》第11版": {
+  "n": 5,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Coffin & Stacey《西方文明》第17版": {
+  "n": 5,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Kishlansky《西方文明》第7版": {
+  "n": 5,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Noble《西方文明：超越边界》第7版": {
+  "n": 6,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Perry《西方文明简史》第11版": {
+  "n": 5,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Palmer/Colton《现代世界史》第11版": {
+  "n": 5,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Roberts《企鹅世界史》第6版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Britannica《欧洲史》条目": {
+  "n": 6,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Langer《世界史百科全书》第5版": {
+  "n": 6,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Acton《剑桥近代史》": {
+  "n": 5,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "european"
+ },
+ "《剑桥中世纪史》": {
+  "n": 2,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "european"
+ },
+ "Davies《欧洲史》": {
+  "n": 6,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Hobsbawm《年代四部曲》": {
+  "n": 4,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "Spielvogel《世界史》第8版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "european"
+ },
+ "McNeill《世界史》第4版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "Bentley & Ziegler《传统与相遇》第6版": {
+  "n": 5,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "Bentley《世界史中的跨文化互动与分期》（AHR 1996）": {
+  "n": 2,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "Stavrianos《全球史》第7版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "Stearns《世界文明：全球视角》第7版": {
+  "n": 4,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "Bulliet《大地与人民》第6版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "Spodek《世界的历史》第4版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "Judge & Langdon《联系：世界史》第3版": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "AP 世界史：现代（课程框架）": {
+  "n": 4,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "AP 世界史（2011 框架）": {
+  "n": 4,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "global"
+ },
+ "《剑桥世界史》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "Pomeranz《大分流》": {
+  "n": 1,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "Bayly《现代世界的诞生 1780—1914》": {
+  "n": 1,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "Osterhammel《世界的转型》": {
+  "n": 1,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "global"
+ },
+ "周一良、吴于廑《世界通史》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "吴于廑、齐世荣《世界史》六卷本": {
+  "n": 3,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "china"
+ },
+ "刘宗绪《世界近代史》": {
+  "n": 2,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "王斯德《世界现代史》": {
+  "n": 2,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "《中外历史纲要（下）》人教版": {
+  "n": 7,
+  "g1500": 1,
+  "g1914": 2,
+  "tradition": "china"
+ },
+ "人教版《世界历史》九年级": {
+  "n": 6,
+  "g1500": 1,
+  "g1914": 2,
+  "tradition": "china"
+ },
+ "岳麓版《世界历史》九年级": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "北师大版《世界历史》九年级": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "华东师大版《世界历史》九年级": {
+  "n": 4,
+  "g1500": 1,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "《中国大百科全书·世界历史》": {
+  "n": 5,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "苏联科学院《世界通史》十卷本（中译）": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "范文澜《中国通史简编》": {
+  "n": 7,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "钱穆《国史大纲》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "白寿彝《中国通史》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "china"
+ },
+ "Wikipedia《Periodization》": {
+  "n": 2,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "other"
+ },
+ "Wikipedia《List of time periods》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 1,
+  "tradition": "other"
+ },
+ "Wikipedia《Early modern period》": {
+  "n": 2,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "other"
+ },
+ "塔巴里《历代先知与帝王史》": {
+  "n": 5,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "islamic"
+ },
+ "拉施特《史集》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "islamic"
+ },
+ "萨阿迪《苏丹史》": {
+  "n": 3,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "african"
+ },
+ "《基尔瓦编年》": {
+  "n": 3,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "african"
+ },
+ "司马迁《史记》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "east_asian_premodern"
+ },
+ "司马光《资治通鉴》": {
+  "n": 10,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "east_asian_premodern"
+ },
+ "萨阿贡《佛罗伦萨抄本》": {
+  "n": 3,
+  "g1500": 1,
+  "g1914": 0,
+  "tradition": "americas"
+ },
+ "瓜曼·波马《新编年史》": {
+  "n": 3,
+  "g1500": 0,
+  "g1914": 0,
+  "tradition": "americas"
+ }
+}

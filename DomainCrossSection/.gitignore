@@ -1,0 +1,6 @@
+release/
+_temp/
+__pycache__/
+data/__pycache__/
+analysis/__pycache__/
+*.pyc

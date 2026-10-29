@@ -1,0 +1,140 @@
+{
+  "title": "记忆的锚点：情景唤起、异构重建与日志裁决 / The Anchor of Memory: Episodic Recall, Heterogeneous Reconstruction, and Log Adjudication in Agents",
+  "description": "<p><b>中文摘要。</b>2026 年社交平台上出现了一批「自己在动」的账号：让 DeepSeek 一类模型长时自主行动——自动剪辑发布、自动评论、自动进直播间互动。它们开局几天很热闹，然后在第四到第七天之间安静下来。社区诊断是「记不住了」。本文认为方向错了：不是容量不够，而是电容花在了不该花的地方——存了全量对话，却没有一条能对账的硬记录；压成摘要，却在一次次压缩里漂移；检索按「问了什么」而不是按「我在哪」。</p><p><b>理论。</b>人类记忆不是「存全量、按索引读」，而是「存可重建的残余、多线索索引、现场重建」：情景带时间与地点，检索依赖编码时的情境（编码特异性），空间是最便宜的索引链（记忆宫殿），回忆是重建而非播放。据此提出三层架构：<b>书记员</b>（字段级硬日志，不由生成模型执笔，不参与回忆，只被对账）、<b>异构回忆者</b>（随机森林式：不同模型、不同参数、不同线索子集，各自独立重建；「没有锚点支撑的细节」就是这套系统的袋外）、<b>裁判</b>（只认锚点：有锚 A、部分 B、无锚 C，无锚且高风险则转人环）。</p><p><b>结果（12 个方案 × 6 变量编码）。</b>（1）现有 11 个记忆方案里没有一个同时具备「硬日志锚点 + 跨模型异构 + 带锚裁决」三件；硬日志锚点拥有率仅 3/12，最成熟的四个底层方案（RAG、注意力、Hopfield、长窗口）全部没有锚点——<b>最缺的不是容量，是锚定</b>。（2）投票只在独立时有效：单模型错误率 0.2、共源相关 0.7 时，11 个模型投票的错误率仍达 14%，只比单模型低 6 个百分点；因为同源时「K 个模型」在效果上接近「1 个模型」。（3）失效与容量弱相关：窗口满仅 2/12，而「检索噪声 3 + 摘要漂移 2」合计 5/12——它们不是死于存不下，是死于「不知道该信哪一条」。</p><p><b>解剖。</b>四种死亡机制（窗口满、摘要漂移、检索噪声、成本超支）；六条「症状→机制→补丁→补丁也治不了」的映射；一个反例配置（窄域＋短记忆＋强规则，不需要情景记忆，因此不该上三层架构）。对西藏口诵传经的投票类比给出明确边界：<b>经文有原典可以对照，记忆没有</b>——投票应决定「哪条重建路径更可靠」，不能决定「哪个记忆是真的」；真伪只能由日志定。另有一条纯算术：k 类线索给出 2^k−1 条检索路径（5 类 = 31 条），但路径数是上界、命中率是实际值，后者本文给不出。</p><p><b>自我限制。</b>全文无实验，最高证据等级 B；十条命题中六条支持、一条部分、两条待测、<b>一条撤回</b>（T9：该架构能把「几天就死」延长到「几周不死」）。附录 D 给出可执行的替身实验设计（4 个仿 GUI 页 × 3 种记忆条件 × 4 个指标 + 预先登记的否证条件）。</p><p><b>Abstract.</b> Memory in humans is not \"store all, read by index\" but \"store reconstructable traces, index by many cues, rebuild on the spot\": episodic traces carry time and place, retrieval depends on the encoding context, space is the cheapest index chain, and recall is reconstruction rather than playback. A three-layer architecture follows — a <b>Clerk</b> writing field-level hard logs (not by a generative model), <b>heterogeneous recallers</b> (random-forest style: different models, parameters and cue subsets), and a <b>Judge</b> that only accepts anchors (A with anchor, B partial, C none; none plus high risk escalates to a human). Twelve designs are coded on six variables: none of the eleven existing ones carries all three pieces; anchor ownership is 3/12; voting helps only when participants are independent (per-model error 0.2, shared-source correlation 0.7 → eleven models still err 14%); and failure modes are only weakly related to capacity (window-full 2/12 vs. retrieval noise and summary drift 5/12). The paper dissects the \"dead in days\" case, states a counter-example where episodic memory is unnecessary, and draws the boundary of the Tibetan oral-transmission analogy: scripture has a canonical text, memory does not. No experiments were run; one of the ten claims is retracted by the author.</p><p><b>Files.</b> 论文（PDF 50 页 / HTML / Markdown）；8 幅图；8 张表；<code>schemes.csv</code>（12 方案 × 12 字段）；交互浏览页；<code>MANIFEST.txt</code>。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "情景记忆",
+    "编码特异性",
+    "记忆宫殿",
+    "重建记忆",
+    "多线索索引",
+    "异构集成",
+    "日志锚定",
+    "置信度分配",
+    "Agent 记忆",
+    "证据分级",
+    "episodic memory",
+    "encoding specificity",
+    "method of loci",
+    "reconstructive memory",
+    "multi-cue index",
+    "ensemble",
+    "log anchoring",
+    "agent memory"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-26",
+  "version": "2026-10-26",
+  "notes": "工作论文/预印本。全文 50 页；含六核心×六专著对照表、可复算编码库（schemes.csv）、可证伪登记簿与替身实验方案。全文无实验，最高等级 B，T9 已撤回。系列共 21 件（9 本书 + 12 篇论文）；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601983",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602360",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23602364",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603015",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23603016",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23611782",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23611799",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23612202",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23664233",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23663027",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

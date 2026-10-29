@@ -1,0 +1,211 @@
+{
+  "n_events": 28,
+  "by_type": {
+    "废立": 3,
+    "挟持": 1,
+    "清洗": 4,
+    "内战": 2,
+    "割据": 2,
+    "政变": 3,
+    "禅代": 13
+  },
+  "panel": [
+    {
+      "period": "西周—春秋战国",
+      "years": 825,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "秦—西汉",
+      "years": 247,
+      "events": 1,
+      "types": {
+        "禅代": 1
+      },
+      "fusion": 1
+    },
+    {
+      "period": "东汉",
+      "years": 196,
+      "events": 4,
+      "types": {
+        "清洗": 1,
+        "废立": 1,
+        "挟持": 1,
+        "禅代": 1
+      },
+      "fusion": 1
+    },
+    {
+      "period": "三国",
+      "years": 61,
+      "events": 3,
+      "types": {
+        "禅代": 1,
+        "废立": 1,
+        "政变": 1
+      },
+      "fusion": 0
+    },
+    {
+      "period": "两晋",
+      "years": 156,
+      "events": 3,
+      "types": {
+        "内战": 1,
+        "废立": 1,
+        "禅代": 1
+      },
+      "fusion": 1
+    },
+    {
+      "period": "十六国",
+      "years": 136,
+      "events": 0,
+      "types": {},
+      "fusion": 1
+    },
+    {
+      "period": "南朝",
+      "years": 170,
+      "events": 7,
+      "types": {
+        "禅代": 6,
+        "清洗": 1
+      },
+      "fusion": 1
+    },
+    {
+      "period": "北朝",
+      "years": 196,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "隋",
+      "years": 38,
+      "events": 1,
+      "types": {
+        "禅代": 1
+      },
+      "fusion": 0
+    },
+    {
+      "period": "唐前期",
+      "years": 138,
+      "events": 1,
+      "types": {
+        "割据": 1
+      },
+      "fusion": 0
+    },
+    {
+      "period": "中晚唐",
+      "years": 153,
+      "events": 4,
+      "types": {
+        "清洗": 2,
+        "禅代": 1,
+        "割据": 1
+      },
+      "fusion": 1
+    },
+    {
+      "period": "五代十国",
+      "years": 54,
+      "events": 1,
+      "types": {
+        "禅代": 1
+      },
+      "fusion": 1
+    },
+    {
+      "period": "辽",
+      "years": 210,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "宋",
+      "years": 320,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "西夏",
+      "years": 190,
+      "events": 0,
+      "types": {},
+      "fusion": 1
+    },
+    {
+      "period": "金",
+      "years": 120,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "元",
+      "years": 98,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "明",
+      "years": 277,
+      "events": 2,
+      "types": {
+        "内战": 1,
+        "政变": 1
+      },
+      "fusion": 0
+    },
+    {
+      "period": "清前期",
+      "years": 197,
+      "events": 0,
+      "types": {},
+      "fusion": 0
+    },
+    {
+      "period": "晚清",
+      "years": 72,
+      "events": 1,
+      "types": {
+        "政变": 1
+      },
+      "fusion": 1
+    }
+  ],
+  "fusion": {
+    "events": 21,
+    "years": 1374,
+    "rate_per_100y": 1.5283842794759825
+  },
+  "nonfusion": {
+    "events": 7,
+    "years": 2480,
+    "rate_per_100y": 0.282258064516129
+  },
+  "irr": 5.414847161572053,
+  "fisher": {
+    "table": [
+      [
+        7,
+        2
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "p": 0.09228387711359848
+  }
+}

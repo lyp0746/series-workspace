@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "记忆的锚点：情景唤起、异构重建与日志裁决"
+abstract: >-
+  「人在几天内就死了」的社交 Agent，死因不是容量，是「不知道该信哪一条」。本文把「宫殿式记忆」拆成三层：
+  书记员（字段级硬日志，不由生成模型执笔）、异构回忆者（随机森林式：不同模型与线索子集）、裁判（只认锚点）。
+  审计 12 个方案：现有 11 个无一同时具备「硬日志锚点 + 跨模型异构 + 带锚裁决」，锚点拥有率仅 3/12；
+  投票只在独立时有效（共源相关 0.7 时 11 个模型仍错 14%）；失效与容量弱相关（窗口满 2/12 vs 检索噪声＋摘要漂移 5/12）。
+  全文无实验，最高等级 B，十条命题中一条撤回。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+doi: 10.5281/zenodo.23665882
+concept-doi: 10.5281/zenodo.23665881
+url: "https://doi.org/10.5281/zenodo.23665882"
+license: CC-BY-4.0
+type: article

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四十条同构声明 · 编码库</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--gray:#5f6368;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif}
+header{padding:24px 5vw 14px;border-bottom:2px solid var(--red);background:#fff}
+h1{margin:0 0 6px;font-size:23px}
+.sub{color:#555;font-size:13px;line-height:1.7}
+.wrap{padding:16px 5vw 52px;max-width:1180px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.card{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px}
+.card .k{font-size:12px;color:#666}.card .v{font-size:21px;font-weight:700;margin-top:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;
+     border:1px solid #e3e0d8;border-radius:6px;padding:11px;margin:6px 0 14px;font-size:13px}
+select,input[type=search]{padding:5px 8px;border:1px solid #ccc;border-radius:4px;
+     background:#fff;font-size:13px;font-family:inherit}
+input[type=search]{min-width:180px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid #e8e5dd;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:#fbf8f1}
+tbody tr.sel td{background:#f6efe0}
+.tag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;color:#fff;background:var(--gray)}
+.detail{background:#fff;border:1px solid #e3e0d8;border-radius:8px;padding:16px;
+        position:sticky;top:12px;min-height:220px}
+.detail h2{margin:0 0 10px;font-size:18px}
+.detail .row{margin:9px 0}
+.detail .k{font-size:11px;color:#999;letter-spacing:.06em}
+.detail .v{font-size:13.5px;line-height:1.7;margin-top:2px}
+.note{font-size:12px;color:#666;line-height:1.8;margin-top:14px}
+.hint{font-size:12px;color:#888}
+.empty{padding:40px;text-align:center;color:#999}
+</style></head><body>
+<header><h1>四十条同构声明 · 编码库</h1><div class="sub">从 motifs.csv 生成；左表筛选，点行看详情。强度判据见正文 3.2，断裂层见 3.3。</div></header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar" id="bar"></div>
+  <div class="grid">
+    <div style="overflow:auto;max-height:72vh;border:1px solid #e3e0d8;border-radius:6px">
+      <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+    </div>
+    <div class="detail" id="detail"><div class="hint">点左侧任意一行。</div></div>
+  </div>
+  <div class="note">数据：data/motifs.py（唯一数据源，40 条声明 × 17 字段）；编码：强度四级与断裂层四分（正文 2.3、3.3）；边界：强度是判断不是测量，本文无第二编码者，见 3.4。</div>
+</div>
+<script>
+const DATA = {"rows": [{"id": "M01", "group": "对偶", "name": "供需与价格", "domain": "经济", "src": "数学（伴随）", "obj": "数量（供给量/需求量）", "mor": "价格映射", "comp": "成立", "strength": "伴随", "keeps": "双向调节：价升则供增需减", "loses": "权力与管制（价格不是给定的，是可被设定的）", "layer": "复合", "probe": "价格上限一旦生效，供给量与需求量不再由同一函子给出，伴随关系断开", "trans": "Y", "grade": "B", "core": "见", "refs": "[1][2]"}, {"id": "M02", "group": "对偶", "name": "语法与语义", "domain": "语言学/计算机", "src": "数学（自由—遗忘伴随）", "obj": "句法范畴", "mor": "解释函子", "comp": "成立", "strength": "伴随", "keeps": "组合性：部分的意义由组合规则给出", "loses": "语境与语用（同一句在不同场合指不同事）", "layer": "复合", "probe": "隐喻与歧义处，解释函子不保持复合：合成规则给出多个值", "trans": "N", "grade": "B", "core": "讲", "refs": "[3][4]"}, {"id": "M03", "group": "对偶", "name": "加密与解密", "domain": "信息", "src": "数学（逆态射）", "obj": "字符串", "mor": "加密/解密", "comp": "成立", "strength": "严格", "keeps": "可逆性：复合回到恒等", "loses": "密钥分发的成本（可逆不等于可安全地逆）", "layer": "等价", "probe": "单向函数处不可逆：结构从同构降为单向", "trans": "N", "grade": "A", "core": "记", "refs": "[5]"}, {"id": "M04", "group": "对偶", "name": "权利与义务", "domain": "法律", "src": "数学（相关项）", "obj": "法律主体", "mor": "主张/履行", "comp": "成立", "strength": "伴随", "keeps": "相关性：一方的权利即另一方的义务", "loses": "强制力与程序（相关不等于可执行）", "layer": "复合", "probe": "无救济权时相关项断裂：义务在，执行的路不在", "trans": "Y", "grade": "B", "core": "选", "refs": "[6]"}, {"id": "M05", "group": "对偶", "name": "位置与动量", "domain": "物理", "src": "数学（酉变换）", "obj": "态矢量", "mor": "傅里叶变换", "comp": "成立", "strength": "严格", "keeps": "信息总量守恒（酉性）", "loses": "同时定域（不确定性）", "layer": "等价", "probe": "非酉变换（耗散、开系统）中变换不再保内积，等价标准失效", "trans": "N", "grade": "A", "core": "见", "refs": "[7]"}, {"id": "M06", "group": "对偶", "name": "投入产出表", "domain": "经济", "src": "矩阵代数（转置对偶）", "obj": "产业部门", "mor": "投入系数", "comp": "部分", "strength": "函子", "keeps": "部门间的流量结构", "loses": "技术替代与价格弹性（系数被当作常数）", "layer": "态射", "probe": "技术系数变动时线性假设破：系数矩阵不再是稳定态射", "trans": "Y", "grade": "B", "core": "跟", "refs": "[8]"}, {"id": "M07", "group": "对偶", "name": "能指与所指", "domain": "语言学", "src": "关系对（非函子）", "obj": "符号", "mor": "意指关系", "comp": "不成立", "strength": "比喻", "keeps": "任意性：声音与概念无自然联系", "loses": "指称与多义（同一能指多所指）", "layer": "对象", "probe": "同音异义处一对多：对象不是单点，函子无法定义", "trans": "N", "grade": "C", "core": "讲", "refs": "[9]"}, {"id": "M08", "group": "对偶", "name": "旋律与和声", "domain": "音乐", "src": "变换群（申克式还原）", "obj": "音高事件", "mor": "和声进行", "comp": "部分", "strength": "函子", "keeps": "结构层级：表层音可还原为深层骨架", "loses": "音色与演奏（结构不记录声音）", "layer": "复合", "probe": "无调性音乐中功能进行不成立：还原箭头没有终点", "trans": "Y", "grade": "B", "core": "见", "refs": "[10][11]"}, {"id": "M09", "group": "对偶", "name": "计划与执行", "domain": "军事/管理", "src": "控制论（闭环伴随）", "obj": "任务状态", "mor": "指令/反馈", "comp": "部分", "strength": "伴随", "keeps": "反馈闭环：指令必有回报", "loses": "时延预算（闭环不是瞬时的）", "layer": "复合", "probe": "通信中断或时延超过节拍时闭环断开", "trans": "N", "grade": "C", "core": "跟", "refs": "[12]"}, {"id": "M10", "group": "对偶", "name": "捕食者与猎物", "domain": "生态", "src": "微分方程（对偶系统）", "obj": "种群", "mor": "捕食率/繁殖率", "comp": "成立", "strength": "严格", "keeps": "相位关系：两族群在模型内互为驱动", "loses": "空间结构与随机性（模型内无个体、无空间）", "layer": "等价", "probe": "加入空间或随机后振荡衰减/消失，等价类改变", "trans": "N", "grade": "B", "core": "临", "refs": "[13][14]"}, {"id": "M11", "group": "泛性质", "name": "自由群与自由模", "domain": "数学", "src": "数学（左伴随）", "obj": "生成元", "mor": "群同态", "comp": "成立", "strength": "严格", "keeps": "唯一性：给定生成元，映射唯一确定", "loses": "关系与商（自由对象不许有等式约束）", "layer": "等价", "probe": "加一条关系后自由性消失：唯一性映射变成至多唯一", "trans": "N", "grade": "A", "core": "见", "refs": "[15][16]"}, {"id": "M12", "group": "泛性质", "name": "合同自由", "domain": "法律", "src": "数学（自由对象）", "obj": "当事人", "mor": "条款约定", "comp": "部分", "strength": "比喻", "keeps": "约定空间：法律只给边界，内容由当事人填", "loses": "唯一性映射（没有「唯一」的合同）", "layer": "复合", "probe": "强制条款处自由对象消失：约定不能越过底线", "trans": "Y", "grade": "C", "core": "选", "refs": "[17]"}, {"id": "M13", "group": "泛性质", "name": "接口与抽象类", "domain": "计算机", "src": "类型论（自由构造）", "obj": "类型", "mor": "方法调用", "comp": "成立", "strength": "严格", "keeps": "组合唯一性：实现不改变调用语义", "loses": "性能与实现细节（抽象不记录代价）", "layer": "等价", "probe": "动态派发/反射破坏静态唯一性，等价标准从类型相等降为行为相似", "trans": "N", "grade": "A", "core": "选", "refs": "[18][19]"}, {"id": "M14", "group": "泛性质", "name": "框架结构", "domain": "建筑", "src": "数学（自由对象）", "obj": "空间", "mor": "承重/分隔", "comp": "部分", "strength": "比喻", "keeps": "承重与填充分离", "loses": "唯一性（多种骨架同样可行）", "layer": "态射", "probe": "抗震与改造需求下骨架不再自由：填充被承重反向约束", "trans": "Y", "grade": "C", "core": "见", "refs": "[20]"}, {"id": "M15", "group": "泛性质", "name": "通识教育", "domain": "教育", "src": "数学（自由对象）", "obj": "知识领域", "mor": "课程模块", "comp": "部分", "strength": "比喻", "keeps": "基础与方向分离", "loses": "唯一性（不存在唯一最优课程表）", "layer": "态射", "probe": "学分与先修约束把「自由」变成受限拼接", "trans": "N", "grade": "C", "core": "记", "refs": "[21]"}, {"id": "M16", "group": "泛性质", "name": "干细胞", "domain": "生物", "src": "数学（自由对象）", "obj": "细胞状态", "mor": "分化", "comp": "部分", "strength": "函子", "keeps": "多能性：可达多种终态", "loses": "表观遗传约束（可达不等于等价可达）", "layer": "复合", "probe": "去分化受限：分化不是可逆态射，复合不回到单位", "trans": "N", "grade": "B", "core": "临", "refs": "[22]"}, {"id": "M17", "group": "泛性质", "name": "深层结构", "domain": "语言学", "src": "数学（自由生成）", "obj": "深层句法", "mor": "转换规则", "comp": "部分", "strength": "比喻", "keeps": "生成：表层由深层导出", "loses": "表层语用（生成不解释使用）", "layer": "复合", "probe": "移位限制使转换不能生成全部表层：复合不封闭", "trans": "N", "grade": "C", "core": "讲", "refs": "[23]"}, {"id": "M18", "group": "泛性质", "name": "十二音体系", "domain": "音乐", "src": "群论（变换群）", "obj": "音高集合", "mor": "原型/倒影/逆行", "comp": "成立", "strength": "严格", "keeps": "等价类：四种变换下序列同构", "loses": "听觉可辨识（等价类在耳朵里不等价）", "layer": "等价", "probe": "逆行与倒影在听觉上不成对：数学等价标准与听觉等价标准不同", "trans": "N", "grade": "B", "core": "见", "refs": "[24]"}, {"id": "M19", "group": "泛性质", "name": "基础设施", "domain": "城市", "src": "数学（自由对象）", "obj": "地块", "mor": "道路/水电/网络", "comp": "部分", "strength": "比喻", "keeps": "连接与容量作为公共前提", "loses": "唯一性（多中心并存，无唯一扩张）", "layer": "态射", "probe": "多中心并存时「自由对象」不唯一，扩张不再是唯一的", "trans": "Y", "grade": "C", "core": "跟", "refs": "[25][26]"}, {"id": "M20", "group": "泛性质", "name": "沙盒游戏", "domain": "游戏设计", "src": "数学（自由对象）", "obj": "游戏世界", "mor": "玩家操作", "comp": "部分", "strength": "比喻", "keeps": "规则+资源作为创造前提", "loses": "唯一性（不存在唯一创造）", "layer": "态射", "probe": "物理引擎与资源上限使创造受限，操作不自由", "trans": "N", "grade": "C", "core": "记", "refs": "[27]"}, {"id": "M21", "group": "不变量", "name": "守恒量与对称性", "domain": "物理", "src": "数学（诺特定理）", "obj": "系统状态", "mor": "时间演化", "comp": "成立", "strength": "严格", "keeps": "连续对称↔守恒量", "loses": "离散对称与边界项（只给近似守恒）", "layer": "复合", "probe": "无连续对称的系统不被覆盖：不变量不存在，不是被破坏", "trans": "N", "grade": "A", "core": "见", "refs": "[28]"}, {"id": "M22", "group": "不变量", "name": "类型系统", "domain": "计算机", "src": "数学（进展与保存）", "obj": "程序状态", "mor": "求值一步", "comp": "成立", "strength": "严格", "keeps": "运行时安全：类型在执行中不变", "loses": "表达力与性能（安全要以受限为代价）", "layer": "等价", "probe": "反射与 unsafe 处不变量被让渡，等价标准改为「不崩」", "trans": "N", "grade": "A", "core": "记", "refs": "[29][30]"}, {"id": "M23", "group": "不变量", "name": "保守序列", "domain": "生物", "src": "统计（频率不变）", "obj": "序列位点", "mor": "突变+选择", "comp": "部分", "strength": "函子", "keeps": "功能位点在进化中保持", "loses": "结构与调控（保守不等于功能已知）", "layer": "复合", "probe": "中性位点的「保守」是抽样效应：观察窗口一变，结论翻转", "trans": "N", "grade": "B", "core": "记", "refs": "[31]"}, {"id": "M24", "group": "不变量", "name": "宪法原则", "domain": "法律", "src": "层级（高阶不变）", "obj": "规范", "mor": "立法/修宪", "comp": "部分", "strength": "函子", "keeps": "层级稳定性：下位法可变，上位原则不变", "loses": "解释变迁（原则的文字不变，含义在变）", "layer": "复合", "probe": "紧急状态与修宪使不变量本身改变：高阶也在动", "trans": "N", "grade": "B", "core": "讲", "refs": "[32]"}, {"id": "M25", "group": "不变量", "name": "国民经济核算恒等式", "domain": "经济", "src": "定义式（三面等价）", "obj": "交易", "mor": "记账", "comp": "成立", "strength": "严格", "keeps": "生产=收入=支出，定义上恒等", "loses": "分配与福利（恒等式不含分配）", "layer": "等价", "probe": "非市场活动与影子经济不被计入：恒等式的边界就是统计口径的边界", "trans": "N", "grade": "A", "core": "见", "refs": "[33]"}, {"id": "M26", "group": "不变量", "name": "社会结构", "domain": "社会学", "src": "关系结构（位置不变）", "obj": "行动者位置", "mor": "行动", "comp": "部分", "strength": "比喻", "keeps": "位置关系在个体更替中保持", "loses": "个体能动（结构不解释选择）", "layer": "对象", "probe": "结构变迁时位置关系重排：不变量换成了另一个东西", "trans": "N", "grade": "C", "core": "临", "refs": "[34]"}, {"id": "M27", "group": "不变量", "name": "语言共性", "domain": "语言学", "src": "统计倾向（非严格）", "obj": "语言", "mor": "语法规则", "comp": "部分", "strength": "比喻", "keeps": "跨语言约束（蕴含共性）", "loses": "例外语言（一个反例就否定「普遍」）", "layer": "对象", "probe": "反例语言处对象不成立：共性被降为倾向", "trans": "N", "grade": "C", "core": "见", "refs": "[35][36]"}, {"id": "M28", "group": "不变量", "name": "艺术风格", "domain": "艺术史", "src": "特征共现（非函子）", "obj": "作品", "mor": "风格特征", "comp": "部分", "strength": "比喻", "keeps": "特征共现在同一作者内保持", "loses": "单件意图（风格不解释这一件）", "layer": "复合", "probe": "伪作与跨期作品破坏共现：风格不变量被证伪", "trans": "N", "grade": "C", "core": "讲", "refs": "[37]"}, {"id": "M29", "group": "不变量", "name": "奏鸣曲式主题", "domain": "音乐", "src": "变形关系（骨架不变）", "obj": "主题", "mor": "变形", "comp": "部分", "strength": "函子", "keeps": "变形下的骨架保持", "loses": "听觉记忆（骨架在听感上可能消失）", "layer": "复合", "probe": "变形到不可辨时「不变量」在听感上消失", "trans": "N", "grade": "B", "core": "记", "refs": "[38]"}, {"id": "M30", "group": "不变量", "name": "安全系数", "domain": "工程", "src": "规范余量", "obj": "结构", "mor": "载荷", "comp": "部分", "strength": "函子", "keeps": "余量：设计载荷乘一个系数", "loses": "失效模式相关性（余量不独立）", "layer": "态射", "probe": "共同因失效（同一批材料、同一场地震）使余量不独立", "trans": "Y", "grade": "B", "core": "临", "refs": "[39]"}, {"id": "M31", "group": "结构", "name": "局部与整体", "domain": "数学/社会", "src": "局部化函子", "obj": "局部片", "mor": "拼接", "comp": "部分", "strength": "函子", "keeps": "局部线性→整体积分", "loses": "全局拓扑（绕数、单值性）", "layer": "复合", "probe": "非单连通流形上局部数据不能拼出整体：粘合条件不满足", "trans": "N", "grade": "B", "core": "见", "refs": "[40]"}, {"id": "M32", "group": "结构", "name": "离散与连续", "domain": "计算/音乐/物理", "src": "采样函子", "obj": "样本序列", "mor": "采样/重建", "comp": "成立", "strength": "严格", "keeps": "带宽内可重建", "loses": "混叠外的信息（欠采样即丢）", "layer": "等价", "probe": "欠采样时重建不唯一：等价类扩大", "trans": "Y", "grade": "A", "core": "跟", "refs": "[41][42]"}, {"id": "M33", "group": "结构", "name": "层次与涌现", "domain": "复杂系统", "src": "尺度分离（非函子）", "obj": "层次", "mor": "跨层作用", "comp": "部分", "strength": "比喻", "keeps": "尺度分离时，上层可用自己的变量描述", "loses": "下向因果（上层约束下层）", "layer": "对象", "probe": "强耦合时尺度不可分：「层」这个对象本身不成立", "trans": "Y", "grade": "C", "core": "临", "refs": "[43][44]"}, {"id": "M34", "group": "结构", "name": "对称与破缺", "domain": "物理/生物/艺术", "src": "群作用", "obj": "构型", "mor": "变换", "comp": "成立", "strength": "函子", "keeps": "轨道结构：对称群把构型分成类", "loses": "具体实现（群作用不决定哪一支实现）", "layer": "等价", "probe": "无对称性的系统不适用：等价类退化为单点", "trans": "N", "grade": "B", "core": "见", "refs": "[45]"}, {"id": "M35", "group": "结构", "name": "编码与解码", "domain": "生物/计算/通信", "src": "编码规则内可逆", "obj": "符号串", "mor": "编/解", "comp": "成立", "strength": "严格", "keeps": "保真度：码字可无损还原", "loses": "语义（编码不携带意义）", "layer": "等价", "probe": "基因型→表型不是解码：没有解码器，等价标准丢失", "trans": "Y", "grade": "A", "core": "讲", "refs": "[46][47]"}, {"id": "M36", "group": "过程", "name": "随机与确定", "domain": "统计/金融/机器学习", "src": "极限定理", "obj": "样本", "mor": "平均", "comp": "部分", "strength": "函子", "keeps": "宏观确定性：大数极限下涨落消失", "loses": "有限样本与厚尾（涨落不消失）", "layer": "态射", "probe": "小样本与厚尾时极限定理不给保证", "trans": "Y", "grade": "B", "core": "跟", "refs": "[48]"}, {"id": "M37", "group": "过程", "name": "优化与约束", "domain": "运筹/经济/进化", "src": "约束最大化", "obj": "可行解", "mor": "搜索", "comp": "部分", "strength": "函子", "keeps": "可行域+目标+停止", "loses": "目标由谁定（前提本身可被违反）", "layer": "复合", "probe": "目标函数由政治决定时前提缺失，循环不成立（见《优化的边界》）", "trans": "Y", "grade": "B", "core": "选", "refs": "[49][50]"}, {"id": "M38", "group": "过程", "name": "反馈与控制", "domain": "控制论/生物/经济", "src": "负反馈（线性）", "obj": "状态偏差", "mor": "校正", "comp": "成立", "strength": "严格", "keeps": "稳态：偏差被按比例修正", "loses": "时滞与非线性（时滞过大会振荡）", "layer": "等价", "probe": "时滞过大时负反馈变正反馈：等价类从收敛变发散", "trans": "N", "grade": "A", "core": "临", "refs": "[51][52]"}, {"id": "M39", "group": "过程", "name": "选择与适应", "domain": "进化/机器学习/免疫", "src": "变异—选择", "obj": "变异体", "mor": "选择", "comp": "部分", "strength": "伴随", "keeps": "选择压与适应度的对应", "loses": "无目标（进化没有目标函数）", "layer": "复合", "probe": "中性演化与漂变使「选择」不解释固定：复合中少了随机项", "trans": "Y", "grade": "B", "core": "选", "refs": "[53][54]"}, {"id": "M40", "group": "过程", "name": "记忆与遗忘", "domain": "神经/计算/组织", "src": "容量—压缩—检索", "obj": "痕迹", "mor": "写入/检索", "comp": "部分", "strength": "函子", "keeps": "容量限制下的压缩与检索", "loses": "重建性（记忆不是只读，检索会改写）", "layer": "态射", "probe": "误记忆与缓存一致性：写回改变原痕迹，检索不是读", "trans": "Y", "grade": "B", "core": "记", "refs": "[55][56]"}], "cols": {"filters": ["group", "strength", "layer", "trans", "grade"], "search": ["name", "domain", "src", "obj", "mor", "probe", "keeps", "loses"], "table": ["id", "name", "group", "strength", "layer", "trans"], "detail": ["domain", "src", "obj", "mor", "comp", "keeps", "loses", "probe", "grade", "core", "refs"]}, "conf": {"slug": "motifs"}};
+const ROWS = DATA.rows, COLS = DATA.cols, CONF = DATA.conf;
+const state = {q: "", sel: null, f: {}};
+COLS.filters.forEach(k => state.f[k] = "");
+
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function init(){
+  document.getElementById("thead").innerHTML = "<tr>" + COLS.table.map(c=>`<th>${esc(c)}</th>`).join("") + "</tr>";
+  const bar = document.getElementById("bar");
+  COLS.filters.forEach(k=>{
+    const vals = [...new Set(ROWS.map(r=>r[k]).filter(v=>v!=null && v!==""))].sort();
+    const sel = document.createElement("select");
+    sel.innerHTML = `<option value="">${esc(k)}：全部</option>` + vals.map(v=>`<option>${esc(v)}</option>`).join("");
+    sel.onchange = e => { state.f[k] = e.target.value; render(); };
+    bar.appendChild(sel);
+  });
+  const q = document.createElement("input");
+  q.type = "search"; q.placeholder = "搜索：" + COLS.search.join(" / ");
+  q.oninput = e => { state.q = e.target.value.toLowerCase(); render(); };
+  bar.appendChild(q);
+}
+
+function filtered(){
+  const q = state.q;
+  return ROWS.filter(r =>
+    COLS.filters.every(k => !state.f[k] || r[k] === state.f[k]) &&
+    (!q || COLS.search.some(k => String(r[k]||"").toLowerCase().includes(q))));
+}
+
+function render(){
+  const f = filtered();
+  document.getElementById("cards").innerHTML = [
+    ["当前条数", f.length],
+    ["总计", ROWS.length]
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  const tb = document.getElementById("tbody");
+  if (!f.length){ tb.innerHTML = `<tr><td colspan="${COLS.table.length}"><div class="empty">没有符合条件的记录。</div></td></tr>`; return; }
+  tb.innerHTML = f.map((r,i)=>`<tr data-i="${ROWS.indexOf(r)}" class="${ROWS.indexOf(r)===state.sel?"sel":""}">` +
+    COLS.table.map(c=>`<td>${esc(r[c])}</td>`).join("") + "</tr>").join("");
+  [...tb.querySelectorAll("tr")].forEach(tr=>tr.onclick=()=>show(+tr.dataset.i));
+}
+
+function show(i){
+  state.sel = i; const r = ROWS[i];
+  document.getElementById("detail").innerHTML =
+    `<h2>${esc(r[COLS.table[0]])}</h2>` +
+    COLS.detail.map(k=>`<div class="row"><div class="k">${esc(k)}</div><div class="v">${esc(r[k])}</div></div>`).join("");
+  render();
+}
+
+init(); render();
+</script></body></html>

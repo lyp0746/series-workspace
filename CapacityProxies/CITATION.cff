@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "容量的三个代理：分期槽位、编码槽位与标签槽位"
+abstract: >-
+  《遗忘的边界》的容量—压缩—遗忘有一个始终没补上的缺口：容量从未被测量。本文给容量找三个可数的代理——分期槽位、编码槽位、标签槽位，用三篇既有论文的原始数据检验「容量越大，忘得越少」。结果三种：分期槽位支持（分箱 0.50→0.14，r=−0.245）；编码槽位相反但不可判（r=−0.682，与撤县年数 r=−0.835 混淆）；标签槽位反向（r=+0.932，证伪「名额紧张导致质量稀释」）。冷结论：容量不是单向保护。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-10-30
+version: "2026-10-30"
+doi: 10.5281/zenodo.23611799
+concept-doi: 10.5281/zenodo.23611798
+url: "https://doi.org/10.5281/zenodo.23611799"
+license: CC-BY-4.0
+type: article

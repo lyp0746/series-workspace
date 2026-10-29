@@ -1,0 +1,647 @@
+[
+ {
+  "key": "dsh|day|2026-08-06",
+  "query": "topic:dsh-plugin created:2026-08-06",
+  "per_page": 1,
+  "total_count": 19,
+  "fetched_at": "2026-10-23T18:43:46"
+ },
+ {
+  "key": "dsh|day|2026-08-07",
+  "query": "topic:dsh-plugin created:2026-08-07",
+  "per_page": 1,
+  "total_count": 18,
+  "fetched_at": "2026-10-23T18:43:54"
+ },
+ {
+  "key": "dsh|day|2026-08-08",
+  "query": "topic:dsh-plugin created:2026-08-08",
+  "per_page": 1,
+  "total_count": 23,
+  "fetched_at": "2026-10-23T18:44:02"
+ },
+ {
+  "key": "dsh|day|2026-08-09",
+  "query": "topic:dsh-plugin created:2026-08-09",
+  "per_page": 1,
+  "total_count": 14,
+  "fetched_at": "2026-10-23T18:44:11"
+ },
+ {
+  "key": "dsh|day|2026-08-10",
+  "query": "topic:dsh-plugin created:2026-08-10",
+  "per_page": 1,
+  "total_count": 31,
+  "fetched_at": "2026-10-23T18:44:19"
+ },
+ {
+  "key": "dsh|day|2026-08-11",
+  "query": "topic:dsh-plugin created:2026-08-11",
+  "per_page": 1,
+  "total_count": 24,
+  "fetched_at": "2026-10-23T18:44:28"
+ },
+ {
+  "key": "dsh|day|2026-08-12",
+  "query": "topic:dsh-plugin created:2026-08-12",
+  "per_page": 1,
+  "total_count": 38,
+  "fetched_at": "2026-10-23T18:44:41"
+ },
+ {
+  "key": "dsh|day|2026-08-13",
+  "query": "topic:dsh-plugin created:2026-08-13",
+  "per_page": 1,
+  "total_count": 615,
+  "fetched_at": "2026-10-23T18:44:49"
+ },
+ {
+  "key": "dsh|day|2026-08-14",
+  "query": "topic:dsh-plugin created:2026-08-14",
+  "per_page": 1,
+  "total_count": 1841,
+  "fetched_at": "2026-10-23T18:45:59"
+ },
+ {
+  "key": "dsh|day|2026-08-15",
+  "query": "topic:dsh-plugin created:2026-08-15",
+  "per_page": 1,
+  "total_count": 1527,
+  "fetched_at": "2026-10-23T18:46:08"
+ },
+ {
+  "key": "dsh|day|2026-08-16",
+  "query": "topic:dsh-plugin created:2026-08-16",
+  "per_page": 1,
+  "total_count": 1470,
+  "fetched_at": "2026-10-23T18:46:16"
+ },
+ {
+  "key": "dsh|day|2026-08-17",
+  "query": "topic:dsh-plugin created:2026-08-17",
+  "per_page": 1,
+  "total_count": 928,
+  "fetched_at": "2026-10-23T18:46:24"
+ },
+ {
+  "key": "dsh|day|2026-08-18",
+  "query": "topic:dsh-plugin created:2026-08-18",
+  "per_page": 1,
+  "total_count": 656,
+  "fetched_at": "2026-10-23T18:46:32"
+ },
+ {
+  "key": "dsh|day|2026-08-19",
+  "query": "topic:dsh-plugin created:2026-08-19",
+  "per_page": 1,
+  "total_count": 733,
+  "fetched_at": "2026-10-23T18:46:40"
+ },
+ {
+  "key": "dsh|day|2026-08-20",
+  "query": "topic:dsh-plugin created:2026-08-20",
+  "per_page": 1,
+  "total_count": 1293,
+  "fetched_at": "2026-10-23T18:46:49"
+ },
+ {
+  "key": "dsh|day|2026-08-21",
+  "query": "topic:dsh-plugin created:2026-08-21",
+  "per_page": 1,
+  "total_count": 583,
+  "fetched_at": "2026-10-23T18:46:57"
+ },
+ {
+  "key": "dsh|day|2026-08-22",
+  "query": "topic:dsh-plugin created:2026-08-22",
+  "per_page": 1,
+  "total_count": 312,
+  "fetched_at": "2026-10-23T18:48:07"
+ },
+ {
+  "key": "dsh|day|2026-08-23",
+  "query": "topic:dsh-plugin created:2026-08-23",
+  "per_page": 1,
+  "total_count": 306,
+  "fetched_at": "2026-10-23T18:48:15"
+ },
+ {
+  "key": "dsh|day|2026-08-24",
+  "query": "topic:dsh-plugin created:2026-08-24",
+  "per_page": 1,
+  "total_count": 282,
+  "fetched_at": "2026-10-23T18:48:23"
+ },
+ {
+  "key": "dsh|p1|all",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19",
+  "per_page": 1,
+  "total_count": 7770,
+  "fetched_at": "2026-10-23T18:39:48"
+ },
+ {
+  "key": "dsh|p1|star10",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 881,
+  "fetched_at": "2026-10-23T18:40:03"
+ },
+ {
+  "key": "dsh|p1|star100",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19 stars:>=100 fork:false",
+  "per_page": 1,
+  "total_count": 174,
+  "fetched_at": "2026-10-23T18:40:13"
+ },
+ {
+  "key": "dsh|p2|all",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31",
+  "per_page": 1,
+  "total_count": 4546,
+  "fetched_at": "2026-10-23T18:41:23"
+ },
+ {
+  "key": "dsh|p2|star10",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 170,
+  "fetched_at": "2026-10-23T18:41:32"
+ },
+ {
+  "key": "dsh|p3|all",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30",
+  "per_page": 1,
+  "total_count": 4035,
+  "fetched_at": "2026-10-23T18:41:40"
+ },
+ {
+  "key": "dsh|p3|star10",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 178,
+  "fetched_at": "2026-10-23T18:41:49"
+ },
+ {
+  "key": "dsh|p3|star100",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30 stars:>=100 fork:false",
+  "per_page": 1,
+  "total_count": 24,
+  "fetched_at": "2026-10-23T18:42:03"
+ },
+ {
+  "key": "dsh|p4|all",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-23",
+  "per_page": 1,
+  "total_count": 5002,
+  "fetched_at": "2026-10-23T18:42:18"
+ },
+ {
+  "key": "dsh|p4|star10",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-23 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 87,
+  "fetched_at": "2026-10-23T18:42:27"
+ },
+ {
+  "key": "dsh|p4|star100",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-23 stars:>=100 fork:false",
+  "per_page": 1,
+  "total_count": 15,
+  "fetched_at": "2026-10-23T18:42:36"
+ },
+ {
+  "key": "dsh|pre2026",
+  "query": "topic:dsh-plugin created:<2026-01-01",
+  "per_page": 1,
+  "total_count": 47,
+  "fetched_at": "2026-10-23T18:39:12"
+ },
+ {
+  "key": "dsh|pre|all",
+  "query": "topic:dsh-plugin created:<2026-08-13",
+  "per_page": 1,
+  "total_count": 651,
+  "fetched_at": "2026-10-23T18:39:28"
+ },
+ {
+  "key": "dsh|pre|star10",
+  "query": "topic:dsh-plugin created:<2026-08-13 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 305,
+  "fetched_at": "2026-10-23T18:39:36"
+ },
+ {
+  "key": "dsh|pre|star100",
+  "query": "topic:dsh-plugin created:<2026-08-13 stars:>=100 fork:false",
+  "total_count": 155
+ },
+ {
+  "key": "lad|dsh|p1|star1",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19 stars:>=1 fork:false",
+  "total_count": 5132
+ },
+ {
+  "key": "lad|dsh|p1|star1000",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19 stars:>=1000 fork:false",
+  "total_count": 23
+ },
+ {
+  "key": "lad|dsh|p2|star1",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31 stars:>=1 fork:false",
+  "total_count": 1830
+ },
+ {
+  "key": "lad|dsh|p2|star1000",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31 stars:>=1000 fork:false",
+  "total_count": 0
+ },
+ {
+  "key": "lad|dsh|p3|star1",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30 stars:>=1 fork:false",
+  "total_count": 1903
+ },
+ {
+  "key": "lad|dsh|p3|star1000",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30 stars:>=1000 fork:false",
+  "total_count": 3
+ },
+ {
+  "key": "lad|dsh|p4|star1",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-23 stars:>=1 fork:false",
+  "total_count": 1712
+ },
+ {
+  "key": "lad|dsh|p4|star1000",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-23 stars:>=1000 fork:false",
+  "total_count": 4
+ },
+ {
+  "key": "meta|awesome_all",
+  "query": "topic:dsh-plugin awesome in:name",
+  "total_count": 51
+ },
+ {
+  "key": "meta|awesome_first3d",
+  "query": "topic:dsh-plugin awesome in:name created:2026-08-13..2026-08-15",
+  "total_count": 27
+ },
+ {
+  "key": "meta|shop_or_list",
+  "query": "topic:dsh-plugin (marketplace OR store OR registry) in:name",
+  "total_count": 21
+ },
+ {
+  "key": "overlap|dsh-plugin+agent-skills",
+  "query": "topic:dsh-plugin topic:agent-skills",
+  "per_page": 1,
+  "total_count": 414,
+  "fetched_at": "2026-10-23T18:39:03"
+ },
+ {
+  "key": "ret|dsh|p1|active7",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19 pushed:>=2026-10-16",
+  "total_count": 958
+ },
+ {
+  "key": "ret|dsh|p1|active7_star10",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 389
+ },
+ {
+  "key": "ret|dsh|p1|base",
+  "query": "topic:dsh-plugin created:2026-08-13..2026-08-19",
+  "total_count": 7770
+ },
+ {
+  "key": "ret|dsh|p2|active7",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31 pushed:>=2026-10-16",
+  "total_count": 484
+ },
+ {
+  "key": "ret|dsh|p2|active7_star10",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 81
+ },
+ {
+  "key": "ret|dsh|p2|base",
+  "query": "topic:dsh-plugin created:2026-08-20..2026-08-31",
+  "total_count": 4546
+ },
+ {
+  "key": "ret|dsh|p3|active7",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30 pushed:>=2026-10-16",
+  "total_count": 972
+ },
+ {
+  "key": "ret|dsh|p3|active7_star10",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 118
+ },
+ {
+  "key": "ret|dsh|p3|base",
+  "query": "topic:dsh-plugin created:2026-09-01..2026-09-30",
+  "total_count": 4037
+ },
+ {
+  "key": "ret|dsh|p4a|active7",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-09 pushed:>=2026-10-16",
+  "total_count": 545
+ },
+ {
+  "key": "ret|dsh|p4a|active7_star10",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-09 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 33
+ },
+ {
+  "key": "ret|dsh|p4a|base",
+  "query": "topic:dsh-plugin created:2026-10-01..2026-10-09",
+  "total_count": 1550
+ },
+ {
+  "key": "ret|skills|jan|active7",
+  "query": "topic:agent-skills created:2026-01-01..2026-01-31 pushed:>=2026-10-16",
+  "total_count": 108
+ },
+ {
+  "key": "ret|skills|jan|active7_star10",
+  "query": "topic:agent-skills created:2026-01-01..2026-01-31 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 71
+ },
+ {
+  "key": "ret|skills|jan|base",
+  "query": "topic:agent-skills created:2026-01-01..2026-01-31",
+  "total_count": 474
+ },
+ {
+  "key": "ret|skills|jun|active7",
+  "query": "topic:agent-skills created:2026-06-01..2026-06-30 pushed:>=2026-10-16",
+  "total_count": 439
+ },
+ {
+  "key": "ret|skills|jun|active7_star10",
+  "query": "topic:agent-skills created:2026-06-01..2026-06-30 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 88
+ },
+ {
+  "key": "ret|skills|jun|base",
+  "query": "topic:agent-skills created:2026-06-01..2026-06-30",
+  "total_count": 2931
+ },
+ {
+  "key": "ret|skills|octa|active7",
+  "query": "topic:agent-skills created:2026-10-01..2026-10-09 pushed:>=2026-10-16",
+  "total_count": 594
+ },
+ {
+  "key": "ret|skills|octa|active7_star10",
+  "query": "topic:agent-skills created:2026-10-01..2026-10-09 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 36
+ },
+ {
+  "key": "ret|skills|octa|base",
+  "query": "topic:agent-skills created:2026-10-01..2026-10-09",
+  "total_count": 2313
+ },
+ {
+  "key": "ret|skills|sept|active7",
+  "query": "topic:agent-skills created:2026-09-01..2026-09-30 pushed:>=2026-10-16",
+  "total_count": 1074
+ },
+ {
+  "key": "ret|skills|sept|active7_star10",
+  "query": "topic:agent-skills created:2026-09-01..2026-09-30 pushed:>=2026-10-16 stars:>=10",
+  "total_count": 111
+ },
+ {
+  "key": "ret|skills|sept|base",
+  "query": "topic:agent-skills created:2026-09-01..2026-09-30",
+  "total_count": 7219
+ },
+ {
+  "key": "skills|pre2025",
+  "query": "topic:agent-skills created:<2025-01-01",
+  "per_page": 1,
+  "total_count": 147,
+  "fetched_at": "2026-10-23T18:39:20"
+ },
+ {
+  "key": "skills|pre|all",
+  "query": "topic:agent-skills created:<2025-09-22",
+  "per_page": 1,
+  "total_count": 277,
+  "fetched_at": "2026-10-23T18:48:32"
+ },
+ {
+  "key": "skills|pre|star10",
+  "query": "topic:agent-skills created:<2025-09-22 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 145,
+  "fetched_at": "2026-10-23T18:48:42"
+ },
+ {
+  "key": "skills|s0|all",
+  "query": "topic:agent-skills created:2025-09-22..2025-10-31",
+  "per_page": 1,
+  "total_count": 80,
+  "fetched_at": "2026-10-23T18:48:51"
+ },
+ {
+  "key": "skills|s0|star10",
+  "query": "topic:agent-skills created:2025-09-22..2025-10-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 52,
+  "fetched_at": "2026-10-23T18:49:00"
+ },
+ {
+  "key": "skills|s1|all",
+  "query": "topic:agent-skills created:2025-11-01..2025-11-30",
+  "per_page": 1,
+  "total_count": 61,
+  "fetched_at": "2026-10-23T18:49:11"
+ },
+ {
+  "key": "skills|s1|star10",
+  "query": "topic:agent-skills created:2025-11-01..2025-11-30 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 26,
+  "fetched_at": "2026-10-23T18:50:21"
+ },
+ {
+  "key": "skills|s202510|all",
+  "query": "topic:agent-skills created:2025-10-01..2025-10-31",
+  "per_page": 1,
+  "total_count": 67,
+  "fetched_at": "2026-10-23T18:57:44"
+ },
+ {
+  "key": "skills|s202510|star10",
+  "query": "topic:agent-skills created:2025-10-01..2025-10-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 45,
+  "fetched_at": "2026-10-23T18:57:52"
+ },
+ {
+  "key": "skills|s202601|all",
+  "query": "topic:agent-skills created:2026-01-01..2026-01-31",
+  "per_page": 1,
+  "total_count": 474,
+  "fetched_at": "2026-10-23T18:50:53"
+ },
+ {
+  "key": "skills|s202601|star10",
+  "query": "topic:agent-skills created:2026-01-01..2026-01-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 222,
+  "fetched_at": "2026-10-23T18:51:01"
+ },
+ {
+  "key": "skills|s202602|all",
+  "query": "topic:agent-skills created:2026-02-01..2026-02-28",
+  "per_page": 1,
+  "total_count": 835,
+  "fetched_at": "2026-10-23T18:51:10"
+ },
+ {
+  "key": "skills|s202602|star10",
+  "query": "topic:agent-skills created:2026-02-01..2026-02-28 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 278,
+  "fetched_at": "2026-10-23T18:51:19"
+ },
+ {
+  "key": "skills|s202603|all",
+  "query": "topic:agent-skills created:2026-03-01..2026-03-31",
+  "per_page": 1,
+  "total_count": 1655,
+  "fetched_at": "2026-10-23T18:51:27"
+ },
+ {
+  "key": "skills|s202603|star10",
+  "query": "topic:agent-skills created:2026-03-01..2026-03-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 404,
+  "fetched_at": "2026-10-23T18:52:37"
+ },
+ {
+  "key": "skills|s202604|all",
+  "query": "topic:agent-skills created:2026-04-01..2026-04-30",
+  "per_page": 1,
+  "total_count": 1947,
+  "fetched_at": "2026-10-23T18:52:47"
+ },
+ {
+  "key": "skills|s202604|star10",
+  "query": "topic:agent-skills created:2026-04-01..2026-04-30 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 325,
+  "fetched_at": "2026-10-23T18:52:55"
+ },
+ {
+  "key": "skills|s202605|all",
+  "query": "topic:agent-skills created:2026-05-01..2026-05-31",
+  "per_page": 1,
+  "total_count": 2196,
+  "fetched_at": "2026-10-23T18:53:05"
+ },
+ {
+  "key": "skills|s202605|star10",
+  "query": "topic:agent-skills created:2026-05-01..2026-05-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 326,
+  "fetched_at": "2026-10-23T18:53:13"
+ },
+ {
+  "key": "skills|s202606|all",
+  "query": "topic:agent-skills created:2026-06-01..2026-06-30",
+  "per_page": 1,
+  "total_count": 2931,
+  "fetched_at": "2026-10-23T18:53:21"
+ },
+ {
+  "key": "skills|s202606|star10",
+  "query": "topic:agent-skills created:2026-06-01..2026-06-30 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 340,
+  "fetched_at": "2026-10-23T18:56:01"
+ },
+ {
+  "key": "skills|s202607|all",
+  "query": "topic:agent-skills created:2026-07-01..2026-07-31",
+  "per_page": 1,
+  "total_count": 4985,
+  "fetched_at": "2026-10-23T18:56:09"
+ },
+ {
+  "key": "skills|s202607|star10",
+  "query": "topic:agent-skills created:2026-07-01..2026-07-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 418,
+  "fetched_at": "2026-10-23T18:57:19"
+ },
+ {
+  "key": "skills|s202608|all",
+  "query": "topic:agent-skills created:2026-08-01..2026-08-31",
+  "per_page": 1,
+  "total_count": 6262,
+  "fetched_at": "2026-10-23T18:57:27"
+ },
+ {
+  "key": "skills|s202608|star10",
+  "query": "topic:agent-skills created:2026-08-01..2026-08-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 428,
+  "fetched_at": "2026-10-23T18:57:35"
+ },
+ {
+  "key": "skills|s202609|all",
+  "query": "topic:agent-skills created:2026-09-01..2026-09-30",
+  "total_count": 7219
+ },
+ {
+  "key": "skills|s202609|star10",
+  "query": "topic:agent-skills created:2026-09-01..2026-09-30 stars:>=10 fork:false",
+  "total_count": 320
+ },
+ {
+  "key": "skills|s202610|all",
+  "query": "topic:agent-skills created:2026-10-01..2026-10-23",
+  "per_page": 1,
+  "total_count": 6866,
+  "fetched_at": "2026-10-23T18:58:01"
+ },
+ {
+  "key": "skills|s202610|star10",
+  "query": "topic:agent-skills created:2026-10-01..2026-10-23 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 205,
+  "fetched_at": "2026-10-23T18:58:09"
+ },
+ {
+  "key": "skills|s2|all",
+  "query": "topic:agent-skills created:2025-12-01..2025-12-31",
+  "per_page": 1,
+  "total_count": 110,
+  "fetched_at": "2026-10-23T18:50:30"
+ },
+ {
+  "key": "skills|s2|star10",
+  "query": "topic:agent-skills created:2025-12-01..2025-12-31 stars:>=10 fork:false",
+  "per_page": 1,
+  "total_count": 67,
+  "fetched_at": "2026-10-23T18:50:38"
+ },
+ {
+  "key": "topic:agent-skills|top50",
+  "query": "topic:agent-skills",
+  "per_page": 50,
+  "total_count": 35894,
+  "fetched_at": "2026-10-23T18:37:27"
+ },
+ {
+  "key": "topic:dsh-plugin|top50",
+  "query": "topic:dsh-plugin",
+  "per_page": 50,
+  "total_count": 22001,
+  "fetched_at": "2026-10-23T18:37:02"
+ }
+]

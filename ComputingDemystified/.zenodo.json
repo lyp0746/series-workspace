@@ -1,0 +1,109 @@
+{
+  "title": "术语的账单：从芯片到 Agent 的八十个计算机概念 / The Bill Behind the Term: Eighty Computing Concepts from Silicon to Agents",
+  "description": "<p><b>中文摘要。</b>计算机术语的增长快于它所描述的东西。本文把“祛魅”从一个态度变成可复现的程序：把每个术语还原成一张账单，问四件事——为哪一项稀缺资源付账（瓶颈）、合并或拆开了什么（置换）、核心能不能写成几行 if/for（可写性）、最后由谁承担（承担者）。作者把八层、八十条术语逐条编码成《术语账本》，并用六本专著的概念作分析坐标：完备—可组合—传递三角、时间错配 τ、容量—压缩—遗忘、区分的边界、临界与涌现、置信度分配。</p><p><b>三条结果。</b>八十条术语只落在 7×7 账格的 27 格里，最大一格 7 条；三角只覆盖 51 条（64%），29 条（36%）是纯资源置换，记在时间与容量轴上；77 条（96%）的核心机制能写成十行以内，可写性与层级的秩相关只有 ρ=0.30（p=0.007，n=80）。跨主体边界与“是否让出顶点”相关（83% 对 49%，OR=5.05，Fisher p=0.002），但 28 条例外（6 条跨主体却不记账、22 条单主体却记账）说明真正的判据是“有没有信息或权限的损失”，不是“在栈的哪一层”。</p><p><b>四条负面结果。</b>还原解释机制、不预测行为（F1）；“跨主体”只是记账的伴随条件（F2）；简单原理不等于简单工程，二者隔着状态空间（F3）；在涌现与提示注入上，还原给不出机制（F4）。结论是一张账单，不是一套咒语：祛魅的终点不是“原来这么简单”，而是“原来代价在这里”。</p><p><b>边界。</b>工作论文/预印本；八十条为分层目的抽样（每层 8—12 条，非穷举；72 个机制家族全覆盖），文中比例均为样本内计数；术语解释为工程共识（B），不是唯一读法；单编码者，cross 与 cat 同轮编码；具体框架与 API 细节会过时。</p><p><b>Abstract (English).</b> Technical vocabulary grows faster than the things it names. This paper turns demystification into a reproducible procedure: reduce each term to a bill with four questions—which scarce resource forced it, what it merges or splits, whether its core fits into a few lines of if/for, and who pays. Eighty terms across eight layers are coded into a ledger and read through six coordinates borrowed from the author's monographs. Three results: the eighty terms occupy only 27 of 49 bottleneck × substitution cells; the completeness–composability–transfer triangle covers only 64%, the remaining 36% being pure resource substitutions on the time and capacity axes; and 77 of 80 cores are writable as short loops (ρ=0.30 with layer height). Four negative results are reported: reduction does not predict behaviour; “crossing a subject boundary” is a correlate rather than a criterion; simple principles do not imply simple engineering; and on emergence and prompt injection, reduction yields no mechanism.</p><p><b>Files.</b> 论文（PDF/HTML/Markdown，48 页，12 图，16 表，6 附录）；12 幅图；交互式术语账本 <code>term-explorer.html</code>；账本数据 <code>concepts.csv</code>；<code>MANIFEST.txt</code>。</p><p><b>本版新增（2026-10-24）。</b>本次修订（2026-10-24）新增附录 E2（六核心在本文中的位置：主核为「看见」，临界只做一次 Agent 门槛检验并判未过）、§7.5（两条未兑现的承诺）、附录 G（与其他五篇的口径差异）、附录 H（十条常见误解的逐条纠正）。全文 50 页。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "祛魅",
+    "demystification",
+    "计算机术语",
+    "computing concepts",
+    "还原论",
+    "reductionism",
+    "术语账本",
+    "term ledger",
+    "AI Agent",
+    "大模型推理",
+    "LLM inference",
+    "不可能三角",
+    "impossibility triangle",
+    "证据分级",
+    "evidence grading",
+    "入门",
+    "primer"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。术语解释为工程共识（B）；单编码者；具体框架与 API 细节会过时；含“还原论的边界”一节与四条负面结果。 系列共 14 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447311",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23447341",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23526582",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23529087",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23528958",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23573012",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601732",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601749",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "title": "明清湘中驿道体系的 GEPF 三层分析：家族记忆、商品流向与地名侵蚀 / A GEPF Three-Layer Analysis of the Ming–Qing Relay System in Central Hunan: Family Memory, Commodity Flows and Toponym Erosion",
+  "description": "<p><b>中文摘要。</b>本文以两条家族记忆为入口：20 世纪 40—50 年代，作者的祖父在长沙—社港一线经营水运，目睹北盛码头竹排满河；20 世纪 80—90 年代，作者的父亲在浏阳南乡工作，亲历大瑶花炮经济对县级财政的支撑。两条记忆相隔四十年，夹住驿道体系最后一段可观察的生命。以此为契机，本文重建明清湘中（长沙、衡州、永州、常德四府为重点）的驿铺网络，并用《错位的时间》的 GEPF 三层模型统摄其演化：底层地理—人口（G、P，慢变量）、中层经济（E，中速）、上层财政—制度（F，快变量）；层间通过运输成本、税基与基础设施投资形成闭环，外生冲击造成重置。</p><p><b>主要结果。</b>（1）驿铺 510+ 处、驿船 150+ 艘、驿夫约 3,000 名，形成省际—府内—县内三层结构；（2）三种距离必须分开：驿间约 30 里、铺间约 10 里，而实测 8—10 km 是现代镇间道路距离，不是驿制间距；（3）密度与商品类型的关系未能通过 GIS 试点检验：28 个关键节点重算，官驿北线 12.8 km、东线 16.2 km、西线 22.7 km、南线 70.6 km（p=0.19），表 5 的 3.7—9.0 km 为全铺段均值，不能与关键镇距离混读，H4 撤回为待检验；（4）北盛、社港、沙市、益阳四枢纽构成“短距陆运＋长距水运”，成本约 30＋10 两/吨，比全陆路 60 两/吨省 25%—33%；（5）年支出约 174,850 两，交易额／支出约 114:1，但不是社会收益—成本比；（6）撤县设市与地名保留率呈县际截面负相关，但强度有限（y = 72.3 − 0.89T，R² = 0.58，n = 6，斜率 95% CI −1.95—0.17），宁乡为上方离群点；（7）三百年分五阶段，1913 裁驿与 1993／2017 撤县设市是两次制度层重置。</p><p><b>边界。</b>逐铺重建以四府为重点，不是九府四州等精度；地名分析是县际截面，不是面板，不能读成“每年下降 2.82%”；数量均为 B/C 级估计；四条线路 n=4，只作描述；家族记忆为 C 级，只用于机制存在性。</p><p><b>Abstract (English).</b> The paper begins with two family memories — a grandfather running boats on the Laodao River in the 1940s–50s, and a father working in Liuyang’s southern district in the 1980s–90s — and uses them to frame a reconstruction of the Ming–Qing relay network of central Hunan. The evolution is organised with the GEPF three-layer model: a slow geographical–demographic layer (G, P), a medium economic layer (E), and a fast fiscal–institutional layer (F), coupled by transport cost, tax base and infrastructure investment and periodically reset by exogenous shocks. Results: 510+ relay stations, 150+ boats and about 3,000 workers; three distinct distance regimes; corridor density that does not reproduce from the 28 key nodes (north 12.8 km, east 16.2 km, west 22.7 km, south 70.6 km; p=0.19), so the density hypothesis is withdrawn pending full station-level geocoding; four intermodal hubs saving 25–33%; an annual expenditure of about 174,850 <i>liang</i> and a trade/expenditure ratio of 114:1 that is not a social benefit–cost ratio; a cross-county toponym-retention regression that is negative but weak (y = 72.3 − 0.89T, R² = 0.58, n = 6, slope CI −1.95 to 0.17), with Ningxiang as an upward outlier; and five phases ending with the 1913 abolition and post-1990 toponym erosion. Limits: four prefectures only, a cross-section rather than a panel, B/C-grade quantities, n=4 for corridor comparison, and family memory as grade-C evidence.</p><p><b>本版新增（2026-10-21）。</b>新增第 4.9 节与三项稳健性检验：28 个关键节点的 GIS 试点（发现表 5 的密度排序不可复现，H4 撤回为待检验）；地名截面逐一剔除（斜率 −0.73 至 −1.29，95% CI 含 0，方向可用、强度不足）；成本蒙特卡洛（均值 30.2%，90% 区间 14.2—44.1）。另附交互文件 <code>interactive/hunan-explorer.html</code>（网络／地名／成本三页）。<p><b>附录E（2026-10-21）。</b>新增罗马、波斯、印加驿道的定性对照：四者间距都由“一日行程”决定，差别在动力与维持者；中国驿传的特殊处是清代官商并行。<p><b>Files.</b>论文（PDF／HTML／Markdown）；7 幅图（fig01—fig07）；<code>stations.csv</code>（节点与坐标节选）；<code>make_figures_gepf.py</code> 与 <code>generate_publication_suite.py</code> 用于复现；<code>MANIFEST.txt</code> 为文件清单。</p><p><b>本版新增（2026-10-24）。</b>本次修订（2026-10-24）补入四节：4.10 把地名侵蚀翻译为容量—压缩—遗忘；4.11 三级材料的置信度分层；4.12 三条反例（宁乡、浏阳、衡州）；4.13—4.14 关键数字的可复核性与姊妹论文接口。另补 2.9（为何不称相变：三标记中 0 个）、3.7 编码手册、3.8 三类史料的互相校验，以及附录 F—M（含六核心对照表）。全文 50 页。</p>",
+  "creators": [
+    {
+      "name": "李毅芃",
+      "affiliation": "独立研究者 / Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "驿道系统",
+    "relay system",
+    "GEPF 三层模型",
+    "GEPF three-layer model",
+    "商品流向",
+    "commodity flows",
+    "陆水联运",
+    "land–water intermodal transport",
+    "地名侵蚀",
+    "toponym erosion",
+    "时间错配",
+    "temporal mismatch",
+    "家族记忆",
+    "family memory",
+    "证据分级",
+    "evidence grading"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "zho",
+  "access_right": "open",
+  "publication_date": "2026-10-24",
+  "version": "2026-10-24",
+  "notes": "工作论文/预印本。以长沙、衡州、永州、常德四府为重点；C-A-T评分已放弃，改用EPG机制框架。 系列共 14 件；related_identifiers 已按裸 DOI 归一。",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isPartOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23286403",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23323277",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23412033",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23388628",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23416220",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23497842",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601732",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23601749",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

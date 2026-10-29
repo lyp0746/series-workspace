@@ -1,0 +1,72 @@
+{
+  "n": 28,
+  "by_type": {
+    "禅代": {
+      "prior_fusion": 13,
+      "n": 13
+    },
+    "废立": {
+      "prior_fusion": 2,
+      "n": 3
+    },
+    "清洗": {
+      "prior_fusion": 1,
+      "n": 4
+    },
+    "挟持": {
+      "prior_fusion": 0,
+      "n": 1
+    },
+    "政变": {
+      "prior_fusion": 0,
+      "n": 3
+    },
+    "内战": {
+      "prior_fusion": 0,
+      "n": 2
+    },
+    "割据": {
+      "prior_fusion": 0,
+      "n": 2
+    }
+  },
+  "lead_median": 2.0,
+  "lead_min": 1,
+  "lead_max": 16,
+  "usurp_prior": [
+    13,
+    13
+  ],
+  "other_prior": [
+    3,
+    15
+  ],
+  "fisher": {
+    "table": [
+      [
+        13,
+        0
+      ],
+      [
+        3,
+        12
+      ]
+    ],
+    "p": 1.538372786185412e-05
+  },
+  "usurp_leads": [
+    10,
+    12,
+    16,
+    5,
+    2,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    4,
+    1
+  ]
+}

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you cite this collection, please use the metadata below."
+title: "有限系统的取舍：二十三件合集（九本书 + 十四篇工作论文，附卷首《中道周行集》）"
+title-en: "The Tradeoffs of Finite Systems: A Twenty-Three-Item Collection (Nine Books, Fourteen Working Papers, and a Frontispiece)"
+authors:
+  - family-names: "李"
+    given-names: "毅芃"
+    name: "李毅芃"
+date-released: 2026-10-30
+type: book
+license: CC-BY-4.0
+doi: 10.5281/zenodo.23668413
+concept-doi: 10.5281/zenodo.23613406
+url: "https://doi.org/10.5281/zenodo.23668413"
+version: "2026-10-30"
+keywords:
+  - 六核心
+  - 有限系统
+  - 取舍
+  - 证据分级
+  - 工作论文合集
