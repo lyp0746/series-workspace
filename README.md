@@ -1,121 +1,100 @@
-# 有限系统的取舍 — 系列工作区
+# 有限系统的取舍 · 系列工作区
 
-李毅芃 · 独立研究系列 · 2026-10-26
+**The Tradeoffs of Finite Systems — Series Workspace**
 
-**九本书 + 十三篇工作论文 + 一本二十二件合集。**
+李毅芃（Li Yipeng）· 独立研究者 · 2026-10-30
 
 ---
 
-## 一、目录结构（统一约定）
+九本书与十四篇工作论文，研究的其实是同一个问题：**一个有限的东西，怎样一边保持自己的样子，一边还能改变。**
 
-```
-D:\0_Article\
-├── AGENTS.md                  # 系列级记忆：约定、命令、状态
-├── README.md                  # 本文件：索引
-├── notes/                     # 讨论与评估记录（非出版内容）
-├── _zenodo/                   # 归档小工具（finish.py / scaffold.py）
-│
-├── 九本书（书模式：source/*.html 为唯一正文源）
-│   ├── knowledge-tradeoffs/      只能选两样
-│   ├── distinction-evolution/    区分的语法
-│   ├── capacity-cascade/         遗忘的边界
-│   ├── entropy-spiral/           错位的时间
-│   ├── impossibility-triangle/   选择的代价
-│   ├── interpretation-tradeoff/  诠释的权衡
-│   ├── emergence-critical/       涌现的临界
-│   ├── mind-forks/               心灵的分岔
-│   └── hotspot-bills/            热点的账单
-│
-├── 十三篇工作论文（论文模式：Markdown 为唯一正文源）
-│   ├── ComputingDemystified/     论文一 术语的账单
-│   ├── WorldPeriodization/       论文二 谁在切时间轴
-│   ├── SleepingResidue/          论文三 线外的残余
-│   ├── HunanRelaySystem/         论文四 明清湘中驿道
-│   ├── BureauRotationCession/    论文五 轮换的让渡
-│   ├── HarnessEcology/           论文六 被点燃的生态
-│   ├── OptimizationBoundary/     论文七 优化的边界
-│   ├── CapacityProxies/          论文八 容量的三个代理
-│   ├── DomainCrossSection/       论文十 领域的剖面
-│   ├── IsomorphismStrength/      论文十一 同构的强度
-│   ├── MemoryAnchor/             论文十二 记忆的锚点
-│   ├── MemoryStressTest/         论文十三 锚点的下限
-│   └── LedgerReconciliation/     论文九 六张账单的对账
-│
-└── 合集22/                    # 二十二件合集（当前；三部编排）
+这个仓库不是其中任何一本，而是它们共用的一套东西：**结构规范、校阅器、推理工具、十四篇论文的源文件，以及全部归档元信息。**
+九本书各自有独立仓库（正文以 HTML 为权威来源），这里只放它们不装得下的部分。
 
-> 本地构建目录只保留当前版 `合集22/`；18／20／21 件版仅保留 Zenodo 记录（PDF/HTML/MD/zip 可从记录下载）。
-```
+---
 
-**每篇论文的目录结构（十三篇一致）**
+## 一、这里有什么
 
-```
-<论文>/
-├── source/paper.md        正文源（含 <!--TABLE_x--> 占位符）
-├── analysis/              make_figures.py / assemble.py（+ 取数脚本）
-├── data/                  数据模块与生成的表
-├── fig01.png …           图（根目录）
-├── interactive/           单文件交互页
-├── release/               发布包（PDF/HTML/MD/图/CSV/MANIFEST）
-├── versions/CHANGELOG.md  内部版本记录
-├── README.md  CITATION.cff  .zenodo.json  release.sh
-├── 上传前检查清单.md  目录与图表清单.md
-└── generate_publication_suite.py
-```
+| 目录 | 是什么 |
+|---|---|
+| `_series/spec/` | **结构规范 v2**：书的八段章骨架、论文的 12–16 节、部分扉页插图、附录预算 |
+| `_series/lint/` | **校阅器**：24 条规则，一次跑完 23 件，输出 `REPORT.md`（当前 error 0 / warn 0）与工作账 |
+| `_series/tools/` | 12 个可重跑工具：章节合并与重编号、附录归并、PDF 书签、扉页插图、元信息、CITATION 同步 |
+| `_series/content/` | 校阅期间写的增补稿（关联领域小节、骨架补齐），可追溯 |
+| 十四篇论文目录 | `source/paper.md` 为唯一正文源；`data/` 数据、`analysis/` 脚本、`assets/` 图件 |
+| `_zenodo/` | 23 件归档登记（版本 DOI / 概念 DOI / 页数）与描述生成脚本 |
+| `inventory.tsv` | 全部条目的单一事实来源（标题、类型、页数、DOI） |
 
-## 二、二十二件与 DOI
+**派生文件不入库**：PDF／HTML／EPUB 由 `source/` 重建；九个书仓的 `output/`、`release/` 同理。
 
-| 序 | 题名 | 主核 | 页 | 版本 DOI |
-|---|---|---|---|---|
-| 卷一 | 只能选两样 | 导览 | — | 10.5281/zenodo.23447341 |
-| 卷二 | 区分的语法 | 看见 | — | 10.5281/zenodo.23447201 |
-| 卷三 | 遗忘的边界 | 记住 | — | 10.5281/zenodo.23447169 |
-| 卷四 | 错位的时间 | 跟上 | — | 10.5281/zenodo.23447129 |
-| 卷五 | 选择的代价 | 选择 | — | 10.5281/zenodo.23447238 |
-| 卷六 | 诠释的权衡 | 讲述 | — | 10.5281/zenodo.23447292 |
-| 卷七 | 涌现的临界 | 临界 | — | 10.5281/zenodo.23447311 |
-| 卷八 | 心灵的分岔 | 全应用 | 309 | 10.5281/zenodo.23637236 |
-| 卷九 | 热点的账单 | 应用 | — | 10.5281/zenodo.23637708 |
-| 论文一 | 术语的账单 | 看见 | 50 | 10.5281/zenodo.23602360 |
-| 论文二 | 谁在切时间轴 | 看见＋讲述 | 53 | 10.5281/zenodo.23602364 |
-| 论文三 | 线外的残余 | 记住 | 51 | 10.5281/zenodo.23603016 |
-| 论文四 | 明清湘中驿道 | 跟上 | 50 | 10.5281/zenodo.23601983 |
-| 论文五 | 轮换的让渡 | 选择 | 72 | 10.5281/zenodo.23602311 |
-| 论文六 | 被点燃的生态 | 临界 | 50 | 10.5281/zenodo.23603015 |
-| 论文七 | 优化的边界 | 接口 | 33 | 10.5281/zenodo.23611782 |
-| 论文八 | 容量的三个代理 | 记住·代理 | 22 | 10.5281/zenodo.23611799 |
-| 论文十 | 领域的剖面 | 看见·操作化 | 51 | 10.5281/zenodo.23664233 |
-| 论文十一 | 同构的强度 | 看见＋讲述·跨域 | 50 | 10.5281/zenodo.23663027 |
-| 论文九 | 六张账单的对账 | 总账（62 条） | 54 | 10.5281/zenodo.23612202 |
-| 论文十二 | 记忆的锚点 | 记住·架构 | 50 | 10.5281/zenodo.23665882 |
-| 论文十三 | 锚点的下限 | 记住·测试 | 51 | 10.5281/zenodo.23667929 |
-| 合集 | 二十二件合集（第五版，三部编排） | — | 1846 | 10.5281/zenodo.23668413（概念 23613406） |
-| 合集 | 历史版本（保留记录） | — | — | 23666079 / 23664446 / 23663577 / 23638342 / 23614675 |
-| 合集 | 十八件合集（首版，保留） | — | 1646 | 10.5281/zenodo.23638342 |
+---
 
-## 三、常用命令
+## 二、九本书
 
-```bash
-PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
+| # | 书名 | 副标题 | 仓库 | 页 |
+|---|---|---|---|---:|
+| 1 | 只能选两样 | 从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍 | [knowledge-tradeoffs][1] | 141 |
+| 2 | 区分的语法 | 五个领域，同一个二次型 | [distinction-evolution][2] | 234 |
+| 3 | 遗忘的边界 | 有限容量下的记忆、智能与自我 | [capacity-cascade][3] | 229 |
+| 4 | 错位的时间 | 为什么我们总是来不及：社会系统的时间错配与可控性边界 | [entropy-spiral][4] | 354 |
+| 5 | 选择的代价 | 完备、可组合与可传递的三维权衡 | [impossibility-triangle][5] | 276 |
+| 6 | 诠释的权衡 | 历史研究中的置信度、权衡与理论流变 | [interpretation-tradeoff][6] | 216 |
+| 7 | 涌现的临界 | 为什么有些变化回不去：临界、涌现与形式化的边界 | [emergence-critical][7] | 259 |
+| 8 | 心灵的分岔 | 从无意识到可观察——心理学流派的六次划线 | [mind-forks][8] | 283 |
+| 9 | 热点的账单 | 用六个核心，诊断过去一年的热搜与争论 | [hotspot-bills][9] | 127 |
 
-# 论文（每篇目录内）
-"$PY" analysis/make_figures.py
-"$PY" analysis/assemble.py
-"$PY" generate_publication_suite.py
-bash release.sh
+其中 1–7 为学术专著，8 为科普专著，9 与 1 为通俗读本。
 
-# 合集
-cd 合集22 && bash release.sh     # build_collection22.py → make_md.py → release/
+## 三、十四篇工作论文
 
-# 归档
-"$PY" _zenodo/finish.py --record <draft> --repo "<仓库绝对路径>" --fresh --publish
-```
+实证六篇 → 方法八篇，顺序即阅读顺序：
 
-## 四、纪律（摘要）
+| # | 论文 | 做什么 |
+|---|---|---|
+| 一 | 术语的账单 | 八十个计算机概念的还原与账本 |
+| 二 | 谁在切时间轴 | 六十部世界史分期的编码与自证 |
+| 三 | 线外的残余 | 被埋没的理论为何被重新发现 |
+| 四 | 明清湘中驿道体系的 GEPF 三层分析 | 家族记忆、商品流向与地名侵蚀 |
+| 五 | 轮换的让渡 | 中国官制三千年的有限系统取舍 |
+| 六 | 被点燃的生态 | 两个社区、五种口径与三个标记 |
+| 七 | 优化的边界 | 四前提与越界的二十个案例 |
+| 八 | 容量的三个代理 | 分期槽位、编码槽位与标签槽位 |
+| 十 | 领域的剖面 | 四个问题、二十个领域与八十字段 |
+| 十一 | 同构的强度 | 对偶、泛性质、不变量与四十条断裂探针 |
+| 十二 | 记忆的锚点 | 情景唤起、异构重建与日志裁决 |
+| 十三 | 锚点的下限 | 情景记忆的模拟对照实验与 0.57 阈值 |
+| 十四 | 开明君主与两层竞争 | agent 价目表上的执行、方向与代价承担者 |
+| 九 | 六张账单的对账 | 十四篇 110 条登记命题的阶段总账 |
 
-1. 结论强度 ≤ 证据强度（A/B/C、甲/乙/丙）。
-2. 图表同源：由 `data/` 生成，附录表不手抄。
-3. 负面结果进正文，登记簿 append-only。
-4. 正文不含版本号；日期只用真实完成日。
-5. 每篇必备「六核心 × 六专著」对照表。
+## 四、这套工具在防什么
 
-详见 `AGENTS.md`。
+校阅一部长达 100 万字的系列，靠记性一定会漏。这个仓库把"记性"换成了四条可执行的检查：
+
+1. **骨架**：每章八段（主提问、场景、导论、机制、表图、反例、小结、一句话带走），缺一段 lint 就报。
+2. **附录**：≤6 件；**单节正文 ≤1200 字**——附录是证据与工具，不是第二正文。
+3. **编号**：一个序列一个词；章号冻结后只在重排窗口整体改；引用回写后逐条校验。
+4. **账**：每一条主张都登记 A/B/C 与状态；对账篇把 110 条放在同一张表上。
+
+`_series/lint/WORKLOG.md` 记着这套工具自己的三次事故与修复——包括一次正则表达式吃掉 280 行代码。**工具也上账。**
+
+## 五、引用
+
+- 单本：见各仓库 `CITATION.cff` 与 Zenodo 记录。
+- 全部条目与 DOI：`_zenodo/REGISTRY.md`。
+- 系列入口与外部登记库：[knowledge-tradeoffs][1]。
+
+## 六、许可
+
+正文与图件 CC BY 4.0；脚本 MIT。
+
+---
+
+[1]: https://github.com/lyp0746/knowledge-tradeoffs
+[2]: https://github.com/lyp0746/distinction-evolution
+[3]: https://github.com/lyp0746/capacity-cascade
+[4]: https://github.com/lyp0746/entropy-spiral
+[5]: https://github.com/lyp0746/impossibility-triangle
+[6]: https://github.com/lyp0746/interpretation-tradeoff
+[7]: https://github.com/lyp0746/emergence-critical
+[8]: https://github.com/lyp0746/mind-forks
+[9]: https://github.com/lyp0746/hotspot-bills
