@@ -1,34 +1,25 @@
-# _zenodo — 归档小工具（2026-10-24）
+# `_zenodo/` — 归档小工具
 
-批量发布时 Zenodo 会持续返回 504/502，官方脚本的"一次跑完"不可靠。这里的三个小脚本按
-"建版本 → 记 draft id → 只补缺失文件 → 核文件数 → 发布"的顺序做，可反复重跑。
+面向 Zenodo 的一次性脚本都放在这里。**已发布记录的文件不可改**：改元数据用编辑草稿，改文件只能发新版本。
 
-| 脚本 | 作用 |
+| 脚本 | 用途 |
 |---|---|
-| `finish.py` | 补全草稿：`--record <draft> --repo <dir> [--fresh] [--publish]`；每步 150—300s 超时、失败即停 |
-| `descriptions.py` / `replace_assets.py` | 历史工具：批量改描述、替换附件 |
+| `common.py` | 共用常量与工具：六本专著 DOI、共用库地址、`title_of()`、`md2html()`、`related()`、`registry()` |
+| `api.py` | Zenodo API 封装（带重试）：`show` / `newversion` / `meta` / `publish` / `files` / `delete` |
+| `publish_v.py` | **书**：从 `release/` 发新版本（legacy 元数据），描述取 `descriptions.py` |
+| `publish_papers.py` | **论文**：从 `release/` 发新版本，标题中英双语，关联共用库 + 六专著 DOI |
+| `scan_fix_desc.py` | 体检/修复：描述里的 Markdown 记号转 HTML、标题补双语（只改元数据） |
+| `descriptions.py` / `desc_mindforks.py` / `desc_v3.py` | 八本书与论文的长描述（HTML） |
+| `scaffold.py` | 为一篇新论文生成标准外围文件（README / CITATION / 清单 / release.sh） |
+| `finish.py` / `push.py` / `replace_assets.py` | 补传文件、大文件续传、替换已发布记录的资源 |
+| `registry.json` / `REGISTRY.md` | 23 件的登记（版本 DOI / 概念 DOI / 页数 / 仓库） |
 
-**流程（新版本）**
+## 三条铁律（都是踩过的坑）
 
-```bash
-PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
-# 1) 建新版本，拿 latest_draft 的 id
-"$PY" - <<'EOF'
-import json,urllib.request,pathlib
-TOK=pathlib.Path(r"D:\0_Article\zenodo_token.txt").read_text(encoding="utf-8").strip()
-API="https://zenodo.org/api"
-r=urllib.request.Request(f"{API}/deposit/depositions/<记录ID>/actions/newversion?size=1",
-    headers={"Authorization":"Bearer "+TOK}, method="POST")
-d=json.load(urllib.request.urlopen(r,timeout=300))
-r2=urllib.request.Request(d["links"]["latest_draft"]+"?size=1",headers={"Authorization":"Bearer "+TOK})
-print(json.load(urllib.request.urlopen(r2,timeout=300))["id"])
-EOF
-# 2) 补文件 + 元数据 + 发布
-"$PY" _zenodo/finish.py --record <draft> --repo "D:\0_Article\<仓库>" --fresh --publish
-```
-
-**三条纪律**
-
-1. `--fresh` 先删继承文件，避免旧版多出来的文件残留；发布前核 `files` 数与 `release/` 一致。
-2. 失败重试会留下 **0 文件的空草稿**，用 `GET /api/deposit/depositions?size=100` 列出来删掉。
-3. 发布后把 `doi` 与 `conceptdoi` 写回 `CITATION.cff` 与 `README`；**不要用正则批量改正文里的 DOI**（会误伤引用别篇的行）。
+1. **元数据两套形态**：deposit API 用 legacy（`upload_type`/`publication_type`/`creators:[{name}]`），
+   record API 用 RDM（`resource_type:{"id":...}`/`creators:[{person_or_org}]`/`relation_type`）。混用会 PUT 成功、
+   publish 报缺字段，或**静默丢作者**。
+2. **编辑过元数据后 `actions/newversion` 会失败**（`files.enabled`）→ 改用 `POST /api/records/{id}/versions`；
+   新版本草稿**继承父版本文件**，须先逐个 DELETE 再上传；Zenodo 没有 `files/commit`。
+3. **描述是 HTML、标题不能从 `inventory.tsv` 复制**（该表英文列会截断）。发布后断言：
+   `" / " in title`、`len(title) > 60`、`description.count("*") == 0`。

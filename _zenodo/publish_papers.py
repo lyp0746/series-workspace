@@ -3,7 +3,7 @@
 import io, json, os, re, sys, glob, urllib.request, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
 import api
-from fix_meta2 import title_of, MONO, SHARED
+from common import title_of, MONO, SHARED
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATE = "2026-10-30"
 PAPERS = ["ComputingDemystified","WorldPeriodization","SleepingResidue","HunanRelaySystem",
