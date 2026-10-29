@@ -16,7 +16,8 @@
 |---|---|---|
 | 书（学术 6 + 通俗 2 + 科普 1） | 9 | `knowledge-tradeoffs/` … `mind-forks/` |
 | 论文（实证 6 + 方法 6 + 测试 2） | 14 | `BureauRotationCession/` … `MonarchCompetition/` |
-| 合集 | 1 | `合集23/`（构建脚本 + release/） |
+| 合集 | 1 | `合集23/`（构建脚本 + release/；本轮不处理） |
+| 共用工作区 | 1 | `series-workspace`（本目录：规范、lint、十四篇论文源文件、归档元信息） |
 | 元数据单一来源 | — | `inventory.tsv`（件数、标题、DOI）、`zenodo_deposits.tsv` |
 | 共享层 | — | `_series/`（规范、lint、工具、术语、版本） |
 
@@ -27,8 +28,10 @@
 - **书**：5–7 部分 × 3–6 章（22–28 章）；每部分有导语（300–500 字）与小结（150–300 字）；
   每章八段（主提问框 → 场景开篇 → 导论 → 机制 → 表/图 → 反例 → 本章小结 → 一句话带走）。
 - **论文**：12–16 节，一条结果一节；`实证档`另加"协议（预注册）"与"逐条裁决"两节。
-- **附录**：书与论文都是 ≤6 件（A 形式化／B 数据与案例／C 协议与稳健性／D 登记簿／E 工具／F 增补），
-  且 ≤正文 12%。**参考文献与术语表不占附录字母。**
+- **附录**：书与论文都是 ≤6 件（A 形式化／B 数据与案例／C 协议与稳健性／D 登记簿／E 工具／F 增补）；
+  **单节正文 ≤1200 字**（"占比 ≤12%"已废弃：1300 余个附录小节里超 1200 字的只有 8 个，其余是表格与登记项）。
+  **参考文献与术语表不占附录字母。**
+- **通俗读本**（只能选两样、热点的账单）用四段骨架：主提问 → 场景 → 反例 → 一句话带走，不要求小结与导论。
 
 范本：结构取 `mind-forks`（《心灵的分岔》）、学术装置取 `distinction-evolution`（《区分的语法》）、
 内容密度取 `entropy-spiral`（《错位的时间》）。
@@ -87,3 +90,19 @@ bash release.sh                        # 组装 release/
 见 `_series/lint/REPORT.md` 的 error 列表，按件排。当前主要三类：
 ① 章骨架补全（主提问框/场景开篇/本章小结）；② 附录占比 >12% 的六本书；
 ③ 系列计数统一（"五本/六本/八本/九本"并存）。逐件认领时，先把该件的 error 清零再动文字。
+
+## 6b 发布与归档（2026-10-30 起）
+
+- **一仓一 release、一 tag**：tag 形如 `v2026.10.30`，release 附件即该仓 `release/` 的全部内容（13–14 件：
+  印刷版/电子版 PDF、EPUB、网页版、合并与分文件 Markdown、封面、README、MANIFEST、数据缺口、征集页）。
+  附件名一律 ASCII（中文名会被 GitHub 拒收，报 422）。
+- **描述格式**（书与论文同一套四段）：中文摘要 → Abstract (English) → Files → 系列 / Series。
+  `description` 是 HTML，Markdown 的 `**`、`` ` ``、残余 `*` 必须先转换，发布后断言 `description.count("*") == 0`。
+- **标题**：`中文题名：副题 / English Title: Subtitle`。不得从 `inventory.tsv` 复制（该表列宽会截断英文），
+  以 `CITATION.cff` 或上一版记录为准；发布前断言含 ` / ` 且长度 > 60。
+- **关联标识**：六本学术专著只关联自身仓库；其余三本与十四篇论文关联 **共用库 + 六本专著的新版本 DOI**。
+- **Zenodo 新版本的三个坑**（详见 skill 的 `references/zenodo-upload.md`）：
+  ① 元数据编辑走 `POST /api/records/{id}/draft`（RDM 形态），legacy 形态会静默丢作者；
+  ② 编辑过元数据后 `actions/newversion` 会报 `files.enabled`，改用 `POST /api/records/{id}/versions`；
+  ③ 新版本草稿会继承父版本文件，须先逐个 DELETE 再上传；Zenodo 没有 `files/commit`。
+- **描述里不写"版本信息"以外的历史**：改了什么写进 `_zenodo/REGISTRY.md` 与各仓 `versions/CHANGELOG.md`。

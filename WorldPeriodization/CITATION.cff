@@ -13,13 +13,13 @@ authors:
 date-released: 2026-10-30
 version: "2026-10-30"
 license: CC-BY-4.0
-doi: 10.5281/zenodo.23602364
+doi: 10.5281/zenodo.23773670
 concept-doi: 10.5281/zenodo.23573011
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23573011
     description: "Concept DOI (all versions)"
-url: "https://doi.org/10.5281/zenodo.23602364"
+url: "https://doi.org/10.5281/zenodo.23773670"
 keywords:
   - 历史分期
   - 世界史
