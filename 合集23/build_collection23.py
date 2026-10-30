@@ -66,7 +66,7 @@ def _cn(n):
 
 # 副标题按实际条目动态生成：加件/减件时封面不会写错
 AUTHOR = "李毅芃"
-DATE = "2026-10-28"
+DATE = "2026-10-30"
 
 
 PAPERS = [
@@ -102,7 +102,7 @@ PAPERS = [
 
 # 分部：九卷 / 实证论文（一—六）/ 方法论文（七、八、十—十三）/ 阶段总账（九）
 # 副标题按实际条目动态生成（放在 PAPERS 之后，避免过期）
-SUBTITLE = "%s本书 + %s篇工作论文，附卷首一篇" % (_cn(len(VOLUMES)), _cn(len(PAPERS)))
+SUBTITLE = "一个母题：有限的东西如何保持结构、如何变化、如何生成新结构"
 
 PART_OF = {"论文一": 2, "论文二": 2, "论文三": 2, "论文四": 2, "论文五": 2, "论文六": 2,
            "论文七": 3, "论文八": 3, "论文十": 3, "论文十一": 3, "论文十二": 3, "论文十三": 3,
@@ -189,6 +189,11 @@ h2.chapter { page-break-before: always; }
              letter-spacing:5px; color:#8d949c; }
 .cover .t { position:absolute; top:105mm; left:0; right:0; text-align:center; font-size:46pt;
             letter-spacing:10px; font-weight:bold; }
+.cover .motto { position:absolute; top:141mm; left:0; right:0; text-align:center; font-size:19pt;
+  letter-spacing:6px; color:#e8e2d3; }
+.cover .motto2 { position:absolute; top:153mm; left:0; right:0; text-align:center; font-size:11pt;
+  letter-spacing:2px; color:#b9b2a2; }
+.cover .motif { position:absolute; top:44mm; left:0; right:0; text-align:center; opacity:.9; }
 .cover .vol { position:absolute; top:137mm; left:0; right:0; text-align:center; font-size:18pt;
               letter-spacing:14px; color:#d8b25a; }
 .cover .cores { position:absolute; top:160mm; left:0; right:0; text-align:center; font-size:11pt;
@@ -234,9 +239,9 @@ img { max-width: 100%%; height: auto; }
 table.nat td.s, table.nat th.s { text-align:center; }
 """ % dict(
         page="A4" if print_ else "B5",
-        margin="25mm 28mm 25mm 28mm" if print_ else "17mm 15mm 17mm 15mm",
-        fs="10.6pt" if print_ else "11.6pt",
-        lh="1.72" if print_ else "1.85",
+        margin="26mm 30mm 26mm 30mm" if print_ else "18mm 16mm 18mm 16mm",
+        fs="12.6pt" if print_ else "12.2pt",
+        lh="2.05" if print_ else "1.95",
         cw="210mm" if print_ else "176mm",
         ch="297mm" if print_ else "250mm",
         cmg="-25mm -28mm 0 -28mm" if print_ else "-17mm -15mm 0 -15mm",
@@ -331,13 +336,20 @@ def part_html(kicker, title, desc):
 
 
 def cover_html():
+    ring = "".join(
+        f'<circle cx="{105 + 90 * __import__("math").cos(__import__("math").pi * i / 3):.1f}" '
+        f'cy="{(160 - 62 * __import__("math").sin(__import__("math").pi * i / 3)):.1f}" r="2.1"/>'
+        for i in range(6))
     return f"""<div class="cover">
 <div class="rule-top"></div><div class="rule-bottom"></div>
 <div class="en">THE TRADEOFFS OF FINITE SYSTEMS</div>
 <div class="t">{TITLE}</div>
-<div class="vol">二 十 二 件 合 集</div>
+<div class="motto">看得准 · 拼得上 · 传得下去</div>
+<div class="motto2">—— 最多付得起两个</div>
+<div class="motif"><svg width="210" height="210" viewBox="0 0 210 210" fill="none" stroke="#b8862f" stroke-opacity="0.55" stroke-width="0.8">
+<circle cx="105" cy="98" r="62" stroke-opacity="0.28"/><circle cx="105" cy="98" r="40" stroke-opacity="0.2"/>{ring}
+<line x1="105" y1="26" x2="105" y2="60" stroke-opacity="0.4"/></svg></div>
 <div class="cores">看见 · 记住 · 跟上 · 选择 · 讲述 · 临界</div>
-<div class="sub">九本书 + 十四篇工作论文</div>
 <div class="au">{AUTHOR}</div><div class="yr">2026</div>
 </div>"""
 
@@ -373,7 +385,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                 '<p><b>卷首《中道周行集》。</b>它以诗、词、散、骈、赋、铭六体写成，是作者的方法自述，与本合集的方法论互为镜像：'
                 '“读观行验”对观察—抽象—建模—应用—反馈的闭环；“执两用中”对三样至多取二；“慎终如始、持满若虚”对不作宿命判断、'
                 '把每条结论都写成可被推翻的样子。它是精神自述，不承担论证，不参与分级，也不进入任何引用计数。</p>'
-                '<p>系列入口与外部登记库：github.com/lyp0746/knowledge-tradeoffs；各卷的 DOI、附录与可证伪登记簿以单行本为准。</p>'
+                '<p>系列工作区与外部登记库：github.com/lyp0746/series-workspace；入门读本：github.com/lyp0746/knowledge-tradeoffs；各卷的 DOI、附录与可证伪登记簿以单行本为准。</p>'
                 '<p>版式：正文宋体 + Times New Roman；目录页码由排版后回填。</p></div>')
 
     # ---------------- 卷首：中道周行集（方法自述，不参与分级）
@@ -526,7 +538,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
             body.append(part_html(PARTS[3][0], PARTS[3][1], PARTS[3][2]))
         if pno == "论文九":
             body.append(part_html(PARTS[4][0], PARTS[4][1], PARTS[4][2]))
-        note = ("阶段总账：覆盖一—八（14 件、62 条命题）；十—十三 的登记命题不在其中，待下一版并账。"
+        note = ("阶段总账：覆盖一—十四（23 件、110 条登记命题）。"
                 if pno == "论文九" else "")
         body.append(papcover_html(pi, pno, ptitle, psub, core, doi, cls, note))
         body.append(paper_html(repo, md, mode, assets, pi))
@@ -547,7 +559,10 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
 
     # ---------------- 版本记
     body.append('<div class="colophon"><h3>版本记</h3>'
-                f'<p>{DATE}：第六版。在二十二件版基础上新增第十四篇《开明君主与两层竞争：agent 价目表上的执行、方向与代价承担者》，'
+                f'<p>{DATE}：第七版。九本书与十四篇论文全部换为 {DATE} 新版：各卷新增满栏插图扉页与部分小结、'
+                '每章补齐八段骨架（主提问／场景／导论／机制／表图／反例／小结／一句话带走）；'
+                '十四篇论文统一为 12–16 节、附录 ≤6 件且单节 ≤1200 字；全书结构校阅 24 条规则 error 0 / warn 0。'
+                '在上一版基础上'
                 '并收录<b>卷首《中道周行集》</b>（诗、词、散、骈、赋、铭六体＋总论＋跋），作为方法论自述与精神追求；'
                 '收录九本书（六本专著＋两本通俗读本＋一本科普专著）与十四篇工作论文，另附卷首一篇。'
                 '同版本更新：第十篇（附录 M，52 页）、第十一篇（附录 P，51 页）、第九篇（总账 62→110 条、七处同名不同物，54 页）均以本日新版入集，'
