@@ -152,17 +152,28 @@ def r01_section_numbers(it):
 
 
 APPX = re.compile(r"^附\s*录\s*([A-Z](?:\d)?)(?=[\s　]|$)")
+# 同一 appendix 文件内以 <h3>附录 X</h3> 分节的情形（多节合并在一个文件里）。
+# 2026-10-31 补：此前只按文件取字母，一本书把所有附录塞进 appendix_a.html 时
+# r02/r03/r04 全部放行，《只能选两样》因此出现过两套 D/E/F 而校阅为零。
+APPX_H3 = re.compile(r"<h3[^>]*>\s*附\s*录\s*([A-Z])(?=[\s　]|$)")
 
 
 def _appendix_letters(it):
     if it.kind == "book":
         out = []
         for f in it.appendix_files:
-            h2 = re.search(r'<h2 class="chapter">([^<]*)</h2>', it.files.get(f, ""))
+            txt = it.files.get(f, "")
+            got = False
+            h2 = re.search(r'<h2 class="chapter">([^<]*)</h2>', txt)
             if h2:
                 m = re.match(r"^附\s*录\s*([A-Z])", h2.group(1))
                 if m:                       # 只有带字母的才算附录
                     out.append((f, m.group(1)))
+                    got = True
+            for m in APPX_H3.finditer(txt):  # 同文件内的分节字母一并计入
+                out.append((f, m.group(1)))
+                got = True
+            if got:
                 continue
             m = re.match(r"appendix_([a-zA-Z0-9]+)", f)
             out.append((f, (m.group(1) if m else "?").upper()))
@@ -176,7 +187,7 @@ def _appendix_letters(it):
 
 
 def r02_appendix_order(it):
-    """附录字母连续、无 A0/D2/J2/AA"""
+    """附录字母连续、无 A0/D2/J2/AA；同文件内不得出现两套同号附录"""
     out = []
     letters = _appendix_letters(it)
     if not letters:
@@ -185,10 +196,20 @@ def r02_appendix_order(it):
     for t in tags:
         if re.search(r"\d$", t):
             out.append(Finding(it.repo, 2, "error", f"附录编号打补丁：{t}（禁 A0/D2/J2 形态）"))
+    # 重复 / 乱序：按“同一附录文件内的号序”判（跨文件按 build 顺序，号可以分属不同文件）
+    per_file = {}
+    for f, l in letters:
+        per_file.setdefault(f, []).append(l)
+    for f, seq in per_file.items():
+        s = [t for t in seq if len(t) == 1]
+        dup = sorted({t for t in s if s.count(t) > 1})
+        if dup:
+            out.append(Finding(it.repo, 2, "error",
+                               f"附录字母重复：{' '.join(dup)}（{f} 内，读者无法按号引用）"))
+        if s != sorted(s):
+            out.append(Finding(it.repo, 2, "error", f"附录字母乱序：{f} 内的 {' '.join(seq)}"))
+    # 缺号（全书按出现顺序）
     simple = [t for t in tags if len(t) == 1]
-    if simple != sorted(simple):
-        out.append(Finding(it.repo, 2, "error", f"附录字母乱序：{' '.join(tags)}"))
-    # 缺号
     if simple:
         want = [chr(ord(simple[0]) + i) for i in range(len(simple))]
         if simple != want:
@@ -201,10 +222,16 @@ def r03_refs_in_appendix(it):
     out = []
     if it.kind == "book":
         for f in it.appendix_files:
-            h = strip_html(it.files[f])
+            txt = it.files.get(f, "")
+            h = strip_html(txt)
             first = h.strip().split("\n")[0][:40]
             if re.search(r"参考文献|术语表", first):
                 out.append(Finding(it.repo, 3, "error", f"{f} 实为「{first}」，应移出附录序列"))
+            # 分节标题里带字母的术语表 / 参考文献同样不合格
+            for m in re.finditer(r"<h([23])[^>]*>([^<]*)</h\1>", txt):
+                head = m.group(2)
+                if re.match(r"^附\s*录\s*[A-Z]", head) and re.search(r"参考文献|术语表", head):
+                    out.append(Finding(it.repo, 3, "error", f"附录条目实为「{head[:24]}」，应去字母"))
     else:
         for _, h in it.h2:
             if not APPX.match(h):
@@ -215,10 +242,17 @@ def r03_refs_in_appendix(it):
 
 
 def r04_appendix_count(it):
-    n = len(_appendix_letters(it))
-    if n > 6:
-        return [Finding(it.repo, 4, "error", f"附录 {n} 个 > 6")]
-    return []
+    letters = _appendix_letters(it)
+    n = len(letters)
+    if n <= 6:
+        return []
+    files = len({f for f, _ in letters})
+    if files > 6:                     # 真的用了 7 个以上附录文件
+        return [Finding(it.repo, 4, "error", f"附录 {files} 个文件 > 6")]
+    # 一个文件里塞了 7 节以上：按文件数是 1，按读者可引用的号数是 n。
+    # 规范判据写的是数文件，所以这里给 warn（不阻断），但把真实件数写进账。
+    return [Finding(it.repo, 4, "warn",
+                    f"附录 {n} 节 > 6（同文件分节；skeleton §4 要求 ≤6 件，建议合并）")]
 
 
 def prose_cn(s):
@@ -239,9 +273,7 @@ def r05_appendix_ratio(it):
     绝大多数是登记项、空白表与清单。按字数占比判，会把表格误判成"第二正文"。
     """
     out = []
-    n = len(_appendix_letters(it))
-    if n > 6:
-        out.append(Finding(it.repo, 5, "error", f"附录 {n} 件 > 6"))
+    # 件数判据统一由 r04 负责（按文件 error、按分节 warn），此处只管单节长度。
     # 逐节测长
     if it.kind == "book":
         for f in it.appendix_files:
@@ -400,6 +432,23 @@ def r11_dup_h3(it):
 
 
 SERIES_CNT = re.compile(r"([一二三四五六七八九十\d]+)\s*(本书|本专著|篇论文|篇工作论文)")
+CN_DIGIT = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7,
+            "八": 8, "九": 9, "十": 10}
+
+
+def cn2int(s):
+    """「九」「十八」「20」→ int；无法解析返回 None。"""
+    if s.isdigit():
+        return int(s)
+    if s == "十":
+        return 10
+    if s.startswith("十") and len(s) == 2:
+        return 10 + CN_DIGIT.get(s[1], 0)
+    if len(s) == 2 and s[1] == "十" and s[0] in CN_DIGIT:
+        return CN_DIGIT[s[0]] * 10
+    if len(s) == 1:
+        return CN_DIGIT.get(s)
+    return None
 
 
 def r12_series_count(it, n_books, n_papers):
@@ -421,6 +470,11 @@ def r12_series_count(it, n_books, n_papers):
     SMALL = {"一", "二", "三", "四", "五", "六", "七", "1", "2", "3", "4", "5", "6", "7"}
     for (n, unit), c in hits.items():
         if n in SMALL:          # 「一本书」「三本书」多指某几本具体著作，不是系列总数
+            continue
+        # 与 inventory 一致的总数不算错（2026-10-31：此前一律 warn，导致“系列共九本书”这类
+        # 正确陈述也被记一笔；真正要挡的是过期计数与不带「其时」的历史叙述）
+        k = cn2int(n)
+        if (unit in ("本书", "本专著") and k == n_books) or (unit in ("篇论文", "篇工作论文") and k == n_papers):
             continue
         out.append(Finding(it.repo, 12, "warn", f"系列计数「{n}{unit}」×{c}（今为 {n_books} 书 / {n_papers} 篇；历史处须写「其时的…」）"))
     return out

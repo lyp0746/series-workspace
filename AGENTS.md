@@ -87,22 +87,46 @@ bash release.sh                        # 组装 release/
 
 ## 8 已知未完成（工作单）
 
-见 `_series/lint/REPORT.md` 的 error 列表，按件排。当前主要三类：
-① 章骨架补全（主提问框/场景开篇/本章小结）；② 附录占比 >12% 的六本书；
-③ 系列计数统一（"五本/六本/八本/九本"并存）。逐件认领时，先把该件的 error 清零再动文字。
+见 `_series/lint/REPORT.md` 的 error / warn 列表，按件排。当前主要四类：
+① 章骨架补全（主提问框/场景开篇/本章小结）；
+② 附录合并：`emergence-critical`（23 节）与 `hotspot-bills`（10 节）仍在一个 appendix 文件里
+排到 6 件以上（lint 记 warn），需按《只能选两样》的做法合并为 A–F；
+③ 系列页 DOI：其余 8 本书的“本系列”页仍列旧版本 DOI，应统一改为概念 DOI；
+④ 系列计数：“五本/六本/八本/九本”仍并存，应全部由 `inventory.tsv` 或占位符注入。
+逐件认领时，先把该件的 error 清零再动文字。
 
 ## 6b 发布与归档（2026-10-30 起）
 
 - **一仓一 release、一 tag**：tag 形如 `v2026.10.30`，release 附件即该仓 `release/` 的全部内容（13–14 件：
   印刷版/电子版 PDF、EPUB、网页版、合并与分文件 Markdown、封面、README、MANIFEST、数据缺口、征集页）。
   附件名一律 ASCII（中文名会被 GitHub 拒收，报 422）。
-- **描述格式**（书与论文同一套四段）：中文摘要 → Abstract (English) → Files → 系列 / Series。
+- **描述格式**（书与论文同一套）：**首段必须是 `<p><b>中文摘要。</b>`**，然后中文七段（核心主张／结构与证据／实证与算例／诚实的学术纪律／边界／学术特点）、英文七段（Abstract / Core thesis / Structure and evidence / Evidence / Discipline / Boundaries / Features）、`版本信息` 与 `Edition` 收尾。开头的“中文.”“摘要.”“中文.”都不算；缺段或换标题，读者一眼就能看出这件不是同一批做的。
   `description` 是 HTML，Markdown 的 `**`、`` ` ``、残余 `*` 必须先转换，发布后断言 `description.count("*") == 0`。
+- **关联标识分三档（每次都重新生成，不要复制上一版）**：① 六本学术专著——**只关联自身仓库**；
+  ② 其余三本（只能选两样／心灵的分岔／热点的账单）——**自身仓库 + 共用库 + 六本专著的新版本 DOI（isPartOf）**；
+  ③ 十四篇论文与合集——**共用库 + 六本专著的新版本 DOI**（论文有仓库的再加自身仓库）。
+  上一版的 `related_identifiers` 常常是一串早已被替换的旧 DOI（甚至全是 `references`），照抄必错。
+  另：`_zenodo/REGISTRY.md` 里的记录 ID **会漂移**（某件发过更新的版本而表没改）；审计或补元数据前一律用
+  `GET /api/records/{id}/versions` 重新取最新（按 `metadata.version` 最大，跳过 `edition-2026-10-18` 这类伪版本）
+  ——2026-10-31 漏掉的两条（心灵的分岔 23772399、热点的账单 23772473）就是这么漏的。
 - **标题**：`中文题名：副题 / English Title: Subtitle`。不得从 `inventory.tsv` 复制（该表列宽会截断英文），
   以 `CITATION.cff` 或上一版记录为准；发布前断言含 ` / ` 且长度 > 60。
-- **关联标识**：六本学术专著只关联自身仓库；其余三本与十四篇论文关联 **共用库 + 六本专著的新版本 DOI**。
-- **Zenodo 新版本的三个坑**（详见 skill 的 `references/zenodo-upload.md`）：
+- **Zenodo 新版本的四个坑**（详见 skill 的 `references/zenodo-upload.md`）：
   ① 元数据编辑走 `POST /api/records/{id}/draft`（RDM 形态），legacy 形态会静默丢作者；
   ② 编辑过元数据后 `actions/newversion` 会报 `files.enabled`，改用 `POST /api/records/{id}/versions`；
-  ③ 新版本草稿会继承父版本文件，须先逐个 DELETE 再上传；Zenodo 没有 `files/commit`。
+  ③ 新版本草稿会继承父版本文件，须先逐个 DELETE 再上传；Zenodo 没有全局 `files/commit`，
+  文件是“建条目 → PUT 内容 → commit 单个文件”三步，且创建条目的响应会把**已有条目一并返回**，
+  必须按 `key == name` 选对条目，否则内容会 PUT 进上一个文件、commit 报 `Empty files are not accepted`；
+  ④ **RDM 只认 `metadata.rights` / `metadata.subjects` / `metadata.languages`**。legacy 的
+  `metadata.license` / `metadata.keywords` 会被**静默丢弃**——2026-10-30 那批 20 件（6 本学术专著 +
+  14 篇论文）因此全部没有许可与关键词，而版权页与 CITATION.cff 都写着 CC BY 4.0。同一个坑此前只补了“作者”。
+  另：文件内容 PUT 用 `requests`，`urllib` 在内容 PUT 上会被重定向吞掉正文；`publisher` 是 DOI 注册必填
+  （本系列用“独立出版 / Independently published”，不虚构出版社）。
+- **发新版本的固定动作**（脚本：`_zenodo/republish_book.py`；只补元数据：`_zenodo/fix_rights_subjects.py`）：
+  预留 DOI（`POST /api/records/{draft}/draft/pids/doi`）→ 把 DOI 写进 `CITATION.cff`/`README` → 打包 `release/`
+  → 上传 → PUT 元数据 → 发布。**发布后立刻断言**：`license` 非空、`keywords` 非空、`creators` 非空、
+  `description.count("*") == 0`、`version` 与真实完成日一致。`publish_v.py` 已改为调用它的薄驱动；
+  `publish_papers.py` 与 `publish_collection.py` 已停用（它们就是丢字段的那两条路径）。
+- **已发布的旧版本不要靠“重发新版本”来补元数据**：元数据编辑不产生新版本、DOI 不变（2026-10-31 据此
+  给 20 条记录补了许可与关键词）。
 - **描述里不写"版本信息"以外的历史**：改了什么写进 `_zenodo/REGISTRY.md` 与各仓 `versions/CHANGELOG.md`。

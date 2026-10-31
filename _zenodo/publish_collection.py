@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+# ⚠️ 已停用（2026-10-31）：本脚本走 actions/newversion + legacy 键名（license/keywords），
+# 新版本草稿是 RDM 形态，这两个键会被静默丢弃——2026-10-30 那批 20 件就是这样丢了 CC BY 4.0。
+# 发新版本请用：  python _zenodo/republish_book.py go <slug>
+# 只补许可与关键词请用：python _zenodo/fix_rights_subjects.py go <slug>
+raise SystemExit(__doc__ or "deprecated: use _zenodo/republish_book.py")
+
+
 """合集：发新版本（文件取自 合集23/release/ 的 8 件，不含 assets 目录）。"""
 import io, json, os, sys, glob, urllib.request, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
