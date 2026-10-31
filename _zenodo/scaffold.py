@@ -4,7 +4,7 @@ import json, pathlib, sys
 repo = pathlib.Path(sys.argv[1]); title = sys.argv[2]; sub = sys.argv[3]; sub_en = sys.argv[4]
 pages = sys.argv[5]; main = sys.argv[6]; abstract = sys.argv[7]
 series = [("10.5281/zenodo.23286403","错位的时间"),("10.5281/zenodo.23323277","遗忘的边界"),
- ("10.5281/zenodo.23412033","区分的语法"),("10.5281/zenodo.23388628","选择的代价"),
+ ("10.5281/zenodo.23412033","区分的语言"),("10.5281/zenodo.23388628","选择的代价"),
  ("10.5281/zenodo.23416220","诠释的权衡"),("10.5281/zenodo.23447311","涌现的临界"),
  ("10.5281/zenodo.23447341","只能选两样"),("10.5281/zenodo.23526582","热点的账单"),
  ("10.5281/zenodo.23601983","明清湘中驿道"),("10.5281/zenodo.23602311","轮换的让渡"),

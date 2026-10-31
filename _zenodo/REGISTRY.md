@@ -6,7 +6,7 @@
 |---|---|---|---|---:|---|---|---|
 | 01 | 书 | `entropy-spiral` | 错位的时间 | 354 | 10.5281/zenodo.23771608 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
 | 02 | 书 | `capacity-cascade` | 遗忘的边界 | 229 | 10.5281/zenodo.23771832 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
-| 03 | 书 | `distinction-evolution` | 区分的语法 | 234 | 10.5281/zenodo.23771933 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
+| 03 | 书 | `distinction-evolution` | 区分的语言 | 234 | 10.5281/zenodo.23771933 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
 | 04 | 书 | `impossibility-triangle` | 选择的代价 | 276 | 10.5281/zenodo.23772040 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 216 | 10.5281/zenodo.23771397 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
 | 06 | 书 | `emergence-critical` | 涌现的临界 | 259 | 10.5281/zenodo.23772106 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |

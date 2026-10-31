@@ -7,7 +7,7 @@ BOOKS = ["knowledge-tradeoffs","distinction-evolution","capacity-cascade","entro
          "impossibility-triangle","interpretation-tradeoff","emergence-critical","mind-forks","hotspot-bills"]
 SERIES = README_LINKS = {
  "knowledge-tradeoffs":("只能选两样","从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍"),
- "distinction-evolution":("区分的语法","五个领域，同一个二次型"),
+ "distinction-evolution":("区分的语言","五个领域，同一个二次型"),
  "capacity-cascade":("遗忘的边界","有限容量下的记忆、智能与自我"),
  "entropy-spiral":("错位的时间","为什么我们总是来不及：社会系统的时间错配与可控性边界"),
  "impossibility-triangle":("选择的代价","完备、可组合与可传递的三维权衡"),

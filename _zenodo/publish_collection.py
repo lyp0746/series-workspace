@@ -19,7 +19,7 @@ FILES = ["00-合集-印刷版.pdf", "01-合集-电子版.pdf", "合集.epub", "0
 
 TITLE = "有限系统的取舍：系列合集 / The Tradeoffs of Finite Systems: A Collection"
 DESC = """<p><b>中文摘要。</b>九本书与十四篇工作论文装订成一册，另收卷首一篇非学术文本（《中道周行集》，诗词散骈赋铭六体，为作者的方法自述，不参与分级）。本合集只做装订：每件保留自己的题名、作者行、版权页、图表、附录与登记簿，正文一字未改；合集另加总封面、总序、总目录、各卷卷封面与卷前言、各部分过渡语、后记与版本记。</p>
-<p><b>结构。</b>第一部 九卷专著：只能选两样（导览）→ 区分的语法 → 遗忘的边界 → 错位的时间 → 选择的代价 → 诠释的权衡 → 涌现的临界 → 心灵的分岔 → 热点的账单。第二部 实证论文六篇：术语的账单、谁在切时间轴、线外的残余、明清湘中驿道、轮换的让渡、被点燃的生态。第三部 方法论文与阶段总账：优化的边界、容量的三个代理、领域的剖面、同构的强度、记忆的锚点、锚点的下限、开明君主与两层竞争；末为《六张账单的对账》（覆盖一—十四、110 条登记命题）。</p>
+<p><b>结构。</b>第一部 九卷专著：只能选两样（导览）→ 区分的语言 → 遗忘的边界 → 错位的时间 → 选择的代价 → 诠释的权衡 → 涌现的临界 → 心灵的分岔 → 热点的账单。第二部 实证论文六篇：术语的账单、谁在切时间轴、线外的残余、明清湘中驿道、轮换的让渡、被点燃的生态。第三部 方法论文与阶段总账：优化的边界、容量的三个代理、领域的剖面、同构的强度、记忆的锚点、锚点的下限、开明君主与两层竞争；末为《六张账单的对账》（覆盖一—十四、110 条登记命题）。</p>
 <p><b>这一版（2026-10-30，第七版）。</b>九本书与十四篇论文全部换为同日新版：各卷新增满栏插图扉页与部分小结，每章补齐八段骨架（主提问／场景／导论／机制／表图／反例／小结／一句话带走）；十四篇论文统一为 12–16 节、附录 ≤6 件且单节 ≤1200 字；全书结构校阅 24 条规则 error 0 / warn 0。版式对齐单行本（正文 12.6pt／行距 2.05／页边 26–30mm）。</p>
 <p><b>边界。</b>合集为阅读便利而编，引用请以各件单行本为准（含其 DOI、附录与可证伪登记簿）。合集中的章节编号、图表编号与证据分级均与单行本一致，未做统一重排。</p>
 <p><b>Abstract (English).</b> Nine books and fourteen working papers are bound into one volume, preceded by a non-academic preface (Zhongdao Zhouxing Ji — a set of poems, lyrics, prose, parallel prose, rhapsody and inscriptions that states the author's method in another language and takes no part in grading). The collection only binds: every item keeps its own title page, colophon, figures, appendices and register, with the body text unchanged. The collection adds a general cover, general preface, general table of contents, volume covers and prefaces, part transitions, an afterword and a version note.</p>
