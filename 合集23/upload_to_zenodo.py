@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+# ⚠️ 已停用（2026-10-31）：本脚本走 deposit/depositions 的 legacy 元数据，
+# 许可与关键词在 RDM 草稿上会被静默丢弃。发合集新版本请用：
+#     python _zenodo/republish_book.py go 合集23
+# 只改描述/关联/许可请用：
+#     python _zenodo/patch_meta.py 合集23 --desc 合集23.html --rel coll
 """Create a Zenodo record for the paper and upload release/ files.
 
 Follows the pattern of zenodo.org/records/23480796 (Hunan relay paper):
