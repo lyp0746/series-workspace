@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>六张账单的对账 · 交互探索器</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--green:#2e6b4f;--gold:#a8791f;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"Songti SC","SimSun","Source Han Serif SC",serif}
+header{padding:24px 5vw 14px;background:#fff;border-bottom:2px solid var(--red)}
+h1{margin:0 0 6px;font-size:24px}.sub{color:#555;font-size:13.5px;line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:16px 5vw 60px}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#fff;
+border:1px solid #e3e0d8;border-radius:6px;padding:10px;margin:8px 0 14px}
+label{font-size:13px}select{padding:4px 8px;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:13px}
+svg{width:100%;background:#fff;border:1px solid #e3e0d8;border-radius:6px;display:block}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0}
+.k div{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px 12px;font-size:12.5px;color:#555}
+.k b{display:block;font-size:21px;color:var(--ink);margin-top:3px;font-family:"Helvetica Neue",Arial,sans-serif}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12.5px;margin-top:12px}
+th,td{padding:6px 7px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tr.r{cursor:pointer}tr.r:hover{background:#f4f1e8}
+.detail{background:#fff;border:1px solid #d9d4c7;border-left:3px solid var(--blue);
+border-radius:5px;padding:12px 14px;margin-top:12px;font-size:13px;line-height:1.8;display:none}
+.detail.on{display:block}
+.detail h3{margin:0 0 6px;font-size:14.5px}
+.tag{display:inline-block;border:1px solid #ddd;border-radius:12px;padding:1px 8px;font-size:11.5px;
+color:#555;margin-right:6px;background:#fafafa}
+.note{font-size:12px;color:#666;line-height:1.75;margin-top:14px}
+.hint{font-size:12px;color:#777}
+@media(max-width:700px){h1{font-size:19px}.k b{font-size:18px}}
+</style></head><body>
+<header><h1>六张账单的对账 · 交互探索器</h1><div class="sub">110 条登记命题 · 六核心 × 状态 × 等级 × 尺度 · 数据来自 ledger.csv（唯一来源）</div></header>
+<div class="wrap">
+<div class="bar" id="filters"></div>
+<div class="k" id="stats"></div>
+<svg id="chart" viewBox="0 0 900 420"></svg>
+<div class="detail" id="detail"></div>
+<table id="tbl"><thead></thead><tbody></tbody></table>
+<div class="note" id="note"></div>
+</div>
+<script>
+const DATA = [{"paper": "官制", "pid": "R1", "stmt": "内廷使职补 A 后 C 下降", "test": "补 A 后 30 年内近侍参与机要频率下降", "result": "待检验", "status": "待检验", "grade": "B", "core": "选择", "scale": "制度"}, {"paper": "官制", "pid": "R2", "stmt": "禁戒后功能换名再生", "test": "禁戒后 60 年内出现同类功能新职位", "result": "待检验", "status": "待检验", "grade": "B", "core": "选择", "scale": "制度"}, {"paper": "官制", "pid": "R3", "stmt": "融合线预测体制崩解", "test": "出现融合线的时期 30 年内崩解", "result": "两次崩解均在融合期，Fisher p=0.48", "status": "部分", "grade": "C", "core": "临界", "scale": "制度"}, {"paper": "官制", "pid": "R4", "stmt": "授权包而非 τ 决定失控", "test": "控制 τ 后授权包仍显著预测割据", "result": "待检验", "status": "待检验", "grade": "B", "core": "跟上", "scale": "制度"}, {"paper": "官制", "pid": "R5", "stmt": "崩解前有临界慢化", "test": "崩解前 30 年诏令延迟与财政分散度上升", "result": "待检验", "status": "待检验", "grade": "C", "core": "临界", "scale": "制度"}, {"paper": "官制", "pid": "R6", "stmt": "禁戒越严，换名越频", "test": "明代换名频率高于宋代", "result": "待检验", "status": "待检验", "grade": "C", "core": "选择", "scale": "制度"}, {"paper": "官制", "pid": "R7", "stmt": "ψ≈0 的政体无强循环", "test": "西周早期、金初无完整循环", "result": "初步支持", "status": "支持", "grade": "C", "core": "选择", "scale": "制度"}, {"paper": "官制", "pid": "E1", "stmt": "内廷线时滞短、外派线长", "test": "全样本时滞差异显著", "result": "34 年对 29 年，p=0.33，不显著", "status": "撤回", "grade": "B", "core": "跟上", "scale": "制度"}, {"paper": "官制", "pid": "E2", "stmt": "融合线预测崩解（强版本）", "test": "融合期崩解率显著更高", "result": "p=0.48，功效不足", "status": "部分", "grade": "C", "core": "临界", "scale": "制度"}, {"paper": "驿道", "pid": "H1", "stmt": "失去驿道功能的古镇人口增速更低", "test": "控制组与处理组无差异", "result": "待检验", "status": "待检验", "grade": "C", "core": "跟上", "scale": "共同体"}, {"paper": "驿道", "pid": "H2", "stmt": "大瑶花炮对县级财政贡献显著更高", "test": "财政数据不支持", "result": "待检验", "status": "待检验", "grade": "C", "core": "选择", "scale": "制度"}, {"paper": "驿道", "pid": "H3", "stmt": "撤县设市后地名保留率出现断点", "test": "面板无断点", "result": "待检验", "status": "待检验", "grade": "C", "core": "记住", "scale": "制度"}, {"paper": "驿道", "pid": "H4", "stmt": "密度与易损性／批次相关", "test": "密度与易损性无关", "result": "方向支持（n=4，p=0.19）", "status": "部分", "grade": "C", "core": "看见", "scale": "共同体"}, {"paper": "驿道", "pid": "H5", "stmt": "官驿间距稳定、商驿增密", "test": "官驿间距随市场同步变化", "result": "待检验", "status": "待检验", "grade": "C", "core": "看见", "scale": "共同体"}, {"paper": "术语", "pid": "H1", "stmt": "机制集中：≤30 个账格", "test": "7×7 交叉表非空格数", "result": "27 格", "status": "成立", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "术语", "pid": "H2", "stmt": "三角覆盖 ≥80%", "test": "计“无让出”比例", "result": "36% 无让出", "status": "证伪", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "术语", "pid": "H3", "stmt": "可写性随层下降", "test": "秩相关", "result": "ρ=0.30→0.20", "status": "证伪", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "术语", "pid": "H4", "stmt": "跨主体→让出顶点", "test": "2×2 Fisher", "result": "OR=5.05，p=0.002", "status": "部分", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "术语", "pid": "H5", "stmt": "合并是主要置换", "test": "置换分布", "result": "拆分 27 > 合并 11", "status": "证伪", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "术语", "pid": "H6", "stmt": "还原可预测性能", "test": "预测加速比", "result": "未做到", "status": "开放", "grade": "C", "core": "临界", "scale": "命题"}, {"paper": "术语", "pid": "H7", "stmt": "上层难在权限", "test": "Agent 层 7/8", "result": "方向成立", "status": "开放", "grade": "C", "core": "选择", "scale": "命题"}, {"paper": "术语", "pid": "H8", "stmt": "角色与结构可同表不重复", "test": "索引／B+ 树分列", "result": "80 条内成立", "status": "开放", "grade": "C", "core": "看见", "scale": "命题"}, {"paper": "术语", "pid": "H9", "stmt": "机制集中可外推", "test": "60→80 条新增非空账格", "result": "23→27（+4）", "status": "部分", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "W1", "stmt": "边界年集中，机制是模板复制", "test": "来源级／模板级前十占比", "result": "69.7% 对 10.1%；75.0% 对 26.3%", "status": "成立", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "W2", "stmt": "三组传统在四道门上不同", "test": "含门的来源比例检验", "result": "64% 对 13%（p=0.008）等", "status": "成立", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "W3", "stmt": "组内分区距离小于组间", "test": "ARI 与置换检验", "result": "0.651 对 0.508，p=0.0005；R²=0.29", "status": "成立", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "W4", "stmt": "分辨率随范围上升", "test": "世界>区域>国别", "result": "反向：3.5<3.7<4.9（p=0.008）", "status": "证伪", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "W5", "stmt": "1500 是欧洲主断点", "test": "欧洲>50%，全球<30%", "result": "73% 对 71%（p=1.0）", "status": "部分", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "W6", "stmt": "出版年漂移由传统决定", "test": "秩相关", "result": "ρ=−0.01／−0.48／−0.41，不显著", "status": "撤回", "grade": "C", "core": "跟上", "scale": "命题"}, {"paper": "分期", "pid": "W7", "stmt": "欧洲贴事件年、全球史贴进程年", "test": "命名类型比例", "result": "82.8／69.1%；51.1%", "status": "成立", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "分期", "pid": "W8", "stmt": "同切线多异名", "test": "668 对同切线命名对比", "result": "63% 异名", "status": "成立", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "分期", "pid": "W9", "stmt": "复编 κ≥0.7", "test": "20% 复编", "result": "年份 1.00、层级 0.53、整行 0.80", "status": "部分", "grade": "A", "core": "讲述", "scale": "命题"}, {"paper": "分期", "pid": "W10", "stmt": "边界年是现代教材体裁的变量", "test": "前现代来源对照", "result": "9/14 印年；核心门仅 589 重合", "status": "成立", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "分期", "pid": "R1", "stmt": "交叉曲线是边际分布的恒等式", "test": "代数核对", "result": "R²=1.0000，最大残差 8.3×10⁻¹⁷", "status": "成立", "grade": "A", "core": "讲述", "scale": "命题"}, {"paper": "生态", "pid": "H1", "stmt": "跳变由外部冲击触发", "test": "日尺度对齐；发布前基线", "result": "38→615→1,841；基线 23.9/日", "status": "支持", "grade": "B", "core": "临界", "scale": "共同体"}, {"paper": "生态", "pid": "H2", "stmt": "发布前已有同质活动", "test": "651 个“发布前”仓库", "result": "47 个早于 2026、155 个已百星", "status": "部分", "grade": "C", "core": "记住", "scale": "共同体"}, {"paper": "生态", "pid": "H3", "stmt": "越过临界点、进入自维持", "test": "存活率是否单调；skills 是否走平", "result": "不单调，但仓龄混淆；三因不可分", "status": "开放", "grade": "C", "core": "临界", "scale": "共同体"}, {"paper": "生态", "pid": "H4", "stmt": "两条 topic 线是“配套”", "test": "交集与 Jaccard", "result": "414，0.7%", "status": "证伪", "grade": "B", "core": "看见", "scale": "共同体"}, {"paper": "生态", "pid": "H5", "stmt": "分辨率不影响趋势结论", "test": "五种口径的符号", "result": "+62% 至 −61%，两个方向", "status": "证伪", "grade": "B", "core": "看见", "scale": "共同体"}, {"paper": "生态", "pid": "H6", "stmt": "跨线仓库以通用工具为主（高 T）", "test": "5 个交集仓库逐一核对", "result": "5/5 通用工具", "status": "支持", "grade": "C", "core": "选择", "scale": "共同体"}, {"paper": "生态", "pid": "H7", "stmt": "老仓库身份重写率约三成", "test": "描述关键词检索", "result": "10/35=28.6%", "status": "支持", "grade": "C", "core": "记住", "scale": "共同体"}, {"paper": "残余", "pid": "R1", "stmt": "解码器是恢复的必要条件", "test": "恢复组与非恢复组的解码器有无", "result": "18/18 对 0/6，p≈7.4×10⁻⁶", "status": "支持", "grade": "B", "core": "记住", "scale": "共同体"}, {"paper": "残余", "pid": "R2", "stmt": "解码器滞后远短于沉寂期", "test": "两者中位对比", "result": "0 年对 37.5 年", "status": "支持", "grade": "B", "core": "记住", "scale": "共同体"}, {"paper": "残余", "pid": "R3", "stmt": "旧坐标决定回归路径", "test": "五类坐标的主路径", "result": "1 例例外（C08）", "status": "待检验", "grade": "C", "core": "记住", "scale": "共同体"}, {"paper": "残余", "pid": "R4", "stmt": "重发明只发生在可重建时", "test": "重发明组与恢复组的可重建率", "result": "3/3 对 2/18，p=0.0075", "status": "支持", "grade": "B", "core": "记住", "scale": "共同体"}, {"paper": "残余", "pid": "R5", "stmt": "沉默↔残余不可检或被吸收", "test": "沉默组是否命中其一", "result": "3/3", "status": "支持", "grade": "C", "core": "记住", "scale": "共同体"}, {"paper": "残余", "pid": "R6", "stmt": "三标记不可当打分表", "test": "是否存在“命中≥2 却不恢复”", "result": "C16、C23 两例", "status": "成立", "grade": "B", "core": "临界", "scale": "共同体"}, {"paper": "残余", "pid": "E1", "stmt": "沉寂期与学科成熟度负相关", "test": "同一学科的沉寂分布", "result": "不成立（15 年与 2156 年）", "status": "撤回", "grade": "C", "core": "跟上", "scale": "共同体"}, {"paper": "容量", "pid": "C1", "stmt": "容量可用槽位数代理", "test": "三个代理都能算且与遗忘配对", "result": "三代理成立", "status": "支持", "grade": "B", "core": "记住", "scale": "命题"}, {"paper": "容量", "pid": "C2", "stmt": "槽位越多越少依赖通货门", "test": "分箱中位单调；Pearson r", "result": "0.50→0.33→0.20→0.14；r=−0.245", "status": "支持", "grade": "B", "core": "记住", "scale": "命题"}, {"paper": "容量", "pid": "C3", "stmt": "槽位越多保留率越高", "test": "六县相关；与撤县年数对照", "result": "r=−0.682，而年数 r=−0.835 更强", "status": "待检验", "grade": "C", "core": "记住", "scale": "制度"}, {"paper": "容量", "pid": "C4", "stmt": "流入越大合格率越低", "test": "四期相关", "result": "r=+0.932（n=4）", "status": "证伪", "grade": "B", "core": "记住", "scale": "共同体"}, {"paper": "容量", "pid": "C5", "stmt": "三代理至少两个同向", "test": "三代理方向比较", "result": "三个方向全不同", "status": "证伪", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "容量", "pid": "C6", "stmt": "容量效应小于压缩效应", "test": "控制时间后容量是否显著", "result": "时间强于容量", "status": "待检验", "grade": "C", "core": "记住", "scale": "制度"}, {"paper": "容量", "pid": "C7", "stmt": "容量不是单向保护", "test": "至少一代理反向", "result": "两代理反向", "status": "支持", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "优化", "pid": "T1", "stmt": "优化是四前提结构，缺一即越界", "test": "20 例能否归入四出口", "result": "20/20 可归入", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "优化", "pid": "T2", "stmt": "目标越界最普遍", "test": "案例分布", "result": "7/20", "status": "成立", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "优化", "pid": "T3", "stmt": "停止越界后果最重", "test": "停止类中「重」的比例", "result": "4/5", "status": "成立", "grade": "B", "core": "临界", "scale": "命题"}, {"paper": "优化", "pid": "T4", "stmt": "预算越界被系统性低估", "test": "记录数 vs 实际", "result": "仅 2 例", "status": "待检验", "grade": "C", "core": "记住", "scale": "制度"}, {"paper": "优化", "pid": "T5", "stmt": "优化与选择是两层", "test": "是否有独立检验", "result": "仅概念划界", "status": "待检验", "grade": "C", "core": "选择", "scale": "命题"}, {"paper": "优化", "pid": "T6", "stmt": "升优化为核心会破坏有限性", "test": "反例数量", "result": "仅进化 1 例", "status": "开放", "grade": "C", "core": "选择", "scale": "命题"}, {"paper": "优化", "pid": "T7", "stmt": "进化不是优化", "test": "有无目标函数与全局停止", "result": "两者皆缺", "status": "支持", "grade": "B", "core": "记住", "scale": "谱系"}, {"paper": "领域", "pid": "T1", "stmt": "四问可作为判据", "test": "20 领域全部落在七类瓶颈内", "result": "20/20，无编码外类别", "status": "支持", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "领域", "pid": "T2", "stmt": "协调与延迟最常被付费", "test": "分布计数", "result": "5+5=10/20", "status": "支持", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "领域", "pid": "T3", "stmt": "预算从不作主瓶颈", "test": "分布计数", "result": "0/20 主、2/20 次", "status": "支持", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "领域", "pid": "T4", "stmt": "拆分近乎普遍、合并近乎不用", "test": "动作计数", "result": "19/20 对 2/20", "status": "支持", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "领域", "pid": "T5", "stmt": "可写性越低，代价越不可见", "test": "交叉表", "result": "A 67%、B 31%、C 0%", "status": "部分", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "领域", "pid": "T6", "stmt": "主次瓶颈互换后判据仍成立", "test": "互换检验", "result": "5/20 改判（75%）", "status": "支持", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "领域", "pid": "T7", "stmt": "Q4 可独立于 Q3 判定", "test": "逐条复核", "result": "面试一例存疑", "status": "待检验", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "领域", "pid": "T8", "stmt": "四问是六核心的操作化", "test": "接口表", "result": "无独立可判据", "status": "待检验", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "领域", "pid": "T9", "stmt": "二十领域可穷举", "test": "组合瓶颈反例", "result": "组合瓶颈无法二分", "status": "撤回", "grade": "C", "core": "看见", "scale": "命题"}, {"paper": "同构", "pid": "T1", "stmt": "四级强度阶梯可用", "test": "40 条逐条定档", "result": "40/40 唯一档位", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "同构", "pid": "T2", "stmt": "严格同构不到三分之一", "test": "强度计数", "result": "严格 6/40", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "同构", "pid": "T3", "stmt": "断裂集中在复合层", "test": "断裂层计数", "result": "复合占七成", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "同构", "pid": "T4", "stmt": "争论停在对象层、断裂在复合层", "test": "案例记录", "result": "未做系统记录", "status": "待检验", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "同构", "pid": "T5", "stmt": "负迁移率不随强度单调", "test": "强度×负迁移", "result": "严格 17%、伴随 60%、函子 50%、比喻 36%", "status": "支持", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "同构", "pid": "T6", "stmt": "伴随／函子两档负迁移高于比喻档", "test": "同上", "result": "60%／50% 对 36%", "status": "部分", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "同构", "pid": "T7", "stmt": "泛性质跨域损失最重", "test": "母题组×强度", "result": "6/10 降为比喻", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "同构", "pid": "T8", "stmt": "母题级压缩多为不可回溯损失", "test": "回溯钩子检索", "result": "未找到普遍机制", "status": "待检验", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "同构", "pid": "T9", "stmt": "检索层是 Agent 迁移的真正瓶颈", "test": "单做抽象不检索的系统", "result": "无实验", "status": "撤回", "grade": "C", "core": "看见", "scale": "命题"}, {"paper": "锚点", "pid": "T1", "stmt": "人类记忆＝残余＋多线索＋重建", "test": "与记忆研究对照", "result": "方向一致", "status": "支持", "grade": "B", "core": "记住", "scale": "命题"}, {"paper": "锚点", "pid": "T2", "stmt": "情景唤起在同预算下提高信息量", "test": "真实任务实验", "result": "未做", "status": "待检验", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "锚点", "pid": "T3", "stmt": "现有方案无一同具备三件", "test": "11 个方案逐项核对", "result": "3/12 有锚点，1/12 异构，2/12 带锚裁决", "status": "支持", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "锚点", "pid": "T4", "stmt": "同质多 Agent 投票放大共模错误", "test": "p=0.2、ρ=0.7 对照", "result": "11 模型仍错 14%", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "锚点", "pid": "T5", "stmt": "投票不能定真伪，只有残余能", "test": "反例检索", "result": "未找到无锚定真伪的程序", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "锚点", "pid": "T6", "stmt": "多数方案死因是窗口／噪声而非容量", "test": "12 例失效分布", "result": "窗口 2、检索噪声 3、摘要漂移 2", "status": "部分", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "锚点", "pid": "T7", "stmt": "直播类场景无法承受多路重建延迟", "test": "端到端延迟测量", "result": "未测", "status": "待检验", "grade": "C", "core": "跟上", "scale": "命题"}, {"paper": "锚点", "pid": "T8", "stmt": "裁判必须依赖非 LLM 日志", "test": "纯自评 vs 带锚", "result": "无等效证据", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "锚点", "pid": "T9", "stmt": "能把几天延长到几周", "test": "真实账号存活", "result": "无实验", "status": "撤回", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "锚点", "pid": "T10", "stmt": "三层架构是「记住」的落地", "test": "核心归属检索", "result": "无独立核心", "status": "待检验", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "下限", "pid": "T1", "stmt": "三层架构可运行且非空", "test": "模拟主对照", "result": "M2 准确率 0.441", "status": "支持", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "下限", "pid": "T2", "stmt": "情景唤起在准确率上优于摘要", "test": "同上", "result": "0.441 对 0.339（M0 为 0.000）", "status": "支持", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "下限", "pid": "T3", "stmt": "优势存在覆盖率下限", "test": "覆盖率扫描", "result": "交叉点 0.569（区间 0.44—0.74）", "status": "支持", "grade": "C", "core": "临界", "scale": "命题"}, {"paper": "下限", "pid": "T4", "stmt": "摘要是最危险的记忆", "test": "跨页面污染率", "result": "摘要 0.625、无记忆 0.187、情景 0.179", "status": "支持", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "下限", "pid": "T5", "stmt": "共源降低准确率并抬高成本", "test": "ρ 0→0.7", "result": "误动作 0.092→0.118，人环 0.55→2.40", "status": "支持", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "下限", "pid": "T6", "stmt": "K 的边际收益在 3 处饱和", "test": "K=3 对 K=5", "result": "误动作再降 0.001，+554 ms", "status": "支持", "grade": "C", "core": "选择", "scale": "命题"}, {"paper": "下限", "pid": "T7", "stmt": "全票一致而错是主要失效", "test": "M2 分支内全票错误占比", "result": "按预注册判据读", "status": "支持", "grade": "C", "core": "讲述", "scale": "命题"}, {"paper": "下限", "pid": "T8", "stmt": "低风险延迟 < 1 s", "test": "平均延迟", "result": "低于 1000 ms", "status": "支持", "grade": "C", "core": "跟上", "scale": "命题"}, {"paper": "下限", "pid": "T9", "stmt": "能延长真实账号存活", "test": "真实实验", "result": "无", "status": "待检验", "grade": "C", "core": "记住", "scale": "命题"}, {"paper": "下限", "pid": "T10", "stmt": "0.57 是可迁移常数", "test": "换参数重扫", "result": "阈值移动 ±0.10 以上", "status": "撤回", "grade": "C", "core": "临界", "scale": "命题"}, {"paper": "两层", "pid": "T1", "stmt": "重放—判断价差存在且很大", "test": "294 个模型的输出÷缓存读", "result": "中位 34.5 倍", "status": "支持", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "两层", "pid": "T2", "stmt": "闭源价差高于开放权重", "test": "分上下文四档复核", "result": "仅两档成立，Q1 消失、Q4 反向", "status": "部分", "grade": "C", "core": "选择", "scale": "命题"}, {"paper": "两层", "pid": "T3", "stmt": "同能力价格降 ≥100 倍", "test": "单一来源对比", "result": "约 150 倍", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "两层", "pid": "T4", "stmt": "当月新模型标价不降", "test": "首尾六个月中位", "result": "$6.00→$5.00／$0.65→$0.60", "status": "支持", "grade": "B", "core": "看见", "scale": "命题"}, {"paper": "两层", "pid": "T5", "stmt": "旗舰标价只升不降", "test": "一手价目页公告", "result": "Gemini 4 Argon 12-01 起 $10→$20", "status": "支持", "grade": "A", "core": "看见", "scale": "命题"}, {"paper": "两层", "pid": "T6", "stmt": "量与钱分离", "test": "平台周报份额", "result": "token 62—79%／spend 27%", "status": "支持", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "两层", "pid": "T7", "stmt": "双层是常态", "test": "九家分层编码", "result": "6/9，溢价中位 21.3 倍", "status": "支持", "grade": "B", "core": "选择", "scale": "命题"}, {"paper": "两层", "pid": "T8", "stmt": "溢价与可传递性单调", "test": "溢价×T 分", "result": "T=4 的 83.3 倍对 T=3 的 2.9 倍", "status": "证伪", "grade": "C", "core": "选择", "scale": "命题"}, {"paper": "两层", "pid": "T9", "stmt": "席位价不随执行价下降", "test": "8 个公开价位", "result": "$12.6—$200", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}, {"paper": "两层", "pid": "T10", "stmt": "低价的一半是数据", "test": "首方与无训练托管比价", "result": "约 2 倍", "status": "支持", "grade": "B", "core": "讲述", "scale": "命题"}];
+
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, ...kids) => {
+  const n = document.createElementNS(t.startsWith('svg:') ? 'http://www.w3.org/2000/svg' : 'http://www.w3.org/1999/xhtml', t.replace('svg:', ''));
+  for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); }
+  kids.forEach(k => n.appendChild(k));
+  return n;
+};
+function uniq(rows, k) { return [...new Set(rows.map(r => r[k]).filter(v => v !== '' && v != null))]; }
+function fmt(v, d = 1) { return v == null || isNaN(v) ? '—' : (+v).toFixed(d).replace(/\.0$/, ''); }
+function median(a) { if (!a.length) return NaN; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; }
+
+function makeFilters(rows, spec) {
+  const bar = $('#filters'); bar.innerHTML = '';
+  const state = {};
+  spec.forEach(f => {
+    const wrap = document.createElement('label');
+    wrap.textContent = f.label + ' ';
+    const sel = document.createElement('select');
+    sel.innerHTML = '<option value="">全部</option>' + uniq(rows, f.key).map(v => `<option>${v}</option>`).join('');
+    sel.onchange = () => { state[f.key] = sel.value; render(); };
+    wrap.appendChild(sel); bar.appendChild(wrap);
+    state[f.key] = '';
+  });
+  return state;
+}
+function filtered() {
+  return DATA.filter(r => Object.entries(STATE).every(([k, v]) => !v || String(r[k]) === v));
+}
+
+const STATE = makeFilters(DATA, [{"key": "core", "label": "核心"}, {"key": "status", "label": "状态"}, {"key": "grade", "label": "等级"}, {"key": "scale", "label": "尺度"}]);
+function stats(items, cards) {
+  const box = document.getElementById('stats'); box.innerHTML = '';
+  cards.forEach(c => {
+    const d = document.createElement('div'); d.innerHTML = c.label + '<b>' + c.value(items) + '</b>';
+    box.appendChild(d);
+  });
+}
+function table(items) {
+  const th = document.querySelector('#tbl thead'), tb = document.querySelector('#tbl tbody');
+  th.innerHTML = '<tr>' + [{"key": "paper", "label": "篇"}, {"key": "pid", "label": "编号"}, {"key": "stmt", "label": "命题"}, {"key": "status", "label": "状态"}, {"key": "grade", "label": "等级"}, {"key": "core", "label": "核心"}, {"key": "scale", "label": "尺度"}].map(c => `<th>${c.label}</th>`).join('') + '</tr>';
+  tb.innerHTML = '';
+  items.slice(0, 400).forEach(r => {
+    const tr = document.createElement('tr'); tr.className = 'r';
+    [{"key": "paper", "label": "篇"}, {"key": "pid", "label": "编号"}, {"key": "stmt", "label": "命题"}, {"key": "status", "label": "状态"}, {"key": "grade", "label": "等级"}, {"key": "core", "label": "核心"}, {"key": "scale", "label": "尺度"}].forEach(c => { const td = document.createElement('td'); td.textContent = r[c.key] ?? ''; tr.appendChild(td); });
+    tr.onclick = () => showDetail(r);
+    tb.appendChild(tr);
+  });
+}
+function showDetail(r) {
+  const d = document.getElementById('detail');
+  d.innerHTML = '<h3>' + (r['stmt'] ?? '') + '</h3>' +
+    [["paper", "篇"], ["pid", "编号"], ["test", "检验"], ["result", "结果"], ["status", "状态"], ["grade", "等级"], ["core", "核心"], ["scale", "尺度"]].map(([k, label]) => r[k] ? `<div><span class="tag">${label}</span>${String(r[k])}</div>` : '').join('');
+  d.className = 'detail on';
+}
+
+const CORES = ['看见', '记住', '跟上', '选择', '讲述', '临界'];
+const STATUS = ['成立', '支持', '部分', '待检验', '待核', '开放', '撤回', '证伪'];
+const COL = {'A': '#1f4e79', 'B': '#3f6f9c', 'C': '#a8791f'};
+function render() {
+  const items = filtered();
+  stats(items, [
+    {label: '命题数', value: a => a.length},
+    {label: '已核销', value: a => a.filter(r => ['成立', '支持', '部分', '证伪', '撤回'].includes(r.status)).length},
+    {label: 'A 级', value: a => a.filter(r => r.grade === 'A').length},
+    {label: '证伪＋撤回', value: a => a.filter(r => ['证伪', '撤回'].includes(r.status)).length},
+  ]);
+  const svg = document.getElementById('chart'); svg.innerHTML = '';
+  const W = 900, H = 420, P = {l: 70, r: 20, t: 34, b: 64};
+  const mk = (t, a, txt) => { const n = document.createElementNS('http://www.w3.org/2000/svg', t); for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); } if (txt != null) n.textContent = txt; svg.appendChild(n); return n; };
+  const cw = (W - P.l - P.r) / CORES.length, ch = (H - P.t - P.b) / STATUS.length;
+  CORES.forEach((c, i) => mk('text', {x: P.l + i * cw + cw / 2, y: P.t - 10, 'font-size': 12, fill: '#222', 'text-anchor': 'middle', text: c}));
+  STATUS.forEach((s, j) => mk('text', {x: P.l - 8, y: P.t + j * ch + ch / 2 + 4, 'font-size': 11.5, fill: '#444', 'text-anchor': 'end', text: s}));
+  const maxN = Math.max(1, ...[].concat(...CORES.map(c => STATUS.map(s => items.filter(r => r.core === c && r.status === s).length))));
+  CORES.forEach((c, i) => STATUS.forEach((s, j) => {
+    const cell = items.filter(r => r.core === c && r.status === s);
+    const n = cell.length;
+    const a = .12 + .8 * n / maxN;
+    const rect = mk('rect', {x: P.l + i * cw + 3, y: P.t + j * ch + 3, width: cw - 6, height: ch - 6,
+      fill: n ? `rgba(31,78,121,${a})` : '#f4f2ec', rx: 3});
+    if (n) {
+      mk('text', {x: P.l + i * cw + cw / 2, y: P.t + j * ch + ch / 2 + 5, 'font-size': 12,
+        fill: a > .5 ? '#fff' : '#1d1d1f', 'text-anchor': 'middle', text: n});
+      rect.style.cursor = 'pointer';
+      rect.onclick = () => { showDetail(cell[0]); };
+    }
+  }));
+  table(items);
+  document.getElementById('note').textContent = '这是论文的“账本”本身：110 条命题、六核心 × 八种状态。格子深浅＝条数；点有数字的格子可看该格第一条；点表格任意行看全文。';
+}
+
+render();
+</script></body></html>

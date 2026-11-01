@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>优化的边界 · 交互探索器</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--green:#2e6b4f;--gold:#a8791f;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"Songti SC","SimSun","Source Han Serif SC",serif}
+header{padding:24px 5vw 14px;background:#fff;border-bottom:2px solid var(--red)}
+h1{margin:0 0 6px;font-size:24px}.sub{color:#555;font-size:13.5px;line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:16px 5vw 60px}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#fff;
+border:1px solid #e3e0d8;border-radius:6px;padding:10px;margin:8px 0 14px}
+label{font-size:13px}select{padding:4px 8px;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:13px}
+svg{width:100%;background:#fff;border:1px solid #e3e0d8;border-radius:6px;display:block}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0}
+.k div{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px 12px;font-size:12.5px;color:#555}
+.k b{display:block;font-size:21px;color:var(--ink);margin-top:3px;font-family:"Helvetica Neue",Arial,sans-serif}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12.5px;margin-top:12px}
+th,td{padding:6px 7px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tr.r{cursor:pointer}tr.r:hover{background:#f4f1e8}
+.detail{background:#fff;border:1px solid #d9d4c7;border-left:3px solid var(--blue);
+border-radius:5px;padding:12px 14px;margin-top:12px;font-size:13px;line-height:1.8;display:none}
+.detail.on{display:block}
+.detail h3{margin:0 0 6px;font-size:14.5px}
+.tag{display:inline-block;border:1px solid #ddd;border-radius:12px;padding:1px 8px;font-size:11.5px;
+color:#555;margin-right:6px;background:#fafafa}
+.note{font-size:12px;color:#666;line-height:1.75;margin-top:14px}
+.hint{font-size:12px;color:#777}
+@media(max-width:700px){h1{font-size:19px}.k b{font-size:18px}}
+</style></head><body>
+<header><h1>优化的边界 · 交互探索器</h1><div class="sub">20 个越界案例 · 四前提（目标/空间/预算/停止）× 后果严重度 · 数据来自 cases.csv</div></header>
+<div class="wrap">
+<div class="bar" id="filters"></div>
+<div class="k" id="stats"></div>
+<svg id="chart" viewBox="0 0 900 420"></svg>
+<div class="detail" id="detail"></div>
+<table id="tbl"><thead></thead><tbody></tbody></table>
+<div class="note" id="note"></div>
+</div>
+<script>
+const DATA = [{"id": "O01", "case": "QWERTY 键盘锁定", "domain": "技术标准", "premise": "空间", "mechanism": "在网络外部性与培训成本下，个体优化选了非最优布局，整体被锁死", "outcome": "锁定", "severity": "中", "grade": "B", "note": "[9][10]"}, {"id": "O02", "case": "VHS 对 Betamax", "domain": "技术标准", "premise": "空间", "mechanism": "录像带租赁的网络外部性使较优格式落败", "outcome": "锁定", "severity": "中", "grade": "B", "note": "[10]"}, {"id": "O03", "case": "Braess 悖论", "domain": "交通", "premise": "空间", "mechanism": "每个司机选最快路径，整体反而变慢", "outcome": "反噬", "severity": "中", "grade": "A", "note": "[11]"}, {"id": "O04", "case": "导航 App 的同步诱导", "domain": "交通", "premise": "空间", "mechanism": "所有人同时改道，拥堵被重新分配而非消除", "outcome": "反噬", "severity": "轻", "grade": "B", "note": "[12]"}, {"id": "O05", "case": "苏联 OGAS 与计划指标", "domain": "经济", "premise": "目标", "mechanism": "以总产值作目标，企业转向生产重、贵、易完成的产品", "outcome": "指标失真", "severity": "重", "grade": "B", "note": "[13]"}, {"id": "O06", "case": "官督商办（洋务）", "domain": "经济", "premise": "目标", "mechanism": "以「官督」为约束去优化利润，企业变成租赋通道", "outcome": "无效", "severity": "重", "grade": "B", "note": "[14]"}, {"id": "O07", "case": "教育考试的指标替代", "domain": "教育", "premise": "目标", "mechanism": "以分数为目标，教学转向应试", "outcome": "指标失真", "severity": "中", "grade": "B", "note": "[15]"}, {"id": "O08", "case": "影响因子与学术评价", "domain": "科研", "premise": "目标", "mechanism": "以期刊指标为目标，投稿行为被重排", "outcome": "指标失真", "severity": "中", "grade": "B", "note": "[16]"}, {"id": "O09", "case": "VaR 风险度量", "domain": "金融", "premise": "目标", "mechanism": "以在险价值为约束，尾部风险被推到约束之外", "outcome": "反噬", "severity": "重", "grade": "B", "note": "[17]"}, {"id": "O10", "case": "强化降糖（ACCORD）", "domain": "医学", "premise": "停止", "mechanism": "以「更低更好」为方向，未设停止规则，死亡率上升", "outcome": "反噬", "severity": "重", "grade": "A", "note": "[18]"}, {"id": "O11", "case": "抗生素的常规预防性使用", "domain": "医学", "premise": "停止", "mechanism": "收益递减后仍继续，耐药被选择出来", "outcome": "反噬", "severity": "重", "grade": "B", "note": "[19]"}, {"id": "O12", "case": "农药与抗性", "domain": "农业", "premise": "停止", "mechanism": "持续加量，抗性种群被选出", "outcome": "反噬", "severity": "重", "grade": "B", "note": "[20]"}, {"id": "O13", "case": "马奇诺防线的体量优化", "domain": "军事", "premise": "空间", "mechanism": "把资源投在已确定的方向上，绕行即失效", "outcome": "无效", "severity": "重", "grade": "B", "note": "[21]"}, {"id": "O14", "case": "高铁站点的地方选址", "domain": "基础设施", "premise": "目标", "mechanism": "地方以「设站」为目标，网络效率被牺牲", "outcome": "无效", "severity": "中", "grade": "C", "note": "[22]"}, {"id": "O15", "case": "绩效工资的单指标化", "domain": "组织", "premise": "目标", "mechanism": "只考核可测项，不可测项被放弃", "outcome": "指标失真", "severity": "中", "grade": "B", "note": "[23]"}, {"id": "O16", "case": "算法推荐的最大化停留", "domain": "平台", "premise": "停止", "mechanism": "以停留时长为目标，无退出条件，极端内容被放大", "outcome": "反噬", "severity": "重", "grade": "C", "note": "[24]"}, {"id": "O17", "case": "军备竞赛的对称优化", "domain": "国际关系", "premise": "停止", "mechanism": "双方各自最优，集体更不安全", "outcome": "反噬", "severity": "重", "grade": "B", "note": "[25]"}, {"id": "O18", "case": "进化：不是优化", "domain": "生物", "premise": "无", "mechanism": "没有目标函数、没有全局停止规则，只有局部搜索与压缩账单", "outcome": "无效", "severity": "—", "grade": "B", "note": "[26][27]"}, {"id": "O19", "case": "基础设施的维护欠账", "domain": "基础设施", "premise": "预算", "mechanism": "新建可被计入政绩、维护不能，预算持续向新建倾斜", "outcome": "无效", "severity": "重", "grade": "C", "note": "[28]"}, {"id": "O20", "case": "开源维护者过载", "domain": "软件", "premise": "预算", "mechanism": "注意力是硬预算，却按「无限供给」来优化功能", "outcome": "反噬", "severity": "重", "grade": "B", "note": "[29]"}];
+
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, ...kids) => {
+  const n = document.createElementNS(t.startsWith('svg:') ? 'http://www.w3.org/2000/svg' : 'http://www.w3.org/1999/xhtml', t.replace('svg:', ''));
+  for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); }
+  kids.forEach(k => n.appendChild(k));
+  return n;
+};
+function uniq(rows, k) { return [...new Set(rows.map(r => r[k]).filter(v => v !== '' && v != null))]; }
+function fmt(v, d = 1) { return v == null || isNaN(v) ? '—' : (+v).toFixed(d).replace(/\.0$/, ''); }
+function median(a) { if (!a.length) return NaN; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; }
+
+function makeFilters(rows, spec) {
+  const bar = $('#filters'); bar.innerHTML = '';
+  const state = {};
+  spec.forEach(f => {
+    const wrap = document.createElement('label');
+    wrap.textContent = f.label + ' ';
+    const sel = document.createElement('select');
+    sel.innerHTML = '<option value="">全部</option>' + uniq(rows, f.key).map(v => `<option>${v}</option>`).join('');
+    sel.onchange = () => { state[f.key] = sel.value; render(); };
+    wrap.appendChild(sel); bar.appendChild(wrap);
+    state[f.key] = '';
+  });
+  return state;
+}
+function filtered() {
+  return DATA.filter(r => Object.entries(STATE).every(([k, v]) => !v || String(r[k]) === v));
+}
+
+const STATE = makeFilters(DATA, [{"key": "premise", "label": "越界前提"}, {"key": "severity", "label": "后果"}, {"key": "domain", "label": "领域"}]);
+function stats(items, cards) {
+  const box = document.getElementById('stats'); box.innerHTML = '';
+  cards.forEach(c => {
+    const d = document.createElement('div'); d.innerHTML = c.label + '<b>' + c.value(items) + '</b>';
+    box.appendChild(d);
+  });
+}
+function table(items) {
+  const th = document.querySelector('#tbl thead'), tb = document.querySelector('#tbl tbody');
+  th.innerHTML = '<tr>' + [{"key": "id", "label": "编号"}, {"key": "case", "label": "案例"}, {"key": "domain", "label": "领域"}, {"key": "premise", "label": "越界前提"}, {"key": "outcome", "label": "后果"}, {"key": "severity", "label": "严重度"}, {"key": "grade", "label": "等级"}].map(c => `<th>${c.label}</th>`).join('') + '</tr>';
+  tb.innerHTML = '';
+  items.slice(0, 400).forEach(r => {
+    const tr = document.createElement('tr'); tr.className = 'r';
+    [{"key": "id", "label": "编号"}, {"key": "case", "label": "案例"}, {"key": "domain", "label": "领域"}, {"key": "premise", "label": "越界前提"}, {"key": "outcome", "label": "后果"}, {"key": "severity", "label": "严重度"}, {"key": "grade", "label": "等级"}].forEach(c => { const td = document.createElement('td'); td.textContent = r[c.key] ?? ''; tr.appendChild(td); });
+    tr.onclick = () => showDetail(r);
+    tb.appendChild(tr);
+  });
+}
+function showDetail(r) {
+  const d = document.getElementById('detail');
+  d.innerHTML = '<h3>' + (r['case'] ?? '') + '</h3>' +
+    [["mechanism", "机制"], ["outcome", "后果"], ["grade", "等级"], ["note", "注"]].map(([k, label]) => r[k] ? `<div><span class="tag">${label}</span>${String(r[k])}</div>` : '').join('');
+  d.className = 'detail on';
+}
+
+const COLS = ['目标', '空间', '预算', '停止'];
+const SEV = ['轻', '中', '重'];
+function render() {
+  const items = filtered();
+  stats(items, [
+    {label: '案例数', value: a => a.length},
+    {label: '最常越界的前提', value: a => COLS.map(p => [p, a.filter(r => r.premise === p).length]).sort((x, y) => y[1] - x[1])[0]?.[0] || '—'},
+    {label: '后果为“重”的占比', value: a => (100 * a.filter(r => r.severity === '重').length / (a.length || 1)).toFixed(0) + '%'},
+    {label: '停止规则越界中“重”的比例', value: a => { const s = a.filter(r => r.premise === '停止'); return s.length ? (100 * s.filter(r => r.severity === '重').length / s.length).toFixed(0) + '%' : '—'; }},
+  ]);
+  const svg = document.getElementById('chart'); svg.innerHTML = '';
+  const W = 900, H = 420, P = {l: 80, r: 30, t: 30, b: 60};
+  const mk = (t, a, txt) => { const n = document.createElementNS('http://www.w3.org/2000/svg', t); for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); } if (txt != null) n.textContent = txt; svg.appendChild(n); return n; };
+  const cx = i => P.l + i * ((W - P.l - P.r) / COLS.length) + ((W - P.l - P.r) / COLS.length) / 2;
+  const maxY = Math.max(1, ...[].concat(...COLS.map(p => SEV.map(s => items.filter(r => r.premise === p && r.severity === s).length))));
+  const bw = (W - P.l - P.r) / COLS.length / (SEV.length + 2);
+  const COL = {'轻': '#9bb7cf', '中': '#3f6f9c', '重': '#b3261e'};
+  COLS.forEach((p, i) => {
+    SEV.forEach((s, j) => {
+      const n = items.filter(r => r.premise === p && r.severity === s).length;
+      const h = (n / maxY) * (H - P.t - P.b);
+      mk('rect', {x: cx(i) - (SEV.length * bw) / 2 + j * bw, y: H - P.b - h, width: bw - 4, height: h, fill: COL[s], opacity: .9});
+      if (n) mk('text', {x: cx(i) - (SEV.length * bw) / 2 + j * bw + (bw - 4) / 2, y: H - P.b - h - 5, 'font-size': 11, fill: '#444', 'text-anchor': 'middle', text: n});
+    });
+    mk('text', {x: cx(i), y: H - P.b + 20, 'font-size': 12.5, fill: '#222', 'text-anchor': 'middle', text: p});
+  });
+  mk('line', {x1: P.l, y1: H - P.b, x2: W - P.r, y2: H - P.b, stroke: '#999'});
+  mk('text', {x: P.l, y: P.t - 10, 'font-size': 12, fill: '#555', text: '柱高＝案例数；颜色＝后果严重度（浅→重）'});
+  table(items); document.getElementById('note').textContent = '论文的结论：目标越界最常见，停止规则越界的后果最重（5 例中 4 例为“重”）。点一行看机制。';
+}
+
+render();
+</script></body></html>

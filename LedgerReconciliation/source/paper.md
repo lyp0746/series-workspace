@@ -1,6 +1,6 @@
 # 六张账单的对账：六核心的可测代理、失败模式与尺度边界
 
-### 六十二条登记命题的状态审计、七处同名不同物、三处结构空白，以及一份把自己也放进表的尝试
+### 一百一十条登记命题的状态审计、七处同名不同物、三处结构空白，以及一份把自己也放进表的尝试
 
 **李毅芃**
 
@@ -10,7 +10,7 @@
 
 ## 摘要
 
-本系列工作论文各自把六个核心中的一个或两个做深了：官制做"选择"，驿道做"跟上"，术语做"看见"，分期做"看见＋讲述"，生态做"临界"，残余做"记住"。但它们从未被放在同一张桌上核对过。结果是三个读者无从判断的问题：同一个核心在不同篇里用的代理能不能互换？同一句话在不同篇里的强度是不是同一级？同一对概念在不同篇里是不是同一个东西？本文不做综述，只做**对账**：把本系列十四篇附录里全部 **110 条登记命题**逐条抽出（前六篇 48 条 + 第七至本系列十四篇 14 条 + 第十至本系列十四篇 48 条），按"篇—命题—检验—结果—状态—等级—核心—尺度"八列重新编码，再做三件事。第一，**状态审计**：110 条中已核销 76 条（69.1%）、未核销 27 条（24.5%）、作者自己撤回 7 条（6.4%）；被自己数据打掉的（证伪 9 ＋ 撤回 7）共 16 条，占 14.5%。第二，**等级审计**：A 级 3 条、B 级 55 条、C 级 52 条；C 级几乎全部落在"待检验／开放"里，说明这套框架目前最硬的结论不在它最想说的那些命题上。第三，**冲突审计**：找出七处"同名不同物"——τ（年 vs 周）、容量（有刻度 vs 无刻度）、门（切线 vs 门槛）、记忆（名 vs 命题）、压缩（信息 vs 合法性）、便宜（per token vs per capability）、可传递性（法律状态 vs 市场结构）；不处理这七处，六核心之间就会互相借尺度。审计还给出一个结构性事实：**110 条命题里，个体层 0 条、谱系层 1 条（且是反例）**，其余落在命题（77）、共同体（18）、制度（14）三个尺度上，这就是"记住"的容量端至今没有测量的结构原因。第七至本系列十四篇的 14 条与第十至本系列十四篇的 48 条已并入本表，因此本版的对账覆盖**本系列十四篇 110 条**。本文同时提出三张跨篇表（代理表、时钟表、失败模式表）与一张五层依赖图，并把本文自己的六条命题也登记进同一张表：三条待检验、两条成立、一条开放。结论是：六核心不是六个并列的词，而是"起点—约束—枢纽—元层—门槛"的五层结构；对账的作用不是让结论更强，而是让每个核心知道自己在哪里可测、在哪里失效、在哪里只能类比。
+本系列工作论文各自把六个核心中的一个或两个做深了：官制做"选择"，驿道做"跟上"，术语做"看见"，分期做"看见＋讲述"，生态做"临界"，残余做"记住"。但它们从未被放在同一张桌上核对过。结果是三个读者无从判断的问题：同一个核心在不同篇里用的代理能不能互换？同一句话在不同篇里的强度是不是同一级？同一对概念在不同篇里是不是同一个东西？本文不做综述，只做**对账**：把本系列十四篇附录里全部 **110 条登记命题**逐条抽出（初版 48 条，后续并入第七至十四篇共 62 条），按"篇—命题—检验—结果—状态—等级—核心—尺度"八列重新编码，再做三件事。第一，**状态审计**：110 条中已核销 76 条（69.1%）、未核销 27 条（24.5%）、作者自己撤回 7 条（6.4%）；被自己数据打掉的（证伪 9 ＋ 撤回 7）共 16 条，占 14.5%。第二，**等级审计**：A 级 3 条、B 级 55 条、C 级 52 条；C 级几乎全部落在"待检验／开放"里，说明这套框架目前最硬的结论不在它最想说的那些命题上。第三，**冲突审计**：找出七处"同名不同物"——τ（年 vs 周）、容量（有刻度 vs 无刻度）、门（切线 vs 门槛）、记忆（名 vs 命题）、压缩（信息 vs 合法性）、便宜（per token vs per capability）、可传递性（法律状态 vs 市场结构）；不处理这七处，六核心之间就会互相借尺度。审计还给出一个结构性事实：**110 条命题里，个体层 0 条、谱系层 1 条（且是反例）**，其余落在命题（77）、共同体（18）、制度（14）三个尺度上，这就是"记住"的容量端至今没有测量的结构原因。后续并入的 62 条已进本表，因此本版的对账覆盖**十四篇的 110 条**。本文同时提出三张跨篇表（代理表、时钟表、失败模式表）与一张五层依赖图，并把本文自己的六条命题也登记进同一张表：三条待检验、两条成立、一条开放。结论是：六核心不是六个并列的词，而是"起点—约束—枢纽—元层—门槛"的五层结构；对账的作用不是让结论更强，而是让每个核心知道自己在哪里可测、在哪里失效、在哪里只能类比。
 
 **关键词**：六核心；对账；可测代理；失败模式；尺度边界；证据分级；同名不同物
 
@@ -18,7 +18,7 @@
 
 ## Abstract
 
-Nine working papers each deepen one or two of six cores: bureaucracy (choice), the Hunan relay system (timing), computing terms (distinction), world-history periodization (distinction plus interpretation), two GitHub communities (criticality), twenty-four cases of delayed recognition (memory), and three methodological papers (reconciliation, optimization, capacity). They have never been reconciled. Three questions follow that a reader cannot answer: can the proxies of one core be swapped across papers? are two sentences of the same apparent strength backed by the same grade? are two identically named concepts the same object? This paper does not review; it reconciles. All **110 registered propositions** in the fourteen appendices are extracted and re-coded on eight columns (paper, id, claim, test, result, status, grade, core, scale), then audited three ways. First, status: 76 closed (69.1%), 27 unclosed (24.5%), 7 withdrawn (6.4%); 16 propositions (14.5%) were killed by the authors' own data. Second, grade: 3 at A, 55 at B, 52 at C — and the C-grade propositions cluster almost entirely in "pending/open". Third, conflicts: seven cases of "same name, different object" — τ (years vs weeks), capacity (scaled vs unscaled), gate (periodization cut vs critical threshold), memory (toponym vs proposition), compression (information vs legitimacy), cheap (per token vs per capability), transferability (legal status vs market structure). The audit also yields a structural fact: **no proposition sits at the individual scale, and only one at the lineage scale (a counter-example)**; the rest fall on proposition (77), community (18) and institution (14). That is exactly why the capacity end of "memory" has never been measured. The paper proposes three cross-paper tables (proxies, clocks, failure modes) and a five-layer dependency figure, registers its own six propositions in the same ledger, and states an evidence discipline for independent researchers: every core should know where it is measurable, where it is only analogical, and where it must be left blank.
+Fourteen working papers each deepen one or two of six cores: bureaucracy (choice), the Hunan relay system (timing), computing terms (distinction), world-history periodization (distinction plus interpretation), two GitHub communities (criticality), twenty-four cases of delayed recognition (memory), and four methodological papers (reconciliation, optimization, capacity, isomorphism). They have never been reconciled. Three questions follow that a reader cannot answer: can the proxies of one core be swapped across papers? are two sentences of the same apparent strength backed by the same grade? are two identically named concepts the same object? This paper does not review; it reconciles. All **110 registered propositions** in the fourteen appendices are extracted and re-coded on eight columns (paper, id, claim, test, result, status, grade, core, scale), then audited three ways. First, status: 76 closed (69.1%), 27 unclosed (24.5%), 7 withdrawn (6.4%); 16 propositions (14.5%) were killed by the authors' own data. Second, grade: 3 at A, 55 at B, 52 at C — and the C-grade propositions cluster almost entirely in "pending/open". Third, conflicts: seven cases of "same name, different object" — τ (years vs weeks), capacity (scaled vs unscaled), gate (periodization cut vs critical threshold), memory (toponym vs proposition), compression (information vs legitimacy), cheap (per token vs per capability), transferability (legal status vs market structure). The audit also yields a structural fact: **no proposition sits at the individual scale, and only one at the lineage scale (a counter-example)**; the rest fall on proposition (77), community (18) and institution (14). That is exactly why the capacity end of "memory" has never been measured. The paper proposes three cross-paper tables (proxies, clocks, failure modes) and a five-layer dependency figure, registers its own six propositions in the same ledger, and states an evidence discipline for independent researchers: every core should know where it is measurable, where it is only analogical, and where it must be left blank.
 
 **Keywords**: six cores; reconciliation; measurable proxy; failure mode; scale boundary; evidence grading; same name different object
 
@@ -358,7 +358,7 @@ Nine working papers each deepen one or two of six cores: bureaucracy (choice), t
 
 **反直觉二："开放"最多的篇，反而最诚实。** 术语篇有 4 条开放，是全系列最多；它的"成立"只有 2 条。若按"成立数"排名，它是倒数第一；但若按"读者能知道什么做不到"排名，它是第一。这提示一个评价指标的替换：**不要数"成立了几条"，要数"标明了几个做不到"。**
 
-**反直觉三：A 级命题全是方法学的，没有一条是对象性的。** 110 条里的 2 条 A 级（分期 R1 恒等式、W9 复编 κ）都不说世界如何，只说"这套方法能不能自证"。也就是说：**这套框架目前最硬的成果，是它的方法，不是它的对象。** 这与本系列专著的自我定位（"给一把带刻度的尺子"）一致，但对期望从中读出"世界规律"的读者是一个提醒。
+**反直觉三：A 级命题全是方法学的，没有一条是对象性的。** 110 条里的 3 条 A 级（分期 R1 恒等式、同构 W9 复编 κ、总账 T5 旗舰拆分比）都不说世界如何，只说"这套方法能不能自证"。也就是说：**这套框架目前最硬的成果，是它的方法，不是它的对象。** 这与本系列专著的自我定位（"给一把带刻度的尺子"）一致，但对期望从中读出"世界规律"的读者是一个提醒。
 
 ### 4.10 为什么只有两个 A 级
 
@@ -478,7 +478,7 @@ A 级的定义是"官方可复现"。六篇里够得上的只有两处，原因�
 
 ![图 4](assets/figures/fig04_core_scale.png)
 
-110 条命题的尺度分布是：命题 29、共同体 18、制度 14、**个体 0、谱系 1**。
+110 条命题的尺度分布是：命题 77、共同体 18、制度 14、**个体 0、谱系 1**。
 
 这条空白值得单独说，因为它解释了一件事：为什么"记住"的容量端一直补不上。六篇的实证对象全是"外化的载体"——切线、仓库、驿铺、官制、命题；**没有一个对象是"一个人的认知"或"一条谱系"**。于是：
 
@@ -619,15 +619,15 @@ A 级的定义是"官方可复现"。六篇里够得上的只有两处，原因�
 
 **一句总评。** 110 条评注读下来，最突出的不是哪条被证实，而是**每条都在括号里写了自己的弱点**。这套框架的性格不在它的结论里，在它的括注里。
 
-## 7 第本系列十四篇：开明君主的十条命题与两处相撞
+## 7 第十四篇：开明君主的十条命题与两处相撞
 
-第本系列十四篇《开明君主与两层竞争》是这套系列里唯一一篇**用价目表说话**的论文。它的问题来自一句玩笑：人是不是 agent 的"开明君主"。作者没有停在比喻上，而是把它压成三个价目表能回答的问题——执行有多便宜、方向有多贵、代价落在谁身上。总账必须收进它，理由不是补全，而是它给"选择"这一端第一次装上了**价格刻度**。
+第十四篇《开明君主与两层竞争》是这套系列里唯一一篇**用价目表说话**的论文。它的问题来自一句玩笑：人是不是 agent 的"开明君主"。作者没有停在比喻上，而是把它压成三个价目表能回答的问题——执行有多便宜、方向有多贵、代价落在谁身上。总账必须收进它，理由不是补全，而是它给"选择"这一端第一次装上了**价格刻度**。
 
 ### 7.1 先把大词降到比喻档
 
-第本系列十四篇做的第一件事是自降一档：它明确写着，人＝君主、agent＝臣民属于**比喻档**，断裂在复合层（"君主"预设单一意志，而真实系统里"谁在下令"本身就在争）。降到比喻档之后，剩下的才可测：重放—判断价差（RJS＝输出价 ÷ 缓存读价）、执行价格的三种口径、量与钱的分离、双层溢价、席位价，以及"低价的一半是数据"。
+第十四篇做的第一件事是自降一档：它明确写着，人＝君主、agent＝臣民属于**比喻档**，断裂在复合层（"君主"预设单一意志，而真实系统里"谁在下令"本身就在争）。降到比喻档之后，剩下的才可测：重放—判断价差（RJS＝输出价 ÷ 缓存读价）、执行价格的三种口径、量与钱的分离、双层溢价、席位价，以及"低价的一半是数据"。
 
-这一步的方法论意义大于它的结论：**同一个大词，先说清自己是哪个价位，再说话**。本文第 5 章把七处"同名不同物"归到载体分层；第本系列十四篇的做法是给"档位"也标一个载体——比喻档不许承担读数档的推论。
+这一步的方法论意义大于它的结论：**同一个大词，先说清自己是哪个价位，再说话**。本文第 5 章把七处"同名不同物"归到载体分层；第十四篇的做法是给"档位"也标一个载体——比喻档不许承担读数档的推论。
 
 ### 7.2 六条读数与三条自我打击
 
@@ -644,13 +644,13 @@ A 级的定义是"官方可复现"。六篇里够得上的只有两处，原因�
 
 ### 7.3 两处相撞：一处在预算，一处在比喻
 
-**第一处，预算也可以当主瓶颈。** 第十篇《领域的剖面》的 T3 说"预算从来不是主瓶颈"（0/20 主、2/20 次）。第本系列十四篇的 D21 编码里，**预算就是主瓶颈**——不是钱少，而是这一层不能自托管，只能按价目付费。这是一个单例否证：全称命题只需一条反例。第十篇据此新增附录 M，把 T3 从"成立"降为"被单例否证"，并给"在场性"补了第五档"在场而不知情"。
+**第一处，预算也可以当主瓶颈。** 第十篇《领域的剖面》的 T3 说"预算从来不是主瓶颈"（0/20 主、2/20 次）。第十四篇的 D21 编码里，**预算就是主瓶颈**——不是钱少，而是这一层不能自托管，只能按价目付费。这是一个单例否证：全称命题只需一条反例。第十篇据此新增附录 M，把 T3 从"成立"降为"被单例否证"，并给"在场性"补了第五档"在场而不知情"。
 
 **第二处，比喻的重量。** 第十一篇《同构的强度》的四级阶梯（严格／伴随／函子／比喻）在"人＝君主"上落到最低一档，断裂在复合层。这与第 5 章处理七处冲突的方式一致：不把它抬成函子，而是标价——它能承载多少推论，就在哪一档收住。
 
 ### 7.4 它给"选择"补了什么，又留下什么
 
-在此之前，"选择"的测量最薄：9 条命题里 8 条是判据型，只有 1 条带数。第本系列十四篇补的不是一条新命题，而是一根**价格轴**：同一批模型在不同层、不同上下文、不同训练权条款下，价格差 2.9—83 倍。于是"选择"第一次可以问一个可算的问题——**你为可组合性多付了多少**。
+在此之前，"选择"的测量最薄：9 条命题里 8 条是判据型，只有 1 条带数。第十四篇补的不是一条新命题，而是一根**价格轴**：同一批模型在不同层、不同上下文、不同训练权条款下，价格差 2.9—83 倍。于是"选择"第一次可以问一个可算的问题——**你为可组合性多付了多少**。
 
 代价要写明：价目表是目录价不是成交价；快照是两周内的读数不是趋势；九家样本不构成市场全景。因此本章结论一律不超过 B 级，且每条都带"何时不成立"。这是本文对"冷峻"的定义：数可以硬，话必须软。
 
@@ -987,7 +987,7 @@ A 级的定义是"官方可复现"。六篇里够得上的只有两处，原因�
 
 [10] 李毅芃. 遗忘的边界：有限容量下的记忆、智能与自我[M]. Zenodo, 2026. doi:10.5281/zenodo.23323277.
 
-[11] 李毅芃. 区分的语法：五个领域，同一个二次型[M]. Zenodo, 2026. doi:10.5281/zenodo.23412033.
+[11] 李毅芃. 区分的语言：五个领域，同一个二次型[M]. Zenodo, 2026. doi:10.5281/zenodo.23412033.
 
 [12] 李毅芃. 涌现的临界：为什么有些变化回不去[M]. Zenodo, 2026. doi:10.5281/zenodo.23447311.
 

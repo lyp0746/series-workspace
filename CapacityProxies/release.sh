@@ -8,6 +8,7 @@ cp "$SRC.pdf"  "$OUT/00-capacityproxies.pdf"
 cp "$SRC.html" "$OUT/capacityproxies.html"
 cp "$SRC.md"   "$OUT/capacityproxies.md"
 cp README.md   "$OUT/README.md"
+cp interactive/capacity-proxies-explorer.html "$OUT/capacity-proxies-explorer.html"
 cp fig*.png    "$OUT/" 2>/dev/null || true
 cp ledger.csv cases.csv "$OUT/" 2>/dev/null || true
 {

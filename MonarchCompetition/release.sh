@@ -9,6 +9,7 @@ cp "$SRC.pdf"  "$OUT/00-monarchcompetition.pdf"
 cp "$SRC.html" "$OUT/monarchcompetition.html"
 cp "$SRC.md"   "$OUT/monarchcompetition.md"
 cp README.md   "$OUT/README.md"
+cp interactive/monarch-competition-explorer.html "$OUT/monarch-competition-explorer.html"
 cp fig*.png    "$OUT/" 2>/dev/null || true
 {
   echo "开明君主与两层竞争：agent 价目表上的执行、方向与代价承担者 — release manifest"

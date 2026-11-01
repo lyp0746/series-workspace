@@ -9,6 +9,7 @@ cp "$SRC.pdf"  "$OUT/00-sleeping-residue.pdf"
 cp "$SRC.html" "$OUT/sleeping-residue.html"
 cp "$SRC.md"   "$OUT/sleeping-residue.md"
 cp README.md   "$OUT/README.md"
+cp interactive/sleeping-residue-explorer.html "$OUT/sleeping-residue-explorer.html"
 cp fig*.png    "$OUT/" 2>/dev/null || true
 cp cases.csv   "$OUT/cases.csv" 2>/dev/null || true
 {

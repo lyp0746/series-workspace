@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>容量的三个代理 · 交互探索器（分期槽位）</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--green:#2e6b4f;--gold:#a8791f;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"Songti SC","SimSun","Source Han Serif SC",serif}
+header{padding:24px 5vw 14px;background:#fff;border-bottom:2px solid var(--red)}
+h1{margin:0 0 6px;font-size:24px}.sub{color:#555;font-size:13.5px;line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:16px 5vw 60px}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#fff;
+border:1px solid #e3e0d8;border-radius:6px;padding:10px;margin:8px 0 14px}
+label{font-size:13px}select{padding:4px 8px;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:13px}
+svg{width:100%;background:#fff;border:1px solid #e3e0d8;border-radius:6px;display:block}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0}
+.k div{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px 12px;font-size:12.5px;color:#555}
+.k b{display:block;font-size:21px;color:var(--ink);margin-top:3px;font-family:"Helvetica Neue",Arial,sans-serif}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12.5px;margin-top:12px}
+th,td{padding:6px 7px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tr.r{cursor:pointer}tr.r:hover{background:#f4f1e8}
+.detail{background:#fff;border:1px solid #d9d4c7;border-left:3px solid var(--blue);
+border-radius:5px;padding:12px 14px;margin-top:12px;font-size:13px;line-height:1.8;display:none}
+.detail.on{display:block}
+.detail h3{margin:0 0 6px;font-size:14.5px}
+.tag{display:inline-block;border:1px solid #ddd;border-radius:12px;padding:1px 8px;font-size:11.5px;
+color:#555;margin-right:6px;background:#fafafa}
+.note{font-size:12px;color:#666;line-height:1.75;margin-top:14px}
+.hint{font-size:12px;color:#777}
+@media(max-width:700px){h1{font-size:19px}.k b{font-size:18px}}
+</style></head><body>
+<header><h1>容量的三个代理 · 交互探索器（分期槽位）</h1><div class="sub">51 部世界史来源 · 顶层槽位 × 通货门依赖 · 数据来自 proxy_slots.json（B 级，样本有限）</div></header>
+<div class="wrap">
+<div class="bar" id="filters"></div>
+<div class="k" id="stats"></div>
+<svg id="chart" viewBox="0 0 900 420"></svg>
+<div class="detail" id="detail"></div>
+<table id="tbl"><thead></thead><tbody></tbody></table>
+<div class="note" id="note"></div>
+</div>
+<script>
+const DATA = [{"source": "Spielvogel《西方文明史简编》第9版", "n": 5, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "McKay《西方社会史》第11版", "n": 5, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Coffin & Stacey《西方文明》第17版", "n": 5, "g1500": 1, "g1914": 1, "tradition": "european", "doors": 2}, {"source": "Kishlansky《西方文明》第7版", "n": 5, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Noble《西方文明：超越边界》第7版", "n": 6, "g1500": 1, "g1914": 1, "tradition": "european", "doors": 2}, {"source": "Perry《西方文明简史》第11版", "n": 5, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Palmer/Colton《现代世界史》第11版", "n": 5, "g1500": 1, "g1914": 1, "tradition": "european", "doors": 2}, {"source": "Roberts《企鹅世界史》第6版", "n": 4, "g1500": 1, "g1914": 1, "tradition": "european", "doors": 2}, {"source": "Britannica《欧洲史》条目", "n": 6, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Langer《世界史百科全书》第5版", "n": 6, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Acton《剑桥近代史》", "n": 5, "g1500": 1, "g1914": 0, "tradition": "european", "doors": 1}, {"source": "《剑桥中世纪史》", "n": 2, "g1500": 0, "g1914": 0, "tradition": "european", "doors": 0}, {"source": "Davies《欧洲史》", "n": 6, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Hobsbawm《年代四部曲》", "n": 4, "g1500": 0, "g1914": 1, "tradition": "european", "doors": 1}, {"source": "Spielvogel《世界史》第8版", "n": 4, "g1500": 1, "g1914": 1, "tradition": "european", "doors": 2}, {"source": "McNeill《世界史》第4版", "n": 4, "g1500": 1, "g1914": 1, "tradition": "global", "doors": 2}, {"source": "Bentley & Ziegler《传统与相遇》第6版", "n": 5, "g1500": 1, "g1914": 1, "tradition": "global", "doors": 2}, {"source": "Bentley《世界史中的跨文化互动与分期》（AHR 1996）", "n": 2, "g1500": 1, "g1914": 0, "tradition": "global", "doors": 1}, {"source": "Stavrianos《全球史》第7版", "n": 4, "g1500": 1, "g1914": 1, "tradition": "global", "doors": 2}, {"source": "Stearns《世界文明：全球视角》第7版", "n": 4, "g1500": 0, "g1914": 1, "tradition": "global", "doors": 1}, {"source": "Bulliet《大地与人民》第6版", "n": 4, "g1500": 1, "g1914": 1, "tradition": "global", "doors": 2}, {"source": "Spodek《世界的历史》第4版", "n": 4, "g1500": 1, "g1914": 0, "tradition": "global", "doors": 1}, {"source": "Judge & Langdon《联系：世界史》第3版", "n": 4, "g1500": 1, "g1914": 1, "tradition": "global", "doors": 2}, {"source": "AP 世界史：现代（课程框架）", "n": 4, "g1500": 0, "g1914": 0, "tradition": "global", "doors": 0}, {"source": "AP 世界史（2011 框架）", "n": 4, "g1500": 0, "g1914": 1, "tradition": "global", "doors": 1}, {"source": "《剑桥世界史》", "n": 3, "g1500": 0, "g1914": 0, "tradition": "global", "doors": 0}, {"source": "Pomeranz《大分流》", "n": 1, "g1500": 0, "g1914": 0, "tradition": "global", "doors": 0}, {"source": "Bayly《现代世界的诞生 1780—1914》", "n": 1, "g1500": 0, "g1914": 0, "tradition": "global", "doors": 0}, {"source": "Osterhammel《世界的转型》", "n": 1, "g1500": 0, "g1914": 0, "tradition": "global", "doors": 0}, {"source": "周一良、吴于廑《世界通史》", "n": 3, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "吴于廑、齐世荣《世界史》六卷本", "n": 3, "g1500": 1, "g1914": 0, "tradition": "china", "doors": 1}, {"source": "刘宗绪《世界近代史》", "n": 2, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "王斯德《世界现代史》", "n": 2, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "《中外历史纲要（下）》人教版", "n": 7, "g1500": 1, "g1914": 2, "tradition": "china", "doors": 3}, {"source": "人教版《世界历史》九年级", "n": 6, "g1500": 1, "g1914": 2, "tradition": "china", "doors": 3}, {"source": "岳麓版《世界历史》九年级", "n": 4, "g1500": 1, "g1914": 1, "tradition": "china", "doors": 2}, {"source": "北师大版《世界历史》九年级", "n": 4, "g1500": 1, "g1914": 1, "tradition": "china", "doors": 2}, {"source": "华东师大版《世界历史》九年级", "n": 4, "g1500": 1, "g1914": 1, "tradition": "china", "doors": 2}, {"source": "《中国大百科全书·世界历史》", "n": 5, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "苏联科学院《世界通史》十卷本（中译）", "n": 3, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "范文澜《中国通史简编》", "n": 7, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "钱穆《国史大纲》", "n": 3, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "白寿彝《中国通史》", "n": 3, "g1500": 0, "g1914": 1, "tradition": "china", "doors": 1}, {"source": "Wikipedia《Periodization》", "n": 2, "g1500": 1, "g1914": 0, "tradition": "other", "doors": 1}, {"source": "Wikipedia《List of time periods》", "n": 3, "g1500": 0, "g1914": 1, "tradition": "other", "doors": 1}, {"source": "Wikipedia《Early modern period》", "n": 2, "g1500": 1, "g1914": 0, "tradition": "other", "doors": 1}, {"source": "塔巴里《历代先知与帝王史》", "n": 5, "g1500": 0, "g1914": 0, "tradition": "islamic", "doors": 0}, {"source": "拉施特《史集》", "n": 3, "g1500": 0, "g1914": 0, "tradition": "islamic", "doors": 0}, {"source": "萨阿迪《苏丹史》", "n": 3, "g1500": 1, "g1914": 0, "tradition": "african", "doors": 1}, {"source": "《基尔瓦编年》", "n": 3, "g1500": 1, "g1914": 0, "tradition": "african", "doors": 1}, {"source": "司马迁《史记》", "n": 3, "g1500": 0, "g1914": 0, "tradition": "east_asian_premodern", "doors": 0}, {"source": "司马光《资治通鉴》", "n": 10, "g1500": 0, "g1914": 0, "tradition": "east_asian_premodern", "doors": 0}, {"source": "萨阿贡《佛罗伦萨抄本》", "n": 3, "g1500": 1, "g1914": 0, "tradition": "americas", "doors": 1}, {"source": "瓜曼·波马《新编年史》", "n": 3, "g1500": 0, "g1914": 0, "tradition": "americas", "doors": 0}];
+
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, ...kids) => {
+  const n = document.createElementNS(t.startsWith('svg:') ? 'http://www.w3.org/2000/svg' : 'http://www.w3.org/1999/xhtml', t.replace('svg:', ''));
+  for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); }
+  kids.forEach(k => n.appendChild(k));
+  return n;
+};
+function uniq(rows, k) { return [...new Set(rows.map(r => r[k]).filter(v => v !== '' && v != null))]; }
+function fmt(v, d = 1) { return v == null || isNaN(v) ? '—' : (+v).toFixed(d).replace(/\.0$/, ''); }
+function median(a) { if (!a.length) return NaN; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; }
+
+function makeFilters(rows, spec) {
+  const bar = $('#filters'); bar.innerHTML = '';
+  const state = {};
+  spec.forEach(f => {
+    const wrap = document.createElement('label');
+    wrap.textContent = f.label + ' ';
+    const sel = document.createElement('select');
+    sel.innerHTML = '<option value="">全部</option>' + uniq(rows, f.key).map(v => `<option>${v}</option>`).join('');
+    sel.onchange = () => { state[f.key] = sel.value; render(); };
+    wrap.appendChild(sel); bar.appendChild(wrap);
+    state[f.key] = '';
+  });
+  return state;
+}
+function filtered() {
+  return DATA.filter(r => Object.entries(STATE).every(([k, v]) => !v || String(r[k]) === v));
+}
+
+const STATE = makeFilters(DATA, [{"key": "tradition", "label": "传统"}, {"key": "doors", "label": "含“通货门”数"}]);
+function stats(items, cards) {
+  const box = document.getElementById('stats'); box.innerHTML = '';
+  cards.forEach(c => {
+    const d = document.createElement('div'); d.innerHTML = c.label + '<b>' + c.value(items) + '</b>';
+    box.appendChild(d);
+  });
+}
+function table(items) {
+  const th = document.querySelector('#tbl thead'), tb = document.querySelector('#tbl tbody');
+  th.innerHTML = '<tr>' + [{"key": "source", "label": "来源"}, {"key": "tradition", "label": "传统"}, {"key": "n", "label": "顶层槽位"}, {"key": "g1500", "label": "含 1500"}, {"key": "g1914", "label": "含 1914"}, {"key": "doors", "label": "门依赖度"}].map(c => `<th>${c.label}</th>`).join('') + '</tr>';
+  tb.innerHTML = '';
+  items.slice(0, 400).forEach(r => {
+    const tr = document.createElement('tr'); tr.className = 'r';
+    [{"key": "source", "label": "来源"}, {"key": "tradition", "label": "传统"}, {"key": "n", "label": "顶层槽位"}, {"key": "g1500", "label": "含 1500"}, {"key": "g1914", "label": "含 1914"}, {"key": "doors", "label": "门依赖度"}].forEach(c => { const td = document.createElement('td'); td.textContent = r[c.key] ?? ''; tr.appendChild(td); });
+    tr.onclick = () => showDetail(r);
+    tb.appendChild(tr);
+  });
+}
+function showDetail(r) {
+  const d = document.getElementById('detail');
+  d.innerHTML = '<h3>' + (r['source'] ?? '') + '</h3>' +
+    [["tradition", "传统"], ["n", "顶层槽位"], ["doors", "门依赖度"]].map(([k, label]) => r[k] ? `<div><span class="tag">${label}</span>${String(r[k])}</div>` : '').join('');
+  d.className = 'detail on';
+}
+
+const TRAD = {'european': '#b3261e', 'global': '#1f4e79', 'china': '#2e6b4f', 'other': '#a8791f'};
+function render() {
+  const items = filtered();
+  const byT = {};
+  items.forEach(r => (byT[r.tradition] = byT[r.tradition] || []).push(r));
+  stats(items, [
+    {label: '来源数', value: a => a.length},
+    {label: '槽位中位数', value: a => fmt(median(a.map(r => r.n)), 1)},
+    {label: '含 1500 的条数', value: a => a.filter(r => r.g1500).length + ' / ' + a.length},
+    {label: '含 1914 的条数', value: a => a.filter(r => r.g1914).length + ' / ' + a.length},
+  ]);
+  const svg = document.getElementById('chart'); svg.innerHTML = '';
+  const W = 900, H = 420, P = {l: 70, r: 30, t: 24, b: 60};
+  const mk = (t, a, txt) => { const n = document.createElementNS('http://www.w3.org/2000/svg', t); for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); } if (txt != null) n.textContent = txt; svg.appendChild(n); return n; };
+  const x0 = 0, x1 = Math.max(12, ...items.map(r => r.n)), y0 = -0.3, y1 = 2.3;
+  const X = v => P.l + (v - x0) / (x1 - x0) * (W - P.l - P.r);
+  const Y = v => H - P.b - (v - y0) / (y1 - y0) * (H - P.t - P.b);
+  mk('line', {x1: P.l, y1: H - P.b, x2: W - P.r, y2: H - P.b, stroke: '#999'});
+  mk('line', {x1: P.l, y1: P.t, x2: P.l, y2: H - P.b, stroke: '#999'});
+  for (let v = 0; v <= x1; v += 2) mk('text', {x: X(v), y: H - P.b + 18, 'font-size': 11, fill: '#666', 'text-anchor': 'middle', text: v});
+  for (let v = 0; v <= 2; v++) mk('text', {x: P.l - 8, y: Y(v) + 4, 'font-size': 11, fill: '#666', 'text-anchor': 'end', text: v});
+  mk('text', {x: W / 2, y: H - 12, 'font-size': 12, fill: '#333', 'text-anchor': 'middle', text: '顶层槽位数'});
+  mk('text', {x: 16, y: H / 2, 'font-size': 12, fill: '#333', 'text-anchor': 'middle', transform: `rotate(-90 16 ${H / 2})`, text: '含“通货门”（1500/1914）数'});
+  items.forEach(r => {
+    const c = mk('circle', {cx: X(r.n) + (Math.random() - .5) * 8, cy: Y(r.doors) + (Math.random() - .5) * 8,
+      r: 5, fill: TRAD[r.tradition] || '#666', 'fill-opacity': .8, stroke: '#fff', 'stroke-width': 1});
+    c.style.cursor = 'pointer'; c.onclick = () => showDetail(r);
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'title'); t.textContent = r.source; c.appendChild(t);
+  });
+  table(items); document.getElementById('note').textContent = '本表含 46 部核心语料与 8 部扩展编年史，故计数与正文的 51 部口径不完全相同；相关系数（r=−0.245）与分组比例以论文为准。结论只支持弱版本。';
+}
+
+render();
+</script></body></html>

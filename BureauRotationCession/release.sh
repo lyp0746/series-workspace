@@ -18,7 +18,7 @@ cp data/control_tangsong.csv "$OUT/control_tangsong.csv"
 cp data/rupture_events.csv   "$OUT/rupture_events.csv"
 cp data/event_leadlag.csv    "$OUT/event_leadlag.csv"
 cp interactive/control-explorer.html "$OUT/control-explorer.html"
-cp fig??.png    "$OUT/"
+cp assets/figures/fig??.png "$OUT/"
 
 {
   echo "轮换的让渡 / The Rotation of Concessions — release manifest"

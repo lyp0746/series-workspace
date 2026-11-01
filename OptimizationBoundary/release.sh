@@ -8,6 +8,7 @@ cp "$SRC.pdf"  "$OUT/00-optimizationboundary.pdf"
 cp "$SRC.html" "$OUT/optimizationboundary.html"
 cp "$SRC.md"   "$OUT/optimizationboundary.md"
 cp README.md   "$OUT/README.md"
+cp interactive/optimization-boundary-explorer.html "$OUT/optimization-boundary-explorer.html"
 cp fig*.png    "$OUT/" 2>/dev/null || true
 cp ledger.csv cases.csv "$OUT/" 2>/dev/null || true
 {

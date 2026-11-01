@@ -14,11 +14,11 @@ cp "$SRC.html" "$OUT/who-cuts-the-timeline.html"
 cp "$SRC.md"   "$OUT/who-cuts-the-timeline.md"
 cp README.md   "$OUT/README.md"
 cp interactive/periodization-explorer.html "$OUT/periodization-explorer.html"
-cp fig??.png   "$OUT/"
+cp assets/figures/fig??.png "$OUT/"
 cp data/schemes.csv "$OUT/schemes.csv"
 
 {
-  echo "门的数目 / The Number of Gates — release manifest"
+  echo "谁在切时间轴 / Who Cuts the Timeline — release manifest"
   echo "生成时间: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
   echo
   for f in "$OUT"/*; do

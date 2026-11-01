@@ -8,6 +8,7 @@ cp "$SRC.pdf"  "$OUT/00-ledgerreconciliation.pdf"
 cp "$SRC.html" "$OUT/ledgerreconciliation.html"
 cp "$SRC.md"   "$OUT/ledgerreconciliation.md"
 cp README.md   "$OUT/README.md"
+cp interactive/ledger-reconciliation-explorer.html "$OUT/ledger-reconciliation-explorer.html"
 cp fig*.png    "$OUT/" 2>/dev/null || true
 cp ledger.csv cases.csv "$OUT/" 2>/dev/null || true
 {

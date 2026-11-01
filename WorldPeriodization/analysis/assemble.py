@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(BASE, "data"))
 from schemes import SOURCE_NOTE  # noqa: E402
 
 SRC = os.path.join(BASE, "source", "paper.md")
-OUT = os.path.join(BASE, "门的数目_六十部世界史分期.md")
+OUT = os.path.join(BASE, "谁在切时间轴_六十部世界史分期与一份自证方案.md")
 CSV = os.path.join(BASE, "data", "schemes.csv")
 STATS = os.path.join(BASE, "data", "stats.json")
 

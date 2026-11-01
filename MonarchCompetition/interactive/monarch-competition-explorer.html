@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>开明君主与两层竞争 · 交互探索器</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--green:#2e6b4f;--gold:#a8791f;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"Songti SC","SimSun","Source Han Serif SC",serif}
+header{padding:24px 5vw 14px;background:#fff;border-bottom:2px solid var(--red)}
+h1{margin:0 0 6px;font-size:24px}.sub{color:#555;font-size:13.5px;line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:16px 5vw 60px}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#fff;
+border:1px solid #e3e0d8;border-radius:6px;padding:10px;margin:8px 0 14px}
+label{font-size:13px}select{padding:4px 8px;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:13px}
+svg{width:100%;background:#fff;border:1px solid #e3e0d8;border-radius:6px;display:block}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0}
+.k div{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px 12px;font-size:12.5px;color:#555}
+.k b{display:block;font-size:21px;color:var(--ink);margin-top:3px;font-family:"Helvetica Neue",Arial,sans-serif}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12.5px;margin-top:12px}
+th,td{padding:6px 7px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tr.r{cursor:pointer}tr.r:hover{background:#f4f1e8}
+.detail{background:#fff;border:1px solid #d9d4c7;border-left:3px solid var(--blue);
+border-radius:5px;padding:12px 14px;margin-top:12px;font-size:13px;line-height:1.8;display:none}
+.detail.on{display:block}
+.detail h3{margin:0 0 6px;font-size:14.5px}
+.tag{display:inline-block;border:1px solid #ddd;border-radius:12px;padding:1px 8px;font-size:11.5px;
+color:#555;margin-right:6px;background:#fafafa}
+.note{font-size:12px;color:#666;line-height:1.75;margin-top:14px}
+.hint{font-size:12px;color:#777}
+@media(max-width:700px){h1{font-size:19px}.k b{font-size:18px}}
+</style></head><body>
+<header><h1>开明君主与两层竞争 · 交互探索器</h1><div class="sub">价目表快照 · 重放—判断价差（RJS）＝输出单价 ÷ 缓存读单价 · 数据来自 data/table_models.md</div></header>
+<div class="wrap">
+<div class="bar" id="filters"></div>
+<div class="k" id="stats"></div>
+<svg id="chart" viewBox="0 0 900 420"></svg>
+<div class="detail" id="detail"></div>
+<table id="tbl"><thead></thead><tbody></tbody></table>
+<div class="note" id="note"></div>
+</div>
+<script>
+const DATA = [{"model": "gpt-6.1-sol", "tier": "旗舰", "out": 10.0, "inp": 2.0, "cache": 0.1, "rjs": 100.0, "ctx": 1050000.0, "hosts": "3", "weights": "闭", "license": "—"}, {"model": "gpt-6-luna", "tier": "旗舰", "out": 0.5, "inp": 0.1, "cache": 0.01, "rjs": 50.0, "ctx": 1050000.0, "hosts": "3", "weights": "闭", "license": "—"}, {"model": "gpt-6-astra", "tier": "旗舰", "out": 50.0, "inp": 10.0, "cache": 1.0, "rjs": 50.0, "ctx": 1050000.0, "hosts": "3", "weights": "闭", "license": "—"}, {"model": "gpt-oss-120b", "tier": "商品", "out": 0.6, "inp": 0.15, "cache": 0.075, "rjs": 8.0, "ctx": 131000.0, "hosts": "23", "weights": "开", "license": "apache-2.0"}, {"model": "claude-fable-5.1", "tier": "旗舰", "out": 50.0, "inp": 10.0, "cache": 0.25, "rjs": 200.0, "ctx": 1000000.0, "hosts": "4", "weights": "闭", "license": "—"}, {"model": "claude-opus-5.5", "tier": "旗舰", "out": 20.0, "inp": 4.0, "cache": 0.2, "rjs": 100.0, "ctx": 1000000.0, "hosts": "5", "weights": "闭", "license": "—"}, {"model": "claude-sonnet-5.5", "tier": "旗舰", "out": 10.0, "inp": 2.0, "cache": 0.1, "rjs": 100.0, "ctx": 1000000.0, "hosts": "5", "weights": "闭", "license": "—"}, {"model": "claude-haiku-5.5", "tier": "旗舰", "out": 0.5, "inp": 0.1, "cache": 0.01, "rjs": 50.0, "ctx": 1000000.0, "hosts": "5", "weights": "闭", "license": "—"}, {"model": "gemini-4-argon", "tier": "旗舰", "out": 10.0, "inp": 2.0, "cache": 0.1, "rjs": 100.0, "ctx": 1048000.0, "hosts": "2", "weights": "闭", "license": "—"}, {"model": "gemini-3.8-flash", "tier": "旗舰", "out": 4.12, "inp": 0.82, "cache": 0.083, "rjs": 50.0, "ctx": 1048000.0, "hosts": "2", "weights": "闭", "license": "—"}, {"model": "gemma-4-31b-it", "tier": "商品", "out": 0.4, "inp": 0.2, "cache": null, "rjs": null, "ctx": 262000.0, "hosts": "13", "weights": "开", "license": "apache-2.0"}, {"model": "deepseek-v4.1-flash", "tier": "商品", "out": 0.42, "inp": 0.14, "cache": 0.004, "rjs": 100.0, "ctx": 1048000.0, "hosts": "33", "weights": "开", "license": "mit"}, {"model": "deepseek-v4-pro", "tier": "商品", "out": 1.76, "inp": 0.88, "cache": 0.073, "rjs": 24.0, "ctx": 1048000.0, "hosts": "14", "weights": "开", "license": "mit"}, {"model": "grok-4.7", "tier": "旗舰", "out": 6.0, "inp": 2.0, "cache": 0.5, "rjs": 12.0, "ctx": 500000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "grok-4.20", "tier": "旗舰", "out": 2.5, "inp": 1.25, "cache": 0.2, "rjs": 12.5, "ctx": 2000000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "kimi-k3.1-pro", "tier": "旗舰", "out": 10.0, "inp": 2.0, "cache": 0.2, "rjs": 50.0, "ctx": 1048000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "kimi-k3", "tier": "商品", "out": 20.0, "inp": 0.15, "cache": 0.14, "rjs": 142.9, "ctx": 1048000.0, "hosts": "21", "weights": "开", "license": "other"}, {"model": "kimi-k2.6", "tier": "商品", "out": 3.41, "inp": 0.65, "cache": 0.15, "rjs": 22.7, "ctx": 262000.0, "hosts": "17", "weights": "开", "license": "other"}, {"model": "qwen3.8-max-prime", "tier": "旗舰", "out": 12.0, "inp": 4.0, "cache": 0.5, "rjs": 24.0, "ctx": 1000000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "qwen3.8-flash", "tier": "商品", "out": 0.47, "inp": 0.15, "cache": 0.016, "rjs": 29.4, "ctx": 1000000.0, "hosts": "1", "weights": "开", "license": "待核"}, {"model": "qwen3.8-max-0902", "tier": "旗舰", "out": 6.0, "inp": 2.0, "cache": 0.25, "rjs": 24.0, "ctx": 1000000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "glm-5.3-prime", "tier": "旗舰", "out": 8.8, "inp": 2.8, "cache": 0.56, "rjs": 15.7, "ctx": 1000000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "glm-5.3", "tier": "商品", "out": 1.4, "inp": 0.07, "cache": 0.069, "rjs": 20.3, "ctx": 1048000.0, "hosts": "37", "weights": "开", "license": "other"}, {"model": "glm-5.3-flash", "tier": "商品", "out": 0.5, "inp": 0.15, "cache": 0.03, "rjs": 16.7, "ctx": 1048000.0, "hosts": "34", "weights": "开", "license": "待核"}, {"model": "muse-wonder", "tier": "旗舰", "out": 20.0, "inp": 4.0, "cache": 0.2, "rjs": 100.0, "ctx": 1048000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "muse-spark-1.3", "tier": "旗舰", "out": 4.25, "inp": 1.25, "cache": 0.15, "rjs": 28.3, "ctx": 1048000.0, "hosts": "1", "weights": "闭", "license": "—"}, {"model": "muse-spark-open", "tier": "商品", "out": 4.25, "inp": 1.25, "cache": 0.15, "rjs": 28.3, "ctx": 1048000.0, "hosts": "6", "weights": "开", "license": "other"}, {"model": "muse-glimmer-30b", "tier": "商品", "out": 1.2, "inp": 0.3, "cache": 0.04, "rjs": 30.0, "ctx": 131000.0, "hosts": "2", "weights": "开", "license": "apache-2.0"}];
+
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, ...kids) => {
+  const n = document.createElementNS(t.startsWith('svg:') ? 'http://www.w3.org/2000/svg' : 'http://www.w3.org/1999/xhtml', t.replace('svg:', ''));
+  for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); }
+  kids.forEach(k => n.appendChild(k));
+  return n;
+};
+function uniq(rows, k) { return [...new Set(rows.map(r => r[k]).filter(v => v !== '' && v != null))]; }
+function fmt(v, d = 1) { return v == null || isNaN(v) ? '—' : (+v).toFixed(d).replace(/\.0$/, ''); }
+function median(a) { if (!a.length) return NaN; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; }
+
+function makeFilters(rows, spec) {
+  const bar = $('#filters'); bar.innerHTML = '';
+  const state = {};
+  spec.forEach(f => {
+    const wrap = document.createElement('label');
+    wrap.textContent = f.label + ' ';
+    const sel = document.createElement('select');
+    sel.innerHTML = '<option value="">全部</option>' + uniq(rows, f.key).map(v => `<option>${v}</option>`).join('');
+    sel.onchange = () => { state[f.key] = sel.value; render(); };
+    wrap.appendChild(sel); bar.appendChild(wrap);
+    state[f.key] = '';
+  });
+  return state;
+}
+function filtered() {
+  return DATA.filter(r => Object.entries(STATE).every(([k, v]) => !v || String(r[k]) === v));
+}
+
+const STATE = makeFilters(DATA, [{"key": "tier", "label": "层"}, {"key": "weights", "label": "权重"}, {"key": "hosts", "label": "托管商数"}]);
+function stats(items, cards) {
+  const box = document.getElementById('stats'); box.innerHTML = '';
+  cards.forEach(c => {
+    const d = document.createElement('div'); d.innerHTML = c.label + '<b>' + c.value(items) + '</b>';
+    box.appendChild(d);
+  });
+}
+function table(items) {
+  const th = document.querySelector('#tbl thead'), tb = document.querySelector('#tbl tbody');
+  th.innerHTML = '<tr>' + [{"key": "model", "label": "模型"}, {"key": "tier", "label": "层"}, {"key": "out", "label": "输出 $/1M"}, {"key": "cache", "label": "缓存读 $/1M"}, {"key": "rjs", "label": "重放—判断价差"}, {"key": "ctx", "label": "上下文"}, {"key": "hosts", "label": "托管商"}, {"key": "weights", "label": "权重"}].map(c => `<th>${c.label}</th>`).join('') + '</tr>';
+  tb.innerHTML = '';
+  items.slice(0, 400).forEach(r => {
+    const tr = document.createElement('tr'); tr.className = 'r';
+    [{"key": "model", "label": "模型"}, {"key": "tier", "label": "层"}, {"key": "out", "label": "输出 $/1M"}, {"key": "cache", "label": "缓存读 $/1M"}, {"key": "rjs", "label": "重放—判断价差"}, {"key": "ctx", "label": "上下文"}, {"key": "hosts", "label": "托管商"}, {"key": "weights", "label": "权重"}].forEach(c => { const td = document.createElement('td'); td.textContent = r[c.key] ?? ''; tr.appendChild(td); });
+    tr.onclick = () => showDetail(r);
+    tb.appendChild(tr);
+  });
+}
+function showDetail(r) {
+  const d = document.getElementById('detail');
+  d.innerHTML = '<h3>' + (r['model'] ?? '') + '</h3>' +
+    [["tier", "层"], ["out", "输出 $/1M"], ["inp", "输入 $/1M"], ["cache", "缓存读 $/1M"], ["rjs", "RJS"], ["ctx", "上下文"], ["license", "许可"]].map(([k, label]) => r[k] ? `<div><span class="tag">${label}</span>${String(r[k])}</div>` : '').join('');
+  d.className = 'detail on';
+}
+
+function render() {
+  const items = filtered().filter(r => r.rjs > 0);
+  stats(items, [
+    {label: '本表模型数', value: a => a.length},
+    {label: '本表价差中位', value: a => fmt(median(a.map(r => r.rjs)), 1) + '×'},
+    {label: '闭源中位', value: a => fmt(median(a.filter(r => r.weights === '闭').map(r => r.rjs)), 1) + '×'},
+    {label: '开放中位', value: a => fmt(median(a.filter(r => r.weights === '开').map(r => r.rjs)), 1) + '×'},
+  ]);
+  const svg = document.getElementById('chart'); svg.innerHTML = '';
+  const W = 900, H = 420, P = {l: 74, r: 30, t: 24, b: 58};
+  const mk = (t, a, txt) => { const n = document.createElementNS('http://www.w3.org/2000/svg', t); for (const k in a) { if (k === 'text') n.textContent = a[k]; else n.setAttribute(k, a[k]); } if (txt != null) n.textContent = txt; svg.appendChild(n); return n; };
+  const x0 = Math.log10(8), x1 = Math.log10(Math.max(2000, ...items.map(r => r.ctx || 8)));
+  const y0 = Math.log10(2), y1 = Math.log10(260);
+  const X = v => P.l + (Math.log10(Math.max(v, 8)) - x0) / (x1 - x0) * (W - P.l - P.r);
+  const Y = v => H - P.b - (Math.log10(Math.max(v, 2)) - y0) / (y1 - y0) * (H - P.t - P.b);
+  mk('line', {x1: P.l, y1: H - P.b, x2: W - P.r, y2: H - P.b, stroke: '#999'});
+  mk('line', {x1: P.l, y1: P.t, x2: P.l, y2: H - P.b, stroke: '#999'});
+  [8, 32, 128, 512, 2048].forEach(v => { if (v <= Math.pow(10, x1)) mk('text', {x: X(v), y: H - P.b + 18, 'font-size': 11, fill: '#666', 'text-anchor': 'middle', text: v + 'K'}); });
+  [2, 5, 10, 20, 50, 100, 200].forEach(v => mk('text', {x: P.l - 8, y: Y(v) + 4, 'font-size': 11, fill: '#666', 'text-anchor': 'end', text: v + '×'}));
+  mk('text', {x: W / 2, y: H - 12, 'font-size': 12, fill: '#333', 'text-anchor': 'middle', text: '上下文窗口（token，对数）'});
+  mk('text', {x: 16, y: H / 2, 'font-size': 12, fill: '#333', 'text-anchor': 'middle', transform: `rotate(-90 16 ${H / 2})`, text: '重放—判断价差 RJS（对数）'});
+  const COL = {'闭': '#b3261e', '开': '#2e6b4f'};
+  items.forEach(r => {
+    const c = mk('circle', {cx: X(r.ctx || 8) + (Math.random() - .5) * 10, cy: Y(r.rjs), r: 5,
+      fill: COL[r.weights] || '#666', 'fill-opacity': .78, stroke: '#fff', 'stroke-width': 1});
+    c.style.cursor = 'pointer'; c.onclick = () => showDetail(r);
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'title'); t.textContent = r.model + ' · ' + r.rjs + '×'; c.appendChild(t);
+  });
+  table(items.sort((a, b) => b.rjs - a.rjs));
+  document.getElementById('note').textContent = '本表是论文 438 个模型快照中的 27 条代表性子集，故中位数与正文的 294/98/196 口径不同（正文中位 34.5×，闭源 50×、开放 19×）。结论是：价目表本身就把“执行”与“方向”分开标价；按上下文长度分组后，闭源—开放差异只在部分档位成立。';
+}
+
+render();
+</script></body></html>
