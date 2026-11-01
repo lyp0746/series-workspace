@@ -1,0 +1,636 @@
+<h2 class="chapter">附录 A　可证伪登记簿</h2>
+<h3>附录 可证伪登记簿　术语表（查询式）</h3>
+<div class="box"><p><strong>用法：</strong> 先看"一句话"，再看"先看哪章"。想深挖，按"经典引用"去找原文。</p></div>
+<table class="nat">
+<tr><th class="l">术语</th><th class="l">一句话</th><th class="l">先看哪章</th><th class="l">经典引用</th><th class="l">等级</th></tr>
+<tr><td class="l">相变</td><td class="l">参数连续变化、状态在临界点不连续改变</td><td class="l">1.2 / 2.1</td><td class="l">Landau & Lifshitz (1958)《统计物理学》</td><td class="l">A</td></tr>
+<tr><td class="l">序参量</td><td class="l">临界点一侧为 0、另一侧非 0 的宏观量</td><td class="l">2.1</td><td class="l">Landau (1937)</td><td class="l">A</td></tr>
+<tr><td class="l">一阶相变</td><td class="l">η 从 0 跳到有限值，有潜热</td><td class="l">2.1</td><td class="l">Ehrenfest (1933)</td><td class="l">A</td></tr>
+<tr><td class="l">二阶相变</td><td class="l">η 连续增长（<code>η~(T_c−T)^β</code>），无潜热</td><td class="l">2.1</td><td class="l">Ehrenfest (1933)</td><td class="l">A</td></tr>
+<tr><td class="l">对称破缺</td><td class="l">临界点后系统"选一个方向"，微观规则未变</td><td class="l">2.2</td><td class="l">Landau；Anderson (1972)</td><td class="l">A</td></tr>
+<tr><td class="l">临界慢化</td><td class="l">临界点前恢复时间发散</td><td class="l">2.3</td><td class="l">Hohenberg & Halperin (1977)</td><td class="l">A</td></tr>
+<tr><td class="l">标度律</td><td class="l">临界点附近物理量按幂律变化</td><td class="l">2.4</td><td class="l">Stanley (1971)</td><td class="l">A</td></tr>
+<tr><td class="l">普适类</td><td class="l">微观机制不同、临界指数相同的系统集合</td><td class="l">2.4</td><td class="l">Wilson (1971)</td><td class="l">A</td></tr>
+<tr><td class="l">因果涌现</td><td class="l">某粗粒化尺度上宏观有效信息超过微观</td><td class="l">2.5</td><td class="l">Hoel et al. (2013)</td><td class="l">B</td></tr>
+<tr><td class="l">有效信息 Φ</td><td class="l"><code>I_macro − I_micro</code></td><td class="l">2.5</td><td class="l">Hoel et al. (2013)</td><td class="l">B</td></tr>
+<tr><td class="l">粗粒化</td><td class="l">把细粒度状态聚合成宏观状态</td><td class="l">2.5</td><td class="l">Crutchfield (1994)</td><td class="l">A</td></tr>
+<tr><td class="l">下向因果</td><td class="l">宏观层级对微观单元的约束</td><td class="l">2.6</td><td class="l">哲学（弱版本）</td><td class="l">C</td></tr>
+<tr><td class="l">形式化的地平线</td><td class="l">随系统复杂度上升，可形式化程度递减</td><td class="l">5.1–5.4</td><td class="l"><strong>本书提出</strong></td><td class="l">C（模型）</td></tr>
+</table>
+<div class="box"><p><strong>说明：</strong> "本书提出"的条目只用于说明趋势，不承担定量预测。</p></div>
+<h4>附录 B　可证伪登记（append-only）</h4>
+<table class="nat">
+<tr><th class="l">编号</th><th class="l">命题</th><th class="l">预测（方向）</th><th class="l">会推翻它的结果</th><th class="l">状态</th></tr>
+<tr><td class="l">E1</td><td class="l">不同图属同一普适类</td><td class="l">临界指数 α 相同</td><td class="l">不同图 α 显著不同</td><td class="l">待核（MVU-1）</td></tr>
+<tr><td class="l">E2</td><td class="l">学习坍塌是相变</td><td class="l">临界前 <code>τ_rec</code> 上升</td><td class="l"><code>τ_rec</code> 不上升</td><td class="l">待核（MVU-2）</td></tr>
+<tr><td class="l">E3</td><td class="l">τ 与系统失效相关</td><td class="l">τ 越大，失效越多</td><td class="l">无相关</td><td class="l">待核（MVU-3）</td></tr>
+<tr><td class="l">E4</td><td class="l">知识系统存在因果涌现</td><td class="l">Φ 在中间尺度出现峰值</td><td class="l">Φ 单调递减</td><td class="l">待核（MVU-4）</td></tr>
+<tr><td class="l">E5</td><td class="l">诠释学派=不同 C-A-T 位置</td><td class="l">评分出现聚类</td><td class="l">无聚类</td><td class="l">待核（MVU-5）</td></tr>
+<tr><td class="l">E6</td><td class="l">形式化程度随复杂度递减</td><td class="l">F(C) 单调下降</td><td class="l">出现"高复杂度、高 F"的稳定反例</td><td class="l">待核</td></tr>
+<tr><td class="l">E7</td><td class="l">(c,a,t) 编码可跨评审复现</td><td class="l">κ 系数中高</td><td class="l">κ 接近 0</td><td class="l">待核（MVU-6）</td></tr>
+</table>
+<div class="box"><p>本登记 append-only：只追加，不改写旧行。</p></div>
+<h4>附录 C　证据等级与概念等级</h4>
+<p><strong>证据等级</strong>：A 官方可复现 / B 稳定公开估计 / C 稀疏·构造·思辨。 <strong>概念等级</strong>：甲 成熟形式化 / 乙 有论证但依赖未证前提 / 丙 思辨假说。 <strong>合并写作</strong>：<code>A／甲</code>。<strong>纪律：结论强度不超过证据强度。</strong></p>
+<h4>附录 D　此前几本与本书的关系（含证据链）</h4>
+<table class="nat">
+<tr><th class="l">专著</th><th class="l">本书对它的读法</th><th class="l">原著</th><th class="l">诠释</th><th class="l">判定</th><th class="l">总强度</th></tr>
+<tr><td class="l">区分的语法</td><td class="l">严格相变的应用</td><td class="l">A／甲</td><td class="l">A／甲</td><td class="l">强</td><td class="l">A／甲</td></tr>
+<tr><td class="l">遗忘的边界</td><td class="l">容量坍塌的应用</td><td class="l">B／乙</td><td class="l">B／乙</td><td class="l">中</td><td class="l">B／乙</td></tr>
+<tr><td class="l">错位的时间</td><td class="l">时间错配的应用</td><td class="l">A／甲+B／乙</td><td class="l">B／乙</td><td class="l">中</td><td class="l">B／乙</td></tr>
+<tr><td class="l">选择的代价</td><td class="l">传递性丧失的应用</td><td class="l">C／丙</td><td class="l">B／乙</td><td class="l">弱</td><td class="l">C／丙</td></tr>
+<tr><td class="l">诠释的权衡</td><td class="l">诠释分化的应用</td><td class="l">B／乙</td><td class="l">B／乙</td><td class="l">弱</td><td class="l">C／丙</td></tr>
+</table>
+<h4>附录 E　本系列</h4>
+<p>本书是系列的<strong>第本系列专著</strong>。详见书末《本系列》页。</p>
+<h3 id="apxB">附录 B　数据、实验与复算</h3>
+<h4>附录 F　延伸</h4>
+<ul><li>系列入口与外部登记库：<a href="https://github.com/lyp0746/knowledge-tradeoffs">https://github.com/lyp0746/knowledge-tradeoffs</a>（访问日期：2026-10-17）</li><li>通俗读本《只能选两样》：同上仓库</li><li>通俗诊断读本《热点的账单》：<a href="https://github.com/lyp0746/hotspot-bills">https://github.com/lyp0746/hotspot-bills</a>（访问日期：2026-10-17）</li></ul>
+<h3>参考文献（带等级与注释）</h3>
+<div class="box"><p>选读清单，不是完整综述。等级：<strong>A</strong> 核心 / <strong>B</strong> 支撑 / <strong>C</strong> 选读。</p></div>
+<p><strong>相变与临界现象</strong></p>
+<ul><li>Landau, L. D. (1937). 相变与序参量。<strong>A</strong> —— 序参量概念的源头。</li><li>Ehrenfest, P. (1933). 相变的分类（一阶/二阶）。<strong>A</strong> —— 本书 2.1 的分类依据。</li><li>Wilson, K. G. (1971). 重整化群与普适类。<strong>A</strong> —— 普适类的数学基础。</li><li>Hohenberg, P. C., & Halperin, B. I. (1977). 临界动力学与临界慢化。<strong>A</strong> —— 2.3 的依据。</li><li>Stanley, H. E. (1971). 相变与临界现象导论。<strong>B</strong> —— 入门教材。</li></ul>
+<p><strong>涌现、有效信息与计算</strong></p>
+<ul><li>Hoel, E., Albantakis, L., & Tononi, G. (2013). 因果涌现与有效信息。<strong>B</strong> —— 2.5 的核心。</li><li>Crutchfield, J. P. (1994). 计算力学与粗粒化。<strong>B</strong> —— 粗粒化的形式化。</li><li>Wolfram, S. (2002). 计算不可约性。<strong>C</strong> —— 延伸阅读。</li></ul>
+<p><strong>方法论对话</strong></p>
+<ul><li>Popper, K. (1959). 科学发现的逻辑（可证伪性）。<strong>B</strong> —— 6 章的哲学背景。</li><li>Lakatos, I. (1978). 科学研究纲领方法论。<strong>B</strong> —— 7.6 的对话对象。</li><li>Bourdieu, P. (1993). 场域与资本。<strong>C</strong> —— 7.6 的对话对象。</li></ul>
+<p><strong>本书依赖的此前几本专著</strong></p>
+<ul><li>《区分的语法》（DOI: 10.5281/zenodo.23412033）。<strong>A</strong></li><li>《遗忘的边界》（DOI: 10.5281/zenodo.23323277）。<strong>B</strong></li><li>《错位的时间》（DOI: 10.5281/zenodo.23286403）。<strong>B</strong></li><li>《选择的代价》（DOI: 10.5281/zenodo.23388629）。<strong>B</strong></li><li>《诠释的权衡》（DOI: 10.5281/zenodo.23416220）。<strong>C</strong></li></ul>
+<div class="box"><p><strong>说明：</strong> 本书对上述文献的使用是"借用工具"，不是"逐一复述"。具体定义、版本与页码，以原始文献为准；本书的重新解读，标注为〔本书推断〕。</p></div>
+<h4>附录 H　索引（核心概念速查）</h4>
+<table class="nat">
+<tr><th class="l">想查</th><th class="l">去哪</th></tr>
+<tr><td class="l">序参量、一阶/二阶</td><td class="l">2.1</td></tr>
+<tr><td class="l">对称破缺</td><td class="l">2.2</td></tr>
+<tr><td class="l">临界慢化</td><td class="l">2.3</td></tr>
+<tr><td class="l">标度律、普适类</td><td class="l">2.4</td></tr>
+<tr><td class="l">因果涌现、有效信息 Φ</td><td class="l">2.5</td></tr>
+<tr><td class="l">下向因果</td><td class="l">2.6</td></tr>
+<tr><td class="l">最小定义（三中二）</td><td class="l">1.6</td></tr>
+<tr><td class="l">三标记</td><td class="l">3.1–3.3</td></tr>
+<tr><td class="l">五步流程</td><td class="l">3.4</td></tr>
+<tr><td class="l">反例（含物理反例）</td><td class="l">3.5 / 3.5.1</td></tr>
+<tr><td class="l">五个应用</td><td class="l">4.1–4.6</td></tr>
+<tr><td class="l">框架依赖性</td><td class="l">4.7</td></tr>
+<tr><td class="l">形式化地平线 F(C)</td><td class="l">5.1–5.4</td></tr>
+<tr><td class="l">不可通约、本质界限</td><td class="l">5.6</td></tr>
+<tr><td class="l">隐喻的价值</td><td class="l">5.6.1</td></tr>
+<tr><td class="l">通约的代价</td><td class="l">5.7</td></tr>
+<tr><td class="l">隐喻 vs 诊断梯度</td><td class="l">5.8</td></tr>
+<tr><td class="l">五个 MVU、依赖图</td><td class="l">6.1–6.8</td></tr>
+<tr><td class="l">如果 MVU-1 失败</td><td class="l">6.8.1</td></tr>
+<tr><td class="l">F-R-H 与证据链</td><td class="l">7.2–7.3</td></tr>
+<tr><td class="l">本书自己的 C-A-T</td><td class="l">7.5</td></tr>
+<tr><td class="l">与其他学派的对话</td><td class="l">7.6</td></tr>
+<tr><td class="l">如何反驳本书</td><td class="l">7.7</td></tr>
+</table>
+<h4>附录 I　符号表</h4>
+<table class="nat">
+<tr><th class="l">符号</th><th class="l">含义</th><th class="l">单位/量纲</th></tr>
+<tr><td class="l"><code>η</code></td><td class="l">序参量</td><td class="l">无量纲（或按系统）</td></tr>
+<tr><td class="l"><code>β₁</code>、<code>β₂</code></td><td class="l">图上两阶段相变的临界耦合</td><td class="l">无量纲</td></tr>
+<tr><td class="l"><code>λₙ</code>、<code>λ₂</code></td><td class="l">拉普拉斯谱的最大/次小特征值</td><td class="l">无量纲</td></tr>
+<tr><td class="l"><code>τ</code></td><td class="l">时间错配（前作）</td><td class="l">无量纲比值</td></tr>
+<tr><td class="l"><code>τ_rec</code></td><td class="l">恢复时间</td><td class="l">时间</td></tr>
+<tr><td class="l"><code>Φ</code></td><td class="l">有效信息差</td><td class="l">比特（或 nat）</td></tr>
+<tr><td class="l"><code>C</code></td><td class="l">合成复杂度（本书）</td><td class="l">无量纲（0–3）</td></tr>
+<tr><td class="l"><code>F</code></td><td class="l">可形式化程度</td><td class="l">0–1</td></tr>
+<tr><td class="l"><code>H</code></td><td class="l">诚实性（自评）</td><td class="l">0–1</td></tr>
+</table>
+<h4>附录 J　案例库：十个短案例</h4>
+<div class="box"><p>每个案例只给三样：<strong>什么在变、有没有临界点、判定</strong>。用来练手。</p></div>
+<ol><li><strong>水沸腾</strong>：什么在变——气泡密度；临界点——100°C；判定：严格相变（一阶）。</li><li><strong>磁体退磁</strong>：什么在变——净磁化；临界点——居里温度；判定：严格相变（二阶）。</li><li><strong>图的连通</strong>：什么在变——最大连通块占比；临界点——β₁、β₂；判定：严格相变。</li><li><strong>学习高原</strong>：什么在变——巩固速度；临界点——容量饱和；判定：可能是相变。</li><li><strong>公司垮掉</strong>：什么在变——可持续性；临界点——不明确；判定：渐进退化（不是相变）。</li><li><strong>疫情拐点</strong>：什么在变——<code>R_t</code>；临界点——<code>R_t=1</code>；判定：诊断级。</li><li><strong>金融危机</strong>：什么在变——杠杆/利差；临界点——不明确；判定：诊断级（慢化明显）。</li><li><strong>技术引爆点</strong>：什么在变——采用率；临界点——事后叙事；判定：隐喻级。</li><li><strong>社会极化</strong>：什么在变——极化指数；临界点——不明确；判定：隐喻级（不可通约）。</li><li><strong>历史范式转移</strong>：什么在变——学派分化；临界点——无法定位；判定：隐喻级。</li></ol>
+<p><strong>练习：</strong> 挑一个你熟悉的系统，填这三样。<strong>填不出来，就说明它还不是“相变诊断”，只是“变化描述”。</strong></p>
+<h3 id="apxC">附录 C　协议与稳健性</h3>
+<h4>附录 K　失败案例集：五个“看起来像，其实不是”</h4>
+<ol><li><strong>两杯水混合</strong>：有变化，无临界点、无序参量——不是相变。</li><li><strong>利润由正转负</strong>：变号不是跃变——不是相变。</li><li><strong>换工作</strong>：重要事件，但不是结构性转变——不是相变。</li><li><strong>人口缓慢老龄化</strong>：连续趋势，无阈值——不是相变（除非跨过制度阈值）。</li><li><strong>一次突发的外部冲击</strong>：恢复变慢是外力所致，不是临界慢化——不能算相变。</li></ol>
+<p><strong>这五个案例的作用：</strong> 让你在“想叫它质变”时，先停一下。</p>
+<h4>附录 L　一次完整诊断的十步协议</h4>
+<p>```</p>
+<ol><li>写下“什么在变”（候选序参量）。</li><li>写下“它在哪个参数上变”（候选临界点）。</li><li>判断：一阶（跳）还是二阶（连续）。</li><li>找“变之前是否变慢”（临界慢化）。</li><li>找“宏观是否更好用”（有效信息峰值）。</li><li>数一数：三个标记中了几个。</li><li>若中两个以上：写下“什么结果会推翻这个判定”。</li><li>若只中一个：改称“像”，不称“是”。</li><li>若一个都不中：改称“退化/波动”。</li><li>标注证据等级与可反驳条件。</li></ol>
+<p>```</p>
+<p><strong>这十步，就是本书全部方法的“压缩版”。</strong></p>
+<h4>附录 M　相变概念小史</h4>
+<ul><li><strong>1930s</strong>：埃伦费斯特给出相变分类（一阶/二阶）。</li><li><strong>1937</strong>：朗道引入序参量，用对称破缺描述相变。</li><li><strong>1971</strong>：威尔逊的重整化群，解释“普适类”。</li><li><strong>1970s—80s</strong>：临界现象成为物理学中心问题；临界慢化、标度律被系统研究。</li><li><strong>1980s</strong>：混沌与分岔进入公众视野；“蝴蝶效应”流行。</li><li><strong>1990s</strong>：复杂性科学兴起；涌现成为跨学科词。</li><li><strong>2000s</strong>：网络科学；幂律与无标度。</li><li><strong>2010s</strong>：因果涌现、有效信息；涌现开始被“量化”。</li></ul>
+<p><strong>这条小史说明：</strong> “相变”不是新词，但“把它用到社会/历史”仍是新事。</p>
+<h4>附录 N　思考题（每章两题）</h4>
+<ol><li>为什么“量变到质变”需要一门科学？——如果不需要，会怎样？</li><li>六件工具里，哪一件最容易被滥用？为什么？</li><li>三个标记里，哪一个最不可靠？为什么？</li><li>五步流程中，哪一步最容易出错？</li><li>《区分的语法》为什么是唯一“严格”的？它的边界在哪？</li><li>《遗忘的边界》为什么只能算“可能”？缺哪一条？</li><li>《错位的时间》的“慢化”最强，为什么仍只是“可能”？</li><li>《选择的代价》为什么只是“类比”？它的“前沿”与“相变”差在哪？</li><li>《诠释的权衡》为什么是“隐喻”？换一个尺度会怎样？</li><li>F(C) 是“画出来的”还是“算出来的”？这影响它的用法吗？</li><li>为什么“不可通约”是第六种风险，而不是第五种？</li><li>“不要把地平线当成台阶”——这句话在反驳什么？</li><li>六个 MVU 里，哪一个最可能先出结果？为什么？</li><li>如果 MVU-1 失败，这本书还成立吗？</li><li>这本书的“核心发现”是什么？它为什么不是“此前几本都是相变”？</li><li>认识论的三种立场，你更倾向哪一种？为什么？</li><li>实践中的“优雅降级”，什么时候会变成“过度降级”？</li><li>五个陌生系统里，哪一个最像“相变”？哪一个最不像？</li><li>与库恩相比，这本书多了什么、少了什么？</li></ol>
+<h3 id="apxD">附录 D　案例与失败集</h3>
+<h4>附录 O　人物小传（按出场顺序）</h4>
+<ul><li><strong>埃伦费斯特（Paul Ehrenfest, 1880—1933）</strong>：给出相变的一阶/二阶分类。</li><li><strong>朗道（Lev Landau, 1908—1968）</strong>：引入序参量与对称破缺，奠定平均场理论。</li><li><strong>威尔逊（Kenneth Wilson, 1936—2013）</strong>：重整化群，解释普适类，1982 年诺奖。</li><li><strong>霍恩伯格（Pierre Hohenberg）与哈尔佩林（Bert Halperin）</strong>：临界动力学，临界慢化。</li><li><strong>霍埃尔（Erik Hoel）与托诺尼（Giulio Tononi）</strong>：因果涌现与有效信息。</li><li><strong>克鲁奇菲尔德（James Crutchfield）</strong>：计算力学与粗粒化。</li><li><strong>沃尔夫勒姆（Stephen Wolfram）</strong>：计算不可约性。</li><li><strong>库恩（Thomas Kuhn, 1922—1996）</strong>：范式转移。</li><li><strong>波兰尼（Michael Polanyi, 1891—1976）</strong>：默会知识。</li><li><strong>费耶阿本德（Paul Feyerabend, 1924—1994）</strong>：方法论多元论。</li><li><strong>拉卡托斯（Imre Lakatos, 1922—1974）</strong>：研究纲领。</li><li><strong>波普尔（Karl Popper, 1902—1994）</strong>：可证伪性。</li><li><strong>布迪厄（Pierre Bourdieu, 1930—2002）</strong>：场域与资本。</li></ul>
+<div class="box"><p><strong>说明：</strong> 这些人物不是“本书的权威”，而是“本书借用的工具的来源”。<strong>工具可以借，权威不必拜。</strong></p></div>
+<h4>附录 P　一页纸速查（全书压缩）</h4>
+<p>``<code> 问题：它是在哪一刻，从“还是原来的东西”变成“另一个东西”？ 工具：序参量、对称破缺、临界慢化、标度律、因果涌现、下向因果。 判据：三个标记（序参量跃变、临界慢化、有效信息峰值），三中二。 应用：区分（严格）、遗忘（可能）、错位（可能）、选择（类比）、诠释（隐喻）。 发现：诊断效力与系统复杂度成反比。 出口：认识论（不可知）、实践（优雅降级）、跨领域（五个系统）。 边界：物理可算，历史只能讲；诊断不是判决。 </code>``</p>
+<h4>附录 Q　给不同读者的读法</h4>
+<ul><li><strong>只想拿结论</strong>：前言 + 附录 P + 第十五章。</li><li><strong>想学方法</strong>：第二章 + 第三章 + 第四章 + 附录 L。</li><li><strong>想看此前几本怎么被用</strong>：第五至九章。</li><li><strong>想挑错</strong>：第十章 + 第十一章 + 第十四章 + 附录 B。</li><li><strong>想动手</strong>：第十三章 + 附录 J/K/L。</li><li><strong>想找文献</strong>：参考文献 + 附录 O。</li></ul>
+<div class="box"><p><strong>一本书最好的读法，是“按你的问题读”，不是“从头读到尾”。</strong></p></div>
+<h4>附录 R　数值实验：参数、结果与失败记录</h4>
+<p>本书正文引用了三组模拟。它们的作用不是“证明理论”，而是<strong>让读者能自己跑一遍、并看到作者在哪里失败</strong>。所有参数、种子与输出都可复算。</p>
+<h4>R.1 实验清单</h4>
+<table class="nat">
+<tr><th class="l">编号</th><th class="l">对象</th><th class="l">脚本</th><th class="l">数据</th><th class="l">主要用途</th></tr>
+<tr><td class="l">E1</td><td class="l">二维 Ising（Metropolis）</td><td class="l"><code>analysis/exp_ising.py</code></td><td class="l"><code>data/exp_ising*.json</code></td><td class="l">校准三个标记；做 MVU-1</td></tr>
+<tr><td class="l">E2</td><td class="l">临界分支过程（雪崩）</td><td class="l"><code>analysis/exp_critical.py</code></td><td class="l"><code>data/exp_critical.json</code></td><td class="l">检验“幂律=临界”是否成立</td></tr>
+<tr><td class="l">E3</td><td class="l">临界慢化（AR(1)）与点渗流</td><td class="l">同上</td><td class="l">同上</td><td class="l">检验预警指标的能力与边界</td></tr>
+</table>
+<h4>R.2 关键参数</h4>
+<ul><li><strong>E1</strong>：J=1，周期性边界；粗扫 L=16/24/32、T∈[1.6,3.2] 步长 0.1、热化 1500、测量 4000；细扫 L=24/32/48、T∈[2.20,2.36] 步长 0.02、热化 3000、测量 10000；种子 20261016。</li><li><strong>E2</strong>：雪崩 20 万次/组，截断 2×10⁴，m∈{0.9, 1.0, 1.05}；对数分箱后<strong>除以箱宽</strong>再拟合（否则会把 α=1.5 误读成 0.5）。</li><li><strong>E3</strong>：AR(1) 每点 3×10⁵ 步、去前 2×10⁴ 步；渗流 L=64、每个 p 做 200 次独立实现；种子 424242。</li></ul>
+<h4>R.3 结果摘要</h4>
+<table class="nat">
+<tr><th class="l">量</th><th class="l">实测</th><th class="l">基准</th><th class="l">判断</th></tr>
+<tr><td class="l">T_c（L=32/48 交点）</td><td class="l">2.2645</td><td class="l">2.26919（精确）</td><td class="l">通过（偏差 0.21%）</td></tr>
+<tr><td class="l">γ/ν</td><td class="l">1.752</td><td class="l">1.75（精确）</td><td class="l">通过（偏差 0.1%）</td></tr>
+<tr><td class="l">β/ν</td><td class="l">0.156</td><td class="l">0.125（精确）</td><td class="l">未通过（偏大 25%）</td></tr>
+<tr><td class="l">临界雪崩指数</td><td class="l">1.495</td><td class="l">1.5（理论）</td><td class="l">通过</td></tr>
+<tr><td class="l">AR(1) 恢复时间</td><td class="l">10/20/101/211</td><td class="l">10/20/100/200</td><td class="l">通过（≤5%）</td></tr>
+<tr><td class="l">渗流阈值（P=0.5）</td><td class="l">p≈0.583</td><td class="l">0.5927（精确）</td><td class="l">偏低 1.6%</td></tr>
+</table>
+<h4>R.4 失败记录（这一节比上面那张表重要）</h4>
+<ol><li><strong>ν 没有测出来。</strong> 原计划用 Binder 交点随 L 的漂移估 ν；实测交点不单调（2.2244 → 2.3018 → 2.2645），无法稳定求解。<strong>处理方式：不报告 ν 的估计值，只报告“未测出”。</strong></li><li><strong>Binder 交点中间一对偏差最大。</strong> 原因是 24 与 32 的 U 曲线在转变区几乎重合，噪声与位移同量级。<strong>处理方式：在正文中如实写出，并说明交点法的适用条件。</strong></li><li><strong>超临界雪崩被截断 9.3%。</strong> m=1.05 时 α 的估计受截断影响，不能与临界值直接比较。<strong>处理方式：报告截断比例，并只把 α 用作“方向”读数。</strong></li><li><strong>“仅 L=16”的坍缩残差是事后补算的。</strong> 它不在原协议里，是写第 15.6 节时补的。<strong>处理方式：在正文与本节都注明，避免读者误以为它是事前登记的。</strong></li><li><strong>幂律拟合的第一次尝试是错的。</strong> 早期版本直接对“每箱计数”取对数，得到 α≈0.5，与理论差了三倍。原因是漏掉了“对数箱宽”这一项。<strong>处理方式：修正脚本、在正文 3.5 与 22.26 两处都写出这个坑。</strong></li></ol>
+<h4>R.5 复算方法</h4>
+<p>``<code>bash python analysis/exp_ising.py        # 约 3–5 分钟（单机 CPU） python analysis/exp_critical.py     # 约 4 分钟 python analysis/make_exp_figs.py    # 生成正文插图（SVG） </code>``</p>
+<p><strong>判据：</strong> 如果你的结果与本书不一致，以你的为准；请把差异写进 issue，注明硬件、版本与种子。<strong>这本书对数值结果的态度只有一句：能被别人重跑出来的，才算数。</strong></p>
+<h4>R.6 代码骨架（便于复现，省略了参数解析与画图）</h4>
+<p><strong>E1：棋盘式 Metropolis 的一次 sweep。</strong></p>
+<p>``<code>python def sweep(s, T, rng): L = s.shape[0]; idx = np.arange(L) for color in (0, 1):                      # 棋盘式：同色格点互不影响 mask = ((idx[:, None] + idx[None, :]) % 2) == color nb = (np.roll(s, 1, 0) + np.roll(s, -1, 0) + np.roll(s, 1, 1) + np.roll(s, -1, 1)) dE = 2.0 * s * nb acc = (dE <= 0) | (rng.random(s.shape) < np.exp(-np.maximum(dE, 0) / T)) s[mask & acc] *= -1 </code>``</p>
+<p><strong>E2：集合式（ensemble）分支过程——为什么它快。</strong></p>
+<p>``<code>python size = np.zeros(n); frontier = np.ones(n); active = frontier > 0 while active.any():                            # 一次推进全部雪崩 size[active] += frontier[active] frontier[active] = rng.poisson(m * frontier[active]) frontier[size >= cutoff] = 0 active = frontier > 0 </code>``</p>
+<p><strong>关键点：</strong> 逐个体循环的复杂度是 O(总后代数)（可达 10⁶/次），集合式的复杂度是 O(最大代数)（约 10²），两者相差四到五个数量级。<strong>这是“把算法想清楚”比“换更快的机器”更有效的例子。</strong></p>
+<p><strong>E3：对数分箱的正确拟合（这里最容易错）。</strong></p>
+<p>``<code>python edges = np.geomspace(lo, hi, bins) h, _ = np.histogram(x, bins=edges) dens = h / np.diff(edges)                     # 必须除以箱宽 centers = np.sqrt(edges[:-1] * edges[1:]) alpha = -np.polyfit(np.log(centers), np.log(dens), 1)[0] </code>``</p>
+<p><strong>为什么必须除箱宽：</strong> 对数箱的宽度正比于 s，若直接用计数拟合，会把 n(s)∝s^{−1.5} 读成 s^{−0.5}。<strong>本书第一版就是这么错的（见 R.4 第 5 条）。</strong></p>
+<h4>R.7 一句提醒</h4>
+<p>这三段代码都不长，任何人可以在一个下午重写出来。<strong>这本书能提供的，不是“别人做不出的结果”，而是“别人愿意重做、且知道该防哪些坑”的结果。</strong></p>
+<h3 id="apxE">附录 E　工具与清单</h3>
+<h4>附录 S　一页纸诊断表（可打印）</h4>
+<p>把全书压成一张表。<strong>填完它，你就完成了一次“最小诊断”；填不完的地方，就是你还不知道的地方。</strong></p>
+<table class="nat">
+<tr><th class="l">项</th><th class="l">你的填写</th><th class="l">判据</th></tr>
+<tr><td class="l">对象</td><td class="l"></td><td class="l">一句话说清“哪个系统”</td></tr>
+<tr><td class="l">可观测尺度 L</td><td class="l"></td><td class="l">几个时间点／几个单元／几个案例</td></tr>
+<tr><td class="l">序参量</td><td class="l"></td><td class="l">它从“几乎没有”变成“明显有”吗？</td></tr>
+<tr><td class="l">慢化读数</td><td class="l"></td><td class="l">恢复时间在变长吗？变长了多少？</td></tr>
+<tr><td class="l">宏观是否更好用</td><td class="l"></td><td class="l">有哪个粗说法比细节更准？</td></tr>
+<tr><td class="l">三标记合计</td><td class="l"></td><td class="l">0／1／2／3</td></tr>
+<tr><td class="l">综合判定</td><td class="l"></td><td class="l">0–1：隐喻；2：像；3：可以叫质变</td></tr>
+<tr><td class="l">可反驳条件</td><td class="l"></td><td class="l">若发生 ______，则本判断为错</td></tr>
+<tr><td class="l">谁付代价</td><td class="l"></td><td class="l">这个判断错了，谁承担后果？</td></tr>
+<tr><td class="l">复查日期</td><td class="l"></td><td class="l">什么时候回看？</td></tr>
+</table>
+<p><strong>三条使用纪律：</strong></p>
+<ol><li><strong>先填“可观测尺度”，再填别的。</strong> L=1 的时候，后面三行都可以直接写“不适用”。</li><li><strong>“可反驳条件”不能空。</strong> 空着，就说明这不是诊断，是感想。</li><li><strong>“谁付代价”不能空。</strong> 空着，就说明你还在把系统当对象，而不是当人。</li></ol>
+<p><strong>填完之后，把这张表收起来。</strong> 三个月后拿出来，只看两行：<strong>“可反驳条件”有没有发生？</strong> 如果发生了，你的判断错了，改；如果没发生，你的判断还没被检验，再等。<strong>这张表的价值，不在于它让你对，而在于它让你知道自己是怎样错的。</strong></p>
+<h4>附录 T　全部模拟原始数据（逐温度）</h4>
+<p>这一节把 <code>data/exp_ising.json</code> 的全部结果原样列出，便于读者核对正文中的每一个数字。<strong>没有做任何四舍五入以外的整理。</strong></p>
+<h4>T.1 粗扫（L=16/24/32，T=1.6~3.2，步长 0.1）</h4>
+<table class="nat">
+<tr><th class="l">L</th><th class="l">T</th><th class="l">\</th><th class="l">m\</th><th class="l"></th><th class="l">χ</th><th class="l">U（Binder）</th></tr>
+<tr><td class="l">16</td><td class="l">1.6</td><td class="l">0.9793</td><td class="l">0.04</td><td class="l">0.6663</td></tr>
+<tr><td class="l">16</td><td class="l">1.7</td><td class="l">0.9701</td><td class="l">0.07</td><td class="l">0.6660</td></tr>
+<tr><td class="l">16</td><td class="l">1.8</td><td class="l">0.9571</td><td class="l">0.11</td><td class="l">0.6656</td></tr>
+<tr><td class="l">16</td><td class="l">1.9</td><td class="l">0.9371</td><td class="l">0.25</td><td class="l">0.6642</td></tr>
+<tr><td class="l">16</td><td class="l">2.0</td><td class="l">0.9098</td><td class="l">0.37</td><td class="l">0.6625</td></tr>
+<tr><td class="l">16</td><td class="l">2.1</td><td class="l">0.8717</td><td class="l">0.73</td><td class="l">0.6579</td></tr>
+<tr><td class="l">16</td><td class="l">2.2</td><td class="l">0.7847</td><td class="l">2.42</td><td class="l">0.6370</td></tr>
+<tr><td class="l">16</td><td class="l">2.3</td><td class="l">0.6670</td><td class="l">4.94</td><td class="l">0.5900</td></tr>
+<tr><td class="l">16</td><td class="l">2.4</td><td class="l">0.5180</td><td class="l">6.06</td><td class="l">0.5055</td></tr>
+<tr><td class="l">16</td><td class="l">2.5</td><td class="l">0.3818</td><td class="l">5.02</td><td class="l">0.3709</td></tr>
+<tr><td class="l">16</td><td class="l">2.6</td><td class="l">0.2968</td><td class="l">3.90</td><td class="l">0.2507</td></tr>
+<tr><td class="l">16</td><td class="l">2.7</td><td class="l">0.2596</td><td class="l">2.91</td><td class="l">0.2136</td></tr>
+<tr><td class="l">16</td><td class="l">2.8</td><td class="l">0.2199</td><td class="l">2.17</td><td class="l">0.1627</td></tr>
+<tr><td class="l">16</td><td class="l">2.9</td><td class="l">0.1934</td><td class="l">1.67</td><td class="l">0.1306</td></tr>
+<tr><td class="l">16</td><td class="l">3.0</td><td class="l">0.1763</td><td class="l">1.44</td><td class="l">0.1008</td></tr>
+<tr><td class="l">16</td><td class="l">3.1</td><td class="l">0.1554</td><td class="l">1.12</td><td class="l">0.0425</td></tr>
+<tr><td class="l">16</td><td class="l">3.2</td><td class="l">0.1453</td><td class="l">0.92</td><td class="l">0.0286</td></tr>
+<tr><td class="l">24</td><td class="l">1.6</td><td class="l">0.9794</td><td class="l">0.04</td><td class="l">0.6665</td></tr>
+<tr><td class="l">24</td><td class="l">1.7</td><td class="l">0.9700</td><td class="l">0.07</td><td class="l">0.6664</td></tr>
+<tr><td class="l">24</td><td class="l">1.8</td><td class="l">0.9568</td><td class="l">0.11</td><td class="l">0.6662</td></tr>
+<tr><td class="l">24</td><td class="l">1.9</td><td class="l">0.9376</td><td class="l">0.22</td><td class="l">0.6656</td></tr>
+<tr><td class="l">24</td><td class="l">2.0</td><td class="l">0.9120</td><td class="l">0.32</td><td class="l">0.6649</td></tr>
+<tr><td class="l">24</td><td class="l">2.1</td><td class="l">0.8639</td><td class="l">2.01</td><td class="l">0.6586</td></tr>
+<tr><td class="l">24</td><td class="l">2.2</td><td class="l">0.7976</td><td class="l">2.59</td><td class="l">0.6515</td></tr>
+<tr><td class="l">24</td><td class="l">2.3</td><td class="l">0.5722</td><td class="l">13.28</td><td class="l">0.5451</td></tr>
+<tr><td class="l">24</td><td class="l">2.4</td><td class="l">0.3904</td><td class="l">11.47</td><td class="l">0.4075</td></tr>
+<tr><td class="l">24</td><td class="l">2.5</td><td class="l">0.2425</td><td class="l">6.15</td><td class="l">0.2090</td></tr>
+<tr><td class="l">24</td><td class="l">2.6</td><td class="l">0.2010</td><td class="l">4.77</td><td class="l">0.1015</td></tr>
+<tr><td class="l">24</td><td class="l">2.7</td><td class="l">0.1708</td><td class="l">2.92</td><td class="l">0.1787</td></tr>
+<tr><td class="l">24</td><td class="l">2.8</td><td class="l">0.1380</td><td class="l">2.10</td><td class="l">0.0746</td></tr>
+<tr><td class="l">24</td><td class="l">2.9</td><td class="l">0.1249</td><td class="l">1.64</td><td class="l">0.0619</td></tr>
+<tr><td class="l">24</td><td class="l">3.0</td><td class="l">0.1124</td><td class="l">1.35</td><td class="l">0.0253</td></tr>
+<tr><td class="l">24</td><td class="l">3.1</td><td class="l">0.1041</td><td class="l">1.19</td><td class="l">-0.0069</td></tr>
+<tr><td class="l">24</td><td class="l">3.2</td><td class="l">0.0955</td><td class="l">0.97</td><td class="l">0.0101</td></tr>
+<tr><td class="l">32</td><td class="l">1.6</td><td class="l">0.9799</td><td class="l">0.04</td><td class="l">0.6666</td></tr>
+<tr><td class="l">32</td><td class="l">1.7</td><td class="l">0.9701</td><td class="l">0.07</td><td class="l">0.6665</td></tr>
+<tr><td class="l">32</td><td class="l">1.8</td><td class="l">0.9562</td><td class="l">0.12</td><td class="l">0.6664</td></tr>
+<tr><td class="l">32</td><td class="l">1.9</td><td class="l">0.9380</td><td class="l">0.19</td><td class="l">0.6661</td></tr>
+<tr><td class="l">32</td><td class="l">2.0</td><td class="l">0.9108</td><td class="l">0.40</td><td class="l">0.6655</td></tr>
+<tr><td class="l">32</td><td class="l">2.1</td><td class="l">0.8695</td><td class="l">0.83</td><td class="l">0.6638</td></tr>
+<tr><td class="l">32</td><td class="l">2.2</td><td class="l">0.7906</td><td class="l">3.50</td><td class="l">0.6546</td></tr>
+<tr><td class="l">32</td><td class="l">2.3</td><td class="l">0.5819</td><td class="l">17.04</td><td class="l">0.5836</td></tr>
+<tr><td class="l">32</td><td class="l">2.4</td><td class="l">0.3434</td><td class="l">15.40</td><td class="l">0.4028</td></tr>
+<tr><td class="l">32</td><td class="l">2.5</td><td class="l">0.1854</td><td class="l">7.71</td><td class="l">0.0767</td></tr>
+<tr><td class="l">32</td><td class="l">2.6</td><td class="l">0.1515</td><td class="l">4.77</td><td class="l">0.1069</td></tr>
+<tr><td class="l">32</td><td class="l">2.7</td><td class="l">0.1328</td><td class="l">3.75</td><td class="l">0.0256</td></tr>
+<tr><td class="l">32</td><td class="l">2.8</td><td class="l">0.1059</td><td class="l">2.34</td><td class="l">-0.0116</td></tr>
+<tr><td class="l">32</td><td class="l">2.9</td><td class="l">0.0912</td><td class="l">1.75</td><td class="l">-0.0320</td></tr>
+<tr><td class="l">32</td><td class="l">3.0</td><td class="l">0.0857</td><td class="l">1.42</td><td class="l">0.0281</td></tr>
+<tr><td class="l">32</td><td class="l">3.1</td><td class="l">0.0794</td><td class="l">1.19</td><td class="l">0.0151</td></tr>
+<tr><td class="l">32</td><td class="l">3.2</td><td class="l">0.0729</td><td class="l">0.92</td><td class="l">0.0692</td></tr>
+</table>
+<h4>T.2 细扫（L=24/32/48，T=2.20~2.36，步长 0.02）</h4>
+<table class="nat">
+<tr><th class="l">L</th><th class="l">T</th><th class="l">\</th><th class="l">m\</th><th class="l"></th><th class="l">χ</th><th class="l">U（Binder）</th></tr>
+<tr><td class="l">24</td><td class="l">2.200</td><td class="l">0.7907</td><td class="l">3.44</td><td class="l">0.6486</td></tr>
+<tr><td class="l">24</td><td class="l">2.220</td><td class="l">0.7510</td><td class="l">5.88</td><td class="l">0.6356</td></tr>
+<tr><td class="l">24</td><td class="l">2.240</td><td class="l">0.7167</td><td class="l">8.33</td><td class="l">0.6215</td></tr>
+<tr><td class="l">24</td><td class="l">2.260</td><td class="l">0.6841</td><td class="l">8.87</td><td class="l">0.6114</td></tr>
+<tr><td class="l">24</td><td class="l">2.280</td><td class="l">0.6481</td><td class="l">10.04</td><td class="l">0.5955</td></tr>
+<tr><td class="l">24</td><td class="l">2.300</td><td class="l">0.6139</td><td class="l">10.89</td><td class="l">0.5804</td></tr>
+<tr><td class="l">24</td><td class="l">2.320</td><td class="l">0.5811</td><td class="l">11.77</td><td class="l">0.5621</td></tr>
+<tr><td class="l">24</td><td class="l">2.340</td><td class="l">0.5047</td><td class="l">12.58</td><td class="l">0.5133</td></tr>
+<tr><td class="l">24</td><td class="l">2.360</td><td class="l">0.4614</td><td class="l">13.24</td><td class="l">0.4726</td></tr>
+<tr><td class="l">32</td><td class="l">2.200</td><td class="l">0.7876</td><td class="l">3.71</td><td class="l">0.6534</td></tr>
+<tr><td class="l">32</td><td class="l">2.220</td><td class="l">0.7632</td><td class="l">4.16</td><td class="l">0.6501</td></tr>
+<tr><td class="l">32</td><td class="l">2.240</td><td class="l">0.7202</td><td class="l">9.51</td><td class="l">0.6346</td></tr>
+<tr><td class="l">32</td><td class="l">2.260</td><td class="l">0.6775</td><td class="l">12.04</td><td class="l">0.6204</td></tr>
+<tr><td class="l">32</td><td class="l">2.280</td><td class="l">0.6418</td><td class="l">12.35</td><td class="l">0.6088</td></tr>
+<tr><td class="l">32</td><td class="l">2.300</td><td class="l">0.5934</td><td class="l">16.06</td><td class="l">0.5848</td></tr>
+<tr><td class="l">32</td><td class="l">2.320</td><td class="l">0.5044</td><td class="l">21.75</td><td class="l">0.5180</td></tr>
+<tr><td class="l">32</td><td class="l">2.340</td><td class="l">0.4287</td><td class="l">21.09</td><td class="l">0.4568</td></tr>
+<tr><td class="l">32</td><td class="l">2.360</td><td class="l">0.3990</td><td class="l">20.24</td><td class="l">0.4290</td></tr>
+<tr><td class="l">48</td><td class="l">2.200</td><td class="l">0.7935</td><td class="l">2.96</td><td class="l">0.6612</td></tr>
+<tr><td class="l">48</td><td class="l">2.220</td><td class="l">0.7543</td><td class="l">6.53</td><td class="l">0.6541</td></tr>
+<tr><td class="l">48</td><td class="l">2.240</td><td class="l">0.7224</td><td class="l">9.53</td><td class="l">0.6476</td></tr>
+<tr><td class="l">48</td><td class="l">2.260</td><td class="l">0.6715</td><td class="l">15.96</td><td class="l">0.6345</td></tr>
+<tr><td class="l">48</td><td class="l">2.280</td><td class="l">0.5275</td><td class="l">40.76</td><td class="l">0.5601</td></tr>
+<tr><td class="l">48</td><td class="l">2.300</td><td class="l">0.4964</td><td class="l">40.08</td><td class="l">0.5399</td></tr>
+<tr><td class="l">48</td><td class="l">2.320</td><td class="l">0.3769</td><td class="l">44.55</td><td class="l">0.4204</td></tr>
+<tr><td class="l">48</td><td class="l">2.340</td><td class="l">0.3320</td><td class="l">35.82</td><td class="l">0.3968</td></tr>
+<tr><td class="l">48</td><td class="l">2.360</td><td class="l">0.3173</td><td class="l">30.75</td><td class="l">0.4024</td></tr>
+</table>
+<h4>T.3 由这些数据算出的量</h4>
+<table class="nat">
+<tr><th class="l">量</th><th class="l">值</th></tr>
+<tr><td class="l">Binder 交点（L=16/24）</td><td class="l">2.2244</td></tr>
+<tr><td class="l">Binder 交点（L=24/32）</td><td class="l">2.3018</td></tr>
+<tr><td class="l">Binder 交点（L=32/48）</td><td class="l">2.2645</td></tr>
+<tr><td class="l">精确解 T_c</td><td class="l">2.26919</td></tr>
+<tr><td class="l">γ/ν（实测）</td><td class="l">1.7518</td></tr>
+<tr><td class="l">β/ν（实测）</td><td class="l">0.1563</td></tr>
+<tr><td class="l">坍缩残差（精确指数，L=24+32）</td><td class="l">0.0339</td></tr>
+<tr><td class="l">坍缩残差（平均场指数，L=24+32）</td><td class="l">0.0316</td></tr>
+<tr><td class="l">坍缩残差（精确指数，L=24+32+48）</td><td class="l">0.0509</td></tr>
+<tr><td class="l">坍缩残差（平均场指数，L=24+32+48）</td><td class="l">0.0594</td></tr>
+</table>
+<div class="box"><p>【一句话】一张把每个温度点都列出来的表，比一句“我们做了大规模模拟”更可信——因为它允许别人指出你在哪一个点上错了。</p></div>
+<h3 id="apxF">附录 F　证据、边界与延伸</h3>
+<h4>附录 U　雪崩分箱数据（逐箱）</h4>
+<p>下表是 <code>data/exp_critical.json</code> 中的分箱密度，供读者重画图 17.1。<strong>α 的拟合就是对这些点做 log–log 线性回归（已除以箱宽）。</strong></p>
+<h4>U.0.9　m=0.9（拟合指数 α=1.786，窗口 [15, 120]）</h4>
+<table class="nat">
+<tr><th class="l">箱中心 s</th><th class="l">密度 n(s)</th></tr>
+<tr><td class="l">16.25</td><td class="l">1459.314</td></tr>
+<tr><td class="l">19.07</td><td class="l">945.882</td></tr>
+<tr><td class="l">22.37</td><td class="l">805.504</td></tr>
+<tr><td class="l">26.26</td><td class="l">511.377</td></tr>
+<tr><td class="l">30.81</td><td class="l">425.448</td></tr>
+<tr><td class="l">36.15</td><td class="l">342.868</td></tr>
+<tr><td class="l">42.43</td><td class="l">211.080</td></tr>
+<tr><td class="l">49.79</td><td class="l">196.561</td></tr>
+<tr><td class="l">58.42</td><td class="l">155.533</td></tr>
+<tr><td class="l">68.56</td><td class="l">104.030</td></tr>
+<tr><td class="l">80.45</td><td class="l">78.483</td></tr>
+<tr><td class="l">94.40</td><td class="l">55.768</td></tr>
+<tr><td class="l">110.78</td><td class="l">42.676</td></tr>
+</table>
+<h4>U.1.0　m=1.0（拟合指数 α=1.495，窗口 [50, 3000]）</h4>
+<table class="nat">
+<tr><th class="l">箱中心 s</th><th class="l">密度 n(s)</th></tr>
+<tr><td class="l">58.53</td><td class="l">182.231</td></tr>
+<tr><td class="l">80.19</td><td class="l">109.181</td></tr>
+<tr><td class="l">109.88</td><td class="l">72.144</td></tr>
+<tr><td class="l">150.56</td><td class="l">42.256</td></tr>
+<tr><td class="l">206.29</td><td class="l">27.130</td></tr>
+<tr><td class="l">282.66</td><td class="l">16.735</td></tr>
+<tr><td class="l">387.30</td><td class="l">10.867</td></tr>
+<tr><td class="l">530.67</td><td class="l">6.745</td></tr>
+<tr><td class="l">727.12</td><td class="l">4.023</td></tr>
+<tr><td class="l">996.30</td><td class="l">2.717</td></tr>
+<tr><td class="l">1365.11</td><td class="l">1.610</td></tr>
+<tr><td class="l">1870.47</td><td class="l">0.930</td></tr>
+<tr><td class="l">2562.90</td><td class="l">0.661</td></tr>
+</table>
+<h4>U.1.05　m=1.05（拟合指数 α=2.146，窗口 [50, 3000]）</h4>
+<table class="nat">
+<tr><th class="l">箱中心 s</th><th class="l">密度 n(s)</th></tr>
+<tr><td class="l">58.53</td><td class="l">162.241</td></tr>
+<tr><td class="l">80.19</td><td class="l">96.209</td></tr>
+<tr><td class="l">109.88</td><td class="l">57.180</td></tr>
+<tr><td class="l">150.56</td><td class="l">34.338</td></tr>
+<tr><td class="l">206.29</td><td class="l">18.915</td></tr>
+<tr><td class="l">282.66</td><td class="l">11.634</td></tr>
+<tr><td class="l">387.30</td><td class="l">6.311</td></tr>
+<tr><td class="l">530.67</td><td class="l">3.140</td></tr>
+<tr><td class="l">727.12</td><td class="l">1.700</td></tr>
+<tr><td class="l">996.30</td><td class="l">0.774</td></tr>
+<tr><td class="l">1365.11</td><td class="l">0.294</td></tr>
+<tr><td class="l">1870.47</td><td class="l">0.093</td></tr>
+<tr><td class="l">2562.90</td><td class="l">0.041</td></tr>
+</table>
+<h4>附录 V　预警指标与渗流的原始数据</h4>
+<p>这一节列出图 13.2 与第 17.9 节所依据的全部原始点。<strong>它们都不构成“预警成功”的证据，只构成“指标可测”的证据。</strong></p>
+<h4>V.1 渗流：跨越概率 P(p)（L=64，每个 p 做 200 次）</h4>
+<table class="nat">
+<tr><th class="l">p</th><th class="l">P(p)</th></tr>
+<tr><td class="l">0.50</td><td class="l">0.000</td></tr>
+<tr><td class="l">0.51</td><td class="l">0.000</td></tr>
+<tr><td class="l">0.52</td><td class="l">0.000</td></tr>
+<tr><td class="l">0.53</td><td class="l">0.015</td></tr>
+<tr><td class="l">0.54</td><td class="l">0.025</td></tr>
+<tr><td class="l">0.55</td><td class="l">0.060</td></tr>
+<tr><td class="l">0.56</td><td class="l">0.160</td></tr>
+<tr><td class="l">0.57</td><td class="l">0.270</td></tr>
+<tr><td class="l">0.58</td><td class="l">0.445</td></tr>
+<tr><td class="l">0.59</td><td class="l">0.655</td></tr>
+<tr><td class="l">0.60</td><td class="l">0.805</td></tr>
+<tr><td class="l">0.61</td><td class="l">0.895</td></tr>
+<tr><td class="l">0.62</td><td class="l">0.970</td></tr>
+<tr><td class="l">0.63</td><td class="l">0.990</td></tr>
+<tr><td class="l">0.64</td><td class="l">1.000</td></tr>
+<tr><td class="l">0.65</td><td class="l">1.000</td></tr>
+</table>
+<h4>V.2 临界慢化：AR(1) 的自相关（前 20 个滞后）</h4>
+<table class="nat">
+<tr><th class="l">a</th><th class="l">滞后 0–4</th><th class="l">5–9</th><th class="l">10–14</th><th class="l">15–19</th></tr>
+<tr><td class="l">0.9</td><td class="l">1.000 / 0.898 / 0.806 / 0.724 / 0.650</td><td class="l">0.585 / 0.526 / 0.472 / 0.424 / 0.382</td><td class="l">0.343 / 0.308 / 0.277 / 0.248 / 0.221</td><td class="l">0.198 / 0.177 / 0.159 / 0.142 / 0.127</td></tr>
+<tr><td class="l">0.95</td><td class="l">1.000 / 0.950 / 0.903 / 0.858 / 0.815</td><td class="l">0.774 / 0.736 / 0.699 / 0.663 / 0.630</td><td class="l">0.599 / 0.569 / 0.541 / 0.514 / 0.489</td><td class="l">0.465 / 0.442 / 0.420 / 0.400 / 0.381</td></tr>
+<tr><td class="l">0.99</td><td class="l">1.000 / 0.990 / 0.980 / 0.970 / 0.961</td><td class="l">0.951 / 0.942 / 0.932 / 0.923 / 0.913</td><td class="l">0.904 / 0.895 / 0.886 / 0.877 / 0.868</td><td class="l">0.860 / 0.851 / 0.843 / 0.834 / 0.826</td></tr>
+<tr><td class="l">0.995</td><td class="l">1.000 / 0.995 / 0.990 / 0.985 / 0.980</td><td class="l">0.976 / 0.971 / 0.966 / 0.961 / 0.957</td><td class="l">0.952 / 0.947 / 0.943 / 0.938 / 0.933</td><td class="l">0.929 / 0.924 / 0.920 / 0.915 / 0.911</td></tr>
+</table>
+<div class="box"><p>【读法】a 越大，自相关衰减越慢；a=0.995 时，30 个滞后内几乎看不到衰减——<strong>这意味着估计 τ 所需的观测窗口，比许多真实系统的记录还长。</strong> 这不是技术缺陷，而是“用慢化做预警”这一思路的硬边界。</p></div>
+<h4>附录 W　复算清单（打印出来逐项打勾）</h4>
+<p>在相信本书任何一个数字之前，先逐项核对。<strong>任何一项打不了勾，那个数字就还只是“作者说的”。</strong></p>
+<table class="nat">
+<tr><th class="l">□</th><th class="l">项</th><th class="l">在哪里</th></tr>
+<tr><td class="l">□</td><td class="l">脚本能跑通</td><td class="l"><code>analysis/exp_ising.py</code>、<code>analysis/exp_critical.py</code></td></tr>
+<tr><td class="l">□</td><td class="l">参数与种子已公开</td><td class="l">附录 R.2</td></tr>
+<tr><td class="l">□</td><td class="l">原始数据可查看</td><td class="l">附录 T、U、V</td></tr>
+<tr><td class="l">□</td><td class="l">结果与精确解对得上（T_c、γ/ν）</td><td class="l">13.13</td></tr>
+<tr><td class="l">□</td><td class="l">偏差被如实写出（β/ν、ν）</td><td class="l">附录 R.4</td></tr>
+<tr><td class="l">□</td><td class="l">失败被单独列出</td><td class="l">附录 R.4</td></tr>
+<tr><td class="l">□</td><td class="l">区分了“算的／引的／画的”</td><td class="l">14.5</td></tr>
+<tr><td class="l">□</td><td class="l">标注了事后补算的部分</td><td class="l">附录 R.4 第 4 条</td></tr>
+<tr><td class="l">□</td><td class="l">判定带“可反驳条件”</td><td class="l">13.13、13.14</td></tr>
+<tr><td class="l">□</td><td class="l">读者能重画出图</td><td class="l">附录 U、V + 图 13.1／13.2／15.1／17.1</td></tr>
+</table>
+<p><strong>十项全中，这本书的数字才可以被当作“证据”引用；中八项，可以当作“线索”；不到八项，请只当作“作者的看法”。</strong></p>
+<div class="box"><p>【一句可以带走的话】<strong>“可复算”不是作者给自己的奖章，而是读者手里的一张清单。</strong></p></div>
+<h4>增补：上游、边界与对话（原附录 B，并入本组）</h4>
+
+<div class="box"><p><b>【补编说明】</b>本附录收拢的是原稿中被合并、但未并入正文的几节。它们不是“新增内容”，而是此前被漏装的正文；保留原有小节编号，便于与正文引用对照。</p></div>
+<h3 id="secx-1">X.1　第二十五章　推导与解析（一）：朗道理论、临界指数与标度关系</h3>
+
+<div class="box"><p>前面讲“序参量”“临界指数”，但没推导。这一章补上：从自由能出发，推出临界指数与标度关系。</p></div>
+<h3 id="sec25-1">25.1　朗道自由能</h3>
+<p>设序参量为 <code>η</code>，外场为 <code>h</code>。把自由能按 <code>η</code> 展开（对称性要求只含偶次项）：</p>
+<p>``<code> F(η) = F₀ + a η² + b η⁴ − h η </code>``</p>
+<p>其中 <code>a = a₀(T − T_c)</code>，<code>b > 0</code>。</p>
+<p><strong>为什么只含偶次项？</strong> 因为 <code>η → −η</code> 是对称的（例如磁化方向翻转，能量不变）。<strong>这一条对称性，决定了临界指数的“普适”。</strong></p>
+<h3 id="sec25-2">25.2　平衡态：对 η 求极小</h3>
+<p>``<code> ∂F/∂η = 2aη + 4bη³ − h = 0 </code>``</p>
+<p><strong>情形一：h=0。</strong></p>
+<ul><li><code>T > T_c</code>（<code>a>0</code>）：唯一极小在 <code>η=0</code>；</li><li><code>T < T_c</code>（<code>a<0</code>）：<code>η=0</code> 变成极大，极小在 <code>η² = −a/(2b)</code>。</li></ul>
+<p>于是：</p>
+<p>``<code> η = ± sqrt( a₀(T_c − T) / (2b) )  ∝ (T_c − T)^{1/2} </code>``</p>
+<p><strong>所以 <code>β = 1/2</code>。</strong> 这是平均场的第一条指数。</p>
+<h3 id="sec25-3">25.3　磁化率：对 h 求导</h3>
+<p>在 <code>T > T_c</code>、<code>h→0</code> 时，<code>η ≈ h/(2a)</code>，于是：</p>
+<p>``<code> χ = ∂η/∂h = 1/(2a) ∝ (T − T_c)^{−1} </code>``</p>
+<p><strong>所以 <code>γ = 1</code>。</strong></p>
+<h3 id="sec25-4">25.4　比热：对温度求二阶导</h3>
+<p><code>F</code> 在 <code>T_c</code> 处有一个“折点”，比热 <code>C = −T ∂²F/∂T²</code> 出现<strong>有限跳变</strong>，而不是发散。</p>
+<p><strong>所以 <code>α = 0</code>（平均场）。</strong></p>
+<h3 id="sec25-5">25.5　关联长度</h3>
+<p>在平均场里，关联函数 <code>G(r) ∝ e^{−r/ξ}/r</code>，而 <code>ξ ∝ |T − T_c|^{−1/2}</code>。</p>
+<p><strong>所以 <code>ν = 1/2</code>。</strong></p>
+<h3 id="sec25-6">25.6　标度关系：指数之间不是独立的</h3>
+<p>临界指数不是“六个独立的数”，它们满足<strong>标度关系</strong>：</p>
+<p>``<code> Rushbrooke:   α + 2β + γ = 2 Widom:        γ = β(δ − 1) Josephson:    ν d = 2 − α Fisher:       γ = ν(2 − η) </code>``</p>
+<p><strong>这些关系，把六个指数压缩成两个独立指数。</strong> 这就是“普适类”的数学基础。</p>
+<h3 id="sec25-7">25.7　平均场指数表</h3>
+<table class="nat">
+<tr><th class="l">指数</th><th class="l">平均场值</th><th class="l">2D 伊辛</th><th class="l">3D 伊辛</th></tr>
+<tr><td class="l">α</td><td class="l">0（跳变）</td><td class="l">0（对数）</td><td class="l">0.110</td></tr>
+<tr><td class="l">β</td><td class="l">1/2</td><td class="l">1/8</td><td class="l">0.326</td></tr>
+<tr><td class="l">γ</td><td class="l">1</td><td class="l">7/4</td><td class="l">1.237</td></tr>
+<tr><td class="l">δ</td><td class="l">3</td><td class="l">15</td><td class="l">4.789</td></tr>
+<tr><td class="l">ν</td><td class="l">1/2</td><td class="l">1</td><td class="l">0.630</td></tr>
+<tr><td class="l">η</td><td class="l">0</td><td class="l">1/4</td><td class="l">0.036</td></tr>
+</table>
+<p><strong>平均场与真实值的差别，说明“平均场只在 d≥4 时严格”。</strong> 这就是“上临界维度” <code>d_c=4</code>。</p>
+<h3 id="sec25-8">25.8　这对本书的意义</h3>
+<p>本书的“普适类”不是空话：<strong>它有一套可推导的指数与标度关系。</strong> 但本书也承认：<strong>社会/历史系统，几乎不可能测出这些指数。</strong> 所以，本书只借“结构”，不借“数值”。</p>
+<h3 id="sec25-9">25.9　朗道理论的局限</h3>
+<p>朗道理论是“平均场”：它假设 <code>η</code> 在空间均匀。<strong>这忽略了涨落。</strong></p>
+<p><strong>什么时候涨落可以忽略？</strong> 当维度 <code>d</code> 大于“上临界维度” <code>d_c</code> 时。<strong>对标准相变，<code>d_c=4</code>。</strong></p>
+<p><strong>为什么？</strong> 用“金兹堡判据”：涨落在关联体积 <code>ξ^d</code> 内的方差，要小于 <code>η</code> 的均值。<strong>当 <code>d>4</code>，这个条件满足；当 <code>d<4</code>，涨落改写指数。</strong></p>
+<p><strong>所以，朗道的指数（β=1/2 等）只在 <code>d≥4</code> 严格。</strong> 二维、三维的伊辛，指数不同——这就是“平均场失效”。</p>
+<h3 id="sec25-10">25.10　一阶相变的朗道描述</h3>
+<p>如果 <code>b<0</code>，自由能 <code>F = aη² + bη⁴ + cη⁶</code>（<code>c>0</code>），会出现“双阱”。</p>
+<p><strong>当 <code>a</code> 从正变负，两个极小“交换高度”</strong>——在某个 <code>a_c</code>，<code>η=0</code> 与 <code>η≠0</code> 的极小等高。<strong>这就是一阶相变：序参量跳变。</strong></p>
+<p><strong>一阶相变的标志：</strong> 潜热、滞后、两相共存。</p>
+<h3 id="sec25-11">25.11　三临界点</h3>
+<p>如果 <code>b</code> 也随参数变化，在 <code>b=0</code> 处，系统从“二阶”变成“一阶”——<strong>这个点叫“三临界点”（tricritical point）。</strong></p>
+<p><strong>它的意义：</strong> 它说明“相变的类型”本身，也可以随参数改变。<strong>“二阶”不是绝对的，它可以是“一阶”的边界。</strong></p>
+<h3 id="sec25-12">25.12　朗道与本书</h3>
+<p>本书借“序参量”“对称破缺”“临界指数”，但<strong>不借“平均场”的强假设</strong>。原因：社会/历史系统，既没有“空间均匀性”，也没有“可测的涨落”。</p>
+<p><strong>所以，本书只借“骨架”，不借“血肉”。</strong> 这是“借用工具，不冒充理论”的又一处。</p>
+
+<h3 id="secx-2">X.2　第二十七章　推导与解析（三）：图拉普拉斯、渗流与复杂网络</h3>
+
+<div class="box"><p>这一章给“图上的相变”一套完整推导：从拉普拉斯谱，到两阶段相变，再到渗流与网络。</p></div>
+<h3 id="sec27-1">27.1　图拉普拉斯</h3>
+<p>设图 <code>G=(V,E)</code>，度矩阵 <code>D</code>，邻接矩阵 <code>A</code>。拉普拉斯：</p>
+<p>``<code> L = D − A </code>``</p>
+<p>二次型：</p>
+<p>``<code> xᵀLx = Σ_{(u,v)∈E} (x_u − x_v)² </code>``</p>
+<p><strong>它衡量“x 在边上有多不平”。</strong> <code>x</code> 越平滑，<code>xᵀLx</code> 越小。</p>
+<h3 id="sec27-2">27.2　谱与连通性</h3>
+<p><code>L</code> 是实对称半正定，谱 <code>0=λ₁ ≤ λ₂ ≤ … ≤ λₙ</code>。</p>
+<ul><li><code>λ₁=0</code> 对应常数向量（全图一致）；</li><li><code>λ₂</code>（Fiedler 值）衡量“图有多容易裂成两半”：<code>λ₂</code> 越小，越容易裂。</li></ul>
+<p><strong>这就是“谱决定连通性”的数学版本。</strong></p>
+<h3 id="sec27-3">27.3　线性动力学：临界耦合</h3>
+<p>设区分强度 <code>D</code> 满足：</p>
+<p>``<code> Ḋ = (−αI + βL) D </code>``</p>
+<p>按特征向量展开，第 k 个模式的增长率是 <code>−α + βλ_k</code>。</p>
+<p><strong>临界条件：</strong> <code>−α + βλ_k = 0</code>，即 <code>β = α/λ_k</code>。</p>
+<ul><li>最大的 <code>λₙ</code> 对应“最高频、最局部”的模式，临界 <code>β₁ = α/λₙ</code>；</li><li>次小的 <code>λ₂</code> 对应“最全局”的模式，临界 <code>β₂ = α/λ₂</code>。</li></ul>
+<p><strong>因为 <code>λ₂ ≤ λₙ</code>，所以 <code>β₁ ≤ β₂</code>——局部先解锁，全局后解锁。</strong> 这就是“两阶段相变”的全部推导。</p>
+<h3 id="sec27-4">27.4　数值例子</h3>
+<table class="nat">
+<tr><th class="l">图</th><th class="l"><code>λ₂</code></th><th class="l"><code>λₙ</code></th><th class="l"><code>β₁</code></th><th class="l"><code>β₂</code></th></tr>
+<tr><td class="l">Petersen</td><td class="l">2</td><td class="l">5</td><td class="l">0.2</td><td class="l">0.5</td></tr>
+<tr><td class="l">环 C₁₀</td><td class="l">0.382</td><td class="l">4</td><td class="l">0.25</td><td class="l">2.618</td></tr>
+<tr><td class="l">完全图 Kₙ</td><td class="l">n</td><td class="l">n</td><td class="l">1/n</td><td class="l">1/n</td></tr>
+</table>
+<p><strong>完全图无中间相</strong>，因为 <code>λ₂=λₙ</code>，两个临界点重合。</p>
+<h3 id="sec27-5">27.5　渗流：另一种“图上的相变”</h3>
+<p><strong>模型。</strong> 每条边以概率 <code>p</code> 保留，问“是否存在一个无限大连通块”。</p>
+<p><strong>临界概率。</strong> 二维方格：<code>p_c ≈ 0.593</code>（座渗流）、<code>p_c = 0.5</code>（边渗流）。</p>
+<p><strong>临界行为。</strong> 在 <code>p_c</code> 附近：</p>
+<p>``<code> P_∞ ∝ (p − p_c)^β,   β = 5/36 ≈ 0.139（2D） </code>``</p>
+<p><strong>集团分布：</strong> <code>n_s ∝ s^{−τ} exp(−s/s*)</code>，2D 的 <code>τ = 187/91 ≈ 2.055</code>。</p>
+<p><strong>分形维数：</strong> 在 <code>p_c</code>，最大集团 <code>∝ N^{d_f/d}</code>，2D 的 <code>d_f = 91/48 ≈ 1.896</code>。</p>
+<p><strong>渗流是“最干净的相变样本”之一：</strong> 它有精确的临界概率、临界指数、分形维数。</p>
+<h3 id="sec27-6">27.6　复杂网络上的渗流</h3>
+<p><strong>随机图。</strong> <code>G(N,p)</code>，平均度 <code>⟨k⟩</code>。临界点 <code>p_c = 1/⟨k⟩</code>。</p>
+<p><strong>一般网络。</strong> 用“分支因子” <code>κ = ⟨k²⟩/⟨k⟩</code>，临界点 <code>p_c = 1/(κ−1)</code>。</p>
+<p><strong>无标度网络。</strong> 若度分布 <code>P(k) ∝ k^{−γ}</code>：</p>
+<ul><li><code>γ > 3</code>：<code>⟨k²⟩</code> 有限，<code>p_c > 0</code>；</li><li><code>2 < γ ≤ 3</code>：<code>⟨k²⟩</code> 发散，<code>p_c → 0</code>。</li></ul>
+<p><strong>这意味着：</strong> 无标度网络对“随机故障”极其鲁棒（<code>p_c→0</code>），但对“针对性攻击”极其脆弱（攻击枢纽节点）。</p>
+<p><strong>这就是“鲁棒却脆弱”的数学版本。</strong></p>
+<h3 id="sec27-7">27.7　这对本书的意义</h3>
+<p><strong>这是全书唯一“可以完全算出来”的部分。</strong> 它说明：<strong>“相变”不是比喻，而是可以从谱、从概率、从网络结构推出来的。</strong></p>
+<p><strong>但它也说明：</strong> 一旦离开“图”这个对象，推导就变得困难。<strong>这正是“形式化地平线”的数学根源。</strong></p>
+<h3 id="sec27-8">27.8　Fiedler 值的界</h3>
+<p><code>λ₂</code> 与“图的连通性”有严格的界：</p>
+<p>``<code> λ₂ ≤ (n/(n−1)) · min_{v} deg(v) </code>``</p>
+<p><strong>它说明：</strong> 度数越小的节点，越限制“全局连通”。<strong>这就是“瓶颈”的谱版本。</strong></p>
+<p><strong>另一个界：</strong> <code>λ₂ ≤ 2 · edge_connectivity / n</code>。<strong>边连通性越小，<code>λ₂</code> 越小，越容易裂。</strong></p>
+<h3 id="sec27-9">27.9　谱与随机游走</h3>
+<p>在图上做随机游走，转移矩阵 <code>P = D^{−1}A</code>。<strong>它的特征值与拉普拉斯谱直接相关：</strong></p>
+<p>``<code> μ_k = 1 − λ_k / d   （对 d-正则图） </code>``</p>
+<p><strong>混合时间</strong>（走到稳态的时间）由 <code>1/(1−μ₂) = d/λ₂</code> 决定。<strong><code>λ₂</code> 越小，混合越慢。</strong></p>
+<p><strong>这给“慢化”一个图论版本：</strong> 图越“接近分裂”，随机游走越慢——<strong>“临界慢化”在图上的对应。</strong></p>
+<h3 id="sec27-10">27.10　网络渗流的严格条件</h3>
+<p>对配置模型（给定度分布），渗流阈值：</p>
+<p>``<code> p_c = 1 / (κ − 1),   κ = ⟨k²⟩ / ⟨k⟩ </code>``</p>
+<p><strong>推导要点：</strong> 从“一个节点出发，沿边能到达的节点数”的分支过程，临界条件是“分支因子 = 1”。</p>
+<ul><li>若 <code>κ>2</code>：<code>p_c>0</code>，有“有限阈值”；</li><li>若 <code>κ≤2</code>：<code>p_c=0</code>，任意小的 <code>p</code> 都能连通。</li></ul>
+<p><strong>无标度网络 <code>P(k)∝k^{−γ}</code>：</strong> <code>γ≤3</code> 时 <code>⟨k²⟩</code> 发散，<code>κ→∞</code>，<code>p_c→0</code>。<strong>这就是“鲁棒却脆弱”的严格版本。</strong></p>
+<h3 id="sec27-11">27.11　与本书两阶段相变的关系</h3>
+<p>本书的“两阶段相变”（<code>β₁=α/λₙ</code>、<code>β₂=α/λ₂</code>）是<strong>“线性动力学”</strong>的结果；渗流是<strong>“随机连通”</strong>的结果。</p>
+<p><strong>两者不同：</strong> 前者是“确定性的模式解锁”，后者是“随机的集团生长”。</p>
+<p><strong>但它们共享一个结构：</strong> <strong>都是“图上的阈值现象”</strong>——跨过某个 <code>p</code> 或 <code>β</code>，全局性质改变。</p>
+<p><strong>这正是“同约束而不同构”的例子：</strong> 同一张图，两种机制，两种相变。</p>
+
+<h3 id="secx-3">X.3　第二十九章　推导与解析（四）：有限尺度标度与临界指数的估计</h3>
+
+<div class="box"><p>理论给了临界指数，但"怎么从数据里把它估出来"？这一章讲有限尺度标度——这是把"相变"从"概念"变成"可测量"的关键技术。</p></div>
+<h3 id="sec29-1">29.1　为什么需要有限尺度标度</h3>
+<p>在无限系统里，关联长度 <code>ξ</code> 在临界点发散。但任何真实系统都是<strong>有限大小</strong> <code>L</code>。</p>
+<p><strong>有限大小会"抹平"临界点：</strong> <code>ξ</code> 最多长到 <code>L</code>，所以临界行为被"圆滑"了。<strong>你直接测，永远测不到"尖锐的奇点"。</strong></p>
+<p><strong>解决办法：</strong> 用不同 <code>L</code> 的数据，做"标度坍缩"。</p>
+<h3 id="sec29-2">29.2　标度假设</h3>
+<p>设某个可观测量 <code>A</code>（如磁化、序参量）满足：</p>
+<p>``<code> A(L, T) = L^{ω/ν} · f( L^{1/ν} (T − T_c) ) </code>``</p>
+<p>其中 <code>ν</code> 是关联长度指数，<code>ω</code> 是 <code>A</code> 的标度维数，<code>f</code> 是标度函数。</p>
+<p><strong>这个假设的意思是：</strong> 不同 <code>L</code> 的曲线，只要按 <code>L</code> 重新标度，就会"坍缩"到同一条 <code>f</code> 上。</p>
+<h3 id="sec29-3">29.3　数据坍缩：三步</h3>
+<p><strong>第一步：固定 <code>T_c</code> 与 <code>ν</code> 的猜测值。</strong></p>
+<p><strong>第二步：把每个 <code>L</code> 的数据，画成 <code>L^{−ω/ν} A</code> 对 <code>L^{1/ν}(T−T_c)</code>。</strong></p>
+<p><strong>第三步：调 <code>T_c</code>、<code>ν</code>、<code>ω</code>，直到所有曲线"叠成一条"。</strong></p>
+<p><strong>叠得越好，参数越可信。</strong> 这就是"用数据估临界指数"的标准做法。</p>
+<h3 id="sec29-4">29.4　Binder 累积量：更稳的 <code>T_c</code> 估计</h3>
+<p>``<code> U = 1 − ⟨m⁴⟩ / (3⟨m²⟩²) </code>``</p>
+<p><strong>为什么用它？</strong> 因为不同 <code>L</code> 的 <code>U</code> 曲线，<strong>在 <code>T_c</code> 处相交</strong>。<strong>交点就是 <code>T_c</code>，而且它不依赖 <code>ω</code>。</strong></p>
+<p><strong>这是"最稳"的 <code>T_c</code> 估计法之一。</strong></p>
+<h3 id="sec29-5">29.5　一个可复算的例子</h3>
+<p>以二维伊辛为例（<code>T_c≈2.269</code>）：</p>
+<ul><li>取 <code>L=16, 32, 64, 128</code>；</li><li>每个 <code>L</code> 跑 Monte Carlo，测 <code>m</code>、<code>χ</code>、<code>U</code>；</li><li>画 <code>U</code> 对 <code>T</code>，找交点 → <code>T_c</code>；</li><li>画 <code>m L^{β/ν}</code> 对 <code>L^{1/ν}(T−T_c)</code>，调 <code>β/ν</code>、<code>ν</code> 直到坍缩；</li><li>得到 <code>β≈0.125</code>、<code>ν≈1</code>。</li></ul>
+<p><strong>这与 Onsager 的精确解一致。</strong> 这就是"数值验证理论"的完整流程。</p>
+<h3 id="sec29-6">29.6　这对本书的意义</h3>
+<p><strong>它说明"临界指数"不是"哲学词"，而是"可以估出来的数"。</strong> 但本书也承认：<strong>这套方法需要"可重复的实验/模拟"与"大样本"。</strong></p>
+<p><strong>社会/历史系统，两条都不满足。</strong> 所以，本书只能借"标度"的<strong>思想</strong>（不同尺度要一起看），不能借"标度坍缩"的<strong>技术</strong>。</p>
+<h3 id="sec29-7">29.7　一句话带走</h3>
+<div class="box"><p><strong>临界指数之所以可信，不是因为它"推导得漂亮"，而是因为它"能被数据坍缩估出来"。</strong></p></div>
+
+<h3 id="secx-4">X.4　第三十章　边界（二）：约束、可行域与 KKT</h3>
+
+<div class="box"><p>第二十八章讲"边界决定性质"的直觉。这一章把它形式化：约束优化、可行域、KKT 条件——这是"边际"与"边界"的数学骨架。</p></div>
+<h3 id="sec30-1">30.1　约束优化</h3>
+<p>``<code> max f(x)   s.t.  g_i(x) ≤ 0,  h_j(x) = 0 </code>``</p>
+<p><strong>可行域</strong> <code>𝔽 = {x : g_i(x)≤0, h_j(x)=0}</code>。<strong>最优解可能在"内部"，也可能在"边界"。</strong></p>
+<h3 id="sec30-2">30.2　拉格朗日乘子</h3>
+<p>对等式约束 <code>h(x)=0</code>，构造：</p>
+<p>``<code> L = f(x) − λ h(x) </code>``</p>
+<p>一阶条件：<code>∇f = λ ∇h</code>。<strong>几何意义：在最优解处，目标函数的梯度，与约束曲面的法向平行。</strong></p>
+<p><strong><code>λ</code> 的经济意义：影子价格。</strong> 约束放松一单位，目标能增加 <code>λ</code>。</p>
+<h3 id="sec30-3">30.3　KKT 条件</h3>
+<p>对不等式约束，最优解满足：</p>
+<p>``<code> ∇f = Σ μ_i ∇g_i + Σ λ_j ∇h_j μ_i ≥ 0,   μ_i g_i = 0 g_i ≤ 0,   h_j = 0 </code>``</p>
+<p><strong>关键是"互补松弛" <code>μ_i g_i = 0</code>：</strong></p>
+<ul><li>若约束<strong>不起作用</strong>（<code>g_i<0</code>），则 <code>μ_i=0</code>；</li><li>若约束<strong>起作用</strong>（<code>g_i=0</code>，在边界上），则 <code>μ_i≥0</code>。</li></ul>
+<p><strong>这就是"边界解"与"内点解"的数学区分：</strong> 内点解里，约束的"价格"为零；边界解里，约束有正价格。</p>
+<h3 id="sec30-4">30.4　与"边际"的关系</h3>
+<p>在经济学里：</p>
+<ul><li><code>∇f</code> 是"边际收益"；</li><li><code>∇g</code> 是"边际成本"；</li><li><code>λ</code>、<code>μ</code> 是"边际约束的价格"。</li></ul>
+<p><strong>所以，"边际分析"就是"在边界上做导数"。</strong> 不是在"总量"上做文章，而是在"再走一步"上做文章。</p>
+<h3 id="sec30-5">30.5　与 C-A-T 三角的关系</h3>
+<p>本书的 C-A-T 三角，本质上是一个<strong>可行域</strong>：</p>
+<ul><li>三项预算 <code>Σ ≤ K</code>；</li><li>三角的边界，就是"可行域的边界"；</li><li>"让出哪一个顶点"，就是"在边界的哪一段"。</li></ul>
+<p><strong>"诊断"的动作，就是"找边界"：不是问"系统内部怎么运作"，而是问"它撞到了哪条边界"。</strong></p>
+<h3 id="sec30-6">30.6　分岔：稳定性的边界</h3>
+<p>除了"约束边界"，还有"稳定性边界"。</p>
+<p>设系统 <code>ẋ = F(x, μ)</code>。平衡点 <code>x*(μ)</code> 的稳定性，由 Jacobian <code>J = ∂F/∂x</code> 的特征值决定：</p>
+<ul><li>所有特征值实部为负 → 稳定；</li><li>有特征值实部为正 → 不稳定；</li><li>特征值实部过零 → <strong>分岔</strong>。</li></ul>
+<p><strong>分岔点，就是"稳定性边界"。</strong> 越过它，系统的"质"就变了。</p>
+<h3 id="sec30-7">30.7　三种边界，一个结构</h3>
+<table class="nat">
+<tr><th class="l">边界类型</th><th class="l">数学</th><th class="l">例子</th></tr>
+<tr><td class="l">约束边界</td><td class="l">KKT、可行域</td><td class="l">预算、产能、三角</td></tr>
+<tr><td class="l">稳定性边界</td><td class="l">特征值过零、分岔</td><td class="l">失稳、振荡、临界慢化</td></tr>
+<tr><td class="l">相边界</td><td class="l">自由能极小切换</td><td class="l">固/液/气、序参量跃变</td></tr>
+</table>
+<p><strong>三者都是"边界决定性质"的不同写法：</strong></p>
+<ul><li>约束边界决定"能做什么"；</li><li>稳定性边界决定"稳不稳"；</li><li>相边界决定"是什么相"。</li></ul>
+<h3 id="sec30-8">30.8　一句话带走</h3>
+<div class="box"><p><strong>"边际"是在边界上做导数，"分岔"是稳定性过零，"相变"是自由能极小切换——三者都是"边界决定性质"。</strong></p></div>
+
+<h3 id="secx-5">X.5　第二十八章　边界：为什么决定性质的是"边"，不是"里面"</h3>
+
+<div class="box"><p>前面讲"临界点"，但没讲"边界"这个更一般的概念。这一章把数学的边界条件、经济学的边际、物理化学生物的临界条件并排，看它们是不是同一件事。</p></div>
+<h3 id="sec28-1">28.1　数学：边界条件决定解</h3>
+<p><strong>最干净的例子：拉普拉斯方程。</strong></p>
+<p>``<code> ∇²u = 0  （在区域 Ω 内） u = f     （在边界 ∂Ω 上） </code>``</p>
+<p><strong>关键：</strong> 方程本身（<code>∇²u=0</code>）有无穷多解；<strong>是边界条件 <code>u=f</code> 把解“钉死”的。</strong> 换一个边界条件，就换一个解。</p>
+<ul><li><strong>Dirichlet 条件</strong>：给定边界上的值；</li><li><strong>Neumann 条件</strong>：给定边界上的法向导数；</li><li><strong>混合条件</strong>：两者都有。</li></ul>
+<p><strong>这就是“边界决定性质”的最直接版本：内部方程相同，边界不同，解就不同。</strong></p>
+<p><strong>更深一层：边界算子。</strong> 拓扑学里，一个区域 <code>Ω</code> 的边界记作 <code>∂Ω</code>，而 <code>∂(∂Ω)=∅</code>（边界的边界是空集）。<strong>这个“<code>∂²=0</code>”，是斯托克斯定理 <code>∫_Ω dω = ∫_{∂Ω} ω</code> 的代数根源。</strong> 边界不是“附属品”，它是“内部”的对偶。</p>
+<p><strong>极限与奇点。</strong> 数学里还有一类“边界”：<strong>定义域的边界</strong>。函数在边界上可能连续、可能发散、可能不可导。<strong>很多“性质”只在边界上才显现</strong>（如 <code>1/x</code> 在 <code>x=0</code> 的奇点）。</p>
+<h3 id="sec28-2">28.2　经济学：边际是“增量的边界”</h3>
+<p><strong>边际效用。</strong> <code>MU = dU/dx</code>。<strong>“边际效用递减”</strong>（Gossen 第一定律）：随着消费增加，每多一单位带来的效用递减。</p>
+<p><strong>边际成本与收益。</strong> 利润最大化条件：<code>MR = MC</code>。<strong>不是“总收益最大”，而是“再走一步的收益 = 再走一步的成本”。</strong></p>
+<p><strong>边际替代率。</strong> <code>MRS = MU_x / MU_y</code>；它决定“无差异曲线”的斜率。</p>
+<p><strong>拉格朗日乘子。</strong> 约束优化 <code>max f(x) s.t. g(x)=0</code>，拉格朗日函数 <code>L = f − λg</code>。<strong>乘子 <code>λ</code> 是“影子价格”：约束放松一单位，目标能增加多少。</strong></p>
+<p><strong>角点解与内点解。</strong> 最优解可能在“内部”（<code>MR=MC</code>），也可能在“边界”（如预算全花光、产量为零）。<strong>“边界解”是经济学里最容易被忽略、却最常见的情形。</strong></p>
+<p><strong>边际与平均。</strong> 一个漂亮的结论：<strong>边际成本曲线穿过平均成本曲线的最低点。</strong> 因为“再走一步的成本”与“平均成本”的关系，决定了平均成本是升还是降。</p>
+<h3 id="sec28-3">28.3　物理：临界条件是“相边界”</h3>
+<p><strong>相边界。</strong> 在 <code>P-T</code> 图上，固/液/气的分界线，就是“相边界”。<strong>跨过它，物质就换了相。</strong></p>
+<p><strong>Clausius–Clapeyron 方程。</strong> 相边界斜率：</p>
+<p>``<code> dP/dT = L / (T ΔV) </code>``</p>
+<p>其中 <code>L</code> 是潜热，<code>ΔV</code> 是体积变化。<strong>它告诉你“边界往哪边走”。</strong></p>
+<p><strong>成核的临界尺寸。</strong> 一个新相要长出来，需要克服表面能：</p>
+<p>``<code> r* = 2γ / ΔG_v </code>``</p>
+<p><code>r<r*</code> 的核会溶解，<code>r>r*</code> 的核会生长。<strong>“临界尺寸”就是“生与死”的边界。</strong></p>
+<p><strong>活化能。</strong> 化学反应速率 <code>k = A exp(−E_a/RT)</code>。<strong>只有能量超过 <code>E_a</code> 的分子，才能越过“反应边界”。</strong></p>
+<h3 id="sec28-4">28.4　化学：阈值与平衡</h3>
+<p><strong>反应阈值。</strong> 很多反应需要“临界浓度”或“临界温度”才能启动。</p>
+<p><strong>平衡。</strong> <code>ΔG = 0</code> 是“反应方向”的边界：<code>ΔG<0</code> 正向，<code>ΔG>0</code> 逆向。</p>
+<p><strong>催化。</strong> 催化剂不改变平衡，只降低“活化能”——<strong>它把“边界”挪低了，但没挪走。</strong></p>
+<h3 id="sec28-5">28.5　生物：阈值与临界质量</h3>
+<p><strong>神经元。</strong> 膜电位达到“阈值”（约 −55 mV），才触发动作电位。<strong>低于阈值，全是“局部电位”；越过阈值，才是“全或无”的脉冲。</strong></p>
+<p><strong>种群。</strong> Allee 效应：种群低于“临界规模”，增长率变负——<strong>太少，也会灭绝。</strong></p>
+<p><strong>生态。</strong> 临界点（tipping point）：湖泊富营养化、珊瑚白化、森林退化，都有“越过就回不去”的阈值。</p>
+<p><strong>酶动力学。</strong> Michaelis–Menten：<code>v = V_max [S]/(K_m+[S])</code>。<strong>它没有“阈值”，只有“饱和”——这提醒我们：不是所有“边界”都是“临界点”。</strong></p>
+<h3 id="sec28-6">28.6　共同结构：为什么“边”决定“里”</h3>
+<p>把五个领域并排，会看到一个共同结构：</p>
+<ol><li><strong>边界条件决定解</strong>（数学）：内部方程相同，边界不同，解不同；</li><li><strong>边际决定决策</strong>（经济学）：不是“总量”，而是“再走一步的增量”；</li><li><strong>临界条件决定相</strong>（物理化学生物）：跨过边界，就换规则。</li></ol>
+<p><strong>三者其实是同一句话的三种说法：</strong></p>
+<div class="box"><p><strong>一个系统的“性质”，往往不由“内部”决定，而由“它与外部的交界”决定。</strong></p></div>
+<p><strong>为什么？</strong> 因为“内部”是“被边界约束的解”；“边际”是“解的导数在边界上的值”；“临界”是“解在边界上的不连续”。</p>
+<h3 id="sec28-7">28.7　与本书的关系</h3>
+<ul><li><strong>C-A-T 三角</strong>：它是“可行域的边界”——不是“内部怎么走”，而是“边界在哪”。</li><li><strong>τ</strong>：它是“时间的边界”——不是“系统有多强”，而是“还剩多少时间”。</li><li><strong>临界点</strong>：它是“相边界”——不是“相内怎么变”，而是“跨过去就换规则”。</li><li><strong>边际</strong>：它是“值的边界”——不是“总量多少”，而是“再多一单位值不值”。</li></ul>
+<p><strong>所以，本书的“临界”只是“边界”的一个特例：边界是“相”的边界；边际是“值”的边界；可行域是“策略”的边界。</strong></p>
+<h3 id="sec28-8">28.8　一句话带走</h3>
+<div class="box"><p><strong>决定性质的，往往不是“里面有什么”，而是“边界在哪里、跨过去会发生什么”。</strong></p></div>

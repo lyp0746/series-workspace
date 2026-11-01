@@ -1,0 +1,13 @@
+ComputingDemystified: paper.md 45727 vs 术语的账单_从芯片到Agent的八十个计算机概念.md 62668 ratio=0.843
+WorldPeriodization: paper.md 44981 vs 门的数目_六十部世界史分期.md 62293 ratio=0.838
+SleepingResidue: paper.md 48375 vs 线外的残余_延迟承认的三种机制.md 58083 ratio=0.907
+HunanRelaySystem: paper.md 54275 vs 明清湘中驿道体系_GEPF三层分析.md 54261 ratio=0.999
+HarnessEcology: paper.md 38806 vs 被点燃的生态_两个社区与三个标记.md 66839 ratio=0.734
+OptimizationBoundary: paper.md 35864 vs 优化的边界_四前提与越界的二十个案例.md 36836 ratio=0.985
+CapacityProxies: paper.md 30777 vs 容量的三个代理_分期槽位与编码槽位与标签槽位.md 32774 ratio=0.964
+DomainCrossSection: paper.md 50354 vs 领域的剖面_四个问题与二十个领域的审计.md 54221 ratio=0.961
+IsomorphismStrength: paper.md 50458 vs 同构的强度_对偶与泛性质与不变量与四十条断裂探针.md 55517 ratio=0.950
+MemoryAnchor: paper.md 48841 vs 记忆的锚点_情景唤起与异构重建与日志裁决.md 53084 ratio=0.957
+MemoryStressTest: paper.md 47100 vs 锚点的下限_情景记忆的模拟对照实验.md 54685 ratio=0.922
+LedgerReconciliation: paper.md 49460 vs 六张账单的对账_六核心的可测代理与尺度边界.md 62518 ratio=0.882
+MonarchCompetition: paper.md 51450 vs 开明君主与两层竞争_执行方向与代价承担者.md 59109 ratio=0.930

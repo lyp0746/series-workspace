@@ -52,6 +52,11 @@ VOLUMES = [
 ]
 
 TITLE = "有限系统的取舍"
+_PG_FILE = os.path.join(ROOT, "_pages.json")
+try:
+    PMAP = json.load(open(_PG_FILE, encoding="utf-8"))
+except Exception:
+    PMAP = {}
 _CN = "零一二三四五六七八九十"
 
 
@@ -66,7 +71,7 @@ def _cn(n):
 
 # 副标题按实际条目动态生成：加件/减件时封面不会写错
 AUTHOR = "李毅芃"
-DATE = "2026-11-01"
+DATE = "2026-11-02"
 
 
 PAPERS = [
@@ -367,6 +372,9 @@ def volcover_html(vi, vol, title, sub, blurb):
 
 def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
     """toc_pages: 全局章页码列表（按卷顺序）；vol_pages: 各卷附录页码列表。"""
+    if mode == "print" and PMAP:
+        toc_pages = toc_pages or PMAP.get("chapters")
+        vol_pages = vol_pages or PMAP.get("appendices")
     assets = {}
     body = [] if skip_cover else [cover_html()]
     body += [
@@ -423,7 +431,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
     toc.append('<div class="v" style="margin-top:4mm;font-weight:700;color:#b3261e">第一部　九卷（专著）</div>')
     for vi, (book, vol, title, sub, blurb, _) in enumerate(VOLUMES, 1):
         toc.append(f'<div class="v"><span class="tt"><a href="#vol{vi}">{vol}　{title}</a></span>'
-                   f'<span class="dots"></span><span class="pg">{""}</span></div>')
+                   f'<span class="dots"></span><span class="pg">{PMAP.get("volumes",{}).get(f"vol{vi}","")}</span></div>')
     for pi, (repo, pno, ptitle, psub, core, cls, md, doi) in enumerate(PAPERS, 1):
         if pno == "论文一":
             toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">第二部　实证论文（一—六）</div>')
@@ -434,7 +442,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
         if pno == "论文十四":
             toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">随总账之后（十四）</div>')
         toc.append(f'<div class="v"><span class="tt"><a href="#paper{pi}">{pno}　{ptitle}</a></span>'
-                   f'<span class="dots"></span><span class="pg">{""}</span></div>')
+                   f'<span class="dots"></span><span class="pg">{PMAP.get("papers",{}).get(f"paper{pi}","")}</span></div>')
     toc.append('</div>')
     body.append("\n".join(toc))
 

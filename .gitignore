@@ -51,3 +51,4 @@ OptimizationBoundary/*.html
 SleepingResidue/*.html
 WorldPeriodization/*.html
 _series/ghtok
+*.log

@@ -418,7 +418,7 @@ def r11_dup_h3(it):
                 continue
             c[t] += 1
             where[t].append(f)
-    STD = ("一句话带走", "本章小结", "本章参考文献", "本章的边界", "参考文献")
+    STD = ("一句话带走", "本章小结", "本章参考文献", "本章文献（引用与延伸）", "本章的边界", "参考文献")
     out = []
     for t, n in c.items():
         if t in STD:

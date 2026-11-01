@@ -1,0 +1,15 @@
+{
+ "updated": "2026-11-02",
+ "series_line": "系列共九本书：六本学术专著、两本通俗读本、一本科普专著",
+ "books": [
+  {"repo": "knowledge-tradeoffs", "title": "只能选两样", "subtitle": "从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍", "genre": "通俗读本", "doi": "10.5281/zenodo.23440905", "one_line": "六个核心的日常版：小满一家如何用同一把尺子量生活", "entry": "https://github.com/lyp0746/knowledge-tradeoffs"},
+  {"repo": "distinction-evolution", "title": "区分的语言", "subtitle": "区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限", "genre": "学术专著", "doi": "10.5281/zenodo.23345012", "one_line": "一次区分动作如何生成空间、形式与谱", "entry": "https://doi.org/10.5281/zenodo.23345012"},
+  {"repo": "capacity-cascade", "title": "遗忘的边界", "subtitle": "有限容量下的记忆、智能与自我", "genre": "学术专著", "doi": "10.5281/zenodo.23323276", "one_line": "大模型、智能体与人类记忆受同一组约束", "entry": "https://doi.org/10.5281/zenodo.23323276"},
+  {"repo": "entropy-spiral", "title": "错位的时间", "subtitle": "为什么我们总是来不及：社会系统的时间错配与可控性边界", "genre": "学术专著", "doi": "10.5281/zenodo.23217100", "one_line": "时间错配与可控性的边界：τ 的六重代理", "entry": "https://doi.org/10.5281/zenodo.23217100"},
+  {"repo": "impossibility-triangle", "title": "选择的代价", "subtitle": "完备、可组合与可传递的三维权衡——复杂知识系统如何形成、演化与更新", "genre": "学术专著", "doi": "10.5281/zenodo.23388628", "one_line": "完备、可组合、可传递：至多取二的价目表", "entry": "https://doi.org/10.5281/zenodo.23388628"},
+  {"repo": "interpretation-tradeoff", "title": "诠释的权衡", "subtitle": "历史研究中的置信度、权衡与理论流变——从人物还原到范式转移的五个应用", "genre": "学术专著", "doi": "10.5281/zenodo.23416219", "one_line": "历史诠释就是给竞争命题分配置信度", "entry": "https://doi.org/10.5281/zenodo.23416219"},
+  {"repo": "emergence-critical", "title": "涌现的临界", "subtitle": "为什么有些变化回不去——临界、涌现与形式化的边界", "genre": "学术专著", "doi": "10.5281/zenodo.23440900", "one_line": "哪些变化可以被认成相变，哪些只能称作比喻", "entry": "https://doi.org/10.5281/zenodo.23440900"},
+  {"repo": "mind-forks", "title": "心灵的分岔", "subtitle": "从无意识到可观察——心理学流派的六次划线", "genre": "科普专著", "doi": "10.5281/zenodo.23637235", "one_line": "心理学流派史就是一串划线—记账—取舍", "entry": "https://doi.org/10.5281/zenodo.23637235"},
+  {"repo": "hotspot-bills", "title": "热点的账单", "subtitle": "用六个核心，诊断过去一年的热搜与争论", "genre": "通俗诊断读本", "doi": "10.5281/zenodo.23440911", "one_line": "六把尺子量一个热点：诊断卡与二十六张账单", "entry": "https://github.com/lyp0746/hotspot-bills"}
+ ]
+}
