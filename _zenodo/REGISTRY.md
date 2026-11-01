@@ -1,18 +1,18 @@
 # 归档登记（23 件 + 合集）
 
-更新日期：2026-10-31
+更新日期：2026-11-01
 
 | 序 | 类 | slug | 题名 | 页 | 版本 DOI | 概念 DOI | 仓库 |
 |---|---|---|---|---:|---|---|---|
 | 01 | 书 | `entropy-spiral` | 错位的时间 | 354 | 10.5281/zenodo.23771608 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
 | 02 | 书 | `capacity-cascade` | 遗忘的边界 | 229 | 10.5281/zenodo.23771832 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
-| 03 | 书 | `distinction-evolution` | 区分的语言 | 234 | 10.5281/zenodo.23771933 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
+| 03 | 书 | `distinction-evolution` | 区分的语言 | 259 | 10.5281/zenodo.23853687 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
 | 04 | 书 | `impossibility-triangle` | 选择的代价 | 276 | 10.5281/zenodo.23772040 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 216 | 10.5281/zenodo.23771397 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
-| 06 | 书 | `emergence-critical` | 涌现的临界 | 259 | 10.5281/zenodo.23772106 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
+| 06 | 书 | `emergence-critical` | 涌现的临界 | 259 | 10.5281/zenodo.23853797 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
 | 07 | 书 | `knowledge-tradeoffs` | 只能选两样 | 141 | 10.5281/zenodo.23830302 | 10.5281/zenodo.23440905 | lyp0746/knowledge-tradeoffs |
 | 08 | 书 | `mind-forks` | 心灵的分岔 | 283 | 10.5281/zenodo.23772399 | 10.5281/zenodo.23637235 | lyp0746/mind-forks |
-| 09 | 书 | `hotspot-bills` | 热点的账单 | 127 | 10.5281/zenodo.23772473 | 10.5281/zenodo.23440911 | lyp0746/hotspot-bills |
+| 09 | 书 | `hotspot-bills` | 热点的账单 | 127 | 10.5281/zenodo.23853865 | 10.5281/zenodo.23440911 | lyp0746/hotspot-bills |
 | 10 | 论文 | `ComputingDemystified` | 术语的账单 | 72 | 10.5281/zenodo.23773629 | 10.5281/zenodo.23531430 | （无仓库） |
 | 11 | 论文 | `WorldPeriodization` | 谁在切时间轴 | 66 | 10.5281/zenodo.23773670 | 10.5281/zenodo.23573011 | （无仓库） |
 | 12 | 论文 | `SleepingResidue` | 线外的残余 | 74 | 10.5281/zenodo.23773747 | 10.5281/zenodo.23601748 | （无仓库） |
@@ -27,4 +27,4 @@
 | 21 | 论文 | `IsomorphismStrength` | 同构的强度 | 74 | 10.5281/zenodo.23774477 | 10.5281/zenodo.23663026 | （无仓库） |
 | 22 | 论文 | `MemoryAnchor` | 记忆的锚点 | 70 | 10.5281/zenodo.23774500 | 10.5281/zenodo.23665881 | （无仓库） |
 | 23 | 论文 | `MemoryStressTest` | 锚点的下限 | 69 | 10.5281/zenodo.23774996 | 10.5281/zenodo.23667928 | （无仓库） |
-| 24 | 合集 | `合集23` | 有限系统的取舍：系列合集 | 2101 | 10.5281/zenodo.23831309 | 10.5281/zenodo.23613406 | lyp0746/series-workspace |
+| 24 | 合集 | `合集23` | 有限系统的取舍：系列合集 | 2036 | 10.5281/zenodo.23854027 | 10.5281/zenodo.23613406 | lyp0746/series-workspace |

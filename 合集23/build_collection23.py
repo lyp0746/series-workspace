@@ -33,7 +33,7 @@ BASE = os.path.dirname(ROOT)
 VOLUMES = [
     ("knowledge-tradeoffs", "卷一", "只能选两样", "从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍",
      "全书的导览：六个核心是什么，为什么它们其实是同一笔账单。", "front_intro.html"),
-    ("distinction-evolution", "卷二", "区分的语言", "五个领域，同一个二次型",
+    ("distinction-evolution", "卷二", "区分的语言", "区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限",
      "一切认识都从划一道线开始。这一卷给出那一道线的语法。", "front_preface.html"),
     ("capacity-cascade", "卷三", "遗忘的边界", "有限容量下的记忆、智能与自我",
      "线划下之后，能装多少？遗忘为什么是学习的前提。", "front_preface.html"),
@@ -66,7 +66,7 @@ def _cn(n):
 
 # 副标题按实际条目动态生成：加件/减件时封面不会写错
 AUTHOR = "李毅芃"
-DATE = "2026-10-31"
+DATE = "2026-11-01"
 
 
 PAPERS = [
