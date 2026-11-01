@@ -24,8 +24,8 @@
 
 | 文件 | 内容 |
 |---|---|
-| `release/00-合集-印刷版.pdf` | A4 印刷版，2101 页 |
-| `release/01-合集-电子版.pdf` | B5 电子阅读版，2472 页 |
+| `release/00-合集-印刷版.pdf` | A4 印刷版，2088 页 |
+| `release/01-合集-电子版.pdf` | B5 电子阅读版，2563 页 |
 | `release/02-合集.html` | 单文件网页版（图片内联） |
 | `release/03-合集.md` | 合集 Markdown（约 5.9 MB） |
 | `release/04-assets.zip` | 配图（374 个文件） |
