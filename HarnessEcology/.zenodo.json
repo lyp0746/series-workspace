@@ -34,8 +34,8 @@
   "publication_type": "preprint",
   "language": "zho",
   "access_right": "open",
-  "publication_date": "2026-10-24",
-  "version": "2026-10-24",
+  "publication_date": "2026-11-02",
+  "version": "2026-11-02",
   "notes": "工作论文/预印本。103 条公开接口查询、快照 2026-10-23；10 图 7 表；主结果为“判据不适用”（三标记中 0 个、缺 2 格）；未经同行评审；计数是活数据。 系列共 13 件；related_identifiers 已按裸 DOI 归一。",
   "related_identifiers": [
     {
@@ -44,17 +44,17 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23286403",
+      "identifier": "10.5281/zenodo.23217100",
       "relation": "references",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23323277",
+      "identifier": "10.5281/zenodo.23323276",
       "relation": "references",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23412033",
+      "identifier": "10.5281/zenodo.23345012",
       "relation": "references",
       "scheme": "doi"
     },
@@ -64,12 +64,12 @@
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23416220",
+      "identifier": "10.5281/zenodo.23416219",
       "relation": "references",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23447311",
+      "identifier": "10.5281/zenodo.23440900",
       "relation": "references",
       "scheme": "doi"
     },

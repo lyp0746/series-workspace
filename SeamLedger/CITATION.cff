@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you cite this paper, please use the DOI below."
+title: "接缝不在奇点：量子力学与广义相对论的三十道裂缝"
+abstract: >-
+  本文把「量子力学与广义相对论根本矛盾」拆成 30 条可逐条核对的账目，按类型、核心、尺度、可测性与证据等级重新编码。
+  结果：逻辑矛盾 4 条、接口缺失 13 条、记账冲突 8 条、定理边界 5 条；四条逻辑矛盾没有一条已被直接测量，
+  四条 A 级账目全部落在「已测」或「已证定理」一侧。六核心能定位每条账目，但不能替物理做裁决。
+authors:
+  - family-names: "李毅芃"
+    given-names: "李毅芃"
+date-released: 2026-11-02
+version: "2026-11-02"
+doi: 10.5281/zenodo.PENDING
+url: "https://github.com/lyp0746/SeamLedger"
+license: CC-BY-4.0
+type: article

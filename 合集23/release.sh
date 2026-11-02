@@ -10,6 +10,8 @@ mkdir -p "$OUT"
 "$PY" make_md.py
 cp _build-print.html "$OUT/02-合集.html"
 cp README.md "$OUT/README.md"
+cp CITATION.cff "$OUT/CITATION.cff"
+"$PY" -c "import build_collection23 as b; b.build_epub('release/合集.epub')"
 "$PY" - "$OUT" <<'PYZIP'
 import os, sys, zipfile
 out = sys.argv[1]
@@ -23,9 +25,9 @@ PYZIP
 {
   echo "有限系统的取舍 — 合集 manifest"
   echo "生成时间: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-  echo "条目: 九本书 + 十四篇工作论文，附卷首一篇"
+  echo "条目: 九本书 + 十五篇工作论文，附卷首一篇"
   echo
-  for f in "$OUT"/*.pdf "$OUT"/*.html "$OUT"/*.md; do
+  for f in "$OUT"/*.pdf "$OUT"/*.html "$OUT"/*.md "$OUT"/*.epub; do
     [ -f "$f" ] && printf "%-36s %8s\n" "$(basename "$f")" "$(du -h "$f" | cut -f1)"
   done
   echo "assets/$(ls "$OUT/assets" | wc -l) 个子目录"

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三十条接缝 · 编码库</title>
+<style>
+:root{--red:#b3261e;--blue:#1f4e79;--gray:#5f6368;--bg:#f7f6f3;--ink:#1d1d1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif}
+header{padding:24px 5vw 14px;border-bottom:2px solid var(--red);background:#fff}
+h1{margin:0 0 6px;font-size:23px}
+.sub{color:#555;font-size:13px;line-height:1.7}
+.wrap{padding:16px 5vw 52px;max-width:1180px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.card{background:#fff;border:1px solid #e3e0d8;border-radius:6px;padding:11px}
+.card .k{font-size:12px;color:#666}.card .v{font-size:21px;font-weight:700;margin-top:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#fff;
+     border:1px solid #e3e0d8;border-radius:6px;padding:11px;margin:6px 0 14px;font-size:13px}
+select,input[type=search]{padding:5px 8px;border:1px solid #ccc;border-radius:4px;
+     background:#fff;font-size:13px;font-family:inherit}
+input[type=search]{min-width:180px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 8px;border-bottom:1px solid #e8e5dd;text-align:left;vertical-align:top}
+th{background:#efece4;position:sticky;top:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:#fbf8f1}
+tbody tr.sel td{background:#f6efe0}
+.tag{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;color:#fff;background:var(--gray)}
+.detail{background:#fff;border:1px solid #e3e0d8;border-radius:8px;padding:16px;
+        position:sticky;top:12px;min-height:220px}
+.detail h2{margin:0 0 10px;font-size:18px}
+.detail .row{margin:9px 0}
+.detail .k{font-size:11px;color:#999;letter-spacing:.06em}
+.detail .v{font-size:13.5px;line-height:1.7;margin-top:2px}
+.note{font-size:12px;color:#666;line-height:1.8;margin-top:14px}
+.hint{font-size:12px;color:#888}
+.empty{padding:40px;text-align:center;color:#999}
+</style></head><body>
+<header><h1>三十条接缝 · 编码库</h1><div class="sub">从 seams.csv 生成；左表筛选，点行看详情。类型与核心判据见正文第 2、4 章。</div></header>
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+  <div class="bar" id="bar"></div>
+  <div class="grid">
+    <div style="overflow:auto;max-height:72vh;border:1px solid #e3e0d8;border-radius:6px">
+      <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+    </div>
+    <div class="detail" id="detail"><div class="hint">点左侧任意一行。</div></div>
+  </div>
+  <div class="note">数据：data/seams.py（唯一数据源，30 条 × 15 字段）；编码：第 2 章的类型判据与第 4 章的核心判据；边界：单一编码者、类型有判断成分，保守/宽松读法见 3.4 节。</div>
+</div>
+<script>
+const DATA = {"rows": [{"id": "S01", "item": "叠加的度规与确定的因果结构", "year": "1935", "qm": "态矢可线性叠加；希尔伯特空间固定", "gr": "度规决定光锥；时空本身是动力学变量", "type": "逻辑矛盾", "core": "看见", "core2": "选择", "scale": "普朗克", "status": "开放", "meas": "不可测", "grade": "C", "name": "“叠加”：态矢的线性组合 vs 几何的线性组合", "resolve": "一个不预设背景的希尔伯特空间，或量子参考系形式", "refs": "[1][2][3]", "note": "本条最接近用户所说的“根本矛盾”，但它仍是“没有共同对象”，不是两条定理直接相撞。"}, {"id": "S02", "item": "面积与体积的离散谱", "year": "1986", "qm": "几何算符可量子化，谱可以离散", "gr": "时空是连续洛伦兹流形", "type": "接口缺失", "core": "看见", "core2": "临界", "scale": "普朗克", "status": "候选", "meas": "不可测", "grade": "C", "name": "“离散”：算符谱的离散 vs 格点的离散", "resolve": "连续极限与洛伦兹不变性的恢复", "refs": "[4][5]", "note": "LQG 的离散不是格点 QFT 的离散；两者不能互相引用。"}, {"id": "S03", "item": "贝尔不等式与定域隐变量", "year": "1964", "qm": "纠缠关联违反贝尔不等式", "gr": "相对论要求无超光速信号", "type": "定理边界", "core": "看见", "core2": "跟上", "scale": "实验室", "status": "已测", "meas": "直接", "grade": "A", "name": "“定域”：信号定域 vs 贝尔定域", "resolve": "放弃定域隐变量；保留信号定域", "refs": "[6][7][8]", "note": "这是全表最硬的一条：它有实验、有定理、有明确的失败条件。"}, {"id": "S04", "item": "引力没有全局对称性", "year": "1988", "qm": "全局对称性给出守恒荷", "gr": "微分同胚不变；能量在一般时空非局域", "type": "定理边界", "core": "看见", "core2": "记住", "scale": "普朗克", "status": "已证定理", "meas": "间接", "grade": "B", "name": "“对称性”：内部全局荷 vs 规范/微分同胚", "resolve": "局域对称性与边界荷", "refs": "[9][10]", "note": "“没有全局对称性”是量子引力的一个约束，不是 QM 与 GR 的对撞。"}, {"id": "S05", "item": "Weinberg–Witten 定理", "year": "1980", "qm": "无质量自旋 ≥2 的复合态不能有洛伦兹协变守恒流", "gr": "引力子耦合到能量动量张量", "type": "定理边界", "core": "看见", "core2": "选择", "scale": "普朗克", "status": "已证定理", "meas": "不可测", "grade": "B", "name": "“引力子”：复合粒子 vs 基本场", "resolve": "引力不是复合粒子，或放弃协变守恒流", "refs": "[11]", "note": "它排除的是一类“把引力当复合态”的方案，不是排除量子引力本身。"}, {"id": "S06", "item": "量子参考系", "year": "2011", "qm": "参考系可以处于叠加态", "gr": "参考系是经典坐标架", "type": "接口缺失", "core": "看见", "core2": "跟上", "scale": "实验室", "status": "候选", "meas": "间接", "grade": "B", "name": "“参考系”：量子相对态 vs 经典坐标", "resolve": "相对态形式与量子参考系变换", "refs": "[12][13][14]", "note": "这是近年最接近“可操作接口”的方向：它把哲学争论变成了可写的变换规则。"}, {"id": "S07", "item": "时间问题（Wheeler–DeWitt）", "year": "1967", "qm": "时间外部；演化由幺正算符生成", "gr": "时间坐标是规范选择；HΨ=0", "type": "接口缺失", "core": "跟上", "core2": "讲述", "scale": "宇宙", "status": "开放", "meas": "不可测", "grade": "B", "name": "“时间”：外部参数 vs 约束方程中的规范", "resolve": "关系时间、时钟场或事件代数", "refs": "[15][16][17]", "note": "WDW 方程本身是形式化的；它的“时间消失”依赖于正则量子化的选择。"}, {"id": "S08", "item": "外部时间与动力学时间", "year": "1967", "qm": "定义演化需要外部时间或外部因果结构", "gr": "没有外部时间；时空是全部变量", "type": "逻辑矛盾", "core": "跟上", "core2": "选择", "scale": "宇宙", "status": "开放", "meas": "不可测", "grade": "B", "name": "“时间”：演化参数 vs 动力学变量", "resolve": "不依赖外部时间的量子化", "refs": "[16][17]", "note": "这是四条逻辑矛盾里最像“公理对公理”的一条，但两边都不是完整公理系统。"}, {"id": "S09", "item": "纠缠与光锥", "year": "1935", "qm": "类空间隔上可以有纠缠关联", "gr": "因果结构由光锥给定", "type": "记账冲突", "core": "跟上", "core2": "看见", "scale": "实验室", "status": "已测", "meas": "直接", "grade": "A", "name": "“非定域”：信号非定域 vs 关联非定域", "resolve": "保留微观因果性；关联不传信号", "refs": "[7][18][19]", "note": "把“量子非定域”读成“超光速”是公众叙事里最常见的一次借尺度。"}, {"id": "S10", "item": "Unruh 效应与等效原理", "year": "1976", "qm": "加速观察者看到热浴", "gr": "等效原理；真空是观察者相关的", "type": "记账冲突", "core": "跟上", "core2": "临界", "scale": "视界", "status": "已证定理", "meas": "间接", "grade": "B", "name": "“真空/粒子”：态 vs 探测器响应", "resolve": "同一形式在不同参考系的不同读数", "refs": "[20][21]", "note": "它不是矛盾，而是“同一个词在两个参考系里指不同的读数”的范例。"}, {"id": "S11", "item": "量子时钟叠加", "year": "2011", "qm": "时钟可以处于时间读数的叠加", "gr": "时间是经典参数", "type": "接口缺失", "core": "跟上", "core2": "看见", "scale": "实验室", "status": "候选", "meas": "间接", "grade": "B", "name": "“时钟”：物理系统 vs 坐标时间", "resolve": "量子时钟与事件形式", "refs": "[22][23][24]", "note": "实验上已能做到“时钟走时的叠加”，但还没有做成“因果结构的叠加”。"}, {"id": "S12", "item": "普朗克尺度色散与洛伦兹破坏", "year": "1998", "qm": "普朗克尺度可能修改色散关系", "gr": "洛伦兹不变性被假定为精确", "type": "接口缺失", "core": "跟上", "core2": "临界", "scale": "宇宙", "status": "开放", "meas": "直接", "grade": "A", "name": "“洛伦兹不变”：低能有效对称 vs 高能精确对称", "resolve": "天文观测给上限；目前未见信号", "refs": "[25][26]", "note": "这是全表唯一有“直接观测上限”的量子引力现象学条目；零结果也是结果。"}, {"id": "S13", "item": "背景独立与背景依赖", "year": "1993", "qm": "需要固定背景定义希尔伯特空间与演化", "gr": "没有固定背景；度规是动力学变量", "type": "逻辑矛盾", "core": "选择", "core2": "看见", "scale": "普朗克", "status": "开放", "meas": "不可测", "grade": "B", "name": "“背景”：固定舞台 vs 动力学场", "resolve": "无背景的量子化", "refs": "[1][4][27]", "note": "这是四条逻辑矛盾里影响最大的一条；它也是“弦论是否解决了问题”的争论焦点。"}, {"id": "S14", "item": "希尔伯特空间从哪里来", "year": "1994", "qm": "态空间是理论的起点", "gr": "时空与几何是理论的起点", "type": "接口缺失", "core": "选择", "core2": "讲述", "scale": "普朗克", "status": "开放", "meas": "不可测", "grade": "C", "name": "“态”：基本 vs 派生", "resolve": "代数量子场论、全息或关系主义", "refs": "[28][29]", "note": "本条是“本体论冲突”的典型：它问的不是哪个计算对，而是哪个对象先存在。"}, {"id": "S15", "item": "Coleman–Mandula 定理", "year": "1967", "qm": "内部对称与时空对称可以组合", "gr": "引力要求时空对称是局域的", "type": "定理边界", "core": "选择", "core2": "看见", "scale": "普朗克", "status": "已证定理", "meas": "不可测", "grade": "B", "name": "“对称”：内部 vs 时空", "resolve": "超对称是唯一已知的扩展；或放弃组合", "refs": "[30][31]", "note": "超对称不是“为了解释引力硬造”，它是该定理允许的少数出口之一。"}, {"id": "S16", "item": "宇宙波函数的边界条件", "year": "1983", "qm": "态需要初条件或边界条件", "gr": "宇宙没有外部边界", "type": "记账冲突", "core": "选择", "core2": "讲述", "scale": "宇宙", "status": "猜想", "meas": "不可测", "grade": "C", "name": "“边界”：空间边界 vs 初始条件", "resolve": "无边界假设、隧穿波函数或宇宙学初条件", "refs": "[32][33]", "note": "本条属于“问题被命名了，但还没有被结算”的类型。"}, {"id": "S17", "item": "测量问题与观察者", "year": "1935", "qm": "测量给出确定结果；演化是幺正的", "gr": "观察者是时空中的物理系统", "type": "接口缺失", "core": "讲述", "core2": "看见", "scale": "实验室", "status": "解释", "meas": "间接", "grade": "C", "name": "“观察者”：半经典外部角色 vs 物理子系统", "resolve": "退相干、多世界、客观坍缩或关系解释", "refs": "[34][35]", "note": "这主要是 QM 的内部问题；把它算进 QM–GR 冲突，是一次“归因扩张”。"}, {"id": "S18", "item": "波函数实在论与时空实在论", "year": "1994", "qm": "波函数是实在的（或不是）", "gr": "时空是实在的（或不是）", "type": "记账冲突", "core": "讲述", "core2": "选择", "scale": "宇宙", "status": "解释", "meas": "不可测", "grade": "C", "name": "“实在”：本体实在 vs 结构实在", "resolve": "关系主义、结构实在论或工具主义", "refs": "[36][37]", "note": "本条不是物理方程之间的冲突，而是两种本体论承诺之间的冲突。"}, {"id": "S19", "item": "全息对偶：翻译还是统一", "year": "1997", "qm": "边界 CFT 是幺正的量子理论", "gr": "体引力是同一理论的另一种描述", "type": "接口缺失", "core": "讲述", "core2": "临界", "scale": "视界", "status": "候选", "meas": "间接", "grade": "B", "name": "“统一”：同一理论 vs 两种描述", "resolve": "把对偶当字典；它不自动给出背景独立", "refs": "[38][39][40]", "note": "AdS/CFT 是强证据的猜想，不是定理；它的边界有固定背景。"}, {"id": "S20", "item": "真空能 10^120", "year": "1989", "qm": "零点能贡献真空能", "gr": "真空能引力效应由宇宙学常数测量", "type": "记账冲突", "core": "临界", "core2": "记住", "scale": "宇宙", "status": "开放", "meas": "直接", "grade": "A", "name": "“真空”：量子态 vs 引力源", "resolve": "引力的真空能响应、序参量或自调节机制", "refs": "[41][42][43]", "note": "测量端是 A 级；解释端是 C 级。这个“A/C 分裂”本身就是一条发现。"}, {"id": "S21", "item": "宇宙学常数为什么小", "year": "1989", "qm": "自然性期待真空能很大", "gr": "观测值极小但不为零", "type": "接口缺失", "core": "临界", "core2": "选择", "scale": "宇宙", "status": "开放", "meas": "间接", "grade": "B", "name": "“小”：自然性 vs 观测", "resolve": "人择、动力学弛豫或修改引力", "refs": "[42][44]", "note": "自然性不是定理；它可以被当作审美偏好，也可以被当作线索。"}, {"id": "S22", "item": "奇点与紫外发散", "year": "1965", "qm": "短距离发散需要正则化", "gr": "测地线不完备；奇点定理", "type": "接口缺失", "core": "临界", "core2": "跟上", "scale": "普朗克", "status": "已证定理", "meas": "不可测", "grade": "B", "name": "“奇点”：几何不完备 vs 发散", "resolve": "量子引力正则化或奇点消解", "refs": "[45][46]", "note": "奇点定理是经典定理；它不告诉你在普朗克尺度会发生什么。"}, {"id": "S23", "item": "引力不可重整化", "year": "1986", "qm": "微扰展开需要有限个参数", "gr": "牛顿常数量纲为负；高阶发散", "type": "定理边界", "core": "临界", "core2": "选择", "scale": "普朗克", "status": "已证定理", "meas": "不可测", "grade": "B", "name": "“可重整”：基本理论 vs 有效场论", "resolve": "渐近安全、弦、离散或新自由度", "refs": "[47][48]", "note": "不可重整化只排除“纯微扰量子引力作为终极理论”，不排除它作为有效场论。"}, {"id": "S24", "item": "渐近安全固定点", "year": "1998", "qm": "固定点使耦合在高能有限", "gr": "引力在高能变强", "type": "接口缺失", "core": "临界", "core2": "看见", "scale": "普朗克", "status": "候选", "meas": "不可测", "grade": "C", "name": "“固定点”：截断依赖 vs 物理", "resolve": "非微扰重整化群与截断独立性", "refs": "[49][50]", "note": "这是一个活跃的候选，但还没有实验接触；编码为 C。"}, {"id": "S25", "item": "黑洞信息悖论", "year": "1976", "qm": "幺正演化要求纯态到纯态", "gr": "霍金辐射半经典计算给出混合态", "type": "逻辑矛盾", "core": "记住", "core2": "临界", "scale": "视界", "status": "开放", "meas": "间接", "grade": "B", "name": "“信息”：量子态 vs 可恢复关联", "resolve": "岛屿公式、副本虫洞或紫外完成", "refs": "[51][52][53]", "note": "这是四条逻辑矛盾里最接近“可计算”的一条；它的结算会改写 QM 或 GR 之一。"}, {"id": "S26", "item": "霍金辐射的幺正性", "year": "1976", "qm": "纯态演化是幺正的", "gr": "半经典计算给出热谱与信息丢失", "type": "接口缺失", "core": "记住", "core2": "跟上", "scale": "视界", "status": "已证定理", "meas": "间接", "grade": "B", "name": "“半经典”：QFT on curved space vs 全量子引力", "resolve": "需要紫外完成；半经典理论本身不够", "refs": "[51][54]", "note": "霍金 1976 年的论证有明确前提；把它读成“信息必然丢失”是超出前提的。"}, {"id": "S27", "item": "火墙与互补性", "year": "2013", "qm": "纠缠单配性限制三方纠缠", "gr": "等效原理要求视界处平滑", "type": "接口缺失", "core": "记住", "core2": "讲述", "scale": "视界", "status": "猜想", "meas": "不可测", "grade": "C", "name": "“视界”：局部平滑 vs 全局互补", "resolve": "互补性、火墙或岛屿", "refs": "[55][56]", "note": "这是一场“假设之间”的冲突：每个方案都放弃一条看似不可放弃的假设。"}, {"id": "S28", "item": "全息面积律", "year": "1973", "qm": "熵通常是体积律", "gr": "黑洞熵与视界面积成正比", "type": "记账冲突", "core": "记住", "core2": "看见", "scale": "视界", "status": "已证定理", "meas": "间接", "grade": "B", "name": "“熵”：粗粒化熵 vs 几何熵", "resolve": "全息原理、纠缠熵与广义熵", "refs": "[57][58]", "note": "Bekenstein–Hawking 熵是半经典结果；它的微观解释仍是开放问题。"}, {"id": "S29", "item": "纠缠熵：面积律与体积律", "year": "1993", "qm": "基态纠缠熵常呈面积律", "gr": "热态熵呈体积律；引力熵呈面积律", "type": "记账冲突", "core": "记住", "core2": "临界", "scale": "视界", "status": "已证定理", "meas": "间接", "grade": "B", "name": "“面积/体积”：区域 vs 边界", "resolve": "全息对偶、纠缠岛与引力熵", "refs": "[59][60]", "note": "“面积律”在不同语境下指不同定理；不能用一个去反驳另一个。"}, {"id": "S30", "item": "时间箭头与低熵初始条件", "year": "1979", "qm": "幺正演化可逆", "gr": "宇宙学时间箭头指向低熵过去", "type": "记账冲突", "core": "记住", "core2": "跟上", "scale": "宇宙", "status": "开放", "meas": "间接", "grade": "C", "name": "“时间箭头”：热力学 vs 宇宙学", "resolve": "Past Hypothesis、初始条件或因果集", "refs": "[61][62]", "note": "本条把“时间问题”从方程层面移到了初始条件层面；两者不能互相替代。"}], "cols": {"filters": ["type", "core", "scale", "status", "meas", "grade"], "search": ["item", "qm", "gr", "name", "resolve", "note"], "table": ["id", "item", "type", "core", "scale", "grade"], "detail": ["year", "qm", "gr", "core2", "status", "meas", "name", "resolve", "refs", "note"]}, "conf": {"slug": "seams"}};
+const ROWS = DATA.rows, COLS = DATA.cols, CONF = DATA.conf;
+const state = {q: "", sel: null, f: {}};
+COLS.filters.forEach(k => state.f[k] = "");
+
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function init(){
+  document.getElementById("thead").innerHTML = "<tr>" + COLS.table.map(c=>`<th>${esc(c)}</th>`).join("") + "</tr>";
+  const bar = document.getElementById("bar");
+  COLS.filters.forEach(k=>{
+    const vals = [...new Set(ROWS.map(r=>r[k]).filter(v=>v!=null && v!==""))].sort();
+    const sel = document.createElement("select");
+    sel.innerHTML = `<option value="">${esc(k)}：全部</option>` + vals.map(v=>`<option>${esc(v)}</option>`).join("");
+    sel.onchange = e => { state.f[k] = e.target.value; render(); };
+    bar.appendChild(sel);
+  });
+  const q = document.createElement("input");
+  q.type = "search"; q.placeholder = "搜索：" + COLS.search.join(" / ");
+  q.oninput = e => { state.q = e.target.value.toLowerCase(); render(); };
+  bar.appendChild(q);
+}
+
+function filtered(){
+  const q = state.q;
+  return ROWS.filter(r =>
+    COLS.filters.every(k => !state.f[k] || r[k] === state.f[k]) &&
+    (!q || COLS.search.some(k => String(r[k]||"").toLowerCase().includes(q))));
+}
+
+function render(){
+  const f = filtered();
+  document.getElementById("cards").innerHTML = [
+    ["当前条数", f.length],
+    ["总计", ROWS.length]
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  const tb = document.getElementById("tbody");
+  if (!f.length){ tb.innerHTML = `<tr><td colspan="${COLS.table.length}"><div class="empty">没有符合条件的记录。</div></td></tr>`; return; }
+  tb.innerHTML = f.map((r,i)=>`<tr data-i="${ROWS.indexOf(r)}" class="${ROWS.indexOf(r)===state.sel?"sel":""}">` +
+    COLS.table.map(c=>`<td>${esc(r[c])}</td>`).join("") + "</tr>").join("");
+  [...tb.querySelectorAll("tr")].forEach(tr=>tr.onclick=()=>show(+tr.dataset.i));
+}
+
+function show(i){
+  state.sel = i; const r = ROWS[i];
+  document.getElementById("detail").innerHTML =
+    `<h2>${esc(r[COLS.table[0]])}</h2>` +
+    COLS.detail.map(k=>`<div class="row"><div class="k">${esc(k)}</div><div class="v">${esc(r[k])}</div></div>`).join("");
+  render();
+}
+
+init(); render();
+</script></body></html>

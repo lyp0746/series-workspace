@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import api
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATE = "2026-11-01"
+DATE = "2026-11-02"
 RDM_TYPE = {"book": {"id": "publication-book"},
             "preprint": {"id": "publication-preprint"}}
 CREATOR = {"person_or_org": {"type": "personal", "name": "李毅芃",
@@ -73,8 +73,11 @@ def _rel(r):
     raw = r.get("relation_type") or r.get("relation") or "issupplementedby"
     rid = raw.get("id") if isinstance(raw, dict) else str(raw)
     rid = REL_MAP.get(rid.lower().replace("_", ""), "issupplementedby")
-    return {"identifier": r["identifier"],
-            "scheme": r.get("scheme") or ("doi" if r["identifier"].startswith("10.") else "url"),
+    ident = r["identifier"]
+    if ident.startswith("https://doi.org/"):
+        ident = ident[len("https://doi.org/"):]
+    return {"identifier": ident,
+            "scheme": r.get("scheme") or ("doi" if ident.startswith("10.") else "url"),
             "relation_type": {"id": rid}}
 
 
@@ -82,13 +85,15 @@ def metadata(slug, draft):
     z = zenodo_json(slug)
     kind = "preprint" if (z.get("publication_type") == "preprint") else "book"
     base = draft.get("metadata") or {}
-    # 相关标识从“上一版已发布记录”取：草稿可能已被清空
-    try:
-        _, pub = api.req("GET", "https://zenodo.org/api/records/%s" % reg(slug)["记录ID"],
-                         tries=2, timeout=120)
-        rel_src = (pub.get("metadata") or {}).get("related_identifiers") or []
-    except Exception:
-        rel_src = base.get("related_identifiers") or []
+    # 相关标识优先取本地 .zenodo.json（2026-11-02 起每件重新生成，不照抄上一版）
+    rel_src = z.get("related_identifiers") or []
+    if not rel_src:
+        try:
+            _, pub = api.req("GET", "https://zenodo.org/api/records/%s" % reg(slug)["记录ID"],
+                             tries=2, timeout=120)
+            rel_src = (pub.get("metadata") or {}).get("related_identifiers") or []
+        except Exception:
+            rel_src = base.get("related_identifiers") or []
     return {"metadata": {
         "title": title_of(slug),
         "description": description_of(slug, draft),

@@ -18,6 +18,7 @@ def main():
       "<!--TABLE_BYSTATUS-->": rd(DATA/"table_bystatus.md"),
       "<!--TABLE_BYCORE-->": rd(DATA/"table_bycore.md"),
       "<!--TABLE_CROSSTAB-->": rd(DATA/"table_crosstab.md"),
+      "<!--TABLE_PAPERS-->": rd(DATA/"table_papers.md"),
     }.items():
         assert k in t, k
         t = t.replace(k, v)

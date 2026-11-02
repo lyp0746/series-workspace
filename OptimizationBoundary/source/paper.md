@@ -829,7 +829,7 @@ function 是否可以优化(问题 P):
 
 [7] 李毅芃. 选择的代价：完备、可组合与可传递的三维权衡[M]. Zenodo, 2026. doi:10.5281/zenodo.23388628.
 
-[8] 李毅芃. 诠释的权衡：历史研究中的置信度、权衡与理论流变[M]. Zenodo, 2026. doi:10.5281/zenodo.23416220.
+[8] 李毅芃. 诠释的权衡：历史研究中的置信度、权衡与理论流变[M]. Zenodo, 2026. doi:10.5281/zenodo.23416219.
 
 [9] David P A. Clio and the economics of QWERTY[J]. American Economic Review, 1985, 75(2): 332-337.
 
@@ -873,7 +873,7 @@ function 是否可以优化(问题 P):
 
 [29] Eghbal N. Working in Public: The Making and Maintenance of Open Source Software[M]. San Francisco: Stripe Press, 2020.
 
-[30] 李毅芃. 涌现的临界：为什么有些变化回不去[M]. Zenodo, 2026. doi:10.5281/zenodo.23447311.
+[30] 李毅芃. 涌现的临界：为什么有些变化回不去[M]. Zenodo, 2026. doi:10.5281/zenodo.23440900.
 
 [31] 李毅芃. 容量的三个代理：分期槽位、编码槽位与标签槽位[M]. Zenodo, 2026. doi:10.5281/zenodo.23611799.
 

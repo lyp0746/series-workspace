@@ -979,7 +979,7 @@ PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
 - von Hippel, E. & von Krogh, G. (2003). Open source software and the "private-collective" innovation model. *Organization Science*, 14(2), 209–223.
 - Watts, D. J. & Strogatz, S. H. (1998). Collective dynamics of "small-world" networks. *Nature*, 393, 440–442.
 - Wu, F. & Huberman, B. A. (2007). Novelty and collective attention. *PNAS*, 104(45), 17599–17601.
-- 李毅芃 (2026).《涌现的临界：为什么有些变化回不去》. Zenodo. doi:10.5281/zenodo.23447311
-- 李毅芃 (2026).《区分的语言：五个领域，同一个二次型》. Zenodo. doi:10.5281/zenodo.23412033
+- 李毅芃 (2026).《涌现的临界：为什么有些变化回不去》. Zenodo. doi:10.5281/zenodo.23440900
+- 李毅芃 (2026).《区分的语言：区分如何生成空间、形式与谱》. Zenodo. doi:10.5281/zenodo.23345012
 <p>负面结果并不削弱判据，它使「什么时候该停」被事先写下来成为可能。</p>
 
