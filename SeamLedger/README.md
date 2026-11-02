@@ -47,4 +47,4 @@ bash release.sh                     # release/ 打包
 
 本篇与系列其余论文共用一套记账纪律。六核心的详细定义见六本学术专著；本篇只借用其判据，不替代其论证。`related_identifiers` 指向共用库、六本学术专著与系列入口。
 
-**Zenodo**：待发布（概念 DOI 与版本 DOI 发布后写回）。
+**Zenodo**：版本 DOI 10.5281/zenodo.23888993。

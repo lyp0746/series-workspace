@@ -47,4 +47,4 @@ bash release.sh                      # release/ 打包
 
 本篇与系列其余论文共用一套记账纪律；`related_identifiers` 指向共用库与六本学术专著。第十五篇《接缝不在奇点》的 30 条数据与 10 条命题见其正文与 `seams.csv`。
 
-**Zenodo**：待发布（版本 DOI 发布后写回；概念 DOI 10.5281/zenodo.23611757）。
+**Zenodo**：版本 DOI 10.5281/zenodo.23888894；概念 DOI 10.5281/zenodo.23611757。

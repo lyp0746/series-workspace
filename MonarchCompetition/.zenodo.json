@@ -32,32 +32,42 @@
   "notes": "工作论文/预印本。系列第十四篇（测量篇）。51 页；数据快照 2026-10-26／27；十条命题：7 支持、1 部分、1 否证、1 单源。",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
-      "relation": "isPartOf",
+      "identifier": "https://github.com/lyp0746/MonarchCompetition",
+      "relation": "isSupplementedBy",
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23662889",
-      "relation": "references",
+      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23886113",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23663026",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23887380",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23611757",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23887494",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23440905",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23888037",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23613406",
+      "identifier": "10.5281/zenodo.23888150",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23888165",
       "relation": "isPartOf",
       "scheme": "doi"
     }

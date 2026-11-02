@@ -107,6 +107,13 @@ def metadata(slug, draft):
         # DOI 注册要求 publisher；本系列为作者独立出版，不虚构出版社
         "publisher": "独立出版 / Independently published",
         "related_identifiers": [_rel(r) for r in rel_src],
+        # legacy 兼容键：部分由旧记录升级的草稿仍按 legacy schema 读；同时写两份，避免静默丢失
+        "license": (z.get("license") or "CC-BY-4.0").lower(),
+        "keywords": z.get("keywords") or [],
+        "upload_type": "publication",
+        "publication_type": kind,
+        "access_right": "open",
+        "language": "zho",
     }}
 
 

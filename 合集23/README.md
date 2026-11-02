@@ -49,4 +49,4 @@ bash release.sh                # 打包 + MANIFEST
 
 ## 关联
 
-九本书与十五篇工作论文的 DOI 见各卷/各篇题名页；合集的概念 DOI 为 10.5281/zenodo.23613406，版本 DOI 随版本更新。系列入口：https://github.com/lyp0746/knowledge-tradeoffs
+九本书与十五篇工作论文的 DOI 见各卷/各篇题名页；合集的概念 DOI 为 10.5281/zenodo.23613406，本版 DOI 为 10.5281/zenodo.23889081。系列入口：https://github.com/lyp0746/knowledge-tradeoffs

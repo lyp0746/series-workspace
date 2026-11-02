@@ -39,32 +39,32 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23771608",
+      "identifier": "10.5281/zenodo.23886113",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23771832",
+      "identifier": "10.5281/zenodo.23887380",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23853687",
+      "identifier": "10.5281/zenodo.23887494",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23772040",
+      "identifier": "10.5281/zenodo.23888037",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23771397",
+      "identifier": "10.5281/zenodo.23888150",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23853797",
+      "identifier": "10.5281/zenodo.23888165",
       "relation": "isPartOf",
       "scheme": "doi"
     }

@@ -36,67 +36,37 @@
   "related_identifiers": [
     {
       "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
-      "relation": "isPartOf",
+      "relation": "isSupplementedBy",
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23217100",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23886113",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23323276",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23887380",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23345012",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23887494",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23388628",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23888037",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23416219",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23888150",
+      "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23440900",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.23447341",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.23526582",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.23529087",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.23528958",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.23531431",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.23573012",
-      "relation": "references",
+      "identifier": "10.5281/zenodo.23888165",
+      "relation": "isPartOf",
       "scheme": "doi"
     }
   ]
