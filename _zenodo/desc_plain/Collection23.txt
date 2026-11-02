@@ -1,17 +1,62 @@
-中文。本著作是同一系列二十三件作品的合订：九本书（六本学术专著＋两本通俗读本＋一本科普专著）、十四篇工作论文，另附一篇卷首《中道周行集》。二十三件作品放在同一张桌子上，只为了看清一件事：一个有限的东西，怎样一边保持自己的样子，一边还能改变？
+中文摘要。
+本著作是同一系列二十四件作品的合订：九本书（六本学术专著＋两本通俗读本＋一本科普专著）、十五篇工作论文，另附一篇卷首《中道周行集》。二十四件作品放在同一张桌子上，只为了看清一件事：
+一个有限的东西，怎样一边保持自己的样子，一边还能改变？
 
-核心主张：看得见的世界背后都有一张看不见的账单，账单上只有三个价格——看得准、拼得上、传得下去，最多付得起两个；让出的那一个，就是每一卷要指认的东西。六个核心（看见、记住、跟上、选择、讲述、临界）不是六门学问，而是同一笔账的六个项目；它们不是并列的六个词，而是「起点—约束—枢纽—元层—门槛」的五层结构。
+核心主张。
+看得见的世界背后都有一张看不见的账单，账单上只有三个价格——看得准、拼得上、传得下去，最多付得起两个；让出的那一个，就是每一卷要指认的东西。六个核心（看见、记住、跟上、选择、讲述、临界）不是六门学问，而是同一笔账的六个项目；它们不是并列的六个词，而是「起点—约束—枢纽—元层—门槛」的五层结构。
 
-结构与证据：总封面 → 书名页 → 版权与说明 → 卷首 → 总序 → 总目录 → 编者说明 → 二十三件一览 → 六核心速查 → 第一部 九卷 → 第二部 实证（一—六）→ 第三部 方法（七、八、十—十四）→ 阶段总账（九，覆盖一—十四）→ 论文十四 → 后记 → 版本记。印刷版 A4 1969 页；电子阅读版 B5 2485 页；单文件 HTML（图片内联）；Markdown 约 5.9 MB；配图 374 个文件。各件正文一字未改；卷首、总序、编者说明、一览、速查、后记与本版记为合集自有。
+结构与证据。
+总封面 → 书名页 → 版权与说明 → 
+卷首
+ → 总序 → 总目录 → 编者说明 → 二十四件一览 → 六核心速查 → 第一部 九卷 → 第二部 实证（一—六）→ 第三部 方法（七、八、十—十五）→ 阶段总账（九，覆盖一—十五）→ 论文十四—十五 → 后记 → 版本记。印刷版 A4 
+2142
+ 页；电子阅读版 B5 
+2625
+ 页；单文件 HTML（图片内联）；Markdown 约 6.2 MB；配图 377 个文件；EPUB 305 个文档、216 幅图。
+各件正文一字未改
+；卷首、总序、编者说明、一览、速查、后记与本版记为合集自有。
 
-本版修订（2026-10-28，第六版）：其一，新增第十四篇《开明君主与两层竞争》——价目表把「执行」与「方向」分开定价：294 个模型的重放—判断价差中位 34.5 倍（闭源 50、开放 19），九家里六家同时经营可自托管层与独占层、溢价 2.9—83 倍，量与钱分离（开放权重 62—79% 的 token、闭源 73% 的消费额）。其二，收录卷首《中道周行集》：以诗、词、散、骈、赋、铭六体写成，配一篇题解逐条对照全书判据——「读观行验」对观察—抽象—建模—应用—反馈的闭环，「执两用中」对三样至多取二，「慎终如始、持满若虚」对不作宿命判断。它是方法的精神自述，不承担论证、不参与分级。其三，三件修订版入集：第十篇增附录 M（D21 以预算为主瓶颈，单例否证「预算从不作主瓶颈」；并使 T5 在此域失效，故给在场性加第五档「在场而不知情」）；第十一篇增附录 P（第四十一条声明「人＝君主，agent＝臣民」＝比喻档、断裂在复合层，不计入四十条统计）；第九篇总账由 62 条扩为 110 条、覆盖一—十四，第 5 章由五处同名不同物扩为七处（新增「便宜」与「可传递性」）。
+本版修订（2026-11-02，第九版）。
+其一，新增
+第十五篇《接缝不在奇点》
+：把量子力学与广义相对论的「根本矛盾」拆成 30 条可逐条核对的账目——4 条逻辑矛盾、13 条接口缺失、8 条记账冲突、5 条定理边界；四条逻辑矛盾没有一条被直接测量，四条 A 级账目全部落在「已测/已证定理」一侧。其二，第九篇总账由 
+110 条扩为 126 条
+、覆盖一—十五，新增物理侧六组同名不同物（定域、真空、信息、对称性、背景、熵），并把总账自己的 6 条正式并表。其三，全系列统一《区分的语言》新名与新副题，各件「本系列」页改用概念 DOI，旧版残留的 DOI 错位一并订正。其四，总目录与各卷目录页码重新量取回填，新增论文十五。
 
-诚实纪律：每件都保留自己的证据分级（A/B/C 与甲/乙/丙）、可证伪登记簿与失败记录；合集不抹平各件之间的差异，也不把「阶段总账」写成「总结论」——它审计的是登记命题，不是世界。110 条里 16 条（14.5%）被作者自己的数据打掉，这个数字照实写在书里。
+诚实纪律。
+每件都保留自己的证据分级（A/B/C 与甲/乙/丙）、可证伪登记簿与失败记录；合集不抹平各件之间的差异，也不把「阶段总账」写成「总结论」——它审计的是登记命题，不是世界。126 条里 18 条（14.3%）被作者自己的数据打掉，这个数字照实写在书里。
 
-边界：它是合订，不是新著；它给坐标与工具，不给判决。引用时请以各件单行本为准（含其 DOI、附录与可证伪登记）。卷首为精神自述，不进入任何引用计数。
+边界。
+它是合订，不是新著；它给坐标与工具，不给判决。引用时请以各件单行本为准（含其 DOI、附录与可证伪登记）。卷首为精神自述，不进入任何引用计数。
 
-版本：2026-10-28，第六版，二十三件（九本书＋十四篇工作论文＋卷首）；印刷版 A4 1969 页，电子版 B5 2485 页；内容 CC BY 4.0，代码 MIT。
+版本信息。
+2026-11-02，第九版，二十四件（九本书＋十五篇工作论文＋卷首）；印刷版 A4 2142 页，电子版 B5 2625 页；内容 CC BY 4.0，代码 MIT。
 
-Abstract (English). This volume binds twenty-three items of one series — nine books (six monographs, two popular readers, one popular-science monograph), fourteen working papers, and a frontispiece in classical Chinese — to ask a single question: how does something finite keep its shape while still being able to change? The core claim is a bill with three prices — being precise, fitting together, carrying over — of which at most two can be paid. This sixth edition adds the fourteenth paper (the replay–judgement spread has a median of 34.5×; six of nine labs run a self-hostable and a first-party-only tier with premiums of 2.9–83×; open weights hold 62–79% of tokens while closed weights take 73% of spend), the frontispiece Zhongdao Zhouxing Ji, a second edition of the tenth paper (a single-case falsification), a second edition of the eleventh (the forty-first declaration, at the metaphor rung), and a third edition of the ledger (62 → 110 propositions across fourteen papers). A4 print 1969 pp; B5 e-reader 2485 pp; HTML, Markdown, 374 figure files. No text of any included item has been altered.
+Abstract.
+ This volume binds twenty-four items of one series — nine books (six monographs, two popular readers, one popular-science monograph), fifteen working papers, and a frontispiece in classical Chinese — to ask a single question: how does something finite keep its shape while still being able to change? The core claim is a bill with three prices — being precise, fitting together, carrying over — of which at most two can be paid. The six cores (distinction, memory, timing, choice, interpretation, criticality) are not six disciplines but six items on one bill, arranged as a five-layer structure: starting point, constraint, hinge, meta-layer, threshold.
 
-系列 / Series。同一作者的独立研究系列。系列入口与外部登记库：https://github.com/lyp0746/knowledge-tradeoffs；源码与复现脚本：https://github.com/lyp0746
+Structure and evidence.
+ Cover → title page → copyright → frontispiece → general preface → general contents → editor's note → overview of the twenty-four items → six-core quick reference → Part I: nine volumes → Part II: empirical papers (1–6) → Part III: method papers (7, 8, 10–15) → stage ledger (9, covering 1–15) → papers 14–15 → afterword → version note. A4 print 
+2142
+ pp; B5 e-reader 
+2625
+ pp; single-file HTML with inlined images; Markdown about 6.2 MB; 377 figure files; EPUB with 305 documents and 216 images. 
+No text of any included item has been altered.
+
+This edition (2026-11-02, ninth).
+ First, it adds the fifteenth paper, 
+The Seam Is Not at the Singularity
+, which breaks the “fundamental contradiction” between quantum mechanics and general relativity into 30 auditable items: 4 logical contradictions, 13 missing interfaces, 8 accounting conflicts, and 5 theorem boundaries; none of the four logical contradictions has been directly measured, and all four A-grade items sit on the “measured” or “proved theorem” side. Second, the ninth paper's ledger grows from 
+110 to 126 propositions
+, covering papers 1–15, with six physical cases of “same name, different object” (locality, vacuum, information, symmetry, background, entropy) and its own six propositions added to the master table. Third, the series adopts the new title 
+The Language of Distinction
+ and its new subtitle; series pages now use concept DOIs, and residual DOI misplacements are corrected. Fourth, the general and per-volume tables of contents have been re-measured and their page numbers refilled; paper 15 is included.
+
+Discipline.
+ Every item keeps its own evidence grades (A/B/C and 甲/乙/丙), falsifiability register and failure record. The collection does not flatten differences among items, nor does it turn the stage ledger into a “final conclusion”: the ledger audits registered propositions, not the world. Of the 126 propositions, 18 (14.3%) were killed by the authors' own data; the number is stated in the book.
+
+Boundaries.
+ This is a bound collection, not a new monograph; it offers coordinates and tools, not verdicts. Citations should follow the individual items (with their DOIs, appendices and registers). The frontispiece is a spiritual self-account and does not enter any citation count.
+
+Edition.
+ 2026-11-02, ninth edition, twenty-four items (nine books, fifteen working papers, one frontispiece); A4 print 2142 pp, B5 e-reader 2625 pp; content CC BY 4.0, code MIT.
