@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import api
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATE = "2026-11-02"
+DATE = "2026-11-04"
 RDM_TYPE = {"book": {"id": "publication-book"},
             "preprint": {"id": "publication-preprint"}}
 CREATOR = {"person_or_org": {"type": "personal", "name": "李毅芃",
@@ -137,17 +137,17 @@ def up(slug, did):
     import requests
     base = "https://zenodo.org/api/records/%s/draft/files" % did
     H = {"Authorization": "Bearer " + api.TOK}
-    r = requests.get(base, headers=H, timeout=120)
+    r = requests.get(base, headers=H, timeout=300)
     for f in (r.json().get("entries") or []):
         key = f.get("key")
-        requests.delete("%s/%s" % (base, urllib.parse.quote(key)), headers=H, timeout=120)
+        requests.delete("%s/%s" % (base, urllib.parse.quote(key)), headers=H, timeout=300)
         print("   -", key)
     folder = os.path.join(ROOT, slug, "release")
     names = sorted(f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f)))
     n = 0
     for name in names:
         p = os.path.join(folder, name)
-        r = requests.post(base, headers=H, json=[{"key": name}], timeout=180)
+        r = requests.post(base, headers=H, json=[{"key": name}], timeout=600)
         r.raise_for_status()
         ent = next(e for e in (r.json().get("entries") or [r.json()]) if e.get("key") == name)
         data = open(p, "rb").read()

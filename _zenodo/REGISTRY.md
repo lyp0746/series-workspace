@@ -6,10 +6,10 @@
 |---|---|---|---|---:|---|---|---|
 | 01 | 书 | `entropy-spiral` | 错位的时间 | 379 | 10.5281/zenodo.23887494 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
 | 02 | 书 | `capacity-cascade` | 遗忘的边界 | 256 | 10.5281/zenodo.23887380 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
-| 03 | 书 | `distinction-evolution` | 区分的语言 | 275 | 10.5281/zenodo.23886113 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
+| 03 | 书 | `distinction-evolution` | 区分的语言 | 283 | 10.5281/zenodo.23924794 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
 | 04 | 书 | `impossibility-triangle` | 选择的代价 | 290 | 10.5281/zenodo.23888037 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 256 | 10.5281/zenodo.23888150 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
-| 06 | 书 | `emergence-critical` | 涌现的临界 | 278 | 10.5281/zenodo.23888165 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
+| 06 | 书 | `emergence-critical` | 涌现的临界 | 280 | 10.5281/zenodo.23925915 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
 | 07 | 书 | `knowledge-tradeoffs` | 只能选两样 | 157 | 10.5281/zenodo.23888220 | 10.5281/zenodo.23440905 | lyp0746/knowledge-tradeoffs |
 | 08 | 书 | `mind-forks` | 心灵的分岔 | 292 | 10.5281/zenodo.23888242 | 10.5281/zenodo.23637235 | lyp0746/mind-forks |
 | 09 | 书 | `hotspot-bills` | 热点的账单 | 136 | 10.5281/zenodo.23888330 | 10.5281/zenodo.23440911 | lyp0746/hotspot-bills |
