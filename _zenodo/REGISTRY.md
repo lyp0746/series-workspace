@@ -5,7 +5,7 @@
 | 序 | 类 | slug | 题名 | 页 | 版本 DOI | 概念 DOI | 仓库 |
 |---|---|---|---|---:|---|---|---|
 | 01 | 书 | `entropy-spiral` | 错位的时间 | 379 | 10.5281/zenodo.23936687 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
-| 02 | 书 | `capacity-cascade` | 遗忘的边界 | 256 | 10.5281/zenodo.23934850 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
+| 02 | 书 | `capacity-cascade` | 遗忘的边界 | 256 | 10.5281/zenodo.23936852 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
 | 03 | 书 | `distinction-evolution` | 区分的语言 | 283 | 10.5281/zenodo.23930312 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
 | 04 | 书 | `impossibility-triangle` | 选择的代价 | 290 | 10.5281/zenodo.23935961 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 256 | 10.5281/zenodo.23888150 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
