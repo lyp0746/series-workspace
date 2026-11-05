@@ -1,7 +1,7 @@
 # 连贯性审计（coherence audit）
 
 对象：24 件。检查：编号连续、悬空引用、拼接痕迹、图表号、公式框、防御性写作、小结位置。
-**发现 29 条**
+**发现 26 条**
 
 
 ## knowledge-tradeoffs　只能选两样：从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍 / Pick Two: Six
@@ -82,8 +82,7 @@
 
 ## HunanRelaySystem　明清湘中驿道体系的 GEPF 三层分析：家族记忆、商品流向与地名侵蚀 / A GEPF Three-
 
-- 字数：正文 29,804 / 附录 0
-- **patch**：版本/拼接痕迹：本次修订×1
+- 字数：正文 29,748 / 附录 0
 - **hedge**：防御性/空话：或许×1
 
 ## BureauRotationCession　轮换的让渡：中国官制三千年（西周—2026）的有限系统取舍分析 / The Rotation of 
@@ -118,9 +117,8 @@
 
 ## MemoryAnchor　记忆的锚点：情景唤起、异构重建与日志裁决 / The Anchor of Memory: Episodic Recall, Heterogeneous Reconstruction, and Log Adjudication in Agents
 
-- 字数：正文 23,255 / 附录 0
+- 字数：正文 23,258 / 附录 0
 - **patch**：版本/拼接痕迹：补全×2
-- **fig_dup**：图号重复：1
 
 ## MemoryStressTest　锚点的下限：情景记忆的模拟对照实验与 0.57 的覆盖率阈值 / The Floor of Anchoring: A Simulation Study of Episodic Memory and the 0.57 Coverage Threshold
 
@@ -129,9 +127,8 @@
 
 ## LedgerReconciliation　六张账单的对账：六核心的可测代理、失败模式与尺度边界 / Reconciling Six Ledge
 
-- 字数：正文 28,798 / 附录 0
+- 字数：正文 28,793 / 附录 0
 - **patch**：版本/拼接痕迹：补全×1
-- **patch**：版本/拼接痕迹：本版×2
 
 ## MonarchCompetition　开明君主与两层竞争：agent 价目表上的执行、方向与代价承担者 / The Enlightened Sovereign and Two-Tier Competition: Execution, Direction, and Who Pays on the Agent Price Sheet
 

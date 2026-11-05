@@ -429,9 +429,6 @@
   "kind": "paper",
   "title": "明清湘中驿道体系的 GEPF 三层分析：家族记忆、商品流向与地名侵蚀 / A GEPF Three-",
   "f": {
-   "patch": [
-    "版本/拼接痕迹：本次修订×1"
-   ],
    "hedge": [
     "防御性/空话：或许×1"
    ]
@@ -460,7 +457,7 @@
    "附注"
   ],
   "eq_blocks": 0,
-  "cn_body": 29804
+  "cn_body": 29748
  },
  {
   "repo": "BureauRotationCession",
@@ -679,9 +676,6 @@
   "f": {
    "patch": [
     "版本/拼接痕迹：补全×2"
-   ],
-   "fig_dup": [
-    "图号重复：1"
    ]
   },
   "h2": [
@@ -705,7 +699,7 @@
    "附录 C　十二个方案 × 四问的交叉"
   ],
   "eq_blocks": 0,
-  "cn_body": 23255
+  "cn_body": 23258
  },
  {
   "repo": "MemoryStressTest",
@@ -749,8 +743,7 @@
   "title": "六张账单的对账：六核心的可测代理、失败模式与尺度边界 / Reconciling Six Ledge",
   "f": {
    "patch": [
-    "版本/拼接痕迹：补全×1",
-    "版本/拼接痕迹：本版×2"
+    "版本/拼接痕迹：补全×1"
    ]
   },
   "h2": [
@@ -776,7 +769,7 @@
    "附注"
   ],
   "eq_blocks": 0,
-  "cn_body": 28798
+  "cn_body": 28793
  },
  {
   "repo": "MonarchCompetition",
