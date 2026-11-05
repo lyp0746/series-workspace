@@ -71,53 +71,51 @@ def _cn(n):
 
 # 副标题按实际条目动态生成：加件/减件时封面不会写错
 AUTHOR = "李毅芃"
-DATE = "2026-11-02"
+DATE = "2026-11-05"
 
 
 PAPERS = [
     ("ComputingDemystified", "论文一", "术语的账单", "从芯片到 Agent 的八十个计算机概念",
-     "看见", "实证", "术语的账单_从芯片到Agent的八十个计算机概念.md", "10.5281/zenodo.23531430"),
+     "看见", "实证", "术语的账单_从芯片到Agent的八十个计算机概念.md", "10.5281/zenodo.23888687"),
     ("WorldPeriodization", "论文二", "谁在切时间轴", "六十部世界史分期，附一份自证方案",
-     "看见＋讲述", "实证", "谁在切时间轴_六十部世界史分期与一份自证方案.md", "10.5281/zenodo.23573011"),
+     "看见＋讲述", "实证", "谁在切时间轴_六十部世界史分期与一份自证方案.md", "10.5281/zenodo.23888712"),
     ("SleepingResidue", "论文三", "线外的残余", "被埋没的理论为何被重新发现，为何永久沉默",
-     "记住", "实证", "线外的残余_延迟承认的三种机制.md", "10.5281/zenodo.23601748"),
+     "记住", "实证", "线外的残余_延迟承认的三种机制.md", "10.5281/zenodo.23888767"),
     ("HunanRelaySystem", "论文四", "明清湘中驿道体系的 GEPF 三层分析", "家族记忆、商品流向与地名侵蚀",
-     "跟上", "实证", "明清湘中驿道体系_GEPF三层分析.md", "10.5281/zenodo.23480795"),
+     "跟上", "实证", "明清湘中驿道体系_GEPF三层分析.md", "10.5281/zenodo.23888788"),
     ("BureauRotationCession", "论文五", "轮换的让渡", "中国官制三千年（西周—2026）",
-     "选择", "实证", "轮换的让渡_中国官制三千年.md", "10.5281/zenodo.23497841"),
+     "选择", "实证", "轮换的让渡_中国官制三千年.md", "10.5281/zenodo.23888825"),
     ("HarnessEcology", "论文六", "被点燃的生态", "两个社区、五种口径与三个标记",
-     "临界", "实证", "被点燃的生态_两个社区与三个标记.md", "10.5281/zenodo.23601731"),
+     "临界", "实证", "被点燃的生态_两个社区与三个标记.md", "10.5281/zenodo.23888876"),
     ("OptimizationBoundary", "论文七", "优化的边界", "目标函数、搜索空间与六核心的停止规则",
-     "接口", "方法", "优化的边界_四前提与越界的二十个案例.md", "10.5281/zenodo.23611781"),
+     "接口", "方法", "优化的边界_四前提与越界的二十个案例.md", "10.5281/zenodo.23888389"),
     ("CapacityProxies", "论文八", "容量的三个代理", "分期槽位、编码槽位与标签槽位",
-     "记住（代理）", "方法", "容量的三个代理_分期槽位与编码槽位与标签槽位.md", "10.5281/zenodo.23611798"),
-    ("DomainCrossSection", "论文十", "领域的剖面", "四个问题、二十个领域与八十字段的审计",
-     "看见（操作化）", "方法", "领域的剖面_四个问题与二十个领域的审计.md", "10.5281/zenodo.23662889"),
-    ("IsomorphismStrength", "论文十一", "同构的强度", "对偶、泛性质、不变量与四十条断裂探针",
-     "看见＋讲述（跨域）", "方法", "同构的强度_对偶与泛性质与不变量与四十条断裂探针.md", "10.5281/zenodo.23663026"),
-    ("MemoryAnchor", "论文十二", "记忆的锚点", "情景唤起、异构重建与日志裁决",
-     "记住（架构）", "方法", "记忆的锚点_情景唤起与异构重建与日志裁决.md", "10.5281/zenodo.23665881"),
-    ("MemoryStressTest", "论文十三", "锚点的下限", "情景记忆的模拟对照实验与 0.57 的覆盖率阈值",
-     "记住（测试）", "测试", "锚点的下限_情景记忆的模拟对照实验.md", "10.5281/zenodo.23667928"),
-    ("LedgerReconciliation", "论文九", "六张账单的对账", "六核心的可测代理、失败模式与尺度边界",
-     "阶段总账（覆盖一—十五）", "阶段总账", "六张账单的对账_六核心的可测代理与尺度边界.md", "10.5281/zenodo.23611757"),
-    ("MonarchCompetition", "论文十四", "开明君主与两层竞争", "agent 价目表上的执行、方向与代价承担者",
-     "选择＋讲述（价格）", "方法", "开明君主与两层竞争_执行方向与代价承担者.md", "10.5281/zenodo.23695756"),
-    ("SeamLedger", "论文十五", "接缝不在奇点", "量子力学与广义相对论的三十道裂缝",
-     "看见＋跟上（物理）", "方法", "接缝不在奇点_量子力学与广义相对论的三十道裂缝.md", "10.5281/zenodo.PENDING"),
+     "记住（代理）", "方法", "容量的三个代理_分期槽位与编码槽位与标签槽位.md", "10.5281/zenodo.23888410"),
+    ("DomainCrossSection", "论文九", "领域的剖面", "四个问题、二十个领域与八十字段的审计",
+     "看见（操作化）", "方法", "领域的剖面_四个问题与二十个领域的审计.md", "10.5281/zenodo.23888430"),
+    ("IsomorphismStrength", "论文十", "同构的强度", "对偶、泛性质、不变量与四十条断裂探针",
+     "看见＋讲述（跨域）", "方法", "同构的强度_对偶与泛性质与不变量与四十条断裂探针.md", "10.5281/zenodo.23888475"),
+    ("MemoryAnchor", "论文十一", "记忆的锚点", "情景唤起、异构重建与日志裁决",
+     "记住（架构）", "方法", "记忆的锚点_情景唤起与异构重建与日志裁决.md", "10.5281/zenodo.23888495"),
+    ("MemoryStressTest", "论文十二", "锚点的下限", "情景记忆的模拟对照实验与 0.57 的覆盖率阈值",
+     "记住（测试）", "测试", "锚点的下限_情景记忆的模拟对照实验.md", "10.5281/zenodo.23888587"),
+    ("MonarchCompetition", "论文十三", "开明君主与两层竞争", "agent 价目表上的执行、方向与代价承担者",
+     "选择＋讲述（价格）", "方法", "开明君主与两层竞争_执行方向与代价承担者.md", "10.5281/zenodo.23888650"),
+    ("SeamLedger", "论文十四", "接缝不在奇点", "量子力学与广义相对论的三十道裂缝",
+     "看见＋跟上（物理）", "跨域", "接缝不在奇点_量子力学与广义相对论的三十道裂缝.md", "10.5281/zenodo.23888993"),
+    ("LedgerReconciliation", "论文十五", "六张账单的对账", "六核心的可测代理、失败模式与尺度边界",
+     "阶段总账（覆盖一—十五）", "阶段总账", "六张账单的对账_六核心的可测代理与尺度边界.md", "10.5281/zenodo.23888894"),
 ]
 
 # 分部：九卷 / 实证论文（一—六）/ 方法论文（七、八、十—十三）/ 阶段总账（九）
 # 副标题按实际条目动态生成（放在 PAPERS 之后，避免过期）
 SUBTITLE = "一个母题：有限的东西如何保持结构、如何变化、如何生成新结构"
 
-PART_OF = {"论文一": 2, "论文二": 2, "论文三": 2, "论文四": 2, "论文五": 2, "论文六": 2,
-           "论文七": 3, "论文八": 3, "论文十": 3, "论文十一": 3, "论文十二": 3, "论文十三": 3,
-           "论文九": 4, "论文十四": 3, "论文十五": 3}
-PARTS = {2: ("第二部", "实证论文（一—六）", "六篇各自落在一个真实材料上：官制、驿道、术语、分期、生态、残余。"),
-         3: ("第三部", "方法论文（七、八、十—十三）", "不新增经验对象，只把六核心的用法钉死：划界、代理、操作化、跨域、架构、测试。"),
-         4: ("阶段总账", "六张账单的对账（覆盖一—八）", "它审计的是前 15 件的 126 条命题，覆盖范围见其题名页；新旧登记已全部并账。")}
-
+PART_OF = {f"论文{_cn(i)}": (2 if i<=6 else 3 if i<=13 else 4 if i==14 else 5) for i in range(1,16)}
+PARTS = {2: ("第二部", "实证论文（一—六）", "六篇各自落在一个真实材料上：术语、分期、残余、驿道、官制、生态。"),
+         3: ("第三部", "方法论文（七—十三）", "不新增经验对象，只把六核心的用法钉死：划界、代理、操作化、跨域、架构、测试、价格。"),
+         4: ("第四部", "跨域：物理侧的接缝（十四）", "把六核带到量子力学与广义相对论的接口，检验“看见＋跟上”在硬科学里的边界。"),
+         5: ("阶段总账", "六张账单的对账（覆盖一—十五）", "它审计的是前 15 件的 126 条命题，覆盖范围见其题名页；新旧登记已全部并账。")}
 
 # ---------------------------------------------------------------- 论文
 def papcover_html(pi, pno, title, sub, core, doi, cls="论文", note=""):
@@ -163,6 +161,16 @@ def paper_html(repo, mdname, mode, assets, pi):
 def build_css(mode):
     css = open(os.path.join(BASE, "entropy-spiral/assets/css/paper.css"), encoding="utf-8").read()
     css += "\n" + open(os.path.join(BASE, "entropy-spiral/assets/css/book.css"), encoding="utf-8").read()
+    css += """
+.paper { color:#1a1a1a; }
+.paper h1.paper-t { color:#1f1f1f; }
+.paper h2 { color:#1f1f1f; border-bottom:0.6pt solid #d8d2c4; padding-bottom:2pt; }
+.paper h3 { color:#2b2b2b; }
+.paper a { color:#3a6ea5; }
+.paper table.nat th { background:#f3f1ea; color:#222; }
+.paper table.nat td, .paper table.nat th { border-color:#c9c2b2; }
+.paper blockquote { border-left:2.5pt solid #b8862f; color:#333; background:#faf8f2; }
+"""
     seen = {css}
     for b, *_ in VOLUMES:
         txt = open(os.path.join(BASE, b, "assets/css/book.css"), encoding="utf-8").read()
@@ -213,6 +221,8 @@ h2.chapter { page-break-before: always; }
              color:#8d949c; }
 
 /* 卷封面（页内、带框） */
+.origcover { page-break-before: always; page-break-after: always; text-align:center; }
+.origcover img { width: 100%%; height: auto; display:block; }
 .volcover { page-break-before: always; text-align: center; border: 1.2pt solid #b8862f;
             padding: 30mm 16mm; margin: 14mm 0 0 0; box-sizing: border-box; min-height: 210mm; }
 .volcover .n { font-size: 14pt; letter-spacing: 10px; color: #b8862f; }
@@ -361,6 +371,16 @@ def cover_html():
 </div>"""
 
 
+
+def origcover_html(book):
+    """把单行本封面原样并入合集：整页 SVG，保持原比例。"""
+    svg_path = os.path.join(BASE, book, "assets", "svg", "cover.svg")
+    if os.path.exists(svg_path):
+        raw = open(svg_path, "rb").read()
+        b64 = base64.b64encode(raw).decode()
+        return f'<div class="origcover"><img src="data:image/svg+xml;base64,{b64}" alt=""/></div>'
+    return ""
+
 def volcover_html(vi, vol, title, sub, blurb):
     return f"""<div class="volcover">
 <div class="n">{vol}</div>
@@ -389,7 +409,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                 f'<p><b>书名：</b>{TITLE}——{SUBTITLE}</p><p><b>作者：</b>{AUTHOR}（独立研究者）</p>'
                 f'<p><b>日期：</b>{DATE}　<b>许可：</b>内容 CC BY 4.0；代码 MIT</p>'
                 '<p>本合集收录同一系列的九本书（六本学术专著＋两本通俗读本＋一本科普专著）与十五篇工作论文，'
-                '分三部编排：第一部 九卷；第二部 实证（一—六）；第三部 方法（七、八、十、十一、十二、十三、十四、十五）；末为阶段总账（九，覆盖一—十五）。卷首另收《中道周行集》一篇，为作者的方法论自述，非学术正文。'
+                '分四部编排：第一部 九卷；第二部 实证（一—六）；第三部 方法（七—十三）；第四部 跨域（十四）；末为阶段总账（十五，覆盖一—十五）。卷首另收《中道周行集》一篇，为作者的方法论自述，非学术正文。'
                 '每卷保留其单行本的卷首、版权页、目录、前言与结语；每篇论文保留其标题页、作者行、图表与附录，正文一字未改。'
                 '全文的章节编号、图表与证据分级均未改动。</p>'
                 '<p>书中所用材料与数据截至 2026 年 10 月。凡标注“当代／目前／当前／最近”，均指该时点。</p>'
@@ -419,12 +439,12 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                 '最后把尺子落在一年的公共讨论上（卷九）。</p>'
                 '<p>每一卷都保留了自己的边界：哪些是定理，哪些是坐标，哪些只是假说；哪些失败了，为什么失败。合集不抹平这些差异——'
                 '<b>差异本身，就是这套东西的可信之处。</b></p>'
-                '<p>九本书之后，另有十五篇工作论文，分成三部。第二部是实证（一—六）：把六个核心各放到一种真实材料上试一次（术语、分期、残余、驿道、官制、生态）。'
-                '第三部是方法（七、八、十、十一、十二、十三、十四、十五）：不新增对象，只把做法钉死——给优化划界（七）、给容量找三个可数代理（八）、'
+                '<p>九本书之后，另有十五篇工作论文，分成四部。第二部是实证（一—六）：把六个核心各放到一种真实材料上试一次（术语、分期、残余、驿道、官制、生态）。'
+                '第三部是方法（七—十三）：不新增对象，只把做法钉死——给优化划界（七）、给容量找三个可数代理（八）、'
                 '把四问操作化（十）、给跨域类比定价（十一）、把「记住」落成架构（十二）、再把那套架构压测到边界（十三）、'
-                '最后把「执行／方向」压成可算的价格比（十四）。'
-                '<p>《六张账单的对账》标为<b>阶段总账</b>：它本版已把十—十五 的 58 条与本文自己的 6 条并账，因此覆盖一—十五（15 篇、<b>126 条命题</b>）。'
-                '它排在第三部之后、十四—十五之前，是因为编号不能重排；其题名页已注明覆盖范围。</p>'
+                '把「执行／方向」压成可算的价格比（十三）。第四部是跨域（十四）：把六核带到物理接口。'
+                '<p>《六张账单的对账》标为<b>阶段总账</b>：它已把十—十五的 58 条与本文自己的 6 条并账，因此覆盖一—十五（15 篇、<b>126 条命题</b>）。'
+                '它排在最后，作为全书的总账；其题名页已注明覆盖范围。</p>'
                 '<p>十五篇论文的共同点是不假装：<b>能做出来的做出来，做不出来的写明做不到。</b>'
                 '全书最后一句留给读者自己判断：这套东西现在最硬的成果，是它的方法，不是它的对象。</p>'
                 f'<p style="text-align:right;color:#666">{AUTHOR}　2026 年 10 月</p>')
@@ -438,12 +458,12 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
     for pi, (repo, pno, ptitle, psub, core, cls, md, doi) in enumerate(PAPERS, 1):
         if pno == "论文一":
             toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">第二部　实证论文（一—六）</div>')
-        if pno == "论文七":
-            toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">第三部　方法论文（七、八、十—十五）</div>')
-        if pno == "论文九":
-            toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">阶段总账（九）</div>')
-        if pno == "论文十四":
-            toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">随总账之后（十四—十五）</div>')
+        if pi == 7:
+            toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">第三部　方法论文（七—十三）</div>')
+        if pi == 14:
+            toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">第四部　跨域：物理侧的接缝（十四）</div>')
+        if pi == 15:
+            toc.append('<div class="v" style="margin-top:6mm;font-weight:700;color:#b3261e">阶段总账（十五）</div>')
         toc.append(f'<div class="v"><span class="tt"><a href="#paper{pi}">{pno}　{ptitle}</a></span>'
                    f'<span class="dots"></span><span class="pg">{pmap.get("papers",{}).get(f"paper{pi}","")}</span></div>')
     toc.append('</div>')
@@ -455,12 +475,10 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
       '与十五篇工作论文。每件都保留自己的题名、作者行、版权页、图表、附录与登记簿，正文一字未改。</p>'
       '<p><b>二、顺序为什么是这样。</b>九本书按六核心的依赖排：导览（只能选两样）→ 看见（区分的语言）→ 记住（遗忘的边界）→ '
       '跟上（错位的时间）→ 选择（选择的代价）→ 讲述（诠释的权衡）→ 临界（涌现的临界）→ 全应用（心灵的分岔）→ 应用（热点的账单）。'
-      '十五篇论文分三部：实证（一—六）→ 方法（七、八、十—十五）→ 阶段总账（九）。阶段总账排在第三部之末，因为它审计的是前面各篇的登记命题；本版并账后覆盖一—十五、共 126 条。</p>'
-      '<p><b>三、编号为什么不连续。</b>论文编号按写作与归档先后给出（一—十五），编排则按「部」。九 与 十四—十五 之所以排在最后，'
-      '是因为九是总账、十四是它并账之后才写成的第一篇；两者都<b>不在原来的覆盖范围里</b>，故其题名页各自标注覆盖范围。'
-      '不重编号，是为了不破坏已发布的 DOI 与引用位置。</p>'
+      '十五篇论文分四部：实证（一—六）→ 方法（七—十三）→ 跨域（十四）→ 阶段总账（十五）。论文编号按阅读顺序重排，不再沿用 DOI 发布顺序；阶段总账排在最后，因为它审计的是前面各篇的登记命题；并账后覆盖一—十五、共 126 条。</p>'
+      '<p><b>三、编号与顺序。</b>论文编号按阅读顺序连续排列（一—十五），与 DOI 发布顺序无关；每篇题名页保留其自身 DOI，读者可按 DOI 引用单篇。阶段总账（十五）排在最后，其题名页注明覆盖范围。</p>'
       '<p><b>四、三种读法。</b>第一种，读九本书，跳过论文——那是一套完整的坐标。第二种，读实证六篇（一—六），看坐标落在真材料上是什么样。'
-      '第三种，只读方法部（七、八、十—十四）与阶段总账（九），看这套东西自己怎么被检验、哪里失效、哪里被自己的数据打掉。</p>'
+      '第三种，只读方法部（七—十三）、跨域（十四）与阶段总账（十五），看这套东西自己怎么被检验、哪里失效、哪里被自己的数据打掉。</p>'
       '<p><b>五、一件事先说清。</b>这套东西不追求“补完”。它追求“可维护”：能做到的做出来，做不到的写明做不到。'
       '合集里多处出现“未测”“开放”“反例”——那不是疏漏，是账本的一部分。</p>')
 
@@ -487,16 +505,16 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
       '<tr><td class="s">选择</td><td>完备、可组合、可传递，至多取二</td><td>《选择的代价》；论文五</td></tr>'
       '<tr><td class="s">讲述</td><td>诠释就是给竞争命题分配置信度</td><td>《诠释的权衡》；论文二</td></tr>'
       '<tr><td class="s">临界</td><td>量变到质变，是一个可以被看见的时刻</td><td>《涌现的临界》；论文六</td></tr>'
-      '<tr><td class="s">看见（操作化）</td><td>四个问题：瓶颈、置换、可写性、承担者</td><td>论文十《领域的剖面》</td></tr>'
-      '<tr><td class="s">看见＋讲述（跨域）</td><td>同构有四个价位：严格、伴随、函子、比喻</td><td>论文十一《同构的强度》</td></tr>'
-      '<tr><td class="s">记住（架构）</td><td>记忆＝残余＋多线索＋重建；裁决只认日志</td><td>论文十二《记忆的锚点》</td></tr>'
-      '<tr><td class="s">记住（测试）</td><td>覆盖率低于约 0.57 时，三层架构不如一张摘要</td><td>论文十三《锚点的下限》</td></tr>'
-      '<tr><td class="s">选择（价格）</td><td>重放便宜、判断贵：一次新判断约为一次重放的 34.5 倍；竞争在商品层，收租在旗舰层</td><td>论文十四《开明君主与两层竞争》</td></tr>'
+      '<tr><td class="s">看见（操作化）</td><td>四个问题：瓶颈、置换、可写性、承担者</td><td>论文九《领域的剖面》</td></tr>'
+      '<tr><td class="s">看见＋讲述（跨域）</td><td>同构有四个价位：严格、伴随、函子、比喻</td><td>论文十《同构的强度》</td></tr>'
+      '<tr><td class="s">记住（架构）</td><td>记忆＝残余＋多线索＋重建；裁决只认日志</td><td>论文十一《记忆的锚点》</td></tr>'
+      '<tr><td class="s">记住（测试）</td><td>覆盖率低于约 0.57 时，三层架构不如一张摘要</td><td>论文十二《锚点的下限》</td></tr>'
+      '<tr><td class="s">选择（价格）</td><td>重放便宜、判断贵：一次新判断约为一次重放的 34.5 倍；竞争在商品层，收租在旗舰层</td><td>论文十三《开明君主与两层竞争》</td></tr>'
       '</tbody></table>'
       '<p style="font-size:9pt;color:#555">依赖顺序：看见 → 记住／跟上 → 选择 → 讲述 → 临界。'
-      '论文七（优化）横切其中四个，论文十（剖面）把四问操作化，论文十一（强度）把它们跨域，'
-      '论文十二（锚点）把「记住」落成架构，论文十三（下限）把它压测到边界，论文十四（两层）把「执行／方向」压成价格比，'
-      '论文九（阶段总账）审计一—十五、126 条。</p>'
+      '论文七（优化）横切其中四个，论文九（剖面）把四问操作化，论文十（强度）把它们跨域，'
+      '论文十一（锚点）把「记住」落成架构，论文十二（下限）把它压测到边界，论文十三（两层）把「执行／方向」压成价格比，'
+      '论文十四（接缝）把六核带到物理；论文十五（阶段总账）审计一—十五、126 条。</p>'
       '<p style="font-size:9pt;color:#555">《心灵的分岔》把六核整体应用到心理学史，是第一次“全应用”；《热点的账单》把同一套尺子落到公共讨论上。</p>')
 
     # ---------------- 第一部：九卷
@@ -504,6 +522,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                           "导览—语言—容量—时间—取舍—诠释—临界—全应用—应用。九本书按六核心的依赖排；各卷保留卷封面、版权、目录、前言、正文与结语。"))
     gi = 0
     for vi, (book, vol, title, sub, blurb, ffront) in enumerate(VOLUMES, 1):
+        body.append(origcover_html(book))
         body.append(volcover_html(vi, vol, title, sub, blurb))
         cp = read_source(book, "front_copyright.html", mode, assets)
         if cp:
@@ -545,12 +564,14 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
     for pi, (repo, pno, ptitle, psub, core, cls, md, doi) in enumerate(PAPERS, 1):
         if pi == 1:
             body.append(part_html(PARTS[2][0], PARTS[2][1], PARTS[2][2]))
-        if pno == "论文七":
+        if pi == 7:
             body.append(part_html(PARTS[3][0], PARTS[3][1], PARTS[3][2]))
-        if pno == "论文九":
+        if pi == 14:
             body.append(part_html(PARTS[4][0], PARTS[4][1], PARTS[4][2]))
+        if pi == 15:
+            body.append(part_html(PARTS[5][0], PARTS[5][1], PARTS[5][2]))
         note = ("阶段总账：覆盖一—十五（24 件、126 条登记命题）。"
-                if pno == "论文九" else "")
+                if pi == 15 else "")
         body.append(papcover_html(pi, pno, ptitle, psub, core, doi, cls, note))
         body.append(paper_html(repo, md, mode, assets, pi))
 
@@ -579,9 +600,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                 '结构校阅 24 条规则 error 0（余 4 条 warn 为两份附录超过 6 件的合并提醒，已登记）。'
                 '各卷正文、章节、图表、证据分级、附录与登记簿仍以同日单行本为准，<b>合集不改写任何一件的正文</b>。'
                 '合集另加总封面、书名页、版权与说明、卷首、总序、编者说明、合集一览、六核心速查、总目录、后记与版本记。</p>'
-                '<p><b>历版。</b>第一版（二十件，10.5281/zenodo.23663577）、第二版（二十件，23664446）、第三版（二十一件，23666079）、'
-                '第四版（23668413）、第五版（23668413 之后的一次重排）、第六版（2026-10-28）、'
-                '第七版（2026-10-30，二十一件，10.5281/zenodo.23792104）。本版为<b>第九版</b>，概念 DOI 10.5281/zenodo.23613406 不变。</p>'
+                '<p><b>版本。</b>本合集以各件当前单行本为准；概念 DOI 10.5281/zenodo.23613406 保持不变。</p>'
                 '<p>本合集为阅读便利而编，引用时请以各件单行本为准（含其 DOI、附录与可证伪登记）。'
                 '十五篇论文的 DOI 见各篇论文封面页；九本书的 DOI 见各卷版权页。</p></div>')
 
