@@ -5,15 +5,15 @@
 
 | 件 | 等级 | 字数(正文/附录) | 附录 | 主要问题 |
 |---|---|---:|---:|---|
-| knowledge-tradeoffs | ok | 44,536 / 4,362 | 6 |  |
+| knowledge-tradeoffs | ok | 44,640 / 4,362 | 6 |  |
 | distinction-evolution | ok | 84,762 / 6,837 | 6 |  |
-| capacity-cascade | ok | 82,087 / 12,272 | 6 |  |
+| capacity-cascade | ok | 82,280 / 12,272 | 6 |  |
 | entropy-spiral | ok | 139,141 / 22,194 | 6 |  |
-| impossibility-triangle | ok | 76,061 / 36,180 | 5 |  |
-| interpretation-tradeoff | ok | 88,674 / 20,112 | 6 |  |
-| emergence-critical | ok | 88,241 / 9,103 | 6 |  |
+| impossibility-triangle | ok | 76,269 / 36,180 | 5 |  |
+| interpretation-tradeoff | ok | 88,764 / 20,112 | 6 |  |
+| emergence-critical | ok | 88,304 / 9,103 | 6 |  |
 | mind-forks | ok | 136,086 / 9,833 | 4 |  |
-| hotspot-bills | ok | 51,275 / 5,358 | 4 |  |
+| hotspot-bills | ok | 51,341 / 5,358 | 4 |  |
 | ComputingDemystified | ok | 24,800 / 1,595 | 6 |  |
 | WorldPeriodization | ok | 17,189 / 9,672 | 5 |  |
 | SleepingResidue | ok | 23,606 / 2,865 | 4 |  |
