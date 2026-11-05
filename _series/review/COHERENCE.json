@@ -1,0 +1,847 @@
+[
+ {
+  "repo": "knowledge-tradeoffs",
+  "kind": "book",
+  "title": "只能选两样：从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍 / Pick Two: Six",
+  "f": {
+   "ref_chapter": [
+    "引用不存在的章：第[21]章（共 19 章）"
+   ],
+   "patch": [
+    "版本/拼接痕迹：旧版×1"
+   ]
+  },
+  "chapters": 19,
+  "front": [
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_howto.html",
+   "front_intro.html",
+   "front_quick.html",
+   "front_zerobase.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_postscript.html",
+   "back_series.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html",
+   "appendix_e.html",
+   "appendix_f.html"
+  ],
+  "cn_body": 44536,
+  "cn_appx": 4362
+ },
+ {
+  "repo": "distinction-evolution",
+  "kind": "book",
+  "title": "区分的语言：区分如何生成空间、形式与谱——七条定理、 / The Language of Distinction: How Distinctions Gen",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：再补×2"
+   ],
+   "hedge": [
+    "防御性/空话：某种意义上×2、在某种意义上×1"
+   ]
+  },
+  "chapters": 25,
+  "front": [
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_hardcore.html",
+   "front_preface.html",
+   "front_quickstart.html",
+   "front_terms.html",
+   "front_theorymap.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_popular_guide.html",
+   "back_references.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_d.html",
+   "appendix_e.html",
+   "appendix_f.html",
+   "appendix_f2.html"
+  ],
+  "cn_body": 84762,
+  "cn_appx": 6837
+ },
+ {
+  "repo": "capacity-cascade",
+  "kind": "book",
+  "title": "遗忘的边界：有限容量下的记忆、智能与自我 / The Boundary of Forgetting:",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：补全×1"
+   ],
+   "hedge": [
+    "防御性/空话：某种意义上×1、或许×2、也许×3、在某种意义上×1"
+   ]
+  },
+  "chapters": 25,
+  "front": [
+   "front_copyright.html",
+   "front_executive_summary.html",
+   "front_finitude.html",
+   "front_preface.html",
+   "front_quickstart.html",
+   "front_terms.html",
+   "front_theorymap.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_popular_guide.html",
+   "back_postscript.html",
+   "back_references.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html",
+   "appendix_e.html",
+   "appendix_f.html"
+  ],
+  "cn_body": 82087,
+  "cn_appx": 12272
+ },
+ {
+  "repo": "entropy-spiral",
+  "kind": "book",
+  "title": "错位的时间：为什么我们总是来不及——社会系统的时间错配与可控性边界 / Desynchronized",
+  "f": {
+   "dangling": [
+    "引用了不存在的节/小节：1.0"
+   ],
+   "hedge": [
+    "防御性/空话：或许×1、也许×4"
+   ]
+  },
+  "chapters": 25,
+  "front": [
+   "front_copyright.html",
+   "front_executive_summary.html",
+   "front_finitude.html",
+   "front_opening.html",
+   "front_preface.html",
+   "front_quickstart.html",
+   "front_roadmap.html",
+   "front_terms.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_popular_guide.html",
+   "back_postscript.html",
+   "back_references.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html",
+   "appendix_e.html",
+   "appendix_f.html"
+  ],
+  "cn_body": 139141,
+  "cn_appx": 22194
+ },
+ {
+  "repo": "impossibility-triangle",
+  "kind": "book",
+  "title": "选择的代价：完备、可组合与可传递的三维权衡——复杂知识系统如何形成、演化与更新 / The Pric",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：补全×1"
+   ],
+   "hedge": [
+    "防御性/空话：必须强调×2、值得注意的是×1、某种意义上×1、或许×1、也许×1、在某种意义上×1"
+   ]
+  },
+  "chapters": 25,
+  "front": [
+   "front_background.html",
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_hardcore.html",
+   "front_preface.html",
+   "front_quickstart.html",
+   "front_roadmap.html",
+   "front_terms.html",
+   "front_theorymap.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_popular_guide.html",
+   "back_references.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html",
+   "appendix_e.html"
+  ],
+  "cn_body": 76061,
+  "cn_appx": 36180
+ },
+ {
+  "repo": "interpretation-tradeoff",
+  "kind": "book",
+  "title": "诠释的权衡：历史研究中的置信度、权衡与理论流变——从人物还原到范式转移的五个应用 / The Tra",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：原书×3"
+   ],
+   "hedge": [
+    "防御性/空话：某种意义上×1、或许×1、也许×2、在某种意义上×1、众所周知×2"
+   ]
+  },
+  "chapters": 26,
+  "front": [
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_hardcore.html",
+   "front_preface.html",
+   "front_quickstart.html",
+   "front_roadmap.html",
+   "front_terms.html",
+   "front_theorymap.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_popular_guide.html",
+   "back_references.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html",
+   "appendix_e.html",
+   "appendix_f.html"
+  ],
+  "cn_body": 88674,
+  "cn_appx": 20112
+ },
+ {
+  "repo": "emergence-critical",
+  "kind": "book",
+  "title": "涌现的临界：为什么有些变化回不去——临界、涌现与形式化的边界 / The Criticality o",
+  "f": {
+   "dangling": [
+    "引用了不存在的节/小节：2.26"
+   ],
+   "hedge": [
+    "防御性/空话：值得注意的是×1"
+   ]
+  },
+  "chapters": 25,
+  "front": [
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_howto.html",
+   "front_intro.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_references.html",
+   "back_series.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html",
+   "appendix_e.html",
+   "appendix_f.html"
+  ],
+  "cn_body": 88241,
+  "cn_appx": 9103
+ },
+ {
+  "repo": "mind-forks",
+  "kind": "book",
+  "title": "心灵的分岔：从无意识到可观察——心理学流派的六次划线 / The Forking Mind: Six",
+  "f": {
+   "hedge": [
+    "防御性/空话：值得一提的是×1、也许×11、显而易见×1"
+   ]
+  },
+  "chapters": 25,
+  "front": [
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_howto.html",
+   "front_intro.html",
+   "front_quick.html"
+  ],
+  "back": [
+   "back_epilogue.html",
+   "back_glossary.html",
+   "back_postscript.html",
+   "back_series.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html"
+  ],
+  "cn_body": 136086,
+  "cn_appx": 9833
+ },
+ {
+  "repo": "hotspot-bills",
+  "kind": "book",
+  "title": "热点的账单：用六个核心，诊断过去一年的热搜与争论 / The Bill of the Hot Lis",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：再补×2"
+   ]
+  },
+  "chapters": 21,
+  "front": [
+   "front_copyright.html",
+   "front_finitude.html",
+   "front_howto.html",
+   "front_intro.html"
+  ],
+  "back": [
+   "back_afterword.html",
+   "back_data.html",
+   "back_epilogue.html",
+   "back_series.html"
+  ],
+  "appendix": [
+   "appendix_a.html",
+   "appendix_b.html",
+   "appendix_c.html",
+   "appendix_d.html"
+  ],
+  "cn_body": 51275,
+  "cn_appx": 5358
+ },
+ {
+  "repo": "ComputingDemystified",
+  "kind": "paper",
+  "title": "术语的账单：从芯片到 Agent 的八十个计算机概念 / The Bill Behind the T",
+  "f": {},
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 方法：三问还原法与术语账本",
+   "3 结果 I：八层还原",
+   "4 工程：把\"可维护\"翻译成\"把决定推迟\"",
+   "5 大模型：把\"智能\"翻译成\"矩阵乘与访存\"",
+   "6 Agent：把\"自主\"翻译成\"循环、工具与检查\"",
+   "7 结果 II：账本的统计",
+   "8 一个编码反例的解剖",
+   "9 一个 20 行 Agent：把词压进一个 for 循环",
+   "10 四周路径与按症状补课表",
+   "11 讨论：还原论的边界",
+   "12 结论",
+   "附录 A　八十条术语总表",
+   "附录 B　账本模板",
+   "附录 C　可证伪登记",
+   "附录 D　数据与复现",
+   "附录 E　与本系列专著的关系及借用边界",
+   "附录 F　机制家族的覆盖核对",
+   "参考文献"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 26395
+ },
+ {
+  "repo": "WorldPeriodization",
+  "kind": "paper",
+  "title": "谁在切时间轴：六十部世界史分期的门、位置与排他性，附一份自证方案 / Who Cuts the Ti",
+  "f": {},
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 方法：把分期读成分区",
+   "3 结果",
+   "4 把切线切在自己身上：一份自证的分期",
+   "5 讨论",
+   "6 结论",
+   "附录 A　编码手册",
+   "附录 B　来源清单",
+   "附录 C　可证伪登记",
+   "附录 D　全部边界",
+   "附录 E　六核心与六本专著的对照",
+   "参考文献"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 26861
+ },
+ {
+  "repo": "SleepingResidue",
+  "kind": "paper",
+  "title": "线外的残余：被埋没的理论为何被重新发现，为何永久沉默 / Residuals Outside the",
+  "f": {
+   "hedge": [
+    "防御性/空话：值得注意的是×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 理论框架：把\"记住\"从中观推到宏观",
+   "3 与《遗忘的边界》的接口：三个必须改写的定义",
+   "4 案例、编码与可复现规则",
+   "5 结果一：沉寂期由解码器决定，不由文献决定",
+   "6 结果二：旧坐标决定回归路径",
+   "7 结果三：重发明只发生在可重建的时候",
+   "8 结果四：三标记不是打分表",
+   "9 负面清单：什么条件下沉默是永久的",
+   "10 与范式转移的关系",
+   "11 讨论",
+   "12 结论",
+   "参考文献",
+   "附录 A　术语与符号",
+   "附录 B　可证伪登记簿（append-only）",
+   "附录 C　史料长注（八则）",
+   "附录 D　增补记录：从 16 例到 24 例",
+   "附注"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 26471
+ },
+ {
+  "repo": "HunanRelaySystem",
+  "kind": "paper",
+  "title": "明清湘中驿道体系的 GEPF 三层分析：家族记忆、商品流向与地名侵蚀 / A GEPF Three-",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：本次修订×1"
+   ],
+   "hedge": [
+    "防御性/空话：或许×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 GEPF：一个三层模型",
+   "3 数据与方法",
+   "4 结果",
+   "5 记住：地名侵蚀是容量—压缩—遗忘的宏观形态",
+   "6 讲述：三级文献的置信度分层",
+   "7 三条反例：宁乡、浏阳、衡州",
+   "8 里程、成本与年费：三个数字的可复核性",
+   "9 与五篇姊妹论文的接口",
+   "10 讨论",
+   "11 结论",
+   "参考文献",
+   "12 术语表",
+   "附录 A　驿铺与节点（节选）",
+   "附录 B　数据缺口",
+   "附录 C　六核心与本系列专著的对照",
+   "附录 D　主要站点表",
+   "附录 E　六县地名保留率的判定示例",
+   "附注"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 29804
+ },
+ {
+  "repo": "BureauRotationCession",
+  "kind": "paper",
+  "title": "轮换的让渡：中国官制三千年（西周—2026）的有限系统取舍分析 / The Rotation of ",
+  "f": {
+   "hedge": [
+    "防御性/空话：必须强调×1、值得注意的是×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 理论框架：把官制翻译成 C、A、T",
+   "3 案例、编码与可复现规则",
+   "4 礼制起点：三老五更、三师与\"第四类\"",
+   "5 结果一：内廷线（侍从型）",
+   "6 结果二：外派线（监察副贰型）",
+   "7 结果三：军职线、加衔线与\"权力的试用期\"",
+   "8 统计与模式",
+   "9 时间错配 τ",
+   "10 临界：汉末与唐末",
+   "11 现代转型（1901—2026）",
+   "12 量化检验",
+   "13 讨论",
+   "14 结论",
+   "参考文献",
+   "附录A　案例编码总表（n=121）",
+   "附录B　术语与符号",
+   "附录C　数据缺口与待核清单",
+   "附录D　可证伪登记簿（append-only）",
+   "附录E　图表索引",
+   "附录F　测量协议与复现",
+   "附注"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 42622
+ },
+ {
+  "repo": "HarnessEcology",
+  "kind": "paper",
+  "title": "被点燃的生态：两个社区、五种口径与三个标记 / An Ignited Ecosystem: Two ",
+  "f": {
+   "hedge": [
+    "防御性/空话：也许×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "1 一个没有答案的问题，和一份已经写好的判据",
+   "2 对象与口径",
+   "3 结果一：增长形态",
+   "4 反事实：如果去掉那 651 个回溯",
+   "5 结果二：分辨率",
+   "6 三标记判定",
+   "7 结果三：选择——三项要求在插件生态里长什么样",
+   "8 结果四：记住——标签重写是一种压缩",
+   "9 结果五：追赶与讲述——三个时钟，一次预注册",
+   "10 讨论",
+   "11 负面结果与失败清单",
+   "12 结语",
+   "附录 A　存活率口径",
+   "附录 B　六核心与本系列专著的对照",
+   "附录 C　与系列此前几篇的口径差异",
+   "附录 D　假设登记（append-only）",
+   "附录 E　术语与符号",
+   "附录 F　与系列此前几篇的数字对照",
+   "参考文献## 参考文献"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 21620
+ },
+ {
+  "repo": "OptimizationBoundary",
+  "kind": "paper",
+  "title": "优化的边界：目标函数、搜索空间与六核心的停止规则 / The Boundary of Optimiz",
+  "f": {
+   "hedge": [
+    "防御性/空话：也许×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 理论框架：四个前提，四个提供者",
+   "3 数据与方法",
+   "4 结果",
+   "5 诊断的第二根轴：代价承担者与反馈时滞",
+   "6 与六核心的接口",
+   "7 结果二：四个越界案例的深度复核",
+   "8 与优化话语的对话",
+   "9 反例章：进化不是优化",
+   "10 讨论",
+   "11 使用手册：四前提检查表的九个格子",
+   "12 与《选择的代价》的接口：越界是一种三角取舍",
+   "13 结论",
+   "参考文献",
+   "附录 A　二十个案例的出处摘录",
+   "附录 B　四类使用者的检查表",
+   "附录 C　二十个案例的逐条判定",
+   "附录 D　四条\"没有越界\"的对照案例",
+   "附录 E　登记簿（append-only）",
+   "附录 F　四前提 × 四种再生机制：一张诊断矩阵",
+   "附注"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 23481
+ },
+ {
+  "repo": "CapacityProxies",
+  "kind": "paper",
+  "title": "容量的三个代理：分期槽位、编码槽位与标签槽位 / Three Proxies for Capacit",
+  "f": {
+   "hedge": [
+    "防御性/空话：也许×2"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 框架：容量、压缩、遗忘的可数版本",
+   "3 数据与方法",
+   "4 结果一：分期槽位（支持，但弱）",
+   "5 结果二：编码槽位（不可判）",
+   "6 结果三：标签槽位（反向）",
+   "7 结果四：三个代理的交叉验证",
+   "8 结果五：一次失败的重编码",
+   "9 三个代理的联合测量协议",
+   "10 与价格轴的接口：容量能不能被定价",
+   "11 结果六：与三篇源论文的逐项对账",
+   "12 结果七：一棵判决树，而不是三张判决书",
+   "13 讨论",
+   "14 结果的边界：三种不能说的话",
+   "15 一次完整的联合测量：从原始表到判决",
+   "16 结论",
+   "参考文献",
+   "附录 A　分箱与原始表",
+   "附录 B　三个代理的算式与可复算性",
+   "附录 C　登记簿（append-only）",
+   "附录 D　数据字典：四张表、十九个字段",
+   "附录 E　复算日志：从原始表到三个判决",
+   "附录 F　同名不同物：容量、槽位与标签",
+   "附注"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 22282
+ },
+ {
+  "repo": "DomainCrossSection",
+  "kind": "paper",
+  "title": "领域的剖面：四个问题、二十个领域与八十字段的审计 / The Cross-Section of Domains: Four Questions, Twenty Fields, and an Audit of Eighty Cells",
+  "f": {},
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 四个问题：一份判据，而不是一份清单",
+   "3 数据与方法",
+   "4 结果",
+   "5 类型学：二十个领域压成五类",
+   "6 三个反直觉的结论",
+   "7 倒过来用：从承担者反推瓶颈",
+   "8 二十个领域的一句话账单",
+   "9 与六核心的接口",
+   "10 规范与行为的落差：本文读数的最大弱点",
+   "11 讨论",
+   "12 结论",
+   "参考文献",
+   "附录 A　与《术语的账单》的八层对照",
+   "附录 B　二十个领域各一条反常识细节",
+   "附录 C　跨篇登记：第十四篇带来的两处相撞"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 25902
+ },
+ {
+  "repo": "IsomorphismStrength",
+  "kind": "paper",
+  "title": "同构的强度：对偶、泛性质、不变量与四十条断裂探针 / The Strength of Isomorphism: Motifs, Analogy, and Forty Fracture Probes",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：补全×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 理论：压缩、损失，与「像」的四个价位",
+   "3 方法：四问编码与四十条声明",
+   "4 母题一：对偶／伴随（10 条）",
+   "5 母题二：泛性质／自由对象（10 条）",
+   "6 母题三：不变量／导函子（10 条）",
+   "7 母题四与五：结构型与过程型（10 条快照）",
+   "8 结果：强度、断裂层与负迁移",
+   "9 边界与负迁移：从「像」到「能不能照它做」",
+   "10 与六核心、《数学大地图》及其他各件的接口",
+   "11 自证：把本文的四十条声明自己过一遍探针",
+   "12 讨论",
+   "13 结论",
+   "参考文献",
+   "附录 A　十五条负迁移的处置卡",
+   "附录 B　四十条的一句话版",
+   "附录 C　第四十一条声明：人＝君主，agent＝臣民（不计入四十条统计）"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 23893
+ },
+ {
+  "repo": "MemoryAnchor",
+  "kind": "paper",
+  "title": "记忆的锚点：情景唤起、异构重建与日志裁决 / The Anchor of Memory: Episodic Recall, Heterogeneous Reconstruction, and Log Adjudication in Agents",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：补全×2"
+   ],
+   "fig_dup": [
+    "图号重复：1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 读法约定",
+   "3 理论：为什么「同样的容量能记更多」",
+   "4 方法：把「情景唤起」写成六个可判定的变量",
+   "5 架构：书记员、回忆者、裁判",
+   "6 结果：十二行表能告诉我们什么",
+   "7 解剖：那个四天就死的账号",
+   "8 边界与风险",
+   "9 与六核心、系列各件的接口",
+   "10 自证：把本文的主张也过一遍",
+   "11 讨论",
+   "12 结论",
+   "参考文献",
+   "附录 A　四种死亡机制的展开",
+   "附录 B　评估协议（若要把它做成实验）",
+   "附录 C　十二个方案 × 四问的交叉"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 23255
+ },
+ {
+  "repo": "MemoryStressTest",
+  "kind": "paper",
+  "title": "锚点的下限：情景记忆的模拟对照实验与 0.57 的覆盖率阈值 / The Floor of Anchoring: A Simulation Study of Episodic Memory and the 0.57 Coverage Threshold",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：旧版×1"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 为什么先做模拟，而不是先上真实账号",
+   "3 协议（预注册）",
+   "4 结果一：主对照",
+   "5 结果二：覆盖率阈值",
+   "6 结果三：共源与路数",
+   "7 结果四：换模型不如补账本",
+   "8 结果五：两种失效——全票一致而错，与允许回写",
+   "9 逐条裁决预先登记的否证条件",
+   "10 边界：这次模拟测不到什么",
+   "11 与《记忆的锚点》的关系：承诺与边界",
+   "12 自证：本文的十条命题",
+   "13 结论",
+   "参考文献",
+   "附录 A　协议全文（可直接搬到真实实验）",
+   "附录 B　一次失败的 M1 设计（以及为什么删掉它）",
+   "附录 C　与 ODD 报告规范的对照",
+   "附录 D　登记簿（append-only）",
+   "附录 E　十个常见反对",
+   "附录 F　开工前的检查表（把本文压成一页）"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 19916
+ },
+ {
+  "repo": "LedgerReconciliation",
+  "kind": "paper",
+  "title": "六张账单的对账：六核心的可测代理、失败模式与尺度边界 / Reconciling Six Ledge",
+  "f": {
+   "patch": [
+    "版本/拼接痕迹：补全×1",
+    "版本/拼接痕迹：本版×2"
+   ]
+  },
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 理论框架：五层、三种精度、七种状态",
+   "3 数据与方法",
+   "4 结果（一）：逐核心对账",
+   "5 结果（二）：十三处同名不同物",
+   "6 结果（三）：两个结构性空白与三张表",
+   "7 第十四、十五篇：价格轴与接缝账",
+   "8 讨论",
+   "9 三句可引用的边界句，和一个新论文的三问",
+   "10 结论",
+   "11 前六篇导读：对账之后重读一遍",
+   "参考文献",
+   "12 术语与符号",
+   "附录 A　126 条对账总表与六张卡",
+   "附录 B　十三处同名不同物",
+   "附录 C　对账操作手册与检查表",
+   "附录 D　可证伪登记簿（append-only）",
+   "附注"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 28798
+ },
+ {
+  "repo": "MonarchCompetition",
+  "kind": "paper",
+  "title": "开明君主与两层竞争：agent 价目表上的执行、方向与代价承担者 / The Enlightened Sovereign and Two-Tier Competition: Execution, Direction, and Who Pays on the Agent Price Sheet",
+  "f": {},
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言",
+   "2 从比喻到读数：把「开明君主」降到比喻档",
+   "3 数据与方法",
+   "4 结果一：重放—判断价差",
+   "5 结果二：执行价格的三种口径",
+   "6 结果三：量与钱的分离",
+   "7 结果四：双层是常态",
+   "8 结果五：方向层的价目",
+   "9 结果六：代价的另一半货币",
+   "10 D21：四问编码与两处相撞",
+   "11 开明君主的断裂探针",
+   "12 与六核心的接口",
+   "13 自证",
+   "14 讨论与边界",
+   "15 结论",
+   "参考文献",
+   "附录 A　字段字典与判定细则",
+   "附录 B　与第十篇、第十一篇的逐项对照",
+   "附录 C　数据快照与来源清单"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 25906
+ },
+ {
+  "repo": "SeamLedger",
+  "kind": "paper",
+  "title": "接缝不在奇点：量子力学与广义相对论的三十道裂缝 / The Seam Is Not at the Singularity: Thirty Cracks between Quantum Mechanics and General Relativity",
+  "f": {},
+  "h2": [
+   "摘要",
+   "Abstract",
+   "1 引言：一句被说了五十年的话",
+   "2 四种「矛盾」：一份判据，而不是一份清单",
+   "3 方法与数据：三十条账目是怎么编出来的",
+   "4 六核心：六把尺子，不是六个答案",
+   "5 结果（一）：三十条账目的分布",
+   "6 结果（二）：四条逻辑矛盾，和它们各自的结算条件",
+   "7 结果（三）：十三处接口缺失，分布在五个接口上",
+   "8 结果（四）：八处记账冲突，与六组「同名不同物」",
+   "9 五条定理边界：真正硬的那一部分",
+   "10 六个候选纲领：它们各自声称结算哪几条",
+   "11 反例：三个「看起来是矛盾、其实不是」的案例",
+   "12 谁在为这条缝付账",
+   "13 一份可证伪的对照表",
+   "14 自证：把本文的十条命题放进同一张表",
+   "15 局限、失败方式与五项不做",
+   "16 结论：把「根本」降一级",
+   "参考文献",
+   "附录 A　字段字典与判定细则",
+   "附录 B　登记簿（append-only）",
+   "附录 C　六核心 × 六专著对照表",
+   "附录 D　术语与判据速查",
+   "附录 E　复现说明",
+   "附录 F　三条被撤回或改判的编码"
+  ],
+  "eq_blocks": 0,
+  "cn_body": 25862
+ }
+]
