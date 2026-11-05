@@ -7,10 +7,10 @@
 |---|---|---:|---:|---|
 | knowledge-tradeoffs | ok | 44,640 / 4,362 | 6 |  |
 | distinction-evolution | ok | 84,762 / 6,837 | 6 |  |
-| capacity-cascade | ok | 82,280 / 12,272 | 6 |  |
+| capacity-cascade | ok | 92,064 / 12,272 | 6 |  |
 | entropy-spiral | ok | 139,141 / 22,194 | 6 |  |
 | impossibility-triangle | ok | 76,269 / 36,180 | 5 |  |
-| interpretation-tradeoff | ok | 88,764 / 20,112 | 6 |  |
+| interpretation-tradeoff | ok | 96,855 / 20,112 | 6 |  |
 | emergence-critical | ok | 88,304 / 9,103 | 6 |  |
 | mind-forks | ok | 136,086 / 9,833 | 4 |  |
 | hotspot-bills | ok | 51,341 / 5,358 | 4 |  |
