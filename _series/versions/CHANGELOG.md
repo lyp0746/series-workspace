@@ -1,5 +1,14 @@
 # 系列级版本记
 
+## 2026-11-05　二轮审阅（图表/定义/图形/路线）
+
+- 图表号全书归一：章按章号、附录按宿主字母、前置按 0、后置按 G/R/S；清除 `表12.7` 与 `表 12.7` 混排、`E.43`、`C.0` 等跨序列编号；全书重号归零。
+- 定义/定理/命题/推论按章内出现顺序重排；distinction/entropy/impossibility/interpretation 四本共 124 个标签与引用同步。
+- 新增 `_series/tools/svg_overlap.py`：按 x/y、font-size、text-anchor 估算文字包围盒，检查重叠与越界；九本 407 个 SVG 修正后 **0 处文字重叠/越界**（含 matplotlib 文字组）。
+- 新增 `renumber_all_figs.py`、`renumber_labels.py`；`tab_ref` 悬空归零。
+- 九本补 10 个高密度章节的“本章路线”；系列页计数改为“其时的九本书”；后置术语表/文献表改用 G/R 前缀。
+- 复测：9 书 157–379 页；15 篇 61–108 页；lint 0/0。
+
 ## 2026-11-05　连贯性整改（24 件）
 
 - 新增 `_series/tools/coherence_audit.py`：查悬空节引用、字母补丁号、图表重号、拼接/版本痕迹、防御性写作、小结位置。
