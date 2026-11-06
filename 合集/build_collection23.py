@@ -196,7 +196,7 @@ h2.chapter { page-break-before: always; }
 .cover { width: %(cw)s; height: %(ch)s; margin: %(cmg)s; padding: 0;
          page-break-after: always;
          background: linear-gradient(165deg, #0a0d13 0%%, #141a25 48%%, #07090d 100%%);
-         color: #ece9e1; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+         color: #1c1c1c; -webkit-print-color-adjust: exact; print-color-adjust: exact;
          position: relative; box-sizing: border-box; }
 .cover .rule-top { position:absolute; top:0; left:0; right:0; height:7mm; background:#b8862f; }
 .cover .rule-bottom { position:absolute; bottom:0; left:0; right:0; height:7mm; background:#b8862f; }
@@ -263,6 +263,16 @@ table.nat td.s, table.nat th.s { text-align:center; }
         ch="297mm" if print_ else "250mm",
         cmg="-25mm -28mm 0 -28mm" if print_ else "-17mm -15mm 0 -15mm",
     )
+    css += """
+.cover{background:#f7f4ec !important;color:#1c1c1c;}
+.cover .rule-top,.cover .rule-bottom{background:#b8862f;}
+.cover .t{color:#1c1c1c;}
+.cover .en,.cover .cores,.cover .yr{color:#6b6b6b;}
+.cover .motto{color:#8a6d2f;}
+.cover .motto2{color:#7a6a4a;}
+.cover .au{color:#1c1c1c;}
+.cover .motif svg{stroke:#b8862f !important;}
+"""
     return css + extra
 
 
@@ -626,9 +636,9 @@ def cover_only_html(mode="print"):
     css = (f"@page {{ size: {page}; margin: 0; }}\n"
            f"html, body {{ margin: 0; padding: 0; width: {cw}; height: {ch}; }}\n"
            f".cover {{ position: relative; width: {cw}; height: {ch}; margin: 0; padding: 0; overflow: hidden;\n"
-           f"         background: linear-gradient(165deg,#0a0d13 0%,#141a25 48%,#07090d 100%);\n"
-           f"         color: #ece9e1; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}\n"
-           + "\n".join(children))
+           f"         background: #f7f4ec;\n"
+           f"         color: #1c1c1c; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}\n"
+           + "\n".join(children) + """\n.cover .t,.cover .au{color:#1c1c1c}.cover .en,.cover .cores,.cover .yr{color:#6b6b6b}.cover .motto{color:#8a6d2f}.cover .motto2{color:#7a6a4a}""")
     return ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
             f'<title>封面</title><style>{css}</style></head><body>' + cover_html() + '</body></html>')
 
