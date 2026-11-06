@@ -27,11 +27,11 @@ TEMP.mkdir(exist_ok=True)
 
 CSS = """
 <style>
-@page { size: A4; margin: 27mm 25mm 25mm 25mm; }
+@page { size: A4; margin: 26mm 30mm 28mm 30mm; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
-  font-size: 12.6pt; line-height: 2.2; color: #1d1d1f; margin: 0 auto; max-width: 46em;
+  font-family: "Times New Roman", "SimSun", "Songti SC", "STSong", serif;
+  font-size: 12.5pt; line-height: 2.15; color: #1d1d1f; margin: 0 auto; max-width: 150mm;
   text-align: justify; hyphens: auto;
 }
 h1 { font-size: 21pt; line-height: 1.4; text-align: center; margin: 0 0 .3em;
@@ -40,7 +40,7 @@ h1 + h3 { text-align: center; font-size: 12.5pt; font-weight: 500; color: #444;
           margin: 0 0 1.2em; line-height: 1.6; }
 h2 { font-size: 15pt; margin: 1.9em 0 .7em; padding-bottom: .25em;
      border-bottom: 1.5px solid #b3261e; page-break-after: avoid; }
-h3 { font-size: 12pt; margin: 1.4em 0 .5em; color: #8c1d18; page-break-after: avoid; }
+h3 { font-size: 12pt; margin: 1.4em 0 .5em; color: #1f1f1f; page-break-after: avoid; }
 h4 { font-size: 11pt; margin: 1.1em 0 .4em; page-break-after: avoid; }
 p { margin: .55em 0; orphans: 2; widows: 2; }
 strong { color: #111; font-weight: 700; }

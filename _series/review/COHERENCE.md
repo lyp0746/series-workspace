@@ -6,17 +6,17 @@
 
 ## knowledge-tradeoffs　只能选两样：从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍 / Pick Two: Six
 
-- 字数：正文 44,640 / 附录 4,362
+- 字数：正文 44,640 / 附录 4,364
 - 章数：19
-- **ref_chapter**：引用不存在的章：第[21]章（共 19 章）
+- **ref_chapter**：引用不存在的章：第[26]章（共 19 章）
 - **patch**：版本/拼接痕迹：旧版×1
 
 ## distinction-evolution　区分的语言：区分如何生成空间、形式与谱——七条定理、 / The Language of Distinction: How Distinctions Gen
 
-- 字数：正文 84,762 / 附录 6,837
+- 字数：正文 83,085 / 附录 6,864
 - 章数：25
 - **patch**：版本/拼接痕迹：再补×2
-- **hedge**：防御性/空话：某种意义上×2、在某种意义上×1
+- **hedge**：防御性/空话：某种意义上×1、在某种意义上×1
 
 ## capacity-cascade　遗忘的边界：有限容量下的记忆、智能与自我 / The Boundary of Forgetting:
 

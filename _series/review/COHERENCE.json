@@ -5,7 +5,7 @@
   "title": "只能选两样：从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍 / Pick Two: Six",
   "f": {
    "ref_chapter": [
-    "引用不存在的章：第[21]章（共 19 章）"
+    "引用不存在的章：第[26]章（共 19 章）"
    ],
    "patch": [
     "版本/拼接痕迹：旧版×1"
@@ -35,7 +35,7 @@
    "appendix_f.html"
   ],
   "cn_body": 44640,
-  "cn_appx": 4362
+  "cn_appx": 4364
  },
  {
   "repo": "distinction-evolution",
@@ -46,7 +46,7 @@
     "版本/拼接痕迹：再补×2"
    ],
    "hedge": [
-    "防御性/空话：某种意义上×2、在某种意义上×1"
+    "防御性/空话：某种意义上×1、在某种意义上×1"
    ]
   },
   "chapters": 25,
@@ -73,8 +73,8 @@
    "appendix_f.html",
    "appendix_f2.html"
   ],
-  "cn_body": 84762,
-  "cn_appx": 6837
+  "cn_body": 83085,
+  "cn_appx": 6864
  },
  {
   "repo": "capacity-cascade",
