@@ -19,6 +19,21 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+# --- layout scaling: spread labels (auto) ---
+_orig_subplots = plt.subplots
+def _subplots(*a, **k):
+    if k.get("figsize"):
+        k["figsize"] = (k["figsize"][0] * 1.22, k["figsize"][1] * 1.22)
+    return _orig_subplots(*a, **k)
+plt.subplots = _subplots
+_orig_figure = plt.figure
+def _figure(*a, **k):
+    if k.get("figsize"):
+        k["figsize"] = (k["figsize"][0] * 1.22, k["figsize"][1] * 1.22)
+    return _orig_figure(*a, **k)
+plt.figure = _figure
+
 from matplotlib.patches import FancyBboxPatch, Rectangle, FancyArrowPatch, Ellipse
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data"))

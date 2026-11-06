@@ -5,8 +5,8 @@
 
 | 件 | 等级 | 字数(正文/附录) | 附录 | 主要问题 |
 |---|---|---:|---:|---|
-| knowledge-tradeoffs | ok | 44,640 / 4,362 | 6 |  |
-| distinction-evolution | ok | 84,762 / 6,837 | 6 |  |
+| knowledge-tradeoffs | ok | 44,640 / 4,364 | 6 |  |
+| distinction-evolution | ok | 83,085 / 6,864 | 6 |  |
 | capacity-cascade | ok | 92,064 / 12,272 | 6 |  |
 | entropy-spiral | ok | 139,141 / 22,194 | 6 |  |
 | impossibility-triangle | ok | 76,269 / 36,180 | 5 |  |

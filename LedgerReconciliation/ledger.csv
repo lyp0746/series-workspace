@@ -1,4 +1,4 @@
-﻿paper,pid,stmt,test,result,status,grade,core,scale
+paper,pid,stmt,test,result,status,grade,core,scale
 官制,R1,内廷使职补 A 后 C 下降,补 A 后 30 年内近侍参与机要频率下降,待检验,待检验,B,选择,制度
 官制,R2,禁戒后功能换名再生,禁戒后 60 年内出现同类功能新职位,待检验,待检验,B,选择,制度
 官制,R3,融合线预测体制崩解,出现融合线的时期 30 年内崩解,两次崩解均在融合期，Fisher p=0.48,部分,C,临界,制度
