@@ -31,36 +31,126 @@
   "related_identifiers": [
     {
       "identifier": "https://github.com/lyp0746/series-workspace",
-      "relation": "isSupplementedBy",
+      "relation": "isPartOf",
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23886113",
+      "identifier": "10.5281/zenodo.24029812",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23887380",
+      "identifier": "10.5281/zenodo.24029873",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23887494",
+      "identifier": "10.5281/zenodo.24029909",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888037",
+      "identifier": "10.5281/zenodo.24029980",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888150",
+      "identifier": "10.5281/zenodo.24030004",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888165",
+      "identifier": "10.5281/zenodo.24030720",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030741",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030756",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030776",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030797",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030828",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030855",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030875",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030882",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030916",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030958",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030980",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030997",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031174",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031308",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031412",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031457",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031765",
+      "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031787",
       "relation": "isPartOf",
       "scheme": "doi"
     }

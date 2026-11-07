@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import api
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATE = "2026-11-04"
+DATE = "2026-11-07"
 RDM_TYPE = {"book": {"id": "publication-book"},
             "preprint": {"id": "publication-preprint"}}
 CREATOR = {"person_or_org": {"type": "personal", "name": "李毅芃",
@@ -193,4 +193,7 @@ if __name__ == "__main__":
         n = up(slug, did)
         meta(slug, did)
         publish(did)
-        print("files:", n, "DOI:", doi)
+        _, rec = api.req("GET", "https://zenodo.org/api/records/%s" % did, tries=3, timeout=120)
+        out = {"slug": slug, "id": str(rec.get("id")), "doi": rec.get("doi"), "conceptdoi": rec.get("conceptdoi"), "date": DATE}
+        json.dump(out, open(os.path.join(ROOT, "_zenodo", "published_%s.json" % slug), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print("files:", n, "DOI:", rec.get("doi"))

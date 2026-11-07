@@ -29,37 +29,37 @@
   "notes": "工作论文/预印本。全文 33 页；含六核心×六专著对照表与可复算编码库。 系列共 17 件；related_identifiers 已按裸 DOI 归一。",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
-      "relation": "isSupplementedBy",
+      "identifier": "https://github.com/lyp0746/series-workspace",
+      "relation": "isPartOf",
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23886113",
+      "identifier": "10.5281/zenodo.24029812",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23887380",
+      "identifier": "10.5281/zenodo.24029873",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23887494",
+      "identifier": "10.5281/zenodo.24029909",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888037",
+      "identifier": "10.5281/zenodo.24029980",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888150",
+      "identifier": "10.5281/zenodo.24030004",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888165",
+      "identifier": "10.5281/zenodo.24030720",
       "relation": "isPartOf",
       "scheme": "doi"
     }

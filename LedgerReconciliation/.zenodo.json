@@ -33,38 +33,103 @@
   "notes": "工作论文/预印本。2026-11-02，88 页，126 条，13 处同名不同物。",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/lyp0746/knowledge-tradeoffs",
-      "relation": "isSupplementedBy",
+      "identifier": "https://github.com/lyp0746/series-workspace",
+      "relation": "isPartOf",
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.23886113",
+      "identifier": "10.5281/zenodo.24029812",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23887380",
+      "identifier": "10.5281/zenodo.24029873",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23887494",
+      "identifier": "10.5281/zenodo.24029909",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888037",
+      "identifier": "10.5281/zenodo.24029980",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888150",
+      "identifier": "10.5281/zenodo.24030004",
       "relation": "isPartOf",
       "scheme": "doi"
     },
     {
-      "identifier": "10.5281/zenodo.23888165",
+      "identifier": "10.5281/zenodo.24030720",
       "relation": "isPartOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030797",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030828",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030855",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030875",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030882",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030916",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030958",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030980",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24030997",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031174",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031308",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031412",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24031457",
+      "relation": "references",
       "scheme": "doi"
     }
   ]
