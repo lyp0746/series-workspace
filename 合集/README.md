@@ -26,12 +26,12 @@
 
 | 文件 | 内容 |
 |---|---|
-| `release/00-合集-印刷版.pdf` | A4 印刷版，2199 页 |
-| `release/01-合集-电子版.pdf` | B5 电子阅读版，2694 页 |
+| `release/00-合集-印刷版.pdf` | A4 印刷版，1954 页 |
+| `release/01-合集-电子版.pdf` | B5 电子阅读版，2569 页 |
 | `release/02-合集.html` | 单文件网页版（图片内联） |
 | `release/03-合集.md` | 合集 Markdown（约 6.2 MB） |
 | `release/04-assets.zip` | 配图（377 个文件） |
-| `release/合集.epub` | EPUB 3（311 个文档、216 幅图） |
+| `release/合集.epub` | EPUB 3（312 个文档、216 幅图） |
 
 ## 结构
 

@@ -1,0 +1,92 @@
+==knowledge-tradeoffs  [all:"trade-off" AND all:"complex systems" AND all:framework]
+   2026-11  A Bayesian Framework for Safe Optimal Control of Unknown Systems from Input-Output Data
+   2026-05  UniMaia: Steering Chess Policies with Language for Human-like Play
+   2026-04  Multi-Agent Digital Twins for Strategic Decision-Making using Active Inference
+   2026-04  Predicting Dynamics of Ultra-Large Complex Systems by Inferring Governing Equations
+==distinction-evolution  [all:"graph Laplacian" AND all:"phase transition" AND all:network]
+   2026-07  Spectral Dynamics of Semantic Drift in Clinical Multi-Agent Language Model Networks
+   2026-04  Spectral Kernel Dynamics via Maximum Caliber: Fixed Points, Geodesics, and Phase Transitions
+   2011-07  Spectral renormalization group theory on networks
+==capacity-cascade  [all:"agent memory" AND all:consolidation]
+   2026-11  MIRIX-2.0: Multi-Agent Memory System
+   2026-11  Enhancing Local and Global Structure in Compressed AI Agent Memory
+   2026-10  Long-Term Agent Memory through Complementary Curation and Consolidation
+   2026-10  REM: What to Store, When to Recall, What to Forget in Experience Memory for Coding Agents
+==entropy-spiral  [all:"time scales" AND all:"social" AND all:"model"]
+   2026-10  Activity-based temporal hypergraphs: from individual activity to collective social dynamics
+   2026-10  Compare to Correct: Pairwise-Guided Logit Adjustment for LLM Test-Time Scaling
+   2026-08  A Generalized Gompertz Law for the Rise and Fall of Empires
+   2026-08  Resilient Monitoring of Social Dynamical Systems through Collaborative Multi-Agent Networks under La
+==impossibility-triangle  [all:"trade-off" AND all:"composability" AND all:"invariant"]
+   2026-01  A Hybrid semi-Lagrangian Flow Mapping Approach for Vlasov Systems: Combining Iterative and Compositi
+   2024-06  Averaging log-likelihoods in direct alignment
+   2022-09  Sum Rule Bounds Beyond Rozanov Criterion in Linear and Time-Invariant Thin Absorbers
+   2022-03  Learning to Censor by Noisy Sampling
+==interpretation-tradeoff  [all:"historical" AND all:"Bayesian" AND all:"explanation"]
+   2026-02  Cold-Start Personalization via Bayesian Adaptive Questioning
+   2025-12  Probabilistic Neuro-Symbolic Reasoning for Sparse Historical Data: A Framework Integrating Bayesian 
+   2024-01  Borrowing from historical control data in a Bayesian time-to-event model with flexible baseline haza
+==emergence-critical  [all:"early warning signals" AND all:"critical transitions"]
+   2026-10  Information transfer as a new indicator of approaching local bifurcations: saddle-node, pitchfork an
+   2026-09  Early Warning Signals Can Vanish or Amplify: Dimensionality in Complex Systems
+   2026-08  Koopman early warning signals for bifurcation and rate-induced tipping
+   2026-07  Where does the criticality live? Early-warning signals are event-heterogeneous across seven crypto-p
+==mind-forks  [all:"history of psychology" OR all:"psychology paradigms"]
+   2026-10  Feature Competition and Its Representational Origins in Vision Language Models: Evidence from the St
+   2026-10  Illusory Pattern Perception Drives Spurious Inference in Large Language Models
+   2026-09  The House with a Million Windows: Interactive Fiction for Narrative Restorying
+   2026-07  Recognition, Simulation, and Refusal: A Contamination-Aware Study of Classic Psychological Effects i
+==hotspot-bills  [all:"public attention" AND all:"agenda setting"]
+   2022-12  Twitter's Agenda-Setting Role: A Study of Twitter Strategy for Political Diversion
+   2018-07  Quantifying time-dependent Media Agenda and Public Opinion by topic modeling
+==ComputingDemystified  [all:"computer architecture" AND all:"abstraction" AND all:"taxonomy"]
+   2026-11  Advancements in Cloud-Native Systems: A Systematic Mapping Study of Reliability and Scalability acro
+   2025-12  AI-Native Integrated Sensing and Communications for Self-Organizing Wireless Networks: Architectures
+   2025-10  Descriptor-Based Object-Aware Memory Systems: A Comprehensive Review
+   2025-09  A Review of Software for Designing and Operating Quantum Networks
+==WorldPeriodization  [all:"periodization" AND all:"history"]
+   2026-11  Event-based analysis of neuromorphic feedback systems
+   2026-11  Early Rug Pull Detection on Solana
+   2026-11  AutoQS: Automated Quantization Strategy Design with Large Language Models
+   2026-11  Operator Learning of Microstructure-Dependent Internal-Variable Models for Inelastic Homogenization:
+==SleepingResidue  [all:"sleeping beauties" AND all:science]
+   2025-12  Forsaking your own: unveiling the delayed recognition of Garfield's work on the "delayed recognition
+   2025-11  Awakening Sleeping Beauties from articles on mRNA vaccines against COVID-19
+   2025-09  Sleeping Kelly
+   2025-01  Team Size and Its Negative Impact on the Disruption Index
+==HunanRelaySystem  [all:"historical GIS" AND all:"place names"]
+==BureauRotationCession  [all:"bureaucratic" AND all:"rotation" AND all:"incentive"]
+==HarnessEcology  [all:"open source" AND all:"ecosystem" AND all:"plugin"]
+   2026-10  Steering for Safety, Hijacking for Profit: Trojan Threats in the LLM Activation Steering Supply Chai
+   2026-07  Plug, Play and Comply: Plugin-Based Compliant Control in ROS 2
+   2026-07  LLMoxie: Exploring Agentic AI for Scientific Software Development
+   2026-04  Real-Time AttentionBender: Granular Interactive Network Bending of Video Diffusion Transformers
+==OptimizationBoundary  [all:"no free lunch" OR all:"optimization boundary"]
+   2026-11  Free Lunch Uncertainty: Sequence-Level Rényi Entropy from Particle Decoding for Adaptive LLM Reasoni
+   2026-10  PhOSv1: Efficient Scaling of Model Sleeping on a Single Server for Autoscaling with GPU-Context Dedu
+   2026-10  There Is No Free Lunch in RLVR: Every pass@1 Gain Has a pass@k Price
+   2026-10  Multi-Token Prediction Done Right
+==CapacityProxies  [all:"capacity" AND all:"proxy" AND all:"memory"]
+   2026-10  FieldRT: Reconfigurable Architecture from Geometric Sensitivity to Streaming Acceleration
+   2026-10  Agentic Cognitive Depth: Operational Criteria for Evaluating LLM Agents
+   2026-09  Total Cost of Agency: Exact Attribution of Memory Injection Cost in Multi-Agent LLM Workflows
+   2026-09  BeaconKV: Key-Value Cache Compression Guided by Beacon Queries for Efficient Large Reasoning Model I
+==DomainCrossSection  [all:"cross-section" AND all:"domains" AND all:survey]
+   2026-04  Time Preference and Tax Burden Acceptance: Asymmetric Effects on Intertemporal and Contemporaneous R
+   2025-02  User Intent to Use DeepSeek for Healthcare Purposes and their Trust in the Large Language Model: Mul
+   2024-02  Progress of photonuclear cross sections for medical radioisotope production at the SLEGS energy doma
+   2022-09  Trust Calibration as a Function of the Evolution of Uncertainty in Knowledge Generation: A Survey
+==IsomorphismStrength  [all:"isomorphism" AND all:"analogy" AND all:"category theory"]
+   2026-07  Chiral Tube Algebras I: Topological Defect Lines, Twisted Modules, and Finite Gauging
+   2026-07  Wormholes as red herrings: reflection positivity and the reconstruction of unitary quantum field the
+   2026-05  Linearly distributive coherence in the absence of units
+   2026-04  On the (algebraic) notion of 2-ring
+==MemoryAnchor  [all:"episodic memory" AND all:"agent"]
+   2026-11  SPAR: Experience-Driven Strategy Evolution in Multi-Session B2B Sales
+   2026-11  Learning by Doing: Autonomously Compiling and Curating Agent Skills from Verified Traces
+   2026-10  RAMA: Retrieval-Augmented Multi-Agent Routing with Episodic Memory for LEO Satellite Networks
+   2026-10  ORION: An Outcome-Driven LLM Advisor for RL-Based Multi-Domain 6G Slice Placement
+==MemoryStressTest  [all:"memory" AND all:"simulation" AND all:"threshold"]
+==MonarchCompetition  [all:"LLM" AND all:"pricing" AND all:"routing"]
+==SeamLedger  [all:"quantum gravity" AND all:"tensions"]
+==LedgerReconciliation  [all:"replication" AND all:"claims" AND all:"audit"]

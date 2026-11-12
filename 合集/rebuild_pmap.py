@@ -16,7 +16,11 @@ def main(pdf="release/00-合集-印刷版.pdf"):
         for i in range(start, len(texts)):
             if any(k in texts[i] for k in ("本卷目录", "总目录", "合集一览", "六核心速查")):
                 continue
-            if p and p in re.sub(r"\s+", "", texts[i]):
+            s = re.sub(r"\s+", "", texts[i])
+            if p and p in s:
+                # 只认“短页”（扉页/题名页），避免命中总目录与正文里的交叉引用
+                if skip_toc and len(s) > 420:
+                    continue
                 return i + 1
         return 0
 

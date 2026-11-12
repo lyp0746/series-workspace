@@ -6,11 +6,11 @@
 | 件 | 等级 | 字数(正文/附录) | 附录 | 主要问题 |
 |---|---|---:|---:|---|
 | entropy-spiral | ok | 139,141 / 22,194 | 6 |  |
-| capacity-cascade | ok | 101,930 / 13,255 | 6 |  |
-| distinction-evolution | ok | 83,085 / 6,864 | 6 |  |
+| capacity-cascade | ok | 101,931 / 13,255 | 6 |  |
+| distinction-evolution | ok | 83,082 / 6,864 | 6 |  |
 | impossibility-triangle | ok | 76,325 / 36,222 | 5 |  |
-| interpretation-tradeoff | ok | 96,855 / 20,112 | 6 |  |
-| emergence-critical | ok | 88,388 / 9,103 | 6 |  |
+| interpretation-tradeoff | ok | 96,838 / 20,112 | 6 |  |
+| emergence-critical | ok | 88,389 / 9,103 | 6 |  |
 | knowledge-tradeoffs | ok | 44,668 / 4,385 | 6 |  |
 | mind-forks | ok | 136,086 / 9,833 | 4 |  |
 | hotspot-bills | ok | 51,341 / 5,358 | 4 |  |

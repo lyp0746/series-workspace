@@ -9,9 +9,9 @@
 | 03 | 书 | `distinction-evolution` | 区分的语言 | 285 | 10.5281/zenodo.24029812 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
 | 04 | 书 | `impossibility-triangle` | 选择的代价 | 320 | 10.5281/zenodo.24030720 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 301 | 10.5281/zenodo.24029980 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
-| 06 | 书 | `emergence-critical` | 涌现的临界 | 312 | 10.5281/zenodo.24030004 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
+| 06 | 书 | `emergence-critical` | 涌现的临界 | 313 | 10.5281/zenodo.24030004 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
 | 07 | 书 | `knowledge-tradeoffs` | 只能选两样 | 181 | 10.5281/zenodo.24030741 | 10.5281/zenodo.23440905 | lyp0746/knowledge-tradeoffs |
-| 08 | 书 | `mind-forks` | 心灵的分岔 | 323 | 10.5281/zenodo.24030756 | 10.5281/zenodo.23637235 | lyp0746/mind-forks |
+| 08 | 书 | `mind-forks` | 心灵的分岔 | 325 | 10.5281/zenodo.24030756 | 10.5281/zenodo.23637235 | lyp0746/mind-forks |
 | 09 | 书 | `hotspot-bills` | 热点的账单 | 178 | 10.5281/zenodo.24030776 | 10.5281/zenodo.23440911 | lyp0746/hotspot-bills |
 | 10 | 论文 | `ComputingDemystified` | 术语的账单 | 73 | 10.5281/zenodo.24030797 | 10.5281/zenodo.23531430 | （无仓库） |
 | 11 | 论文 | `WorldPeriodization` | 谁在切时间轴 | 67 | 10.5281/zenodo.24030828 | 10.5281/zenodo.23573011 | （无仓库） |
