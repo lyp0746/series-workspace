@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-"""统一 23 件的 Zenodo 元信息：日期 2026-10-30、版本 DOI／概念 DOI、仓库链接。
+"""【已停用，勿重跑】统一 23 件的 Zenodo 元信息（2026-10-30 那一批）。
+
+注意：DATE 硬编码为 2026-10-30，重跑会把所有 CITATION 的日期改回该值；
+当前件数为 24，DOI 请以 _zenodo/registry.json 为准。
+
+原说明：统一 23 件的 Zenodo 元信息：日期 2026-10-30、版本 DOI／概念 DOI、仓库链接。
 
 权威来源：各仓 CITATION.cff 已有的 DOI + _zenodo/registry.json（覆盖书与 10–19 篇）。
 """
