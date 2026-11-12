@@ -1,0 +1,17 @@
+IN : <i>X</i> → <i>Z</i>　⟹　<i>I</i>(<i>X</i>;<i>Y</i>) ≤ <i>I</i>(<i>X</i>;<i>Z</i>)
+OUT: <math display="block"><mi>X</mi><mo>→</mo><mi>Z</mi><mo>⟹</mo><mi>I</mi><mo>(</mo><mi>X</mi><mo>;</mo><mi>Y</mi><mo>)</mo><mo>≤</mo><mi>I</mi><mo>(</mo><mi>X</mi><mo>;</mo><mi>Z</mi><mo>)</mo></math>
+
+IN : <i>L</i><sub>IB</sub> = <i>I</i>(<i>X</i>;<i>Z</i>) + <i>β</i> · <i>I</i>(<i>Z</i>;<i>Y</i>)
+OUT: <math display="block"><msub><mi>L</mi><mi>IB</mi></msub><mo>=</mo><mi>I</mi><mo>(</mo><mi>X</mi><mo>;</mo><mi>Z</mi><mo>)</mo><mi>+</mi><mi>β</mi><mo>·</mo><mi>I</mi><mo>(</mo><mi>Z</mi><mo>;</mo><mi>Y</mi><mo>)</mo></math>
+
+IN : Σ<sub>i</sub> Ṡ<sub>i</sub> + Σ<sub>i&lt;j</sub> Ξ<sub>ij</sub>
+OUT: <math display="block"><msub><mi>Σ</mi><mi>i</mi></msub><msub><mi>Ṡ</mi><mi>i</mi></msub><mi>+</mi><msub><mi>Σ</mi><mi>i</mi><mo>&lt;</mo><mi>j</mi></msub><msub><mi>Ξ</mi><mi>ij</mi></msub></math>
+
+IN : κ_info(G) = (1/2) Var(λ)
+OUT: <math display="block"><msub><mi>κ</mi><mi>info</mi></msub><mo>(</mo><mi>G</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi mathvariant="normal">Var</mi><mo>(</mo><mi>λ</mi><mo>)</mo></math>
+
+IN : Θ<sub>debt</sub> ≈ w<sub>h</sub>·(家庭债务/GDP) + w<sub>f</sub>·(企业债务/GDP)·π<sub>fin</sub>
+OUT: <math display="block"><msub><mi>Θ</mi><mi>debt</mi></msub><mo>≈</mo><msub><mi>w</mi><mi>h</mi></msub><mo>·</mo><mfrac><mrow><mtext>家庭债务</mtext></mrow><mrow><mi>GDP</mi></mrow></mfrac><mi>+</mi><msub><mi>w</mi><mi>f</mi></msub><mo>·</mo><mfrac><mrow><mtext>企业债务</mtext></mrow><mrow><mi>GDP</mi></mrow></mfrac><mo>·</mo><msub><mi>π</mi><mi>fin</mi></msub></math>
+
+IN : λ<sub>2</sub>=2−2cos(π/n)
+OUT: <math display="block"><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn><mi>−</mi><mn>2</mn><mi mathvariant="normal">cos</mi><mfrac><mrow><mi>π</mi></mrow><mrow><mi>n</mi></mrow></mfrac></math>

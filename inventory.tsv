@@ -1,9 +1,9 @@
 # inventory.tsv — 全系列条目单一事实来源
 # 列：kind\trepo\tgenre\t标题（中 / EN，以 CITATION.cff 为准）\t页数（印刷版 PDF）\t版本 DOI\t概念 DOI
 # 件数只由本文件决定；任何文档、封面、副标题都不许写死数字。合集不在本表内（见 _zenodo/registry.json 的 collection）。行序为归档顺序，不是阅读顺序；阅读顺序见 合集/build_collection.py 的 PAPERS。
-BOOK	entropy-spiral	book	错位的时间：为什么我们总是来不及——社会系统的时间错配与可控性边界 / Desynchronized Time: Why We Are Always Too Late — Temporal Mismatch and the Boundary of Controllability in Social Systems	410	10.5281/zenodo.24029909	10.5281/zenodo.23217100
+BOOK	entropy-spiral	book	错位的时间：为什么我们总是来不及——社会系统的时间错配与可控性边界 / Desynchronized Time: Why We Are Always Too Late — Temporal Mismatch and the Boundary of Controllability in Social Systems	396	10.5281/zenodo.24029909	10.5281/zenodo.23217100
 BOOK	capacity-cascade	book	遗忘的边界：有限容量下的记忆、智能与自我 / The Boundary of Forgetting: Memory, Intelligence, and the Self under Finite Capacity	318	10.5281/zenodo.24029873	10.5281/zenodo.23323276
-BOOK	distinction-evolution	book	区分的语言：区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限 / The Language of Distinction: How Distinctions Generate Space, Form and Spectrum: Seven Theorems, Thirty-Six Domains, and One Continuum Limit	304	10.5281/zenodo.24029812	10.5281/zenodo.23345012
+BOOK	distinction-evolution	book	区分的语言：区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限 / The Language of Distinction: How Distinctions Generate Space, Form and Spectrum: Seven Theorems, Thirty-Six Domains, and One Continuum Limit	285	10.5281/zenodo.24029812	10.5281/zenodo.23345012
 BOOK	impossibility-triangle	book	选择的代价：完备、可组合与可传递的三维权衡——复杂知识系统如何形成、演化与更新 / The Price of Choice: The Impossibility Triangle of Completeness, Composability, and Transfer	320	10.5281/zenodo.24030720	10.5281/zenodo.23388628
 BOOK	interpretation-tradeoff	book	诠释的权衡：历史研究中的置信度、权衡与理论流变——从人物还原到范式转移的五个应用 / The Tradeoffs of Interpretation: Confidence, Trade-offs, and Theoretical Change in Historical Research — Five Applications from Restoring Persons to Paradigm Shifts	301	10.5281/zenodo.24029980	10.5281/zenodo.23416219
 BOOK	emergence-critical	book	涌现的临界：为什么有些变化回不去——临界、涌现与形式化的边界 / The Criticality of Emergence: Why Some Changes Cannot Be Undone — Criticality, Emergence, and the Limits of Formalization	312	10.5281/zenodo.24030004	10.5281/zenodo.23440900

@@ -1,0 +1,11 @@
+3	capacity-cascade/source\ch04.html	<i>X</i> → <i>Z</i> → <i>Y</i>　⟹　<i>I</i>(<i>X</i>;<i>Y</i>) ≤ <i>I</i>(<i>X</i>;<i>Z</i>)
+10	capacity-cascade/source\ch07.html	输出<sub><i>j</i></sub> = Σ<sub><i>i</i></sub> <i>p</i>(<i>i</i>|<i>j</i>) <i>v</i><sub><i>i</i></sub> = <b>E</b>[<i>V</i> | 查询 <i>j</i>]
+20	capacity-cascade/source\ch10.html	清醒：　min<sub><i>W</i></sub> <i>L</i>(<i>数据</i>; <i>W</i>) = min<sub><i>W</i></sub> <i>E</i><sub><i>x</i>~<i>p</i>(<i>data</i>)</sub>[ ℓ(<i>f</i><sub><i>W</i></sub>(<i>x</i>), <i>y</i>) ]
+35	capacity-cascade/source\ch19.html	自由 ∝ <i>I</i>(过去, 反思 ; 行动) / <i>H</i>(行动)
+50	entropy-spiral/source\ch05.html	Θ<sub>debt</sub> ≈ w<sub>h</sub>·(家庭债务/GDP) + w<sub>f</sub>·(企业债务/GDP)·π<sub>fin</sub> + w<sub>g</sub>·(主权债务/GDP)·(1 − 货币主权)
+62	entropy-spiral/source\ch10.html	Risk(S) = Hazard(S) × Exposure(S) × [1 − AdaptiveCapacity(S)]
+78	entropy-spiral/source\appendix_a.html	α̇ = k<sub>α</sub>(1−s)(1−α) − ν(I)α；　Ġ = λα(1−G) − τ<sub>r</sub>(I)G；　ψ = αG
+90	impossibility-triangle/source\ch02.html	t := 1 − Err(提升预测) / Err(零模型)
+101	distinction-evolution/source\ch01.html	Δ = n<sub>new</sub> − n<sub>lost</sub> − λ·n<sub>assum</sub>　(λ&gt;0 为“前提的价”)
+110	distinction-evolution/source\ch16.html	Ḋ<sub>v</sub> = −αD<sub>v</sub> + β Σ<sub>u∼v</sub>(D<sub>u</sub>−D<sub>v</sub>),  即  Ḋ=(−αI+βL)D
+120	distinction-evolution/source\ch19.html	λ<sub>2</sub>=2−2cos(π/n),   λ<sub>n</sub>=8−4cos(π/n)−4cos(π(n−1)/n),   R = λ<sub>n</sub>/λ<sub>2</sub> = (8/π²)n²(1+O(n<sup>−2</sup>))

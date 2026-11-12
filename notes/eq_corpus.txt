@@ -1,0 +1,125 @@
+0	capacity-cascade/source\ch02.html	min<sub>p(z|x)</sub> [ <i>I</i>(<i>X</i>;<i>Z</i>) + <i>β</i> <i>I</i>(<i>Z</i>;<i>Y</i>) ]，　<i>β</i> ≥ 0
+1	capacity-cascade/source\ch04.html	min<sub><i>p</i>(<i>z</i>|<i>x</i>)</sub>　<i>L</i><sub>IB</sub> = <i>I</i>(<i>X</i>;<i>Z</i>) + <i>β</i> · <i>I</i>(<i>Z</i>;<i>Y</i>)
+2	capacity-cascade/source\ch04.html	<i>R</i>(<i>D</i>) = min<sub><i>p</i>(<i>x̂</i>|<i>x</i>) : E[<i>d</i>(<i>x</i>,<i>x̂</i>)] ≤ <i>D</i></sub>　<i>I</i>(<i>X</i>;<i>X</i>̂)
+3	capacity-cascade/source\ch04.html	<i>X</i> → <i>Z</i> → <i>Y</i>　⟹　<i>I</i>(<i>X</i>;<i>Y</i>) ≤ <i>I</i>(<i>X</i>;<i>Z</i>)
+4	capacity-cascade/source\ch05.html	<i>C</i><sub>eff</sub>(<i>ι</i>) = <i>C</i><sub>∞</sub> + (<i>C</i><sub>max</sub> − <i>C</i><sub>∞</sub>) · exp(−<i>k</i> · <i>ι</i>)
+5	capacity-cascade/source\ch05.html	acc(<i>s</i>) ≈ <i>A</i><sub>∞</sub> + (1 − <i>A</i><sub>∞</sub>) · exp(−<i>α</i> · <i>φ</i>(<i>s</i>))
+6	capacity-cascade/source\ch05.html	<i>I</i>(<i>Z</i>; <i>X</i><sub>1</sub> ∪ <i>X</i><sub>2</sub>) ≤ <i>I</i>(<i>Z</i>;<i>X</i><sub>1</sub>) + <i>I</i>(<i>Z</i>;<i>X</i><sub>2</sub>)
+7	capacity-cascade/source\ch06.html	衰减：　d<i>I</i>/d<i>t</i> = −<i>I</i>/<i>τ</i><sub>2</sub> − <i>κ</i>·<i>ι</i>(<i>t</i>)
+8	capacity-cascade/source\ch06.html	巩固：　d<i>W</i>/d<i>t</i> = <i>η</i>·<i>Φ</i>(重放) − <i>γ</i><i>W</i>，　<i>τ</i><sub>3</sub> ≫ <i>τ</i><sub>2</sub>
+9	capacity-cascade/source\ch07.html	Attention(<i>Q</i>,<i>K</i>,<i>V</i>) = softmax(<i>Q</i><i>K</i><sup>T</sup> / √<i>d</i>) · <i>V</i>
+10	capacity-cascade/source\ch07.html	输出<sub><i>j</i></sub> = Σ<sub><i>i</i></sub> <i>p</i>(<i>i</i>|<i>j</i>) <i>v</i><sub><i>i</i></sub> = <b>E</b>[<i>V</i> | 查询 <i>j</i>]
+11	capacity-cascade/source\ch07.html	<i>I</i>(token<sub><i>i</i></sub> ; 输出<sub><i>j</i></sub> | 其余 token)
+12	capacity-cascade/source\ch07.html	<i>C</i><sub>eff</sub> ≈ <i>d</i> · log(<i>n</i>)　≪　<i>d</i> · <i>n</i>（名义上界）
+13	capacity-cascade/source\ch08.html	context = [系统提示, 事件<sub>1</sub>, 事件<sub>2</sub>, …, 事件<sub><i>n</i></sub>, 当前查询]
+14	capacity-cascade/source\ch08.html	<i>C</i><sub>sys</sub> + Σ<sub><i>i</i></sub> <i>C</i><sub><i>i</i></sub> + <i>C</i><sub>q</sub> ≤ <i>C</i>
+15	capacity-cascade/source\ch08.html	<i>s</i><sub><i>i</i>+1</sub> = <i>s</i><sub><i>i</i></sub> + <i>ε</i><sub><i>i</i></sub>，　‖<i>ε</i><sub><i>i</i></sub>‖ ≈ <i>ε̄</i>
+16	capacity-cascade/source\ch08.html	E[‖<i>s</i><sub><i>n</i></sub> − <i>s</i><sub>0</sub>‖] ≈ √<i>n</i> · <i>ε̄</i>　（随机游走）　或　<i>n</i> · <i>ε̄</i>　（有偏漂移）
+17	capacity-cascade/source\ch08.html	<i>n</i><sub>c</sub> ≈ (<i>r</i>/<i>ε̄</i>)<sup>2</sup>（随机游走）　或　<i>n</i><sub>c</sub> ≈ <i>r</i>/<i>ε̄</i>（有偏），<i>r</i> 为吸引子盆半径
+18	capacity-cascade/source\ch09.html	<i>C</i><sub>brain</sub> ~ <i>N</i><sub>syn</sub> · <i>C</i><sub>syn</sub> ~ 10<sup>15</sup> × (3–5) bit ~ 10<sup>16</sup> bit
+19	capacity-cascade/source\ch09.html	<i>ẋ</i> = <i>F</i>(<i>x</i>; <i>W</i>)，　吸引子 <i>A</i>* = { <i>x</i> : <i>F</i>(<i>x</i>;<i>W</i>) ≈ <i>x</i> }
+20	capacity-cascade/source\ch10.html	清醒：　min<sub><i>W</i></sub> <i>L</i>(<i>数据</i>; <i>W</i>) = min<sub><i>W</i></sub> <i>E</i><sub><i>x</i>~<i>p</i>(<i>data</i>)</sub>[ ℓ(<i>f</i><sub><i>W</i></sub>(<i>x</i>), <i>y</i>) ]
+21	capacity-cascade/source\ch10.html	睡眠：　min<sub><i>W</i></sub> <i>D</i><sub>KL</sub>( <i>p</i><sub>内源</sub>(模式) ‖ <i>p</i><sub><i>W</i></sub>(模式) )　（无外部数据约束）
+22	capacity-cascade/source\ch11.html	<i>s</i><sub>dream</sub> ~ <i>q</i>(<i>s</i>)，　<i>q</i> = argmax<sub><i>q</i></sub> [ <i>H</i>(<i>q</i>) ]　s.t.　<i>D</i><sub>KL</sub>(<i>q</i> ‖ <i>p</i><sub>prior</sub>) ≤ <i>δ</i>
+23	capacity-cascade/source\ch11.html	<i>W</i> ← <i>W</i> − <i>η</i> ∇<i>L</i>(<i>s</i><sub>dream</sub>; <i>W</i>) + <i>ξ</i>，　<i>ξ</i> ~ 内源噪声
+24	capacity-cascade/source\ch12.html	<i>ρ</i> = 日志中留有可核对记录的事实数 / 事实总数
+25	capacity-cascade/source\ch12.html	Δ<i>a</i> ≤ <i>ρ</i> · (1 − <i>a</i><sub>merge</sub>)
+26	capacity-cascade/source\ch12.html	价值密度 = <i>I</i>(表示; 任务) / |表示|　，　整合理应让它上升，而不是让 |表示| 上升
+27	capacity-cascade/source\ch13.html	dim <i>C</i>(<i>t</i>) ≪ dim Ω，　而 dim(Ω \ <i>C</i>) ≫ dim <i>C</i>
+28	capacity-cascade/source\ch13.html	浮现概率 ∝ 相关性(<i>u</i>, <i>C</i>) · 显著性(<i>u</i>)
+29	capacity-cascade/source\ch14.html	max<sub><i>c</i><sub>1</sub>,…,<i>c</i><sub><i>m</i></sub></sub> Σ<sub><i>k</i></sub> <i>U</i><sub><i>k</i></sub>(<i>c</i><sub><i>k</i></sub>)　s.t.　Σ<sub><i>k</i></sub> <i>c</i><sub><i>k</i></sub> ≤ <i>C</i>，　<i>c</i><sub><i>k</i></sub> ≥ 0
+30	capacity-cascade/source\ch14.html	<i>U</i>′<sub>1</sub>(<i>c</i><sub>1</sub>) = <i>U</i>′<sub>2</sub>(<i>c</i><sub>2</sub>) = … = <i>U</i>′<sub><i>m</i></sub>(<i>c</i><sub><i>m</i></sub>)
+31	capacity-cascade/source\ch14.html	<i>η</i>* = argmin<sub><i>η</i></sub> [ <i>L</i><sub>旧</sub>(<i>η</i>) + <i>λ</i> · <i>L</i><sub>新</sub>(<i>η</i>) ]
+32	capacity-cascade/source\ch16.html	<i>F</i> = <i>D</i><sub>KL</sub>[<i>q</i>(<i>s</i>|<i>o</i>) ‖ <i>p</i>(<i>s</i>|<i>o</i>)] − <b>E</b><sub><i>q</i></sub>[ln <i>p</i>(<i>o</i>|<i>s</i>)]
+33	capacity-cascade/source\ch16.html	max<sub><i>Z</i></sub> [ <i>I</i>(<i>Z</i>; <i>R</i> | <i>X</i>) − <i>β</i> · <i>I</i>(<i>Z</i>; <i>X</i>) ]
+34	capacity-cascade/source\ch16.html	min<sub>ŝ</sub>　<b>E</b>[ ‖<i>o</i> − <i>g</i>(<i>ŝ</i>)‖² ] + <i>λ</i> · 复杂度(<i>ŝ</i>)
+35	capacity-cascade/source\ch19.html	自由 ∝ <i>I</i>(过去, 反思 ; 行动) / <i>H</i>(行动)
+36	capacity-cascade/source\appendix_a.html	<i>L</i><sub>IB</sub>[<i>p</i>(<i>z</i>|<i>x</i>)] = <i>I</i>(<i>X</i>;<i>Z</i>) + <i>β</i> <i>I</i>(<i>Z</i>;<i>Y</i>)
+37	capacity-cascade/source\appendix_a.html	<i>R</i>(<i>D</i>) = min_{<i>p</i>(<i>x̂</i>|<i>x</i>): <b>E</b>[<i>d</i>] ≤ <i>D</i>} <i>I</i>(<i>X</i>;<i>X</i>̂)　⟺　<i>D</i>(<i>C</i>) = min_{<i>I</i> ≤ <i>C</i>} <b>E</b>[<i>d</i>]
+38	capacity-cascade/source\appendix_a.html	<i>X</i> → <i>Z</i> → <i>Y</i>　⟹　<i>I</i>(<i>X</i>;<i>Y</i>) ≤ <i>I</i>(<i>X</i>;<i>Z</i>)
+39	capacity-cascade/source\appendix_a.html	<i>C</i><sub>eff</sub> = −Σ<sub><i>i</i></sub> <i>p</i><sub><i>i</i></sub> log<sub>2</sub> <i>p</i><sub><i>i</i></sub>　（式 5.1 的定义）
+40	capacity-cascade/source\appendix_a.html	rank<sub>eff</sub>(<i>M</i>) = exp( −Σ<sub><i>i</i></sub> <i>p</i><sub><i>i</i></sub> ln <i>p</i><sub><i>i</i></sub> )，　<i>p</i><sub><i>i</i></sub> = <i>σ</i><sub><i>i</i></sub><sup>2</sup>/Σ<sub><i>j</i></sub> <i>σ</i><sub><i>j</i></sub><sup>2</sup>
+41	capacity-cascade/source\appendix_a.html	<i>C</i><sub>eff</sub>(<i>ι</i>) = <i>C</i><sub>∞</sub> + (<i>C</i><sub>max</sub> − <i>C</i><sub>∞</sub>) e<sup>−<i>kι</i></sup>
+42	capacity-cascade/source\appendix_a.html	<b>E</b>[<i>S</i><sub><i>n</i></sub>] = <i>nμ</i>，　Var(<i>S</i><sub><i>n</i></sub>) = <i>nσ</i><sup>2</sup>，　<b>E</b>[‖<i>S</i><sub><i>n</i></sub>‖<sup>2</sup>] = <i>n</i><sup>2</sup><i>μ</i><sup>2</sup> + <i>nσ</i><sup>2</sup>
+43	entropy-spiral/source\ch01.html	Ṡ<sub>耦合</sub> = Σ<sub>i</sub> Ṡ<sub>i</sub> + Σ<sub>i&lt;j</sub> Ξ<sub>ij</sub>，　Ξ<sub>ij</sub> ≥ 0
+44	entropy-spiral/source\ch02.html	<b>r</b>(t) = ( R cos θ(t),　R sin θ(t),　α t )，　θ̇ = ω &gt; 0，　α &gt; 0
+45	entropy-spiral/source\ch03.html	C<sub>eff</sub> = C<sub>total</sub> − α · U(Θ)，　∂U/∂Θ &gt; 0
+46	entropy-spiral/source\ch03.html	τ(I) ≈ τ₀ · I<sup>γ</sup>（γ &gt; 1）；　I* ↓ 当冲击频率 ↑
+47	entropy-spiral/source\ch03.html	v<sub>传导</sub> ≈ max(v<sub>商品</sub>, v<sub>金融</sub>, v<sub>信息</sub>) · κ<sub>通道</sub>
+48	entropy-spiral/source\ch03.html	Λ ≈ λ<sub>Θ</sub> + λ<sub>I</sub> + λ<sub>κ</sub> + λ<sub>Ξ</sub>，　当 Λ &gt; Λ<sub>c</sub> 时进入失稳区
+49	entropy-spiral/source\ch03.html	失配判据：v<sub>冲击</sub> &gt; 1 / Ω<sub>eff</sub>　⇒　冲击在纠正完成前已演变为危机
+50	entropy-spiral/source\ch05.html	Θ<sub>debt</sub> ≈ w<sub>h</sub>·(家庭债务/GDP) + w<sub>f</sub>·(企业债务/GDP)·π<sub>fin</sub> + w<sub>g</sub>·(主权债务/GDP)·(1 − 货币主权)
+51	entropy-spiral/source\ch05.html	Θ̂<sub>t</sub> = (1/K) Σ<sub>k=1..K</sub> z<sub>k,t</sub>，　z<sub>k,t</sub> =(x<sub>k,t</sub> − x̄<sub>k</sub>) / σ<sub>k</sub>
+52	entropy-spiral/source\ch05.html	Θ(t) = θ₀ + α t + β t²，　关键问题：β 是否 &gt; 0 且在增大？
+53	entropy-spiral/source\ch06.html	dS/dI = a − 2bI，　S(I) = S₀ + aI − bI²
+54	entropy-spiral/source\ch06.html	S(I; Θ) = S₀ + a I − b I²　（当 Θ &lt; Θ*）；　S(I; Θ) = c − d I　（当 Θ ≥ Θ*）
+55	entropy-spiral/source\ch07.html	dκ/dt = α − β·冲突 − γ·政策，　且 |β|, |γ| ≪ α
+56	entropy-spiral/source\ch08.html	V = α·Θ + β·I + γ·κ + λ·(Θ × κ)
+57	entropy-spiral/source\ch08.html	V<sub>ι</sub> = V · [1 + β<sub>ι</sub>(1 − ι)]
+58	entropy-spiral/source\ch08.html	V<sub>s</sub>(t) = V(t) · 情景因子 + 冲击幅度 · 衰减(t)
+59	entropy-spiral/source\ch08.html	V<sub>t</sub> = V<sub>t−1</sub> + ΔΘ<sub>t</sub> + Δκ<sub>t</sub> + 冲击<sub>t</sub> − 恢复<sub>t</sub>
+60	entropy-spiral/source\ch09.html	ΔW<sup>1%</sup> ≈ Δ(资产价格效应) + Δ(组合构成效应) + Δ(税收与转移效应)
+61	entropy-spiral/source\ch09.html	P<sub>t</sub>(情景) ∝ P<sub>t−1</sub>(情景) × L(信号<sub>t</sub> | 情景)
+62	entropy-spiral/source\ch10.html	Risk(S) = Hazard(S) × Exposure(S) × [1 − AdaptiveCapacity(S)]
+63	entropy-spiral/source\ch10.html	AdaptiveCapacity = ¼(替代性 + 缓冲 + 多元化 + Θ<sub>韧性</sub>) × (1 − κ/5)
+64	entropy-spiral/source\ch10.html	AC<sub>有效</sub> = AC<sub>名义</sub> × 𝟙[W ≥ 1] + AC<sub>名义</sub> · W · 𝟙[W &lt; 1]
+65	entropy-spiral/source\ch11.html	L(s<sub>t</sub> | 情景<sub>k</sub>) 必须在观测 s<sub>t</sub> 之前写入登记簿；观测后仅执行 P<sub>t</sub>(k) ∝ P<sub>t−1</sub>(k)·L(s<sub>t</sub>|k)
+66	entropy-spiral/source\ch12.html	GFI<sup>实时</sup><sub>t</sub> = Σ w<sub>j</sub> x<sub>j,t</sub><sup>临近</sup>；　GFI<sup>回溯</sup><sub>t</sub> = Σ w<sub>j</sub> x<sub>j,t</sub><sup>完整</sup>
+67	entropy-spiral/source\ch13.html	C(S) = T<sub>policy</sub>(S) / T<sub>threat</sub>(S)
+68	entropy-spiral/source\ch13.html	C<sub>total</sub> = min(C<sub>金融</sub>, C<sub>政治</sub>, C<sub>社会</sub>, C<sub>生态</sub>, …)
+69	entropy-spiral/source\ch13.html	C(t) = [ T<sub>policy</sub>(t) · Autonomy(t) ] / [ T<sub>threat</sub>(t) · Coupling(t) ]
+70	entropy-spiral/source\ch14.html	I ≡ T<sub>political</sub>(制度结构, 参与者数 N, 利益冲突强度 c, 议程复杂度)
+71	entropy-spiral/source\ch14.html	I<sub>有效</sub> = T<sub>available</sub> − T<sub>min</sub>(N)
+72	entropy-spiral/source\ch15.html	更多信息 → 快子系统反应更快 → 快慢时间尺度的差距扩大 → 可控性 C 反而下降
+73	entropy-spiral/source\ch15.html	制度优越性 = f(制度类型, 威胁的时间尺度)
+74	entropy-spiral/source\ch15.html	τ<sub>疫情</sub> = T<sub>倍增周期</sub> / T<sub>床位扩充</sub> → 0
+75	entropy-spiral/source\ch15.html	C<sub>气候</sub> = T<sub>政策见效</sub> / T<sub>政治激励</sub> ≈ 50 年 / 4 年 ≈ 12.5
+76	entropy-spiral/source\ch15.html	τ<sub>心理</sub> = T<sub>再创伤</sub> / T<sub>愈合</sub> ≈ 1 天 / 180 天 ≈ 0.006
+77	entropy-spiral/source\ch15.html	τ<sub>知识</sub> = T<sub>生成</sub> / T<sub>认可</sub> ≪ 1，且随生成工具的速度上升而继续下降
+78	entropy-spiral/source\appendix_a.html	α̇ = k<sub>α</sub>(1−s)(1−α) − ν(I)α；　Ġ = λα(1−G) − τ<sub>r</sub>(I)G；　ψ = αG
+79	entropy-spiral/source\appendix_a.html	Ż = aZ(1−Z/K) − bZΘ/(1+hZ)；　Θ̇ = e·bZΘ/(1+hZ) − mΘ
+80	entropy-spiral/source\appendix_c.html	AC<sub>名义</sub> = ¼(Reserves + Substitutability + Diversification + Θ) × (1 − κ/5)
+81	entropy-spiral/source\appendix_c.html	AC<sub>有效</sub> = AC<sub>名义</sub> × min(1, C)
+82	entropy-spiral/source\appendix_c.html	Risk(S) = Hazard × Exposure × (1 − AC<sub>有效</sub>)
+83	entropy-spiral/source\appendix_f.html	V(t) = α·Θ̂(t) + β·Î(t) + γ·κ̂(t) + λ·(Θ̂·κ̂)，　　V<sub>ι</sub> = V·[1 + 0.5·(1 − ι)]
+84	impossibility-triangle/source\ch01.html	I(Z; X₁ ∪ X₂) ≤ I(Z; X₁) + I(Z; X₂)
+85	impossibility-triangle/source\ch01.html	κ_info(G) = (1/2) Var(λ)
+86	impossibility-triangle/source\ch01.html	τ = T_min / T_available，　可控性 C_ctl = 1 / τ
+87	impossibility-triangle/source\ch02.html	Σ = (E, R, ℒ, K)
+88	impossibility-triangle/source\ch02.html	K = (K_desc, K_comp, K_res)
+89	impossibility-triangle/source\ch02.html	a := 1 − E[ max(0, (f(x₁)+f(x₂) − f(x₁∘x₂)) / (f(x₁)+f(x₂)) ) ] / δ₀
+90	impossibility-triangle/source\ch02.html	t := 1 − Err(提升预测) / Err(零模型)
+91	impossibility-triangle/source\ch02.html	(c, a, t) ∈ [0,1]³
+92	impossibility-triangle/source\ch02.html	(1, 1, 1) ∉ R(K)　当 K 不足以同时支付三项满格成本时成立
+93	impossibility-triangle/source\ch02.html	cost(c,a,t) = κ_c·c + κ_a·a + κ_t·t + λ·ψ(c,a,t) ≤ K
+94	impossibility-triangle/source\ch02.html	κ_c·c + κ_a·a + κ_t·t ≤ K − λ·ψ
+95	impossibility-triangle/source\ch05.html	I(Z; X₁, X₂) ≤ I(Z; X₁) + I(Z; X₂)
+96	impossibility-triangle/source\ch12.html	κ_info(G) = (1/2) Var(λ)
+97	impossibility-triangle/source\ch12.html	T_内在(S) := T(基准 A+T 系统 | 匹配教学投入) − T(S | 匹配教学投入)
+98	impossibility-triangle/source\ch15.html	π_i = (保留的两个性质) ∈ {C+A, C+T, A+T}
+99	impossibility-triangle/source\ch15.html	Π = (π₁, π₂, π₃, π₄)
+100	impossibility-triangle/source\ch23.html	T_char ≤ Δt ≤ 10 × T_char
+101	distinction-evolution/source\ch01.html	Δ = n<sub>new</sub> − n<sub>lost</sub> − λ·n<sub>assum</sub>　(λ&gt;0 为“前提的价”)
+102	distinction-evolution/source\ch03.html	n ≈ 16/d²
+103	distinction-evolution/source\ch06.html	I = H(对象) − H(对象 | 格子) = H(f(X))
+104	distinction-evolution/source\ch06.html	d′ = (μ<sub>s</sub> − μ<sub>n</sub>)/σ，　判据 c = −(θ − (μ<sub>s</sub>+μ<sub>n</sub>)/2)/σ
+105	distinction-evolution/source\ch07.html	τ = { U⊆X : ∀x∈U, ∃α, ε&gt;0, f<sub>α</sub><sup>−1</sup>((f<sub>α</sub>(x)−ε, f<sub>α</sub>(x)+ε)) ⊆ U }
+106	distinction-evolution/source\ch12.html	F(A) = Σ<sub>i</sub> ‖z(A<sub>i</sub>)‖<sup>2</sup>
+107	distinction-evolution/source\ch12.html	F(A) ≤ 9/(8π)
+108	distinction-evolution/source\ch13.html	∫<sub>M</sub> dω = ∫<sub>∂M</sub> ω
+109	distinction-evolution/source\ch14.html	C<sub>2</sub>(j)=j(j+1)，   A(j)=8πγℓ<sub>P</sub><sup>2</sup>√(C<sub>2</sub>(j))
+110	distinction-evolution/source\ch16.html	Ḋ<sub>v</sub> = −αD<sub>v</sub> + β Σ<sub>u∼v</sub>(D<sub>u</sub>−D<sub>v</sub>),  即  Ḋ=(−αI+βL)D
+111	distinction-evolution/source\ch16.html	D(t)=Σ<sub>k</sub> c<sub>k</sub> e<sup>(βλ<sub>k</sub>−α)t</sup> e<sub>k</sub>
+112	distinction-evolution/source\ch16.html	β<sub>1</sub>=α/λ<sub>n</sub>（最快模式解锁）,   β<sub>2</sub>=α/λ<sub>2</sub>（最慢模式解锁）
+113	distinction-evolution/source\ch16.html	Γ := β/α，   模式 k 增长 ⟺ Γ &gt; 1/λ<sub>k</sub>
+114	distinction-evolution/source\ch16.html	|Δλ<sub>k</sub>| ≤ ‖E‖<sub>2</sub>，故 |Δβ<sub>1</sub>|/β<sub>1</sub> ≤ ‖E‖<sub>2</sub>/λ<sub>n</sub>
+115	distinction-evolution/source\ch16.html	λ<sub>k</sub> = 2 − 2 cos(θ<sub>k</sub>)，θ<sub>k</sub> 由 Σ 递推给出；当所有权相等时退化为 <span class="s">2−2cos(πk/n)</span>
+116	distinction-evolution/source\ch17.html	t<sub>vis</sub> ≈ ln(‖D<sub>0</sub>‖/ε)/min(μ<sub>n</sub>,|μ<sub>2</sub>|)
+117	distinction-evolution/source\ch17.html	Δt &lt; 1/(βλ<sub>n</sub>−α)  且  总时长 &gt; t<sub>vis</sub>
+118	distinction-evolution/source\ch18.html	R(G) = λ<sub>n</sub>/λ<sub>2</sub> ≥ 1
+119	distinction-evolution/source\ch18.html	(d+2√(d−1))/(d−2√(d−1)) ≤ liminf R(G) ≤ 2d/γ
+120	distinction-evolution/source\ch19.html	λ<sub>2</sub>=2−2cos(π/n),   λ<sub>n</sub>=8−4cos(π/n)−4cos(π(n−1)/n),   R = λ<sub>n</sub>/λ<sub>2</sub> = (8/π²)n²(1+O(n<sup>−2</sup>))
+121	distinction-evolution/source\ch20.html	N(Λ) ~ ω<sub>d</sub>·vol(M)/(2π)<sup>d</sup> · Λ<sup>d/2</sup>   (Λ→∞)
+122	distinction-evolution/source\ch20.html	κ = ½ Var(λ) = ½[(1/n)Σλ<sub>k</sub>² − ((1/n)Σλ<sub>k</sub>)²]
+123	distinction-evolution/source\ch20.html	Tr e<sup>tΔ</sup> = 1/(4πt) + |∂M|/(8√(πt)) + O(1)
+124	distinction-evolution/source\appendix_a.html	L = λ(I−P) = λ(I − J/n)

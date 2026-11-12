@@ -4,9 +4,9 @@
 
 | 序 | 类 | slug | 题名 | 页 | 版本 DOI | 概念 DOI | 仓库 |
 |---|---|---|---|---:|---|---|---|
-| 01 | 书 | `entropy-spiral` | 错位的时间 | 410 | 10.5281/zenodo.24029909 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
+| 01 | 书 | `entropy-spiral` | 错位的时间 | 396 | 10.5281/zenodo.24029909 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
 | 02 | 书 | `capacity-cascade` | 遗忘的边界 | 318 | 10.5281/zenodo.24029873 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
-| 03 | 书 | `distinction-evolution` | 区分的语言 | 304 | 10.5281/zenodo.24029812 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
+| 03 | 书 | `distinction-evolution` | 区分的语言 | 285 | 10.5281/zenodo.24029812 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
 | 04 | 书 | `impossibility-triangle` | 选择的代价 | 320 | 10.5281/zenodo.24030720 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 301 | 10.5281/zenodo.24029980 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
 | 06 | 书 | `emergence-critical` | 涌现的临界 | 312 | 10.5281/zenodo.24030004 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
