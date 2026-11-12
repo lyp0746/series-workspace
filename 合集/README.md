@@ -31,7 +31,7 @@
 | `release/02-合集.html` | 单文件网页版（图片内联） |
 | `release/03-合集.md` | 合集 Markdown（约 6.2 MB） |
 | `release/04-assets.zip` | 配图（377 个文件） |
-| `release/合集.epub` | EPUB 3（305 个文档、216 幅图） |
+| `release/合集.epub` | EPUB 3（311 个文档、216 幅图） |
 
 ## 结构
 
