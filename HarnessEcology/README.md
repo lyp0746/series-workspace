@@ -2,7 +2,7 @@
 
 **DeepSeek Harness 与 agent-skills 两条 topic 线的增长形态，以及"分辨率"如何决定你看见哪一种涌现**
 
-李毅芃 · 2026-10-24 · 工作论文（24 页，10 图，7 表 + 表 A1，CC BY 4.0）
+李毅芃 · 2026-10-24 · 工作论文（72 页，10 图，7 表 + 表 A1，CC BY 4.0）
 
 *An Ignited Ecosystem: Two Communities, Five Resolutions, Three Markers*
 
@@ -36,7 +36,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `被点燃的生态_两个社区与三个标记.pdf` | 排版稿（A4，24 页） |
+| `被点燃的生态_两个社区与三个标记.pdf` | 排版稿（A4，72 页） |
 | `被点燃的生态_两个社区与三个标记.html` | 单文件网页版（图内嵌） |
 | `被点燃的生态_两个社区与三个标记.md` | 正文（由 `source/paper.md` 注入表后生成） |
 | `source/paper.md` | 正文源，带 `<!--TABLE_xxx-->` 占位符 |

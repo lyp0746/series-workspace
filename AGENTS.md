@@ -1,19 +1,16 @@
 # AGENTS.md
 
-## 0 称呼与协作记忆
-
-- 合作者／作者：**李毅芃**；助手代号：**李葳蕤**（新会话沿用此名，不必重新介绍）。
-- 作品：九本书 + 十五篇工作论文 + 合集；本仓库为系列工作区，各书有独立仓库。
-- 上传顺序：六本学术专著 → 三本通俗/科普 → 论文 1—14 → 论文 15《六张账单的对账》→ 合集。
-- 引用三档：六本专著只关联自身；三本通俗/科普加共用库 + 六本专著新 DOI；论文与合集加共用库 + 六本专著新 DOI（有仓库的论文再加自身）。每件发布时重生成，不抄上一版。
- — 有限系统的取舍（系列级约定 v2）
-
-> 本文件是**宪法**，不是编年史：只写"任何时候都成立"的规则。
-> 版本流水、某轮改了什么，一律写 `_series/versions/CHANGELOG.md`（旧编年史见 `_series/versions/AGENTS-编年史-2026-10-28.md`）。
-> 结构规范：`_series/spec/skeleton.md`（v2，已冻结）。**规范与本文冲突时，以规范为准。**
-> 校阅账：`_series/lint/REPORT.md`（`python _series/lint/lint.py` 生成）。
+> 本文件是**宪法**，不是编年史：只写“任何时候都成立”的规则与**当前**状态指针。
+> 版本流水写 `_series/versions/CHANGELOG.md`；结构规范 `_series/spec/skeleton.md`（v2，已冻结）；
+> 校阅账 `_series/lint/REPORT.md`（`python _series/lint/lint.py` 生成；18 条在役规则，编号 r01–r24）。
+> **规范与本文冲突时，以规范为准；本文与 `inventory.tsv` 冲突时，以 `inventory.tsv` 的件数为准。**
 
 ---
+
+## 0 称呼与协作
+
+- 合作者／作者：**李毅芃**；助手代号：**李葳蕤**（新会话沿用此名，不必重新介绍）。
+- 工作语言：中文；术语与文献保留原语种。
 
 ## 1 这是什么
 
@@ -23,37 +20,35 @@
 | 类 | 件 | 仓库根 |
 |---|---|---|
 | 书（学术 6 + 通俗 2 + 科普 1） | 9 | `knowledge-tradeoffs/` … `mind-forks/` |
-| 论文（实证 6 + 方法 7 + 测试 2） | 15 | `BureauRotationCession/` … `SeamLedger/` |
-| 合集 | 1 | `合集23/`（二十四件合集：构建脚本 + release/） |
-| 共用工作区 | 1 | `series-workspace`（本目录：规范、lint、十五篇论文源文件、归档元信息） |
-| 元数据单一来源 | — | `inventory.tsv`（件数、标题、DOI）、`zenodo_deposits.tsv` |
+| 论文（实证 6 + 方法 7 + 跨域 1 + 总账 1） | 15 | `ComputingDemystified/` … `SeamLedger/`、`LedgerReconciliation/` |
+| 合集（24 件） | 1 | `合集/`（构建脚本 + `release/`） |
+| 共用工作区 | 1 | 本目录：规范、lint、十五篇论文源文件、归档元信息 |
+| 件数与 DOI | — | `inventory.tsv`（24 行：9 书 + 15 篇）·`_zenodo/registry.json`（含合集） |
 | 共享层 | — | `_series/`（规范、lint、工具、术语、版本） |
 
 **件数只由 `inventory.tsv` 决定**，任何文档、封面、副标题都不许写死数字。
+**论文阅读顺序 ≠ 归档顺序**：阅读顺序见 `合集/build_collection.py` 的 `PAPERS`，归档顺序见 `inventory.tsv`。
 
 ## 2 三种体裁与两套骨架
 
 - **书**：5–7 部分 × 3–6 章（22–28 章）；每部分有导语（300–500 字）与小结（150–300 字）；
   每章八段（主提问框 → 场景开篇 → 导论 → 机制 → 表/图 → 反例 → 本章小结 → 一句话带走）。
-- **论文**：12–16 节，一条结果一节；`实证档`另加"协议（预注册）"与"逐条裁决"两节。
+- **论文**：12–16 节，一条结果一节；`实证档`另加「协议（预注册）」与「逐条裁决」两节。
 - **附录**：书与论文都是 ≤6 件（A 形式化／B 数据与案例／C 协议与稳健性／D 登记簿／E 工具／F 增补）；
-  **单节正文 ≤1200 字**（"占比 ≤12%"已废弃：1300 余个附录小节里超 1200 字的只有 8 个，其余是表格与登记项）。
-  **参考文献与术语表不占附录字母。**
-- **通俗读本**（只能选两样、热点的账单）用四段骨架：主提问 → 场景 → 反例 → 一句话带走，不要求小结与导论。
+  **单节正文 ≤1200 字**。**参考文献与术语表不占附录字母。**
+- **通俗读本**（只能选两样、热点的账单）用四段骨架：主提问 → 场景 → 反例 → 一句话带走。
 
-范本：结构取 `mind-forks`（《心灵的分岔》）、学术装置取 `distinction-evolution`（《区分的语言》）、
-内容密度取 `entropy-spiral`（《错位的时间》）。
+范本：结构取 `mind-forks`，学术装置取 `distinction-evolution`，内容密度取 `entropy-spiral`。
 
 ## 3 十条纪律（不可违反）
 
 1. `source/` 是唯一正文来源；`output/`、`release/` 是派生产物，**永不手改**。
-2. **编号冻结**：已发布的章号、节号、附录字母，只在"重排窗口"内整体改；窗口外不许增量改号。
-3. 一个序列一个词：`第N部分`／`第N章`／`N.M 节`／`表N.M`／`图N.M`／`附录A`。禁用"部"指章。
+2. **编号冻结**：已发布的章号、节号、附录字母，只在“重排窗口”内整体改；窗口外不许增量改号。
+3. 一个序列一个词：`第N部分`／`第N章`／`N.M 节`／`表N.M`／`图N.M`／`附录A`。禁用“部”指章。
 4. **附录准入**：一份材料配进附录，当且仅当**算得出来 / 查得到 / 可被否证**。其余进正文。
-5. **可证伪登记簿 append-only**：只追加，不改旧行（`docs/preregistration/checkups.csv`、
-   `LedgerReconciliation/ledger.csv`；lint 会比对哈希）。
+5. **可证伪登记簿 append-only**：只追加，不改旧行（`docs/preregistration/checkups.csv`、`LedgerReconciliation/ledger.csv`；lint 比对哈希）。
 6. 证据分级封顶结论：**结论强度 ≤ 证据强度**（A 官方可复现／B 稳定公开估计／C 稀疏·构造·思辨）。
-7. 系列计数只有一个来源；正文指"写作时的前 N 件"必须写"**其时的 N 件**"。
+7. 系列计数只有一个来源。正文指“写作时的前 N 件”必须写“**其时的 N 件**”；**序数不加“其时的”**（“第十二篇”就是篇号，不是计数）。
 8. 产物文件名**不带件数**（`00-合集-印刷版.pdf`）；一个产物一个 tag。
 9. **已发布的 DOI 与资产名不改名、不覆盖**；修订只能发新版本（概念 DOI 不变，版本 DOI 变）。
 10. 禁止词：必然／注定／不可避免／无法消除／死路。张力写清，宿命不写。
@@ -63,11 +58,12 @@
 ```bash
 PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
 
-"$PY" _series/lint/lint.py            # 全校阅：23 件 → _series/lint/REPORT.md（有 error 退出码 1）
+"$PY" _series/lint/lint.py            # 全校阅：24 件 → _series/lint/REPORT.md（有 error 退出码 1）
 cd <book> && "$PY" build_book.py --pdf   # 书：HTML + A4 PDF（无头 Chrome，不是 weasyprint）
 cd <paper> && "$PY" analysis/assemble.py && "$PY" generate_publication_suite.py   # 论文：表注入 → HTML/PDF
 bash scripts/build.sh                  # 书的全量：audit → 印刷 → 电子版 → EPUB → Markdown
 bash release.sh                        # 组装 release/
+cd 合集 && "$PY" build_collection.py   # 合集：印刷版 + 电子版（两遍：先量页，再回填）
 ```
 
 ## 5 目录契约（两套）
@@ -79,144 +75,65 @@ bash release.sh                        # 组装 release/
 `analysis/{assemble.py,make_figures.py,audit.py}` · 产物 `.md/.html/.pdf` 在仓库根（合集脚本按此路径读）·
 `versions/CHANGELOG.md` · `校对清单.md`
 
+**不放**：`_temp/`（构建草稿，gitignore）、`__pycache__/`、`PLAN.md`（已执行的计划存档在 `_series/review/PLAN-ARCHIVE.md`）。
+
 ## 6 归档（Zenodo 两套 description）
 
 - **论文**（`publication_type: preprint`）：版本行 → 本文做什么 → Abstract（英文）→ Files → 系列。
 - **书与合集**（`publication_type: book`）：中文 → 核心主张 → 结构与证据 → 本版修订 → 诚实纪律 → 边界 → 版本 → 系列。
-- 标题 `中文题名：副题 / English Title: Subtitle`；`publication_date`/`version` 用真实完成日，不带 v1/2.0。
-- 每篇备两份：`_zenodo/desc/<slug>.html`（HTML 视图粘贴）与 `_zenodo/desc_plain/<slug>.txt`（富文本粘贴）。
+- 首段必须是 `<p><b>中文摘要。</b>`，然后中文七段、英文七段，`版本信息` 与 `Edition` 收尾。
+  `description` 是 HTML：Markdown 的 `**`、`` ` ``、残余 `*` 必须先转换，发布后断言 `description.count("*") == 0`。
+- 标题 `中文题名：副题 / English Title: Subtitle`；不得从 `inventory.tsv` 复制（列宽会截断），以 `CITATION.cff` 为准；
+  发布前断言含 ` / ` 且长度 > 60。
+- `publication_date`/`version` 用真实完成日，不带 v1/2.0。每篇备两份：`_zenodo/desc/<slug>.html`（HTML 视图）与 `_zenodo/desc_plain/<slug>.txt`（富文本）。
+- **关联标识分三档（每次都重新生成，不抄上一版）**：
+  ① 六本学术专著——只关联自身仓库；
+  ② 其余三本（只能选两样／心灵的分岔／热点的账单）——自身仓库 + 共用库 + 六本专著的新版本 DOI（`isPartOf`）；
+  ③ 十五篇论文与合集——共用库 + 六本专著的新版本 DOI（论文有仓库的再加自身仓库）。
+- `_zenodo/REGISTRY.md` 的记录 ID **会漂移**；审计前一律 `GET /api/records/{id}/versions` 取最新
+  （按 `metadata.version` 最大，跳过 `edition-2026-10-18` 这类伪版本）。
+
+### 6b 发新版本的固定动作与四个坑
+
+脚本 `_zenodo/republish_book.py`；只补元数据 `_zenodo/fix_rights_subjects.py`。
+流程：预留 DOI（`POST /api/records/{draft}/draft/pids/doi`）→ 写进 `CITATION.cff`/`README` → 打包 `release/` → 上传 → PUT 元数据 → 发布。
+**发布后立刻断言**：`license`、`keywords`、`creators` 非空；`description.count("*") == 0`；`version` 与真实完成日一致。
+
+1. 元数据编辑走 `POST /api/records/{id}/draft`（RDM 形态），legacy 形态会静默丢作者。
+2. 编辑过元数据后 `actions/newversion` 会报 `files.enabled`，改用 `POST /api/records/{id}/versions`。
+3. 新版本草稿会继承父版本文件，须先逐个 DELETE 再上传；文件是“建条目 → PUT 内容 → commit 单个文件”三步，
+   创建条目的响应会把**已有条目一并返回**，必须按 `key == name` 选对条目。
+4. **RDM 只认 `metadata.rights` / `metadata.subjects` / `metadata.languages`**；legacy 的 `license`/`keywords` 会被**静默丢弃**。
+   文件内容 PUT 用 `requests`（`urllib` 在内容 PUT 上会被重定向吞掉正文）；`publisher` 是 DOI 注册必填（用“独立出版 / Independently published”）。
+- **已发布的旧版本不要靠“重发新版本”补元数据**：元数据编辑不产生新版本、DOI 不变。
+- 描述里不写“版本信息”以外的历史；改了什么写进 `_zenodo/REGISTRY.md` 与各仓 `versions/CHANGELOG.md`。
 
 ## 7 校阅与写作
 
 - 五条目的：论证严谨、逻辑清晰、叙事完整、人文关怀、生动有趣。
-- **冷峻的验证，温暖的关怀**：数可以硬，话必须软；每个约束章要写"谁在承担代价"与"这条限制使什么成为可能"。
+- **冷峻的验证，温暖的关怀**：数可以硬，话必须软；每个约束章要写“谁在承担代价”与“这条限制使什么成为可能”。
 - 改稿顺序固定：**结构 → 论证 → 文字**，不并行；每次改稿以 lint 0 error 为提交条件。
 - 分级在装置（表与附录），不在每句；正文一句精确限定即可，不表演式谦逊。
 
-## 8 已知未完成（工作单）
+## 8 当前状态（2026-11-12，指针而非账本）
 
-见 `_series/lint/REPORT.md` 的 error / warn 列表，按件排。当前主要四类：
-① 章骨架补全（主提问框/场景开篇/本章小结）；
-② 附录合并：`emergence-critical`（23 节）与 `hotspot-bills`（10 节）仍在一个 appendix 文件里
-排到 6 件以上（lint 记 warn），需按《只能选两样》的做法合并为 A–F；
-③ 系列页 DOI：其余 8 本书的“本系列”页仍列旧版本 DOI，应统一改为概念 DOI；
-④ 系列计数：“五本/六本/八本/九本”仍并存，应全部由 `inventory.tsv` 或占位符注入。
-逐件认领时，先把该件的 error 清零再动文字。
+- 全系列 **lint error 0 / warn 0**（24 件）。
+- 结构：九本书 19–26 章、附录 A–F；十五篇论文 12–16 节；合集 24 件。
+- 各件页数见 `inventory.tsv`（取自印刷版 PDF 实际页数）；正文与元数据不许另写一份。
+- 逐件问题、修单与评分见 `_series/review/REPORT-2026-11.md` 与 `ITEMS.md`（后者覆盖 23 件，早于第十五篇，属历史报告）。
+- 已执行的写作计划存档在 `_series/review/PLAN-ARCHIVE.md`（其中的篇号与页数为当时值）。
+- 版本流水见 `_series/versions/CHANGELOG.md`；更名历史见 `_series/versions/AGENTS-编年史-2026-10-28.md`。
 
-**2026-11 全系列审阅账**：`_series/review/REPORT-2026-11.md`（总报告 + 修单 + §7 修复记录）与
-`_series/review/ITEMS.md`（23 件逐件）。它与 lint 的分工：lint 管“规范条目有没有”，审阅管
-“成品读起来对不对”。
+## 9 已知的坑（操作经验，非编年史）
 
-**本轮已修（2026-11-01）**：页脚页码与目录页码（9/9 本，两遍构建 + PyMuPDF 盖章）；章首误标的
-“本章小结”全部移到章末（49 处）；附录字母统一为 A–F（3 件重排/拆分）；章内嵌章 12 处清零；
-`distinction-evolution` 25 章重编号；`emergence-critical` 推导补为附录 A.1–A.5；`WorldPeriodization`
-编号 1–6 连续并删除旧题名手稿；图号 6 处重号、37 条短图注、31 个未引用 SVG 全部处理；旧书名 173 处、
-`第本系列十四篇` 133 处、`系列共本系列`、emoji 全部清零；4 本书 23 个部分补写导语与小结；
-`_series/registry/series.json` 成为系列页单一来源（9 本、概念 DOI）。
-页数：六本专著 256–372 页（≥250），十四篇论文 53–108 页（>50）。lint 0 error / 0 warn。
+1. **批量改源文件会让 lint 的“产物旧于正文”全线报警**（它比对 mtime）。改完要么重建，要么把被改文件的 mtime 调回早于产物。
+2. `<pre>` 不设样式会使 min-content 超宽，**Chrome 会整册缩放、封面一起缩水**。
+3. 批量替换要查新词：曾把“真诚”批量替成“真如”，也曾把“第十二篇”替成“第其时的十二篇”。
+4. 表注与表体分页：`paper.css` 用 `caption.cap { break-after: avoid }` + 首行 `break-after: avoid` 压住。
+5. 重跑一次性脚本前先读它的 README：`notes/restructure/renumber.py` 之类跑两次会整体平移一档。
+6. `_series/tools/make_figures` 类脚本重生成时可能与仓库里已发布的 SVG 有几何差异（画布/标注 y）——改动前先 diff，别静默改掉已发布图。
 
-**交互探索器**：十四篇论文全部具备（新增 `SleepingResidue`／`OptimizationBoundary`／`CapacityProxies`／
-`LedgerReconciliation`／`MonarchCompetition`），单文件、内联数据，已进各自 `release/`。
-**参考文献**：评估后决定**不转编号制**（四本有文献表的书 512 条，正文仅 15 处作者-年份标记；GB/T 7714
-允许著者-出版年制）；改为"引用落地"（见下条，已完成）。
-**版式体检**：`_series/tools/layout_probe.py` 实测九本：孤行标题 0、图注分页 0、末行过短 9 处（每本 1）。
-**引用落地**：四本章末文献表拆为「本章引用（标 ★）」与「延伸阅读」；`entropy-spiral` 新增合并去重总表
-（151→111 条）；章标题改「本章文献（引用与延伸）」。
-**用词**：“如实/诚实”196→41 次（单本 0–9）；批量替换曾误伤“真诚→真如”，已回改——跨词替换要查新词。
-**文献核对（Tier-2）**：抽样 36/468，命中 26、版本年份存疑 5、未命中 5（均为真实存在的书/预印本），
-未见伪造或错配；报告 `_series/review/CITATION-AUDIT.md`。
-**版式体检**：九本孤行标题 0、图注分页 0、页末过短各 1（部分小结收尾），脚本 `_series/tools/layout_probe.py`。
-**仍未做**：三章节数偏大（清单式，待重排窗口）。
+## 10 已完成的更名（不再回退）
 
-## 6b 发布与归档（2026-10-30 起）
-
-- **一仓一 release、一 tag**：tag 形如 `v2026.10.30`，release 附件即该仓 `release/` 的全部内容（13–14 件：
-  印刷版/电子版 PDF、EPUB、网页版、合并与分文件 Markdown、封面、README、MANIFEST、数据缺口、征集页）。
-  附件名一律 ASCII（中文名会被 GitHub 拒收，报 422）。
-- **描述格式**（书与论文同一套）：**首段必须是 `<p><b>中文摘要。</b>`**，然后中文七段（核心主张／结构与证据／实证与算例／诚实的学术纪律／边界／学术特点）、英文七段（Abstract / Core thesis / Structure and evidence / Evidence / Discipline / Boundaries / Features）、`版本信息` 与 `Edition` 收尾。开头的“中文.”“摘要.”“中文.”都不算；缺段或换标题，读者一眼就能看出这件不是同一批做的。
-  `description` 是 HTML，Markdown 的 `**`、`` ` ``、残余 `*` 必须先转换，发布后断言 `description.count("*") == 0`。
-- **关联标识分三档（每次都重新生成，不要复制上一版）**：① 六本学术专著——**只关联自身仓库**；
-  ② 其余三本（只能选两样／心灵的分岔／热点的账单）——**自身仓库 + 共用库 + 六本专著的新版本 DOI（isPartOf）**；
-  ③ 十四篇论文与合集——**共用库 + 六本专著的新版本 DOI**（论文有仓库的再加自身仓库）。
-  上一版的 `related_identifiers` 常常是一串早已被替换的旧 DOI（甚至全是 `references`），照抄必错。
-  另：`_zenodo/REGISTRY.md` 里的记录 ID **会漂移**（某件发过更新的版本而表没改）；审计或补元数据前一律用
-  `GET /api/records/{id}/versions` 重新取最新（按 `metadata.version` 最大，跳过 `edition-2026-10-18` 这类伪版本）
-  ——2026-10-31 漏掉的两条（心灵的分岔 23772399、热点的账单 23772473）就是这么漏的。
-- **标题**：`中文题名：副题 / English Title: Subtitle`。不得从 `inventory.tsv` 复制（该表列宽会截断英文），
-  以 `CITATION.cff` 或上一版记录为准；发布前断言含 ` / ` 且长度 > 60。
-- **Zenodo 新版本的四个坑**（详见 skill 的 `references/zenodo-upload.md`）：
-  ① 元数据编辑走 `POST /api/records/{id}/draft`（RDM 形态），legacy 形态会静默丢作者；
-  ② 编辑过元数据后 `actions/newversion` 会报 `files.enabled`，改用 `POST /api/records/{id}/versions`；
-  ③ 新版本草稿会继承父版本文件，须先逐个 DELETE 再上传；Zenodo 没有全局 `files/commit`，
-  文件是“建条目 → PUT 内容 → commit 单个文件”三步，且创建条目的响应会把**已有条目一并返回**，
-  必须按 `key == name` 选对条目，否则内容会 PUT 进上一个文件、commit 报 `Empty files are not accepted`；
-  ④ **RDM 只认 `metadata.rights` / `metadata.subjects` / `metadata.languages`**。legacy 的
-  `metadata.license` / `metadata.keywords` 会被**静默丢弃**——2026-10-30 那批 20 件（6 本学术专著 +
-  14 篇论文）因此全部没有许可与关键词，而版权页与 CITATION.cff 都写着 CC BY 4.0。同一个坑此前只补了“作者”。
-  另：文件内容 PUT 用 `requests`，`urllib` 在内容 PUT 上会被重定向吞掉正文；`publisher` 是 DOI 注册必填
-  （本系列用“独立出版 / Independently published”，不虚构出版社）。
-- **发新版本的固定动作**（脚本：`_zenodo/republish_book.py`；只补元数据：`_zenodo/fix_rights_subjects.py`）：
-  预留 DOI（`POST /api/records/{draft}/draft/pids/doi`）→ 把 DOI 写进 `CITATION.cff`/`README` → 打包 `release/`
-  → 上传 → PUT 元数据 → 发布。**发布后立刻断言**：`license` 非空、`keywords` 非空、`creators` 非空、
-  `description.count("*") == 0`、`version` 与真实完成日一致。`publish_v.py` 已改为调用它的薄驱动；
-  `publish_papers.py` 与 `publish_collection.py` 已停用（它们就是丢字段的那两条路径）。
-- **已发布的旧版本不要靠“重发新版本”来补元数据**：元数据编辑不产生新版本、DOI 不变（2026-10-31 据此
-  给 20 条记录补了许可与关键词）。
-- **描述里不写"版本信息"以外的历史**：改了什么写进 `_zenodo/REGISTRY.md` 与各仓 `versions/CHANGELOG.md`。
-
-## 9 本轮的更名与其善后（2026-10-31）
-
-- 《区分的语法》已更名为 **《区分的语言》**（副题：区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限）。
-  概念 DOI 不变；本仓与 `inventory.tsv`、`_zenodo/`、`合集23/build_collection23.py` 已改。
-- **其余八本书与十四篇论文中的「区分的语法」尚未替换**（本轮已回退，避免 14 件成果出现「源新于产物」的假告警）。
-  处理方式：各件下次发布前，在其 `source/`、`CITATION.cff`、`README.md`、`docs/` 内统一替换为新名，然后重建。
-- 顺手记一条经验：**批量改源文件会让 lint 的「产物旧于正文」全线报警**（它比对 mtime）。改完若不打算重建，
-  应把被改文件的 mtime 调回早于产物，否则 23 件里会出现十几条假告警——本轮踩过一次。
-
-## 10 2026-11-01 的收官（状态）
-
-- 全系列 **error 0 / warn 0**：`emergence-critical`（21 节）与 `hotspot-bills`（9 节）的附录已收进 6 组 A–F，
-  旧字母保留成子标题（`附录 B　…（原 R）`），正文引用改为「附录F（原 R）」，引用不失效。
-- 《区分的语言》259 页、5 部分 25 章、369 节、30 幅图、附录 A–F（含定理索引与中英术语对照），
-  GitHub release `v2026.11.01` 已替换（13 件资产，附件名一律 ASCII）。
-- 教训两条：① `<pre>` 不设样式会使页面 min-content 超宽，**Chrome 会整册缩放、封面一起缩水**；
-  ② 批量改源文件后，若把 `notes/dist-dev` 之类的构建脚本删掉，不影响产物，但**要重建再提交**，否则 lint 会报「产物旧于正文」。
-
-## 11 2026-11-01 发布记录（本轮）
-
-- 三本书 + 合集发新版本（均为 2026-11-01，元数据含 rights／subjects／publisher／八段中英描述）：
-  - 《区分的语言》10.5281/zenodo.23853687（概念 23345012）——更名 + 整体重写 + 259 页
-  - 《涌现的临界》10.5281/zenodo.23853797（概念 23440900）——附录合并为 A–F
-  - 《热点的账单》10.5281/zenodo.23853865（概念 23440911）——附录合并为 A–F
-  - 合集 10.5281/zenodo.23854027（概念 23613406）——第九版，2036 页 / 2499 页
-- 已发布记录的**标题**可在不产生新版本的前提下修正：开元数据草稿 → PUT → publish（本轮据此订正了
-  《区分的语言》的标题，因为发版时 `.zenodo.json` 的 title 还是旧值）。
-- Zenodo 的 `/records/{id}/versions` 偶发 **500**：本文实测连续四次失败，等待后重试成功——不要急着改写脚本。
-- Downloads 目录已按新标题替换：《区分的语法_*.pdf》→《区分的语言_*.pdf》；未更名者文件名不变。
-
-## 12 2026-11-01 修复批次（当前状态，覆盖 §10 的数字）
-
-> 本轮只做"作品化"的修复与补写，不改变各书的论证立场。§10 里的页数/节数为当时值，已被下表取代。
-
-- **页数**：capacity 256、distinction 275、emergence 278、entropy 372、impossibility 291、
-  interpretation 256；通俗/科普 157 / 292 / 136（无要求）；十四篇论文 53–108（>50）。
-  六本学术专著全部 ≥250 页。
-- **结构**：附录统一 A–F；章首"本章小结"清零（移到章末）；章内嵌章清零；编号连续；
-  图号唯一；未引用 SVG 清零；旧书名与占位符清零。
-- **版式**：12.5pt / 1.76；目录四級带页码；页脚页码（封面除外）；部分扉页改为"上图下文"；
-  扉页瘦身、内容提要独立成页（消除空白页）；装饰收敛为蓝/琥珀 + 灰。
-- **新增**：23 个部分导语与小结；capacity 7 节 + 附录 F；interpretation 14 节 + 附录 F +
-  术语中英对照 + 第 26 章；emergence 附录重组 + 3 张缺口表；knowledge 附录重写为 A–F。
-- **单一来源**：`_series/registry/series.json` 生成 9 本系列页；`inventory.tsv` 的 DOI 列仍待按书订正。
-- **留待**：参考文献“引用落地”（不转编号制，见 §12）；`emergence/ch20`、`capacity/ch25`、
-  `knowledge/ch10` 的节数（清单式内容，拆章会动编号）；"如实"密度；文献逐条核对。
-
-## 13 2026-11-02 发布记录（当前）
-
-- 新增第十五篇《接缝不在奇点：量子力学与广义相对论的三十道裂缝》（30 条账目；4 逻辑矛盾 / 13 接口缺失 / 8 记账冲突 / 5 定理边界），Zenodo `10.5281/zenodo.23888993`（概念 `23888992`）。
-- 《六张账单的对账》第四版：126 条、13 处同名不同物、A3/B63/C60、核销 86/未核销 32/撤回 8，Zenodo `10.5281/zenodo.23888894`。
-- 六本学术专著新版本：区分 `23886113`、遗忘 `23887380`、错位 `23887494`、选择 `23888037`、诠释 `23888150`、涌现 `23888165`。
-- 其余三本书：只能选两样 `23888220`、心灵的分岔 `23888242`、热点的账单 `23888330`。
-- 十四篇旧论文新版本见 `_zenodo/REGISTRY.md`；合集第九版（24 件、2142/2625 页）`10.5281/zenodo.23890012`。
-- 全系列统一《区分的语言》新名与新副题；各件 related identifiers 按三档重生成；lint 0 error / 0 warn。
-- Downloads 目录按**发布标题**重命名（不再保留下划线旧名）。
+- 《区分的语法》→**《区分的语言》**（副题：区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限）。
+  概念 DOI `10.5281/zenodo.23345012` 不变。全库已无旧名（旧名只留在各仓 `versions/CHANGELOG.md` 的留痕行里）。

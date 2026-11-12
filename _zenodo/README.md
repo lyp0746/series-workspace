@@ -12,7 +12,7 @@
 | `descriptions.py` / `desc_mindforks.py` / `desc_v3.py` | 八本书与论文的长描述（HTML） |
 | `scaffold.py` | 为一篇新论文生成标准外围文件（README / CITATION / 清单 / release.sh） |
 | `finish.py` / `push.py` / `replace_assets.py` | 补传文件、大文件续传、替换已发布记录的资源 |
-| `registry.json` / `REGISTRY.md` | 23 件的登记（版本 DOI / 概念 DOI / 页数 / 仓库） |
+| `registry.json` / `REGISTRY.md` | 24 件 + 合集的登记（版本 DOI / 概念 DOI / 页数 / 仓库） |
 
 ## 三条铁律（都是踩过的坑）
 

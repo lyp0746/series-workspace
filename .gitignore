@@ -13,10 +13,10 @@
 */output/
 */release/
 */_temp/
-合集23/release/
-合集23/_body-*.pdf
-合集23/_build-*.html
-合集23/*.pdf
+合集/release/
+合集/_body-*.pdf
+合集/_build-*.html
+合集/*.pdf
 __pycache__/
 *.pyc
 _series/tmp_*

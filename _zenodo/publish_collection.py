@@ -6,14 +6,14 @@
 raise SystemExit(__doc__ or "deprecated: use _zenodo/republish_book.py")
 
 
-"""合集：发新版本（文件取自 合集23/release/ 的 8 件，不含 assets 目录）。"""
+"""合集：发新版本（文件取自 合集/release/ 的 8 件，不含 assets 目录）。"""
 import io, json, os, sys, glob, urllib.request, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
 import api
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REC = 23668413           # 上一版
 DATE = "2026-10-30"
-REL = os.path.join(ROOT, "合集23", "release")
+REL = os.path.join(ROOT, "合集", "release")
 FILES = ["00-合集-印刷版.pdf", "01-合集-电子版.pdf", "合集.epub", "02-合集.html",
          "03-合集.md", "04-assets.zip", "MANIFEST.txt", "README.md"]
 

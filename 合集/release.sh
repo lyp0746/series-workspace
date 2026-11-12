@@ -6,12 +6,12 @@ PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
 OUT="release"
 mkdir -p "$OUT"
 
-"$PY" build_collection23.py
+"$PY" build_collection.py
 "$PY" make_md.py
 cp _build-print.html "$OUT/02-合集.html"
 cp README.md "$OUT/README.md"
 cp CITATION.cff "$OUT/CITATION.cff"
-"$PY" -c "import build_collection23 as b; b.build_epub('release/合集.epub')"
+"$PY" -c "import build_collection as b; b.build_epub('release/合集.epub')"
 "$PY" - "$OUT" <<'PYZIP'
 import os, sys, zipfile
 out = sys.argv[1]

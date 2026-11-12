@@ -2,7 +2,7 @@
 
 **为什么「根本矛盾」多半不是逻辑矛盾，而是四种账没有对上**
 
-李毅芃 · 2026-11-02 · 工作论文（68 页，CC BY 4.0）
+李毅芃 · 2026-11-02 · 工作论文（77 页，CC BY 4.0）
 
 *The Seam Is Not at the Singularity: Thirty Cracks between Quantum Mechanics and General Relativity*
 
@@ -24,7 +24,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `接缝不在奇点_量子力学与广义相对论的三十道裂缝.pdf` | 排版稿（A4，68 页） |
+| `接缝不在奇点_量子力学与广义相对论的三十道裂缝.pdf` | 排版稿（A4，77 页） |
 | `接缝不在奇点_量子力学与广义相对论的三十道裂缝.html` | 单文件网页版（图片内联） |
 | `source/paper.md` | 正文源（含表占位符） |
 | `fig01`–`fig08` | 图，由 `analysis/make_figures.py` 生成 |

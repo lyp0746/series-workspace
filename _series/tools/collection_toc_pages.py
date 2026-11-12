@@ -8,9 +8,9 @@ import sys
 import pymupdf
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-COL = os.path.join(ROOT, "合集23")
+COL = os.path.join(ROOT, "合集")
 sys.path.insert(0, COL)
-import build_collection23 as B  # noqa: E402
+import build_collection as B  # noqa: E402
 
 
 def page_texts(doc):

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """只做印刷版：封面 + 正文 → 合并。"""
-import os, pymupdf, build_collection23 as B
+import os, pymupdf, build_collection as B
 os.makedirs(B.OUT, exist_ok=True)
 ch = os.path.join(B.ROOT, "_cover-print.html")
 open(ch, "w", encoding="utf-8").write(B.cover_only_html("print"))

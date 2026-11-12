@@ -2,7 +2,7 @@
 
 **一次用既有数据检验「容量保护记忆」的尝试，以及它的一半失败**
 
-李毅芃 · 2026-10-24 · 工作论文（22 页，CC BY 4.0）
+李毅芃 · 2026-10-24 · 工作论文（62 页，CC BY 4.0）
 
 *Three Proxies for Capacity: Periodization Slots, Coding Slots, Label Slots*
 
@@ -20,7 +20,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `容量的三个代理_分期槽位与编码槽位与标签槽位.pdf` | 排版稿（A4，22 页） |
+| `容量的三个代理_分期槽位与编码槽位与标签槽位.pdf` | 排版稿（A4，62 页） |
 | `容量的三个代理_分期槽位与编码槽位与标签槽位.html` | 单文件网页版 |
 | `source/paper.md` | 正文源（含表占位符） |
 | `fig01`–`fig08` | 图，由 `analysis/make_figures.py` 生成 |
@@ -42,4 +42,4 @@ bash release.sh
 
 本篇与前六篇共用一套记账纪律；`related_identifiers` 指向系列入口与其余各篇。
 
-**Zenodo**：10.5281/zenodo.23611799（概念 DOI 10.5281/zenodo.23611798），22 页。
+**Zenodo**：10.5281/zenodo.23611799（概念 DOI 10.5281/zenodo.23611798），62 页。

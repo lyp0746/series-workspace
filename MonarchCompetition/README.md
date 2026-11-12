@@ -2,7 +2,7 @@
 
 **九个实验室的双层价目、一个 34.5 倍的重放—判断价差，以及「开明君主」这一比喻的断裂探针**
 
-李毅芃 · 2026-10-28 · 工作论文（51 页，CC BY 4.0）
+李毅芃 · 2026-10-28 · 工作论文（72 页，CC BY 4.0）
 
 *The Enlightened Sovereign and Two-Tier Competition: Execution, Direction, and Who Pays on the Agent Price Sheet*
 
@@ -22,7 +22,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `开明君主与两层竞争_执行方向与代价承担者.pdf` | 排版稿（A4，51 页） |
+| `开明君主与两层竞争_执行方向与代价承担者.pdf` | 排版稿（A4，72 页） |
 | `开明君主与两层竞争_执行方向与代价承担者.html` | 单文件网页版（图片内联） |
 | `source/paper.md` | 正文源（含 8 个表占位符） |
 | `fig01`–`fig08` | 8 张图，由 `analysis/make_figures.py` 生成 |
@@ -68,7 +68,7 @@ bash release.sh
 
 ## 引用
 
-**Zenodo**：10.5281/zenodo.23695757（概念 DOI 10.5281/zenodo.23695756），51 页。
+**Zenodo**：10.5281/zenodo.23695757（概念 DOI 10.5281/zenodo.23695756），72 页。
 
 
 李毅芃．《开明君主与两层竞争：agent 价目表上的执行、方向与代价承担者》．工作论文，2026-10-28．系列第十四篇．

@@ -2,7 +2,7 @@
 
 **一个会自己发视频、会评论、会开直播的 Agent，为什么在几天之内就「死」了**
 
-李毅芃 · 2026-10-26 · 工作论文（50 页，CC BY 4.0）
+李毅芃 · 2026-10-26 · 工作论文（71 页，CC BY 4.0）
 
 *The Anchor of Memory: Episodic Recall, Heterogeneous Reconstruction, and Log Adjudication in Agents*
 
@@ -36,7 +36,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `记忆的锚点_情景唤起与异构重建与日志裁决.pdf` | 排版稿（A4，50 页） |
+| `记忆的锚点_情景唤起与异构重建与日志裁决.pdf` | 排版稿（A4，71 页） |
 | `记忆的锚点_情景唤起与异构重建与日志裁决.html` | 单文件网页版（图片内联） |
 | `source/paper.md` | 正文源（含表占位符） |
 | `fig01`–`fig08` | 图，由 `analysis/make_figures.py` 生成 |
@@ -63,4 +63,4 @@ bash release.sh
 1. **本文没有实验。** 所有性能主张都是推理，最高证据等级 B；T9 已撤回。真正可执行的路在附录 D（替身实验：4 个仿 GUI 页 × 3 种记忆条件 × 4 个指标 + 预设否证条件）。
 2. **`schemes.csv` 是编码库，不是性能数据。** 请勿把它当成 benchmark 引用。
 
-**Zenodo**：版本 DOI [10.5281/zenodo.23665882](https://doi.org/10.5281/zenodo.23665882)；概念 DOI 10.5281/zenodo.23665881；50 页。
+**Zenodo**：版本 DOI [10.5281/zenodo.23665882](https://doi.org/10.5281/zenodo.23665882)；概念 DOI 10.5281/zenodo.23665881；71 页。

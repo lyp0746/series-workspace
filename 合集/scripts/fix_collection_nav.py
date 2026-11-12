@@ -5,7 +5,7 @@
 （书名/卷名在目录页上是纯文本）。于是读者点目录没有任何反应。
 
 做法（不重建、不改内容）：
-1. 从 build_collection23.VOLUMES 取九卷的卷号与书名；
+1. 从 build_collection.VOLUMES 取九卷的卷号与书名；
 2. 在成品 PDF 里找每卷的**卷封面页**（首 300 字里同时出现卷号与书名）；
 3. 在目录页上找包含书名的行，按行矩形加 GOTO 链接到该卷封面；
 4. 用 `set_toc` 写入分卷书签（前置页 + 九卷 + 后置页）。
@@ -21,7 +21,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def volumes():
     sys.path.insert(0, HERE)
-    import build_collection23 as B
+    import build_collection as B
     out = []
     for v in B.VOLUMES:
         repo, vol, name, sub = v[0], v[1], v[2], v[3]

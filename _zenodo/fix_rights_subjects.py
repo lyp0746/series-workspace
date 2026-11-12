@@ -138,11 +138,11 @@ if __name__ == "__main__":
     g = {w["slug"]: w for w in works()}
     if cmd == "all":
         todo = [(s, w["记录ID"]) for s, w in g.items()
-                if s != "合集23" and not w.get("有许可")]
+                if s != "合集" and not w.get("有许可")]
         # 用线上状态判断，而不是 registry 标记
         todo = []
         for s, w in g.items():
-            if s == "合集23":
+            if s == "合集":
                 continue
             _, d = api.req("GET", "https://zenodo.org/api/records/%s" % w["记录ID"], tries=3, timeout=120)
             if not (d["metadata"].get("license") or d["metadata"].get("rights")):

@@ -4,7 +4,7 @@ import json, re, sys
 import pymupdf
 
 sys.path.insert(0, ".")
-import build_collection23 as B
+import build_collection as B
 
 
 def main(pdf="release/00-合集-印刷版.pdf"):

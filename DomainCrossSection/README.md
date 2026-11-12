@@ -2,7 +2,7 @@
 
 **四问拆解的操作判据、二十个领域的编码，以及「可写性」与「承担者」之间的一条经验关系**
 
-李毅芃 · 2026-10-26 · 工作论文（51 页，CC BY 4.0）
+李毅芃 · 2026-10-26 · 工作论文（74 页，CC BY 4.0）
 
 *The Cross-Section of Domains: Four Questions, Twenty Fields, and an Audit of Eighty Cells*
 
@@ -24,7 +24,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `领域的剖面_四个问题与二十个领域的审计.pdf` | 排版稿（A4，51 页） |
+| `领域的剖面_四个问题与二十个领域的审计.pdf` | 排版稿（A4，74 页） |
 | `领域的剖面_四个问题与二十个领域的审计.html` | 单文件网页版（图片内联） |
 | `source/paper.md` | 正文源（含表占位符） |
 | `fig01`–`fig08` | 图，由 `analysis/make_figures.py` 生成 |
@@ -62,4 +62,4 @@ bash release.sh
 | 互相印证（预算的位置） | 《优化的边界》 |
 | 姊妹篇 | 《同构的强度》 |
 
-**Zenodo**：版本 DOI [10.5281/zenodo.23695806](https://doi.org/10.5281/zenodo.23695806)；概念 DOI 10.5281/zenodo.23662889；51 页。
+**Zenodo**：版本 DOI [10.5281/zenodo.23695806](https://doi.org/10.5281/zenodo.23695806)；概念 DOI 10.5281/zenodo.23662889；74 页。

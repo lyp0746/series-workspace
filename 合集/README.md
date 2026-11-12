@@ -44,9 +44,9 @@
 
 ```bash
 PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
-"$PY" build_collection23.py   # 印刷版 + 电子版（两遍：先量页，再回填）
+"$PY" build_collection.py   # 印刷版 + 电子版（两遍：先量页，再回填）
 "$PY" make_md.py              # Markdown + assets
-"$PY" -c "import build_collection23 as b; b.build_epub('release/合集.epub')"
+"$PY" -c "import build_collection as b; b.build_epub('release/合集.epub')"
 bash release.sh                # 打包 + MANIFEST
 ```
 
