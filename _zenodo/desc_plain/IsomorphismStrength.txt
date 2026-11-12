@@ -6,6 +6,6 @@
 
 Abstract (English). This paper prices the claim that two fields resemble each other. It proposes a four-rung ladder — strict, adjunction, functor, metaphor — and requires every cross-domain declaration to supply an observable fracture probe: the point at which the resemblance breaks. Forty declarations are coded across five motif groups (duality, universal property, invariant, structure, process). Distribution: strict 12, adjunction 11, functor 12, metaphor 5 — strict isomorphism covers under a third. Fracture layer: composition 16, equivalence 12, morphism 8, object 4 — seventy per cent of fractures are not at the object layer, where almost all public argument sits. Negative transfer: 15 of 40 (38%), and it does not fall monotonically with strength (strict 17%, adjunction 60%, functor 50%, metaphor 36%): the dangerous rungs are the ones that look like proofs. This edition adds Appendix P, a forty-first declaration ("the person is the sovereign, the agent the subject"), coded at the metaphor rung with its fracture at the composition layer; four of its five probes cut immediately, because a subject that cannot rebel is a tool, not a subject. It is kept outside the closed set of forty, so every proportion in the main text is unchanged.
 
-Files.论文（PDF 51 页 / HTML / Markdown / README）；8 幅图；motifs.csv（40 条声明 × 14 字段）；MANIFEST.txt。
+Files.论文（PDF 74 页 / HTML / Markdown / README）；8 幅图；motifs.csv（40 条声明 × 14 字段）；MANIFEST.txt。
 
 系列 / Series。同一作者的独立研究系列：九本书与十四篇工作论文。系列入口与外部登记库：https://github.com/lyp0746/knowledge-tradeoffs；源码与复现脚本：https://github.com/lyp0746
