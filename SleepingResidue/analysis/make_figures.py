@@ -23,22 +23,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from data import cases  # noqa: E402
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C_REC, C_REI, C_SIL, C_ACC = "#2f6f9f", "#b3701f", "#8a8a8a", "#a8322d"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C_REC, C_REI, C_SIL, C_ACC = "#0072B2", "#E69F00", "#595959", "#D55E00"
 ROWS = cases.table()
 ST = cases.stats()
 
@@ -138,15 +135,15 @@ def fig01():
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.55)
     box(.2, 4.35, 9.4, .95, "① 残余可检：被压掉的东西在主流范式的异常清单上留下了可重复、可测量的残留", "#e9eff5")
     box(.2, 3.15, 9.4, .95, "② 解码器跃迁：另一套工具或另一个领域的问题，使旧信息重新可读（不是有人重读旧文献）", "#eef2e6")
-    box(.2, 1.95, 9.4, .95, "③ 重建成本高于翻译：把旧命题翻成当代语言，比从零重建它更便宜", "#f7efe2")
+    box(.2, 1.95, 9.4, .95, "③ 重建成本高于翻译：把旧命题翻成当代语言，比从零重建它更便宜", "#FBEFD6")
     for y in (4.3, 3.1, 1.9):
         ax.add_patch(FancyArrowPatch((4.9, y - .18), (4.9, y - .28), arrowstyle="-", lw=.7, color="#999"))
     box(.2, .35, 2.9, 1.15, "微观：个体\n编码与检索失败", "#f2f0ec")
     box(3.4, .35, 2.9, 1.15, "中观：共同体\n范式压缩与索引断裂", "#e8eeea")
-    box(6.6, .35, 3.0, 1.15, "宏观：跨范式\n重新解码", "#efe9e2")
-    ax.text(.2, 5.25, "图 1　遗忘的三个尺度与重新发现的三个条件（示意）", fontsize=9.8, fontweight="bold")
+    box(6.6, .35, 3.0, 1.15, "宏观：跨范式\n重新解码", "#F9E6D8")
+    
     ax.text(.2, .02, "注：三条标记不是打分项，②是必要条件（见 4.2 节）；示意图，不按比例。", fontsize=7, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT / "fig01_mechanism.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig01_mechanism.png"); plt.close(fig)
 
 
 def fig02():
@@ -154,19 +151,18 @@ def fig02():
     rec.sort(key=lambda r: r["silence"])
     fig, ax = plt.subplots(figsize=(7.2, 4.6))
     ys = np.arange(len(rec))
-    ax.barh(ys, [r["silence"] for r in rec], height=.55, color="#cfdbe6", edgecolor="#9fb2c4", zorder=2)
+    ax.barh(ys, [r["silence"] for r in rec], height=.55, color="#BCE1F6", edgecolor="#CC79A7", zorder=2)
     for y, r in zip(ys, rec):
         if r["lag"] is not None:
             ax.plot(r["silence"] - r["lag"], y, "o", ms=5.5, color=C_ACC, zorder=4)
         ax.plot(r["silence"], y, "|", ms=11, color=C_REC, mew=1.6, zorder=5)
     ax.set_yticks(ys); ax.set_yticklabels([f'{r["id"]} {r["case"]}' for r in rec], fontsize=7.6)
     ax.set_xlabel("距原始提出的年数（0 = 提出年）")
-    ax.set_title("图 2　沉寂中位 36 年，而解码器出现到被承认的中位滞后只有 1 年", fontsize=9.6, loc="left")
     ax.plot([], [], "o", color=C_ACC, label="解码器可用"); ax.plot([], [], "|", ms=10, color=C_REC, label="重新承认")
     ax.legend(fontsize=7.6, frameon=False, loc="lower right", bbox_to_anchor=(1.0, .02))
     ax.set_xlim(0, 205)
-    ax.text(6, len(ys) - .45, "灰条 = 沉寂期", fontsize=7.4, color="#4a5a6a")
-    fig.tight_layout(); fig.savefig(ROOT / "fig02_lag.png", bbox_inches="tight"); plt.close(fig)
+    ax.text(6, len(ys) - .45, "灰条 = 沉寂期", fontsize=7.4, color="#000000")
+    figsave(ROOT / "fig02_lag.png"); plt.close(fig)
 
 
 def fig03():
@@ -177,7 +173,7 @@ def fig03():
         if r["coord_old"] in coords:
             M[coords.index(r["coord_old"]), outs.index(r["outcome"])] += 1
     fig, ax = plt.subplots(figsize=(5.6, 3.4))
-    im = ax.imshow(M, cmap="Blues", vmin=0, vmax=max(3, M.max()))
+    im = ax.imshow(M, cmap=CM_BLUE, vmin=0, vmax=max(3, M.max()))
     ax.set_xticks(range(len(outs))); ax.set_xticklabels(outs, fontsize=8.6)
     ax.set_yticks(range(len(coords))); ax.set_yticklabels(coords, fontsize=8.6)
     for i in range(len(coords)):
@@ -186,9 +182,8 @@ def fig03():
                 ids = " ".join(r["id"] for r in ROWS if r["coord_old"] == coords[i] and r["outcome"] == outs[j])
                 ax.text(j, i, f"{int(M[i,j])}\n{ids}", ha="center", va="center", fontsize=6.4,
                         color="white" if M[i, j] > M.max() * .6 else "#222")
-    ax.set_title("图 3　旧范式坐标 × 结果：四种坐标，四条不同的回归路径", fontsize=9.4, loc="left")
     ax.grid(False)
-    fig.tight_layout(); fig.savefig(ROOT / "fig03_coords.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig03_coords.png"); plt.close(fig)
 
 
 def fig04():
@@ -197,7 +192,7 @@ def fig04():
     # (a) 解码器 × 结果
     ax = axes[0]
     M = np.array([[a1, a2 - a1], [c1, c2 - c1]])
-    ax.imshow(M, cmap="Blues", vmin=0, vmax=11)
+    ax.imshow(M, cmap=CM_BLUE, vmin=0, vmax=11)
     for i in range(2):
         for j in range(2):
             ax.text(j, i, int(M[i, j]), ha="center", va="center", fontsize=13,
@@ -209,7 +204,7 @@ def fig04():
     # (b) 可重建性 × 结果
     ax = axes[1]
     M = np.array([[b1, b2 - b1], [d1, d2 - d1]])
-    ax.imshow(M, cmap="Oranges", vmin=0, vmax=9)
+    ax.imshow(M, cmap=CM_ORANGE, vmin=0, vmax=9)
     for i in range(2):
         for j in range(2):
             ax.text(j, i, int(M[i, j]), ha="center", va="center", fontsize=13,
@@ -218,8 +213,7 @@ def fig04():
     ax.set_yticks([0, 1]); ax.set_yticklabels(["可重建", "难／不可重建"], fontsize=8)
     ax.set_title(f"（b）重发明只发生在可重建时\nFisher p = {p_der:.3f}", fontsize=8.8, loc="left")
     ax.grid(False)
-    fig.suptitle("图 4　两个必要条件，而不是一张打分表", fontsize=9.6, x=.012, ha="left")
-    fig.tight_layout(rect=(0, 0, 1, .9)); fig.savefig(ROOT / "fig04_necessary.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig04_necessary.png"); plt.close(fig)
 
 
 def fig05():
@@ -241,8 +235,8 @@ def fig05():
                                        fc=col if v else "#f2f2f2", ec="#cccccc", lw=.6))
         ax.text(3.75, y, f"{int(m1)+int(m2)+int(m3)}/3", ha="center", fontsize=7.4)
     ax.text(.05, -.45, "蓝＝恢复　橙＝重发明　灰＝沉默", fontsize=7.2, color="#555")
-    ax.text(.05, len(rows) + 1.3, "图 5　逐案的三标记命中：恢复组 11/11 命中 ≥2，但沉默的燃素说也命中 2", fontsize=9.4)
-    fig.tight_layout(); fig.savefig(ROOT / "fig05_marks.png", bbox_inches="tight"); plt.close(fig)
+    
+    figsave(ROOT / "fig05_marks.png"); plt.close(fig)
 
 
 def fig06():
@@ -260,11 +254,11 @@ def fig06():
         ax.text(x + 1.52, 2.38, n, ha="center", va="center", fontsize=8.6,
                 color="white" if c == C_ACC else "#222")
         ax.text(x + 1.52, 1.78, v, ha="center", va="center", fontsize=10.5, fontweight="bold",
-                color=C_ACC if c == C_ACC else "#3a3a3a")
+                color=C_ACC if c == C_ACC else "#000000")
         ax.text(x + 1.52, 1.12, why, ha="center", va="center", fontsize=7.2, color="#333", linespacing=1.6)
-    ax.text(.15, 3.05, "图 6　把「范式转移」当临界事件来检验：又是「缺哪一格」", fontsize=9.6, fontweight="bold")
+    
     ax.text(.15, .12, "判据同《涌现的临界》第三章；本例说明「科学革命是相变」目前仍是隐喻级。", fontsize=7, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT / "fig06_paradigm.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig06_paradigm.png"); plt.close(fig)
 
 
 def fig07():
@@ -279,15 +273,15 @@ def fig07():
     ax.text(.3, 3.35, "机制\n解释", fontsize=7.6, ha="center", color="#333", rotation=90, va="center")
     ax.text(.3, 1.35, "现象\n描述", fontsize=7.6, ha="center", color="#333", rotation=90, va="center")
     ax.text(3.0, 3.35, "本文：三条件＋两必要条件\n（残余／解码器／重建成本）", fontsize=7.8, ha="center", va="center",
-            bbox=dict(boxstyle="round,pad=.4", fc="#e9eff5", ec="#9fb2c4"))
+            bbox=dict(boxstyle="round,pad=.4", fc="#e9eff5", ec="#CC79A7"))
     ax.text(3.0, 1.35, "拉卡托斯：保护带重组\n（机制，但无判据）", fontsize=7.8, ha="center", va="center",
-            bbox=dict(boxstyle="round,pad=.4", fc="#f4f4f1", ec="#d5d2c8"))
+            bbox=dict(boxstyle="round,pad=.4", fc="#f4f4f1", ec="#F3D083"))
     ax.text(7.2, 3.35, "Merton：多重发现\n（无判据）", fontsize=7.8, ha="center", va="center",
-            bbox=dict(boxstyle="round,pad=.4", fc="#f4f4f1", ec="#d5d2c8"))
+            bbox=dict(boxstyle="round,pad=.4", fc="#f4f4f1", ec="#F3D083"))
     ax.text(7.2, 1.35, "沉睡美人／延迟承认：\n引文分布（无机制）", fontsize=7.8, ha="center", va="center",
-            bbox=dict(boxstyle="round,pad=.4", fc="#f4f4f1", ec="#d5d2c8"))
-    ax.text(.2, .05, "图 7　本文在既有文献中的位置：把「延迟承认」从相关性描述推到一个必要条件结构", fontsize=9.2)
-    fig.tight_layout(); fig.savefig(ROOT / "fig07_position.png", bbox_inches="tight"); plt.close(fig)
+            bbox=dict(boxstyle="round,pad=.4", fc="#f4f4f1", ec="#F3D083"))
+    
+    figsave(ROOT / "fig07_position.png"); plt.close(fig)
 
 
 def write_appendix():
@@ -347,9 +341,8 @@ def fig08():
             ax.plot([i - .28, i + .28], [np.median(ys)] * 2, color="#333", lw=1.4, zorder=4)
     ax.set_xticks(range(len(order))); ax.set_xticklabels(order, fontsize=8.6)
     ax.set_ylabel("解码器滞后（年）")
-    ax.set_title("图 8　三类解码器的速度差别：编纂最快，仪器最慢", fontsize=9.6, loc="left")
     ax.text(.02, .93, "横线为组内中位；每点为一个恢复案例", transform=ax.transAxes, fontsize=7.4, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT / "fig08_dectype.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig08_dectype.png"); plt.close(fig)
 
 
 def fig09():
@@ -360,13 +353,13 @@ def fig09():
         ax.add_patch(FancyBboxPatch((x - 1.15, y - .32), 2.3, .64, boxstyle="round,pad=0.04,rounding_size=0.08",
                                     fc=fc, ec="#666", lw=.9))
         ax.text(x, y, t, ha="center", va="center", fontsize=fs, linespacing=1.4)
-    node(5, 4.55, "有残余信号？（标记①）", "#dbe7f1")
+    node(5, 4.55, "有残余信号？（标记①）", "#D1EBF9")
     node(2.3, 3.2, "永久沉默\n（载体销毁）", "#eeeeee")
-    node(5, 3.2, "有解码器？（标记②）", "#dbe7f1")
+    node(5, 3.2, "有解码器？（标记②）", "#D1EBF9")
     node(7.7, 3.2, "永久沉默\n（等不到解码器）", "#eeeeee")
-    node(3.3, 1.75, "命题可由新框架重建？（标记③）", "#e6ecdf")
-    node(7.0, 1.75, "恢复（翻译路径）", "#cfdbe6")
-    node(3.3, .45, "重发明（归属断裂）", "#f0e2cb")
+    node(3.3, 1.75, "命题可由新框架重建？（标记③）", "#F7F19A")
+    node(7.0, 1.75, "恢复（翻译路径）", "#BCE1F6")
+    node(3.3, .45, "重发明（归属断裂）", "#F2DCE8")
     for a, b in [((5, 4.23), (2.3, 3.52)), ((5, 4.23), (5, 3.52)), ((5, 2.88), (7.7, 2.88)),
                  ((5, 2.88), (3.3, 2.07)), ((5, 2.88), (7.0, 2.07))]:
         ax.annotate("", xy=b, xytext=a, arrowprops=dict(arrowstyle="-|>", lw=.9, color="#777"))
@@ -375,31 +368,34 @@ def fig09():
     ax.text(3.3, 1.2, "否（重建更贵）→ 翻译", fontsize=7, color="#555", ha="center")
     ax.text(3.3, .95, "是（可重建）→ 重造", fontsize=7, color="#555", ha="center")
     ax.annotate("", xy=(3.3, .8), xytext=(3.3, 1.4), arrowprops=dict(arrowstyle="-|>", lw=.8, color="#777"))
-    ax.text(.15, 5.0, "图 9　判据树：先问残余，再问解码器，最后问可重建性", fontsize=9.6, fontweight="bold")
+    
     ax.text(.15, .05, "注：②是必要条件；①③只决定沉默的类型与恢复的形态。", fontsize=7, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT / "fig09_tree.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig09_tree.png"); plt.close(fig)
 
 
 def fig10():
     """决策空间：翻译成本 × 重建成本。"""
     lvl = {"低": 1, "中": 2, "高": 3}
     fig, ax = plt.subplots(figsize=(6.2, 4.0))
+    used = {}
     for r in ROWS:
         if r["trans"] not in lvl or r["outcome"] == "沉默":
             continue
         x = lvl[r["derivable"]] if r["derivable"] in lvl else {"可": 1, "难": 3, "不可": 4}[r["derivable"]]
         y = lvl[r["trans"]]
+        k = used.get((x, y), 0); used[(x, y)] = k + 1
+        off = [(5, 4), (5, -11), (16, 4), (16, -11), (-16, 4), (-16, -11)][k % 6]
         col = C_REI if r["outcome"] == "重发明" else C_REC
         ax.scatter(x, y, s=46, color=col, alpha=.85, zorder=3, edgecolor="white", lw=.6)
-        ax.annotate(r["id"], (x, y), xytext=(4, 4), textcoords="offset points", fontsize=6.4, color="#333")
+        ax.annotate(r["id"], (x, y), xytext=off, textcoords="offset points",
+                    fontsize=6.4, color="#333")
     ax.plot([.6, 4.4], [.6, 4.4], ls="--", lw=1, color="#999")
     ax.set_xlim(.5, 4.5); ax.set_ylim(.5, 3.5)
     ax.set_xticks([1, 3, 4]); ax.set_xticklabels(["可重建\n(成本低)", "难重建", "不可重建\n(成本极高)"], fontsize=8)
     ax.set_yticks([1, 2, 3]); ax.set_yticklabels(["低", "中", "高"], fontsize=8.6)
     ax.set_xlabel("重建成本"); ax.set_ylabel("翻译成本")
     ax.text(3.9, 1.15, "对角线：\n翻译与重建同价", fontsize=7, color="#777", ha="right")
-    ax.set_title("图 10　翻译与重建的决策空间：重发明全部落在'重建不贵'一侧", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT / "fig10_decision.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig10_decision.png"); plt.close(fig)
 
 
 def write_degree():
@@ -428,9 +424,8 @@ def fig11():
         ax.text(v + 1.5, i, f"{v:.0f}%", va="center", fontsize=9)
     ax.set_yticks(range(3)); ax.set_yticklabels(names, fontsize=9)
     ax.set_xlim(0, 108); ax.set_xlabel("恢复案例中的保留率（%）")
-    ax.set_title("图 11　恢复是分层的：方法最先回来，术语最后回来", fontsize=9.6, loc="left")
     ax.invert_yaxis()
-    fig.tight_layout(); fig.savefig(ROOT / "fig11_degree.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig11_degree.png"); plt.close(fig)
 
 
 def fig12():
@@ -443,15 +438,14 @@ def fig12():
     cells = {(0, 1): ("已服务／被吸收\nC16 C23", "#f2f2f2"),
              (1, 1): ("永久沉默\nC15", "#e8e8e8"),
              (0, 0): ("同代即被接受\n（不在样本）", "#fafafa"),
-             (1, 0): ("等待解码器\n其余 21 例", "#dbe7f1")}
+             (1, 0): ("等待解码器\n其余 21 例", "#D1EBF9")}
     for (i, j), (t, c) in cells.items():
         ax.add_patch(plt.Rectangle((i, j), 1, 1, fc=c, ec="#999", lw=.9))
         ax.text(i + .5, j + .5, t, ha="center", va="center", fontsize=8, linespacing=1.7, color="#222")
-    ax.set_title("图 12　两种记忆的四种组合：数字化只补了左边这一列", fontsize=9.4, loc="left")
     for sp in ax.spines.values():
         sp.set_visible(False)
     ax.grid(False)
-    fig.tight_layout(); fig.savefig(ROOT / "fig12_two_memories.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig12_two_memories.png"); plt.close(fig)
 
 
 def fig13():
@@ -468,8 +462,7 @@ def fig13():
         if r["outcome"] == "重发明" and r["silence"] is not None:
             ax.plot(r["silence"], .35, "^", ms=6, color=C_REI, zorder=4)
     ax.text(.98, .72, "▲ 重发明（99—1813 年）", transform=ax.transAxes, ha="right", fontsize=7.4, color=C_REI)
-    ax.set_title("图 13　恢复组集中在 15—60 年，重发明在 100 年之外", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT / "fig13_dist.png", bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT / "fig13_dist.png"); plt.close(fig)
 
 
 if __name__ == "__main__":

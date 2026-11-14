@@ -14,7 +14,7 @@ def main(pdf="release/00-合集-印刷版.pdf"):
     def find(probe, start=0, skip_toc=False):
         p = re.sub(r"\s+", "", probe)[:26]
         for i in range(start, len(texts)):
-            if any(k in texts[i] for k in ("本卷目录", "总目录", "合集一览", "六核心速查")):
+            if skip_toc and any(k in texts[i] for k in ("本卷目录", "总目录", "合集一览", "六核心速查")):
                 continue
             s = re.sub(r"\s+", "", texts[i])
             if p and p in s:

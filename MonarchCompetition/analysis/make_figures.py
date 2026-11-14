@@ -23,7 +23,6 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -31,15 +30,13 @@ sys.path.insert(0, str(ROOT))
 from data import prices as P
 from data import vendors as V
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC", "Noto Sans CJK SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3, C4 = "#2f6f9f", "#b3701f", "#a8322d", "#9a9a9a"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3, C4 = "#0072B2", "#E69F00", "#D55E00", "#595959"
 
 S = P.S
 
@@ -48,7 +45,7 @@ LAB_ZH = {"openai": "OpenAI", "anthropic": "Anthropic", "google": "Google", "dee
 
 
 def save(fig, name):
-    fig.savefig(ROOT / name, bbox_inches="tight")
+    figsave(ROOT / name)
     plt.close(fig)
     print("  " + name)
 
@@ -206,8 +203,6 @@ def fig01():
     ax.set_xscale("log")
     ax.set_xlabel("重放—判断价差 RJS（输出单价 ÷ 缓存读单价，倍数，对数轴）")
     ax.set_ylabel("模型数")
-    ax.set_title("图 1　一次「新判断」比一次「重放」贵多少：%d 个模型的价目表读数" % S["n_rjs"],
-                 fontsize=9.4, loc="left")
     ax.legend(fontsize=7.6, frameon=False)
     save(fig, "fig01_rjs.png")
 
@@ -225,8 +220,6 @@ def fig02():
     ax.set_xscale("log")
     ax.set_yticks([0, 1]); ax.set_yticklabels(["闭源", "开放权重"], fontsize=8)
     ax.set_xlabel("输出单价（美元／百万 token，对数轴）")
-    ax.set_title("图 2　同一个「token」的两个价位：开放权重中位 \$%.2f，闭源中位 \$%.2f（%.1f 倍）"
-                 % (S["out_open"][1], S["out_closed"][1], S["out_ratio"]), fontsize=9.4, loc="left")
     save(fig, "fig02_levels.png")
 
 
@@ -243,8 +236,6 @@ def fig03():
     ax.set_ylabel("输出单价（美元／M，对数轴）")
     step = max(1, len(xs) // 8)
     ax.set_xticks(idx[::step]); ax.set_xticklabels(xs[::step], rotation=40, fontsize=7, ha="right")
-    ax.set_title("图 3　二十个月里，新进入市场的模型并没有变便宜（首尾六个月中位：闭源 \$%.2f→\$%.2f）"
-                 % (S["vintage_first"][1], S["vintage_last"][1]), fontsize=9.4, loc="left")
     ax.legend(fontsize=7.4, frameon=False)
     save(fig, "fig03_vintage.png")
 
@@ -265,7 +256,6 @@ def fig04():
         ax.text(-3, y, name, ha="right", va="center", fontsize=8.4)
     ax.set_xlim(0, 100); ax.set_ylim(-.55, 1.55)
     ax.set_yticks([]); ax.set_xlabel("平台份额（%）")
-    ax.set_title("图 4　量与钱的分离：token 去了开放权重，钱留在闭源", fontsize=9.4, loc="left")
     ax.text(0, -0.48, "注：开放权重 token 份额为 2026 年 4—9 月的峰值区间（%d—%d%%）；spend 为闭源份额。"
             % (M["token_open_floor"], M["token_open_peak"]), fontsize=6.8, color="#555")
     save(fig, "fig04_sep.png")
@@ -287,7 +277,6 @@ def fig05():
     ax.set_yscale("log")
     ax.set_xticks(xs); ax.set_xticklabels([LAB_ZH[t["lab"]] for t in order], fontsize=7.8, rotation=25, ha="right")
     ax.set_ylabel("输出单价（美元／M，对数轴）")
-    ax.set_title("图 5　同一家实验室的两个价目表：可自托管的一层与独占的一层", fontsize=9.4, loc="left")
     ax.scatter([], [], s=60, color=C2, label="商品层（权重可下载）")
     ax.scatter([], [], s=60, color=C1, label="旗舰层（权重不可下载）")
     ax.legend(fontsize=7.4, frameon=False, loc="upper left")
@@ -301,13 +290,12 @@ def fig06():
         ax.text(price * 1.12, i, "%s %s" % (lab.split()[0], prod.replace("Coding Plan ", "")),
                 fontsize=6.9, va="center")
     lo, hi = min(s[2] for s in V.SEATS), max(s[2] for s in V.SEATS)
-    ax.axvspan(lo, hi, color="#f2ede3", zorder=0)
+    ax.axvspan(lo, hi, color="#FAEDCF", zorder=0)
     ax.set_xscale("log")
     ax.set_yticks([]); ax.set_xlim(8, 400)
-    ax.set_xlabel("席位价（美元／月，对数轴）　灰带：本文取到的全部席位价区间 \$%.1f—\$%.0f" % (lo, hi))
-    ax.set_title("图 6　方向层的价目：席位定价不随执行单价下降", fontsize=9.4, loc="left")
-    ax.text(8.6, -1.15, "对照：同一快照内输出单价从 \$0.42 到 \$50（%.0f 倍），席位价只跨 %.1f 倍。"
-            % (50 / .42, hi / lo), fontsize=6.9, color="#555")
+    ax.set_xlabel("席位价（美元／月，对数轴）；浅带：本文取到的全部席位价区间 \$%.1f—\$%.0f" % (lo, hi))
+    fig.text(0.01, -0.06, "对照：同一快照内输出单价从 \$0.42 到 \$50（%.0f 倍），席位价只跨 %.1f 倍。"
+             % (50 / .42, hi / lo), fontsize=6.9, color="#555")
     save(fig, "fig06_seat.png")
 
 
@@ -319,13 +307,13 @@ def fig07():
         ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.06", fc=c, ec="#c9c0ad", lw=.8))
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=7.8, linespacing=1.6)
 
-    box(.2, 4.3, 4.5, 1.35, "Q1 瓶颈：预算（算力与资本）\n→ 与第十篇 T3「预算从不作主瓶颈」冲突", "#f6e9e6")
+    box(.2, 4.3, 4.5, 1.35, "Q1 瓶颈：预算（算力与资本）\n→ 与第十篇 T3「预算从不作主瓶颈」冲突", "#F9E9DC")
     box(5.1, 4.3, 4.5, 1.35, "Q2 置换：拆分（模型分层）+ 预计算（缓存 90%）\n+ 复制（多供应商路由）")
-    box(.2, 2.55, 4.5, 1.35, "Q3 可写性：A（价目 + 路由 + 缓存，十行可写）\n→ 与第十篇「可写性低则代价不在场」冲突", "#f6e9e6")
-    box(5.1, 2.55, 4.5, 1.35, "Q4 承担者：不在场者（被替代者、被训练者）\n在场性需加第五档：在场而不知情", "#f6e9e6")
+    box(.2, 2.55, 4.5, 1.35, "Q3 可写性：A（价目 + 路由 + 缓存，十行可写）\n→ 与第十篇「可写性低则代价不在场」冲突", "#F9E9DC")
+    box(5.1, 2.55, 4.5, 1.35, "Q4 承担者：不在场者（被替代者、被训练者）\n在场性需加第五档：在场而不知情", "#F9E9DC")
     box(.2, .75, 9.4, 1.3, "第四问的两次修订是本文对第十篇的唯一实质修改：\n"
         "可写性高 ≠ 代价可见；在场 ≠ 知情。两处都不改十篇正文，只在本篇登记。", "#eef2f6")
-    ax.text(.2, 5.85, "图 7　D21（agent 平台）的四问编码：两处与第十篇的既有结论相撞", fontsize=9.4, fontweight="bold")
+    
     save(fig, "fig07_d21.png")
 
 
@@ -345,7 +333,6 @@ def fig08():
                 va="center", fontsize=7.2, color=cols[v])
     ax.set_yticks([]); ax.set_xlim(0, 1.3); ax.set_xticks([0, .5, 1.0])
     ax.set_xticklabels(["0", "0.5", "1"], fontsize=8)
-    ax.set_title("图 8　自证：十条命题的最终状态（一条被数据打掉）", fontsize=9.4, loc="left")
     save(fig, "fig08_self.png")
 
 

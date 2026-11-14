@@ -23,22 +23,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RES = ROOT / "results"
 DATA = ROOT / "data"
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC", "Noto Sans CJK SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3, C4, C5 = "#2f6f9f", "#b3701f", "#a8322d", "#9a9a9a", "#4f7a4f"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3, C4, C5 = "#0072B2", "#E69F00", "#D55E00", "#595959", "#009E73"
 
 
 def rd(name):
@@ -64,7 +61,7 @@ for i in range(1, len(cov_x)):
 
 
 def save(fig, name):
-    fig.savefig(ROOT / name, bbox_inches="tight")
+    figsave(ROOT / name)
     plt.close(fig)
     print("  " + name)
 
@@ -212,9 +209,9 @@ def tables():
 def fig01():
     fig, ax = plt.subplots(figsize=(6.8, 3.8))
     ax.set_xlim(0, 10); ax.set_ylim(0, 5.6); ax.axis("off")
-    ax.text(.2, 5.25, "图 1　五个页面，两个标签，一个陷阱", fontsize=9.8, fontweight="bold")
-    labels = [("信息流\n返回＝上一条", "#dbe7f1"), ("群聊\n返回＝上一级", "#e6ecdf"),
-              ("设置\n返回＝上一级", "#e6ecdf"), ("弹窗\n返回＝关闭", "#f7efe2"),
+    
+    labels = [("信息流\n返回＝上一条", "#D1EBF9"), ("群聊\n返回＝上一级", "#F7F19A"),
+              ("设置\n返回＝上一级", "#F7F19A"), ("弹窗\n返回＝关闭", "#FBEFD6"),
               ("直播\n互动＝评论", "#f2e6e6")]
     for i, (t, c) in enumerate(labels):
         x = .3 + i * 1.92
@@ -242,9 +239,8 @@ def fig02():
         for i, v in enumerate(vals):
             ax.text(i, v + max(vals) * .04, f"{v:.2f}" if k != "esc" else f"{v:.1f}",
                     ha="center", fontsize=7.6)
-        ax.set_title(lab, fontsize=8.6); ax.set_ylim(0, max(vals) * 1.28 if max(vals) else 1)
-    fig.suptitle("图 2　主对照（覆盖 0.5）：M2 在准确率与污染上胜出，在误动作上并未胜出", fontsize=9.2, x=.02, ha="left")
-    fig.tight_layout(rect=[0, 0, 1, .9])
+        ax.set_ylim(0, max(vals) * 1.28 if max(vals) else 1)
+    
     save(fig, "fig02_main.png")
 
 
@@ -257,7 +253,6 @@ def fig03():
         ax.text(THRESH + .01, max(cov_mis) * .92, "阈值 ≈ %.2f" % THRESH, fontsize=8, color=C3)
     ax.set_xlabel("锚点覆盖率（有字段日志的页面比例）"); ax.set_ylabel("误动作率")
     ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 3　覆盖率决定胜负：低于阈值时，带锚裁决比摘要更差", fontsize=9.2, loc="left")
     save(fig, "fig03_coverage.png")
 
 
@@ -269,7 +264,7 @@ def fig04():
                 if r["cover"] == "0.9" and r["p"] == "0.25" and r["rho"] == rho and r["K"] == K:
                     M[i, j] = float(r["mis"])
     fig, ax = plt.subplots(figsize=(4.8, 2.9))
-    ax.imshow(M, cmap="Reds")
+    ax.imshow(M, cmap=CM_RED)
     ax.set_xticks(range(3)); ax.set_xticklabels(["K=1", "K=3", "K=5"], fontsize=9)
     ax.set_yticks(range(3)); ax.set_yticklabels(["ρ=0", "ρ=0.3", "ρ=0.7"], fontsize=9)
     for i in range(3):
@@ -277,7 +272,6 @@ def fig04():
             ax.text(j, i, f"{M[i, j]:.3f}", ha="center", va="center", fontsize=8.4,
                     color="white" if M[i, j] > M.mean() else "#222")
     ax.grid(False)
-    ax.set_title("图 4　ρ × K 对误动作率：加路数的收益被共源吃掉", fontsize=9.0, loc="left")
     save(fig, "fig04_rhok.png")
 
 
@@ -297,7 +291,6 @@ def fig05():
         ax.text(i + .18, b + 20, f"{b:.0f}", ha="center", fontsize=7.4)
     ax.set_xticks(x); ax.set_xticklabels(conds); ax.set_ylabel("端到端延迟 ms")
     ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 5　延迟：分级让低风险留在 1 秒内，高风险越过红线", fontsize=9.2, loc="left")
     save(fig, "fig05_latency.png")
 
 
@@ -308,7 +301,6 @@ def fig06():
     ax.plot(cov_x, cov_mis, "o--", color=C1, lw=1.2, ms=3.5, label="总误动作率")
     ax.set_xlabel("锚点覆盖率"); ax.set_ylabel("比例")
     ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 6　越有锚点，「一致地错」在错误里的占比越高", fontsize=9.2, loc="left")
     save(fig, "fig06_unanimous.png")
 
 
@@ -322,13 +314,13 @@ def fig07():
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.5)
 
     box(.3, 3.4, 3.0, 1.1, "论文十二：设计\n三层架构 + 十条命题", "#f2efe6")
-    box(3.6, 3.4, 3.0, 1.1, "本文：压力测试\n模拟 12000 步", "#dbe7f1")
-    box(6.9, 3.4, 2.8, 1.1, "结果：两支持\n一条件化、一未检验", "#e6ecdf")
+    box(3.6, 3.4, 3.0, 1.1, "本文：压力测试\n模拟 12000 步", "#D1EBF9")
+    box(6.9, 3.4, 2.8, 1.1, "结果：两支持\n一条件化、一未检验", "#F7F19A")
     box(.3, 1.3, 4.4, 1.2, "被支持：三层可运行、K=3 拐点、\n「宁可忘不要编」（14.5% 全票是错的）", "#fff", 7.6)
     box(5.0, 1.3, 4.7, 1.2, "被条件化：优势有覆盖率下限 ≈0.57；\n低于它时不如摘要", "#fff", 7.6)
     for x in (1.8, 5.1, 8.3):
         ax.add_patch(FancyArrowPatch((x, 3.35), (x, 2.6), arrowstyle="-|>", mutation_scale=10, lw=.9, color="#999"))
-    ax.text(.2, 4.9, "图 7　设计与测试的分工：论文十二给承诺，本文给边界", fontsize=9.6, fontweight="bold")
+    
     save(fig, "fig07_interface.png")
 
 
@@ -343,7 +335,6 @@ def fig08():
         ax.text(-.02, y, f"{i} {t}", ha="right", va="center", fontsize=7.8)
         ax.text(v + .02, y, "未触发" if v == 1.0 else "部分触发", va="center", fontsize=7.4, color=cols[v])
     ax.set_yticks([]); ax.set_xlim(0, 1.35); ax.set_xticks([0, .5, 1])
-    ax.set_title("图 8　自证：四条预先登记的否证条件，一条被部分触发", fontsize=9.2, loc="left")
     save(fig, "fig08_falsify.png")
 
 
@@ -355,7 +346,6 @@ def fig09():
         ax.plot(xs, [float(r["acc"]) for r in rows], "o-", color=c, lw=1.8, ms=5, label=lab + "（准确率）")
     ax.set_xlabel("决策步（每桶 50 步）"); ax.set_ylabel("准确率")
     ax.set_ylim(0, .55); ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 9　允许回写：准确率在 200 步内从 0.34 掉到 0.15", fontsize=9.2, loc="left")
     save(fig, "fig09_drift.png")
 
 
@@ -375,7 +365,6 @@ def fig10():
         ax.text(v + .005, i, "%.3f" % v, va="center", fontsize=8)
     ax.set_yticks(range(len(tags))); ax.set_yticklabels(tags, fontsize=8)
     ax.set_xlim(0, .75); ax.set_xlabel("与摘要基线的交叉点（覆盖率）")
-    ax.set_title("图 10　阈值会移动：ρ 与 K 让它动 ±0.04–0.10，p 几乎不动它", fontsize=9.0, loc="left")
     save(fig, "fig10_thresholds.png")
 
 

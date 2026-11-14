@@ -1,0 +1,13 @@
+topic	k	window	count	query	fetched_at
+dsh-plugin	0	sep	4065	topic:dsh-plugin created:2026-09-01..2026-09-30	2026-11-14T14:59:03
+dsh-plugin	0	oct	5443	topic:dsh-plugin created:2026-10-01..2026-10-23	2026-11-14T14:59:05
+dsh-plugin	1	sep	2096	topic:dsh-plugin created:2026-09-01..2026-09-30 stars:>=1 fork:false	2026-11-14T14:59:09
+dsh-plugin	1	oct	2485	topic:dsh-plugin created:2026-10-01..2026-10-23 stars:>=1 fork:false	2026-11-14T14:59:24
+dsh-plugin	10	sep	233	topic:dsh-plugin created:2026-09-01..2026-09-30 stars:>=10 fork:false	2026-11-14T14:59:30
+dsh-plugin	10	oct	224	topic:dsh-plugin created:2026-10-01..2026-10-23 stars:>=10 fork:false	2026-11-14T14:59:33
+agent-skills	0	sep	6778	topic:agent-skills created:2026-09-01..2026-09-30	2026-11-14T14:59:37
+agent-skills	0	oct	7421	topic:agent-skills created:2026-10-01..2026-10-23	2026-11-14T14:59:41
+agent-skills	1	sep	2818	topic:agent-skills created:2026-09-01..2026-09-30 stars:>=1 fork:false	2026-11-14T14:59:47
+agent-skills	1	oct	2928	topic:agent-skills created:2026-10-01..2026-10-23 stars:>=1 fork:false	2026-11-14T14:59:50
+agent-skills	10	sep	393	topic:agent-skills created:2026-09-01..2026-09-30 stars:>=10 fork:false	2026-11-14T14:59:52
+agent-skills	10	oct	370	topic:agent-skills created:2026-10-01..2026-10-23 stars:>=10 fork:false	2026-11-14T14:59:55

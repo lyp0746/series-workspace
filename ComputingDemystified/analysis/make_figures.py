@@ -38,24 +38,19 @@ from matplotlib.patches import FancyBboxPatch, Rectangle, FancyArrowPatch, Ellip
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data"))
 from concepts import TERMS, LAYERS, BNECK, SWAP, stats  # noqa: E402
-
-plt.rcParams.update({
-    "font.family": ["SimHei", "Microsoft YaHei"],
-    "axes.unicode_minus": False,
-    "figure.dpi": 180,
-    "savefig.dpi": 180,
-    "axes.edgecolor": "#333333",
-    "axes.linewidth": 0.8,
-    "font.size": 9.5,
-    "figure.facecolor": "white",
-})
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "..")
 S = stats()
 
-RED, BLUE, GREEN, GOLD, GRAY = "#b3261e", "#1f4e79", "#2e6b4f", "#a8791f", "#5f6368"
-P_RED, P_BLUE, P_GREEN, P_GOLD = "#fbe9e7", "#e8eff6", "#e6f1ea", "#faf1dd"
+RED, BLUE, GREEN, GOLD, GRAY = "#D55E00", "#0072B2", "#009E73", "#D55E00", "#595959"
+P_RED, P_BLUE, P_GREEN, P_GOLD = "#FAEBDF", "#E5F1F7", "#e6f1ea", "#FBF1DA"
 P_GRAY = "#f1f1f1"
 VCOL = {"C": RED, "A": BLUE, "T": GREEN, "无": GRAY}
 VNAME = {"C": "C 完备", "A": "A 可组合", "T": "T 传递", "无": "无让出"}
@@ -73,7 +68,7 @@ def card(ax, x, y, w, h, fc, ec, title, body, tcol, tsize=10.5, bsize=8.2):
     ax.text(x + 0.03, y + h - 0.06, title, transform=ax.transAxes, fontsize=tsize,
             fontweight="bold", color=tcol, va="top", zorder=2)
     ax.text(x + 0.03, y + h - 0.155, body, transform=ax.transAxes, fontsize=bsize,
-            color="#333333", va="top", linespacing=1.6, zorder=2)
+            color="#000000", va="top", linespacing=1.6, zorder=2)
 
 
 def write_csv():
@@ -105,7 +100,7 @@ def fig01():
         y = i + 1.25
         fc = "#ffffff" if i % 2 == 0 else "#faf8f3"
         ax.add_patch(Rectangle((0.02, y - 0.42), 0.96, 0.84, fc=fc,
-                               ec="#c9c2b2", lw=0.8))
+                               ec="#CC79A7", lw=0.8))
         ax.text(0.045, y + 0.10, "%d" % (i + 1), fontsize=13, fontweight="bold",
                 color=GOLD, va="center")
         ax.text(0.100, y + 0.10, L, fontsize=11.5, fontweight="bold", va="center")
@@ -133,7 +128,7 @@ def fig02():
         M[BNECK.index(t["bneck"]), SWAP.index(t["swap"])] += 1
     filled = int((M > 0).sum())
     fig, ax = plt.subplots(figsize=(7.4, 5.2))
-    im = ax.imshow(M, cmap="YlOrBr", vmin=0, vmax=M.max())
+    im = ax.imshow(M, cmap=CM_ORANGE, vmin=0, vmax=M.max())
     ax.set_xticks(range(len(SWAP))); ax.set_xticklabels(SWAP, fontsize=9)
     ax.set_yticks(range(len(BNECK))); ax.set_yticklabels(BNECK, fontsize=9)
     ax.set_xlabel("置换动作（把什么挪走）", fontsize=9.4)
@@ -154,8 +149,6 @@ def fig02():
     cb = fig.colorbar(im, ax=ax, fraction=0.035, pad=0.02)
     cb.set_label("术语数", fontsize=8)
     cb.ax.tick_params(labelsize=7.5)
-    ax.set_title("%d 条术语落在 7×7 的账格里：只有 %d 格非空，最大格 %d 条"
-                 % (len(TERMS), filled, int(M.max())), fontsize=10.5, pad=10)
     save(fig, "fig02.png")
 
 
@@ -229,12 +222,10 @@ def fig04():
     ax1.set_xlim(0, n_slice * slice_len)
     for k in range(n_slice):
         ax1.axvspan(k * slice_len, k * slice_len + cold, color=P_RED, alpha=0.55, lw=0)
-    ax1.set_title("上下文切换真正的账单：不是那几条寄存器读写，而是被冲掉的缓存",
-                  fontsize=10.6, pad=8)
-    ax1.text(0.0, -0.30, "浅红区：切换后前 ~170 次访问几乎全部未命中（新进程的热点数据不在片上）。",
-             transform=ax1.transAxes, fontsize=8.2, color=RED)
-    ax1.text(0.0, -0.40, "示意模型：每片 400 次访问、冷启动 170 次；数值为构造，不是实测。",
-             transform=ax1.transAxes, fontsize=7.6, color="#666")
+    fig.text(0.01, -0.05, "浅红区：切换后前 ~170 次访问几乎全部未命中（新进程的热点数据不在片上）。",
+             fontsize=8.2, color=RED)
+    fig.text(0.01, -0.11, "示意模型：每片 400 次访问、冷启动 170 次；数值为构造，不是实测。",
+             fontsize=7.6, color="#595959")
 
     for k in range(n_slice):
         ax2.add_patch(Rectangle((k * slice_len, 0), slice_len, 1,
@@ -296,7 +287,6 @@ def fig06():
     ax1.set_xlabel("权重取值", fontsize=9)
     ax1.set_ylabel("参数个数（示意）", fontsize=9)
     ax1.set_yticks([])
-    ax1.set_title("a　4 位量化：步长 = (max − min)/(2⁴ − 1)", fontsize=10.2)
     ax1.text(0.03, 0.94, "16 个台阶代替连续区间\n每个数四舍五入到最近的台阶\n步长 ≈ %.2f"
              % ((hi - lo) / 15), transform=ax1.transAxes, fontsize=8.2, va="top",
              color="#333", bbox=dict(fc="white", ec="none", alpha=0.85, pad=2.0))
@@ -346,7 +336,6 @@ def fig07():
                 xytext=(0.34, unfused * 0.62), fontsize=8.8, color=GREEN,
                 arrowprops=dict(arrowstyle="-|>", color=GREEN, lw=1.1,
                                 connectionstyle="arc3,rad=-0.15"))
-    ax.set_title("算子融合的账单：算的是同一件事，搬的次数不同", fontsize=10.6, pad=8)
     ax.text(0.0, -0.20, "算例：seq=1024，d=768，batch=2，fp16；中间张量 %.1f MiB，"
                         "按每次算子读一次写一次计。" % per_tensor,
             transform=ax.transAxes, fontsize=7.8, color="#666")
@@ -501,7 +490,6 @@ def fig11():
     ax1.set_xlim(0, max(S["layers"].values()) + 1.2)
     ax1.legend(ncol=4, fontsize=8, frameon=False, loc="lower center",
                bbox_to_anchor=(0.5, -0.30))
-    ax1.set_title("按层记账：灰色是“没有让出任何一项”的纯资源置换", fontsize=10.2, pad=8)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
 
@@ -517,8 +505,6 @@ def fig11():
         bottoms += val
     ax2.set_xlim(-0.55, 0.55); ax2.set_ylim(0, S["n"] * 1.02)
     ax2.set_xticks([]); ax2.set_ylabel("n = 60", fontsize=9)
-    ax2.set_title("让出顶点 %d / 无让出 %d"
-                  % (S["n"] - S["vertex"]["无"], S["vertex"]["无"]), fontsize=10.2, pad=8)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
     save(fig, "fig11.png")
@@ -558,7 +544,6 @@ def fig12():
     ax.tick_params(length=0)
     for s in ax.spines.values():
         s.set_visible(False)
-    ax.set_title("按症状补课：● 表示先去看这一层（作者判断，C 级）", fontsize=10.2, pad=10)
     save(fig, "fig12.png")
 
 

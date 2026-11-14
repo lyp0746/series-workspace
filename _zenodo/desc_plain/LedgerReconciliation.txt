@@ -10,7 +10,7 @@
 
 与系列的关系。本篇是系列论文的方法学总账，与六本学术专著是「借用语言」关系，与十五篇工作论文是「二次编码」关系。第十五篇《接缝不在奇点》把物理侧的 30 条账目带进总账；本篇把它们压缩成 10 条登记命题，并把六组物理侧同名不同物并入第 5 章。后续每加一篇，都应把命题登记进本表，使对账持续。
 
-版本信息。2026-11-02，88 页，126 条，13 处同名不同物，8 图；PDF / HTML / Markdown / CSV / 交互页 / README / MANIFEST。
+版本信息。2026-11-02，89 页，126 条，13 处同名不同物，8 图；PDF / HTML / Markdown / CSV / 交互页 / README / MANIFEST。
 
 Abstract. This paper reconciles rather than reviews. The 120 propositions in the registers of fourteen of the fifteen working papers, plus the 6 propositions of this paper itself and the 10 of The Seam Is Not at the Singularity, are extracted and re-coded on eight columns (paper, id, claim, test, result, status, grade, core, scale), then audited three ways. This edition adds this paper's own six propositions to the master table and incorporates six physical cases of “same name, different object”; old rows are unchanged.
 
@@ -24,4 +24,4 @@ Boundaries and failure conditions. Reconciliation produces no new evidence; it c
 
 Relation to the series. This is the methodological master ledger of the series: it borrows the language of the six academic monographs and re-codes the fifteen working papers. The Seam Is Not at the Singularity brings 30 physics-side ledger items into the account; this paper compresses them into ten registered propositions and adds six physical cases of “same name, different object” to Chapter 5. Every new paper should register its propositions here.
 
-Edition. 2026-11-02, 88 pages, 126 propositions, 13 cases of “same name, different object”, 8 figures; PDF / HTML / Markdown / CSV / interactive explorer / README / MANIFEST.
+Edition. 2026-11-02, 89 pages, 126 propositions, 13 cases of “same name, different object”, 8 figures; PDF / HTML / Markdown / CSV / interactive explorer / README / MANIFEST.

@@ -23,22 +23,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from data import domains as D
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC", "Noto Sans CJK SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3, C4 = "#2f6f9f", "#b3701f", "#a8322d", "#9a9a9a"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3, C4 = "#0072B2", "#E69F00", "#D55E00", "#595959"
 
 ROWS = D.rows()
 S = D.stats()
@@ -47,7 +44,7 @@ PRE = D.PRESENCE
 
 
 def save(fig, name):
-    fig.savefig(ROOT / name, bbox_inches="tight")
+    figsave(ROOT / name)
     plt.close(fig)
     print("  " + name)
 
@@ -154,14 +151,14 @@ def fig01():
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.5)
 
     box(3.55, 2.5, 2.9, 1.0, "一个领域\n（黑箱）", "#f2efe6", 9)
-    box(.3, 4.55, 2.9, 1.05, "Q1 瓶颈\n为哪项稀缺资源付账", "#dbe7f1")
-    box(3.55, 4.55, 2.9, 1.05, "Q2 置换\n合并/拆分/复制/…", "#e6ecdf")
+    box(.3, 4.55, 2.9, 1.05, "Q1 瓶颈\n为哪项稀缺资源付账", "#D1EBF9")
+    box(3.55, 4.55, 2.9, 1.05, "Q2 置换\n合并/拆分/复制/…", "#F7F19A")
     box(6.8, 4.55, 2.9, 1.05, "Q3 可写性\n能否写成十行", "#f2e6e6")
-    box(3.55, .8, 2.9, 1.05, "Q4 承担者\n代价落在谁身上", "#f7efe2")
+    box(3.55, .8, 2.9, 1.05, "Q4 承担者\n代价落在谁身上", "#FBEFD6")
     for a, b in [((1.75, 4.55), (4.2, 3.55)), ((5.0, 4.55), (5.0, 3.55)),
                  ((8.25, 4.55), (5.8, 3.55)), ((5.0, 2.45), (5.0, 1.9))]:
         ax.add_patch(FancyArrowPatch(a, b, arrowstyle="-|>", mutation_scale=11, lw=1, color="#666"))
-    ax.text(.2, 5.85, "图 1　四个问题是一个剖面，不是四个标签", fontsize=9.8, fontweight="bold")
+    
     ax.text(.2, .12, "注：Q1 定「在哪一项上划线」，Q2 定「让出了什么」，Q3 定「能不能写清」，Q4 定「谁付账」。",
             fontsize=7, color="#555")
     save(fig, "fig01_four.png")
@@ -181,14 +178,13 @@ def fig02():
         if v: ax.text(i + .19, v + .1, str(v), ha="center", fontsize=8)
     ax.set_xticks(x); ax.set_xticklabels(bl, fontsize=9)
     ax.set_ylabel("领域数"); ax.set_ylim(0, 7.2); ax.legend(fontsize=8, frameon=False)
-    ax.set_title("图 2　协调与延迟是主瓶颈，预算是「次瓶颈的常客、主瓶颈的陌生人」", fontsize=9.4, loc="left")
     save(fig, "fig02_bottleneck.png")
 
 
 def fig03():
     M = np.array([[1 if a in r["q2l"] else 0 for a in ACT] for r in ROWS])
     fig, ax = plt.subplots(figsize=(4.6, 6.4))
-    ax.imshow(M, cmap="Blues", vmin=0, vmax=1.35, aspect="auto")
+    ax.imshow(M, cmap=CM_BLUE, vmin=0, vmax=1.35, aspect="auto")
     ax.set_xticks(range(len(ACT))); ax.set_xticklabels(ACT, fontsize=8.6, rotation=35, ha="right")
     ax.set_yticks(range(len(ROWS))); ax.set_yticklabels([r["id"] for r in ROWS], fontsize=6.6)
     for i in range(M.shape[0]):
@@ -196,7 +192,6 @@ def fig03():
             ax.text(j, i, "●" if M[i, j] else "", ha="center", va="center", fontsize=6,
                     color="white" if M[i, j] else "#ccc")
     ax.grid(False)
-    ax.set_title("图 3　领域 × 置换动作：拆分几乎普遍，合并几乎不用", fontsize=9.2, loc="left")
     save(fig, "fig03_actions.png")
 
 
@@ -216,7 +211,6 @@ def fig04():
     ax.set_ylabel("领域数"); ax.set_ylim(0, 14.6)
     ax.legend(fontsize=8, frameon=False, ncol=4, loc="upper center",
               bbox_to_anchor=(.5, -.10))
-    ax.set_title("图 4　可写性 × 在场性：越写不出，代价越落在看不见的人身上", fontsize=9.4, loc="left")
     save(fig, "fig04_cross.png")
 
 
@@ -232,17 +226,16 @@ def fig05():
     ax.set_yticks([0, 1]); ax.set_yticklabels(["结论不变", "结论改变"], fontsize=8.6)
     ax.set_xticks(xs); ax.set_xticklabels([r["id"] for r in ROWS], fontsize=6.4, rotation=90)
     ax.set_ylim(-.4, 1.5)
-    ax.set_title("图 5　主次瓶颈互换：5/20 的领域会改判（判据稳健度 75%）", fontsize=9.4, loc="left")
     save(fig, "fig05_swap.png")
 
 
 def fig06():
     fig, ax = plt.subplots(figsize=(6.6, 3.4))
     ax.set_xlim(0, 10); ax.set_ylim(0, 5.4); ax.axis("off")
-    cls = [("一类：以「正确」为主\n诉讼·临床·风控·保险", 1.35, 4.0, "#dbe7f1", "D02 D03 D06 D18"),
-           ("二类：以「协调」为主\n供应链·规划·后勤·婚礼·架构", 4.05, 4.0, "#e6ecdf", "D04 D05 D10 D12 D15"),
+    cls = [("一类：以「正确」为主\n诉讼·临床·风控·保险", 1.35, 4.0, "#D1EBF9", "D02 D03 D06 D18"),
+           ("二类：以「协调」为主\n供应链·规划·后勤·婚礼·架构", 4.05, 4.0, "#F7F19A", "D04 D05 D10 D12 D15"),
            ("三类：以「延迟」为主\n分诊·新闻·应急·烹饪·面试", 6.75, 4.0, "#f2e6e6", "D01 D07 D20 D16 D17"),
-           ("四类：以「容量」为主\n农业·策展·训练", 1.35, 1.5, "#f7efe2", "D09 D11 D13"),
+           ("四类：以「容量」为主\n农业·策展·训练", 1.35, 1.5, "#FBEFD6", "D09 D11 D13"),
            ("五类：以「注意力」为主\n分类·教材（+ 外交：以信任为主）", 5.4, 1.5, "#f2efe6", "D14 D19 D08")]
     for t, x, y, c, ids in cls:
         w = 3.0 if y > 3 else 3.6
@@ -250,7 +243,7 @@ def fig06():
                                     fc=c, ec="#666", lw=.9))
         ax.text(x + w / 2, y + 1.02, t, ha="center", va="center", fontsize=8.2, linespacing=1.6)
         ax.text(x + w / 2, y + .38, ids, ha="center", va="center", fontsize=6.8, color="#555")
-    ax.text(.2, 5.25, "图 6　二十个领域压成五类：瓶颈决定类别，类别决定置换集的形状", fontsize=9.4, fontweight="bold")
+    
     save(fig, "fig06_typology.png")
 
 
@@ -263,16 +256,16 @@ def fig07():
                                     fc=fc, ec="#666", lw=.9))
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.5)
 
-    box(.4, 4.4, 2.6, .95, "看见\nQ1 划线", "#dbe7f1")
-    box(3.7, 4.4, 2.6, .95, "选择\nQ2 让出", "#e6ecdf")
+    box(.4, 4.4, 2.6, .95, "看见\nQ1 划线", "#D1EBF9")
+    box(3.7, 4.4, 2.6, .95, "选择\nQ2 让出", "#F7F19A")
     box(7.0, 4.4, 2.6, .95, "讲述\nQ3 置信度 / Q4 代价", "#f2e6e6")
-    box(.4, 1.5, 2.6, .95, "记住\n预计算·复制", "#f7efe2")
-    box(3.7, 1.5, 2.6, .95, "跟上\n延迟·时钟", "#f7efe2")
+    box(.4, 1.5, 2.6, .95, "记住\n预计算·复制", "#FBEFD6")
+    box(3.7, 1.5, 2.6, .95, "跟上\n延迟·时钟", "#FBEFD6")
     box(7.0, 1.5, 2.6, .95, "临界\n写不出的地方", "#f2efe6")
     ax.add_patch(FancyArrowPatch((1.7, 4.35), (1.7, 2.5), arrowstyle="-|>", mutation_scale=10, lw=1, color="#888"))
     ax.add_patch(FancyArrowPatch((5.0, 4.35), (5.0, 2.5), arrowstyle="-|>", mutation_scale=10, lw=1, color="#888"))
     ax.add_patch(FancyArrowPatch((8.3, 4.35), (8.3, 2.5), arrowstyle="-|>", mutation_scale=10, lw=1, color="#888"))
-    ax.text(.2, 5.7, "图 7　四问的接口：上排是「判据」，下排是「它凭什么成立」", fontsize=9.6, fontweight="bold")
+    
     ax.text(.2, .6, "注：Q4 是《讲述》的扩展——置信度分配之外，再加一列代价分配；不新增核心。",
             fontsize=7, color="#555")
     save(fig, "fig07_interface.png")
@@ -298,7 +291,6 @@ def fig08():
                 va="center", fontsize=7.4, color=cols[v])
     ax.set_yticks([]); ax.set_xlim(0, 1.28); ax.set_xticks([0, .5, 1.0])
     ax.set_xticklabels(["0", "0.5", "1"], fontsize=8)
-    ax.set_title("图 8　自证：九条命题的最终状态（一条撤回）", fontsize=9.4, loc="left")
     save(fig, "fig08_self.png")
 
 

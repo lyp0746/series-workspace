@@ -71,7 +71,7 @@ def _cn(n):
 
 # 副标题按实际条目动态生成：加件/减件时封面不会写错
 AUTHOR = "李毅芃"
-DATE = "2026-11-05"
+DATE = "2026-11-14"
 
 
 PAPERS = [
@@ -161,6 +161,26 @@ def paper_html(repo, mdname, mode, assets, pi):
 def build_css(mode):
     css = open(os.path.join(BASE, "entropy-spiral/assets/css/paper.css"), encoding="utf-8").read()
     css += "\n" + open(os.path.join(BASE, "entropy-spiral/assets/css/book.css"), encoding="utf-8").read()
+    css += """
+/* 中道周行集：六体排版（2026-11-14） */
+.zhongdao { font-size: 11.3pt; line-height: 1.85; color:#1c1c1c; }
+.zhongdao h2.front { text-align:center; font-size:15.5pt; letter-spacing:5px;
+  border:0; border-bottom:0.6pt solid #d8d2c4; padding-bottom:3pt;
+  margin:8mm 0 3.5mm; break-before:auto; page-break-before:auto; }
+.zhongdao h2.front:first-of-type { break-before:page; page-break-before:always; margin-top:0; }
+.zhongdao .zd-sub { text-align:center; font-size:10pt; letter-spacing:5px; color:#6b6459; margin:0 0 2mm; }
+.zhongdao .zd-byline { text-align:center; font-size:11pt; letter-spacing:3px; margin:0 0 9mm; color:#3a3a3a; }
+.zhongdao .ti { text-align:center; color:#7a7264; font-size:9.6pt; letter-spacing:2px; margin:1mm 0 4mm; }
+.zhongdao .verse { text-align:center; text-indent:0; margin:0.16em 0; font-size:11.4pt; line-height:1.85; }
+.zhongdao .prose { text-indent:2em; text-align:justify; margin:0.45em 0; }
+.zhongdao .byline { text-align:right; color:#5d5d5d; font-size:9.6pt; letter-spacing:1px; margin:3mm 0 7mm; }
+.zhongdao .zd-end { text-align:right; color:#5d5d5d; margin-top:8mm; }
+.zhongdao .zd-orn { text-align:center; color:#b08d57; letter-spacing:8px; margin:6mm 0; font-size:9pt; }
+.zhongdao .zd-cols { column-count:2; column-gap:9mm; column-rule:0.4pt solid #ddd6c6; }
+.zhongdao .zd-cols .verse { font-size:10.8pt; line-height:1.95; }
+.zhongdao .zd-cols .prose { font-size:10.6pt; line-height:1.92; text-indent:1.6em; }
+
+"""
     css += """
 .paper { color:#1a1a1a; }
 .paper h1.paper-t { color:#1f1f1f; }
@@ -457,7 +477,7 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                 '它排在最后，作为全书的总账；其题名页已注明覆盖范围。</p>'
                 '<p>十五篇论文的共同点是不假装：<b>能做出来的做出来，做不出来的写明做不到。</b>'
                 '全书最后一句留给读者自己判断：这套东西现在最硬的成果，是它的方法，不是它的对象。</p>'
-                f'<p style="text-align:right;color:#666">{AUTHOR}　2026 年 10 月</p>')
+                f'<p style="text-align:right;color:#666">{AUTHOR}　2026 年 11 月</p>')
 
     # ---------------- 总目录（分部）
     toc = ['<div class="toc"><h2>总目录</h2>']
@@ -597,22 +617,11 @@ def assemble(mode="print", toc_pages=None, vol_pages=None, skip_cover=False):
                 '<b>一个框架的性格不在它的结论里，在它的括注里。</b>这一句在这本合集里出现了不止一次，而每次出现都更像真的。</p>'
                 '<p>这套东西不追求“补完”，它追求“可维护”：每加一篇只登记、只标边界、只做对账；做不到的测量写成“开放”，不写成“欠债”。'
                 '一本越记越长的账，比一本永远差三页的账更接近真实。</p>'
-                f'<p style="text-align:right;color:#666">{AUTHOR}　2026 年 10 月</p>')
+                f'<p style="text-align:right;color:#666">{AUTHOR}　2026 年 11 月</p>')
 
     # ---------------- 版本记
     body.append('<div class="colophon"><h3>版本记</h3>'
-                f'<p>{DATE}：<b>第八版</b>。本次改的是“引用能不能用”，不是论证：'
-                '九本书与十五篇论文的 DOI 一律改列<b>概念 DOI</b>（永远指向该件最新版），不再随版本漂移；'
-                '《只能选两样》的附录按系列规范合并为 6 件（A–F）加一份不占字母的术语表，'
-                '消除了同书内并存两套 D/E/F 的重号，并删去一处写给作者本人、不宜进入成书的元数据核对说明；'
-                '《涌现的临界》与《热点的账单》把附录里的“参考文献”“术语表”去掉字母，改为独立成节。'
-                '全部二十四件在 Zenodo 上补齐<b>许可（CC BY 4.0）</b>与关键词——此前二十件只有正文与 CITATION 写着 CC BY 4.0，注册记录本身却没有许可字段。'
-                '结构校阅 24 条规则 error 0（余 4 条 warn 为两份附录超过 6 件的合并提醒，已登记）。'
-                '各卷正文、章节、图表、证据分级、附录与登记簿仍以同日单行本为准，<b>合集不改写任何一件的正文</b>。'
-                '合集另加总封面、书名页、版权与说明、卷首、总序、编者说明、合集一览、六核心速查、总目录、后记与版本记。</p>'
-                '<p><b>版本。</b>本合集以各件当前单行本为准；概念 DOI 10.5281/zenodo.23613406 保持不变。</p>'
-                '<p>本合集为阅读便利而编，引用时请以各件单行本为准（含其 DOI、附录与可证伪登记）。'
-                '十五篇论文的 DOI 见各篇论文封面页；九本书的 DOI 见各卷版权页。</p></div>')
+                f'<p>{DATE}：<b>第十版</b>。本次动的是结构与体例，不是论证：''六本书各设一个枢纽章（清醒—睡眠—梦、统一约束与分级方法、行为主义两代人、外部检验、置信度分配、两次连续极限），''九篇论文的小节按「一节一证据」合并（如《接缝不在奇点》104→57），二十四件正文前统一加「时间线与数据声明」；''校阅规则增至 20 条（新增「节引用可解析」「子节号与父节一致」），全系列 0 error / 0 warn。''各卷正文、章节、图表、证据分级、附录与登记簿仍以同日单行本为准，<b>合集不改写任何一件的正文</b>。''合集另加总封面、书名页、版权与说明、卷首、总序、编者说明、合集一览、六核心速查、总目录、后记与版本记。</p>''<p><b>版本。</b>本合集以各件当前单行本为准；概念 DOI 10.5281/zenodo.23613406 保持不变。</p>''<p>本合集为阅读便利而编，引用时请以各件单行本为准（含其 DOI、附录与可证伪登记）。''十五篇论文的 DOI 见各篇论文封面页；九本书的 DOI 见各卷版权页。</p></div>')
 
     html = ('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
             f'<title>{TITLE}——{SUBTITLE}</title><style>' + build_css(mode) + '</style></head><body>'

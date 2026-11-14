@@ -23,22 +23,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from data import motifs as M
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC", "Noto Sans CJK SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3, C4, C5 = "#2f6f9f", "#b3701f", "#a8322d", "#9a9a9a", "#4f7a4f"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3, C4, C5 = "#0072B2", "#E69F00", "#D55E00", "#595959", "#009E73"
 
 ROWS = M.rows()
 S = M.stats()
@@ -48,7 +45,7 @@ GRP = M.GROUPS
 
 
 def save(fig, name):
-    fig.savefig(ROOT / name, bbox_inches="tight")
+    figsave(ROOT / name)
     plt.close(fig)
     print("  " + name)
 
@@ -140,9 +137,9 @@ def fig01():
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.55)
 
     box(.3, 4.6, 2.6, 1.0, "一个领域\n（现场、细节、例外）", "#f2efe6")
-    box(3.6, 4.6, 2.8, 1.0, "四问压缩\n瓶颈·置换·可写·承担", "#dbe7f1")
-    box(7.1, 4.6, 2.6, 1.0, "母题压缩\n对偶·泛性质·不变量", "#e6ecdf")
-    box(3.6, 2.2, 2.8, 1.2, "可回溯的损失\n（留着回到案例的钩子：\nQ4 承担者、实例栏）", "#f7efe2", 7.8)
+    box(3.6, 4.6, 2.8, 1.0, "四问压缩\n瓶颈·置换·可写·承担", "#D1EBF9")
+    box(7.1, 4.6, 2.6, 1.0, "母题压缩\n对偶·泛性质·不变量", "#F7F19A")
+    box(3.6, 2.2, 2.8, 1.2, "可回溯的损失\n（留着回到案例的钩子：\nQ4 承担者、实例栏）", "#FBEFD6", 7.8)
     box(7.1, 2.2, 2.6, 1.2, "不可回溯的损失\n（烧掉的细节：\n节奏、例外、制度）", "#f2e6e6", 7.8)
     ax.add_patch(FancyArrowPatch((2.95, 5.1), (3.55, 5.1), arrowstyle="-|>", mutation_scale=11, lw=1, color="#666"))
     ax.add_patch(FancyArrowPatch((6.45, 5.1), (7.05, 5.1), arrowstyle="-|>", mutation_scale=11, lw=1, color="#666"))
@@ -150,7 +147,7 @@ def fig01():
     ax.add_patch(FancyArrowPatch((8.4, 4.55), (8.4, 3.45), arrowstyle="-|>", mutation_scale=11, lw=1, color="#666"))
     ax.add_patch(FancyArrowPatch((5.0, 2.15), (6.9, 1.6), arrowstyle="-|>", mutation_scale=9, lw=.9, color="#999", ls="--"))
     ax.text(5.0, 1.35, "压缩越狠，右边越大、左边越小", fontsize=7.4, color="#666", ha="center")
-    ax.text(.2, 5.95, "图 1　两种压缩，两级损失：可回溯的与不可回溯的", fontsize=9.8, fontweight="bold")
+    
     ax.text(.2, .3, "注：母题的损失一般不可回溯——它换掉的是「对象是什么」，而不只是「细节多细」。",
             fontsize=7, color="#555")
     save(fig, "fig01_compress.png")
@@ -174,15 +171,14 @@ def fig02():
         bottom += v
     a2.set_ylim(0, 12); a2.legend(fontsize=7, frameon=False, ncol=2, loc="upper right")
     a2.set_title("(b) 母题组 × 强度：泛性质降级最多", fontsize=8.8, loc="left")
-    fig.suptitle("图 2　四十条声明只落在四个价位上", fontsize=9.6, x=.02, ha="left", fontweight="bold")
-    fig.tight_layout(rect=[0, 0, 1, .93])
+    
     save(fig, "fig02_strength.png")
 
 
 def fig03():
     Mat = np.array([[sum(1 for r in ROWS if r["group"] == g and r["layer"] == l) for l in LAY] for g in GRP])
     fig, ax = plt.subplots(figsize=(5.2, 2.8))
-    ax.imshow(Mat, cmap="Blues")
+    ax.imshow(Mat, cmap=CM_BLUE)
     ax.set_xticks(range(len(LAY))); ax.set_xticklabels(LAY, fontsize=9)
     ax.set_yticks(range(len(GRP))); ax.set_yticklabels(GRP, fontsize=9)
     for i in range(Mat.shape[0]):
@@ -191,7 +187,6 @@ def fig03():
                 ax.text(j, i, int(Mat[i, j]), ha="center", va="center", fontsize=9,
                         color="white" if Mat[i, j] >= 4 else "#222")
     ax.grid(False)
-    ax.set_title("图 3　母题 × 断裂层：断裂集中在复合与等价", fontsize=9.2, loc="left")
     save(fig, "fig03_matrix.png")
 
 
@@ -205,7 +200,6 @@ def fig04():
         ax.text(i, y + 3, f"{y:.0f}%（{S['trans_by_strength'][order[i]][0]}/{n}）", ha="center", fontsize=8.6)
     ax.set_ylim(0, 100); ax.set_ylabel("负迁移率 %")
     ax.axhline(50, color="#bbb", ls=":", lw=.8)
-    ax.set_title("图 4　最危险的不是比喻，是「像证明」的那两档", fontsize=9.4, loc="left")
     save(fig, "fig04_trans.png")
 
 
@@ -220,7 +214,6 @@ def fig05():
     ax.set_ylabel("条数"); ax.legend(fontsize=7.6, frameon=False)
     for i, v in enumerate(ours):
         ax.text(i - .18, v + .3, str(v), ha="center", fontsize=8)
-    ax.set_title("图 5　断裂多在复合层，争论多在对象层", fontsize=9.4, loc="left")
     save(fig, "fig05_layer.png")
 
 
@@ -240,7 +233,7 @@ def fig06():
                 arrowprops=dict(arrowstyle="-|>", color="#999", lw=1.2, ls="--"))
     ax.text(2.4, 4.9, "强度下降方向：\n每降一档，必须多交代一件事",
             fontsize=7.6, color="#666", ha="left")
-    ax.text(.2, 6.2, "图 6　强度阶梯：每一档的判据是不同的问句", fontsize=9.8, fontweight="bold")
+    
     save(fig, "fig06_ladder.png")
 
 
@@ -254,15 +247,15 @@ def fig07():
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.5)
 
     box(.3, 1.3, 2.2, 1.1, "工作记忆\n状态机 + 最近 N 步", "#f2efe6", 7.6)
-    box(2.8, 1.3, 2.2, 1.1, "程序性记忆\n技能（四问 Q3）", "#dbe7f1", 7.6)
-    box(5.3, 1.3, 2.2, 1.1, "语义记忆\n领域知识（母题）", "#e6ecdf", 7.6)
-    box(7.8, 1.3, 1.9, 1.1, "情景记忆\n偏好/失败三栏", "#f7efe2", 7.6)
+    box(2.8, 1.3, 2.2, 1.1, "程序性记忆\n技能（四问 Q3）", "#D1EBF9", 7.6)
+    box(5.3, 1.3, 2.2, 1.1, "语义记忆\n领域知识（母题）", "#F7F19A", 7.6)
+    box(7.8, 1.3, 1.9, 1.1, "情景记忆\n偏好/失败三栏", "#FBEFD6", 7.6)
     box(2.8, 4.2, 4.7, 1.1, "检索层：情境 → 母题 → 技能\n（本文给不出，只能指出它必须存在）",
         "#fff", 8.2, C3, "--")
     for x in (1.4, 3.9, 6.4, 8.75):
         ax.add_patch(FancyArrowPatch((x, 2.45), (x, 4.15), arrowstyle="-|>", mutation_scale=10,
                                      lw=.9, color="#999", ls=":"))
-    ax.text(.2, 5.9, "图 7　三层记忆 + 两层抽象：缺的是检索层", fontsize=9.8, fontweight="bold")
+    
     ax.text(.2, .55, "注：四问管程序性记忆的压缩，母题管语义记忆的组织；"
                      "「该用哪个抽象」不在这两层里，它在检索层。", fontsize=7, color="#555")
     save(fig, "fig07_memory.png")
@@ -281,7 +274,6 @@ def fig08():
         ax.text(i, keep[i] + drop[i] + .3, f"{keep[i]}+{drop[i]}", ha="center", fontsize=8.2)
     ax.set_xticks(x); ax.set_xticklabels(order, fontsize=9)
     ax.set_ylabel("条数"); ax.legend(fontsize=7.6, frameon=False, ncol=2)
-    ax.set_title("图 8　自证：四十条声明过探针后的去向", fontsize=9.4, loc="left")
     save(fig, "fig08_self.png")
 
 

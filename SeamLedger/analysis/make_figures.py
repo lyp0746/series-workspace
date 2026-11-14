@@ -24,22 +24,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from data import seams as D
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC", "Noto Sans CJK SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#ececec",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3, C4 = "#2f6f9f", "#b3701f", "#a8322d", "#7a7a7a"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3, C4 = "#0072B2", "#E69F00", "#D55E00", "#595959"
 TC = {"逻辑矛盾": C3, "接口缺失": C1, "记账冲突": C2, "定理边界": C4}
 
 ROWS = D.rows()
@@ -48,7 +45,7 @@ N = len(ROWS)
 
 
 def save(fig, name):
-    fig.savefig(ROOT / "assets" / "figures" / name, bbox_inches="tight")
+    figsave(ROOT / "assets" / "figures" / name)
     plt.close(fig)
     print("  " + name)
 
@@ -186,9 +183,9 @@ def fig01():
                                     fc=fc, ec="#555", lw=.9))
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.5)
 
-    box(.25, 3.9, 3.0, 1.5, "量子力学\n态矢 / 希尔伯特", "#dbe7f1", 8.2)
-    box(6.75, 3.9, 3.0, 1.5, "广义相对论\n度规 / 微分同胚", "#e9e1d2", 8.2)
-    box(3.55, 4.25, 2.9, .8, "接缝\n（没有共同对象）", "#f4efe4", 8.0)
+    box(.25, 3.9, 3.0, 1.5, "量子力学\n态矢 / 希尔伯特", "#D1EBF9", 8.2)
+    box(6.75, 3.9, 3.0, 1.5, "广义相对论\n度规 / 微分同胚", "#F7E1AF", 8.2)
+    box(3.55, 4.25, 2.9, .8, "接缝\n（没有共同对象）", "#FBEFD4", 8.0)
     ax.add_patch(FancyArrowPatch((3.3, 4.65), (3.55, 4.65), arrowstyle="<|-|>", mutation_scale=11, color="#777"))
     ax.add_patch(FancyArrowPatch((6.45, 4.65), (6.75, 4.65), arrowstyle="<|-|>", mutation_scale=11, color="#777"))
 
@@ -216,14 +213,14 @@ def fig02():
         ax.text(v + .18, yy, f"{v}  ({v/N*100:.1f}%)", va="center", fontsize=8.8)
     ax.set_yticks(y); ax.set_yticklabels(D.TYPES)
     ax.set_xlim(0, max(vals) + 3.2); ax.set_xlabel("账目数")
-    # ax.set_title("图 2　三十条账目里，逻辑矛盾只占 13%", fontsize=9.4, loc="left")
+    # 
     save(fig, "fig02_types.png")
 
 
 def fig03():
     M = np.array([[S["core_type"].get((c, t), 0) for t in D.TYPES] for c in D.CORES])
     fig, ax = plt.subplots(figsize=(5.4, 4.2))
-    ax.imshow(M, cmap="Blues", vmin=0, vmax=M.max() + .5, aspect="auto")
+    ax.imshow(M, cmap=CM_BLUE, vmin=0, vmax=M.max() + .5, aspect="auto")
     ax.set_xticks(range(len(D.TYPES))); ax.set_xticklabels(D.TYPES, fontsize=8.4, rotation=20, ha="right")
     ax.set_yticks(range(len(D.CORES))); ax.set_yticklabels(D.CORES, fontsize=8.8)
     for i in range(M.shape[0]):
@@ -232,7 +229,7 @@ def fig03():
             ax.text(j, i, str(v) if v else "·", ha="center", va="center", fontsize=9,
                     color="white" if v >= 3 else "#333")
     ax.grid(False)
-    # ax.set_title("图 3　六核心 × 四种接缝：没有哪个核心只对一种冲突负责", fontsize=9.4, loc="left")
+    # 
     save(fig, "fig03_core_type.png")
 
 
@@ -250,7 +247,7 @@ def fig04():
         bottoms += vals
     ax.set_ylabel("账目数"); ax.set_ylim(0, 11.5)
     ax.legend(fontsize=8, frameon=False, ncol=3, loc="upper right")
-    # ax.set_title("图 4　尺度越靠近普朗克/宇宙，越不可直接测量", fontsize=9.4, loc="left")
+    # 
     save(fig, "fig04_scale_meas.png")
 
 
@@ -266,7 +263,7 @@ def fig05():
     ax.set_xlim(1930, 2025); ax.set_ylim(0, 16)
     ax.set_xlabel("关键文献年份"); ax.set_ylabel("累计条数")
     ax.legend(fontsize=7.6, frameon=False, ncol=2, loc="upper left")
-    # ax.set_title("图 5　四种接缝在不同年代累积：定理边界最早，记账冲突最晚", fontsize=9.4, loc="left")
+    # 
     save(fig, "fig05_timeline.png")
 
 
@@ -274,7 +271,7 @@ def fig06():
     C = D.cover_rows()
     M = np.array([[r[p] for p in D.PROGRAMS] for r in C])
     fig, ax = plt.subplots(figsize=(5.2, 6.6))
-    ax.imshow(M, cmap="Greens", vmin=0, vmax=1.3, aspect="auto")
+    ax.imshow(M, cmap=CM_GREEN, vmin=0, vmax=1.3, aspect="auto")
     ax.set_xticks(range(len(D.PROGRAMS)))
     ax.set_xticklabels(D.PROGRAMS, fontsize=7.6, rotation=35, ha="right")
     ax.set_yticks(range(len(C))); ax.set_yticklabels([r["id"] for r in C], fontsize=6.6)
@@ -283,7 +280,7 @@ def fig06():
             ax.text(j, i, "●" if M[i, j] else "", ha="center", va="center", fontsize=6,
                     color="white" if M[i, j] else "#ddd")
     ax.grid(False)
-    # ax.set_title("图 6　六个候选纲领的“声称覆盖”：没有一个超过 60%", fontsize=9.3, loc="left")
+    # 
     save(fig, "fig06_coverage.png")
 
 
@@ -300,14 +297,14 @@ def fig07():
     ax.set_yticks([2, 1, 0]); ax.set_yticklabels(["A", "B", "C"])
     ax.set_ylim(-.5, 2.5); ax.set_xlim(-.6, len(D.STATUSES) - .4)
     ax.set_ylabel("证据等级")
-    # ax.set_title("图 7　A 级只出现在“已测/已证定理”，解释与开放几乎全是 C", fontsize=9.3, loc="left")
+    # 
     save(fig, "fig07_grade_status.png")
 
 
 def fig08():
     fig, ax = plt.subplots(figsize=(6.4, 3.2))
     ys = np.arange(len(D.PROPOSITIONS))[::-1]
-    cols = {"成立": C1, "部分": C2, "待检验": C4, "开放": "#8a7bb0", "证伪": C3, "撤回": "#555"}
+    cols = {"成立": C1, "部分": C2, "待检验": C4, "开放": "#CC79A7", "证伪": C3, "撤回": "#555"}
     for y, p in zip(ys, D.PROPOSITIONS):
         pid, claim, test, status, grade, core, scale = p
         ax.plot([0, 1], [y, y], color="#ddd", lw=1, zorder=1)
@@ -316,7 +313,7 @@ def fig08():
         ax.text(1.06, y, f"{status} / {grade}", va="center", fontsize=7.8, color="#444")
     ax.set_xlim(-.25, 1.55); ax.set_ylim(-.6, len(D.PROPOSITIONS) - .4)
     ax.set_yticks([]); ax.set_xticks([])
-    # ax.set_title("图 8　自证：十条命题里三条成立、两条部分、一条被自己证伪", fontsize=9.3, loc="left")
+    # 
     save(fig, "fig08_self.png")
 
 

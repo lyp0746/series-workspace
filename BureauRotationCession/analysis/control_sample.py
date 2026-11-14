@@ -33,8 +33,10 @@ DATA = os.path.join(BASE, "data")
 CH = os.path.join(BASE, "assets", "charts")
 os.makedirs(CH, exist_ok=True)
 
-plt.rcParams.update({"font.family": ["SimHei", "Microsoft YaHei"], "axes.unicode_minus": False,
-                     "figure.dpi": 180, "savefig.dpi": 180, "font.size": 10})
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup(fontsize=8.0, figsize=(6.4, 3.6))
 
 RED, BLUE, GREEN, GOLD, GRAY = "#b3261e", "#1f4e79", "#2e6b4f", "#a8791f", "#5f6368"
 LINE_CN = {"inner": "内廷", "outer": "外派", "military": "军职", "regular": "正官"}
@@ -263,10 +265,9 @@ def main():
         ax.bar([LINE_CN[l] for l in lines], vals, bottom=bottom, color=col, label=lab, width=.6)
         bottom += vals
     ax.set_ylabel("官职类型数"); ax.legend(frameon=False, fontsize=8)
-    ax.set_title("图A　唐宋官职类型的结局构成（试点，n=%d）" % len(R), fontsize=11, fontweight="bold", loc="left")
     ax.grid(alpha=.2, axis="y")
-    fig.text(.5, .01, "注：结局按首次性质变化计；无变化者按朝代结束删失。编码为探索性，B/C 级。",
-             ha="center", fontsize=7.2, color="#666666")
+    fig.text(.5, -0.07, "注：结局按首次性质变化计；无变化者按朝代结束删失。编码为探索性，B/C 级。",
+             ha="center", fontsize=7.2, color="#595959")
     fig.savefig(os.path.join(CH, "fig-risk-modes.png"), bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
@@ -278,9 +279,8 @@ def main():
                 color=LINE_COL[line], lw=1.8, label=LINE_CN[line])
     ax.set_xlabel("自入本朝起的年数"); ax.set_ylabel("尚未发生性质变化的占比")
     ax.set_ylim(0, 1.02); ax.grid(alpha=.2); ax.legend(frameon=False, fontsize=8.5)
-    ax.set_title("图B　“未变化”生存曲线：两线并无显著差异", fontsize=11, fontweight="bold", loc="left")
-    fig.text(.5, .01, "log-rank χ²=%.2f，p=%.3f；样本小，只作描述。" % (chi2, p),
-             ha="center", fontsize=7.2, color="#666666")
+    fig.text(.5, -0.07, "log-rank χ²=%.2f，p=%.3f；样本小，只作描述。" % (chi2, p),
+             ha="center", fontsize=7.2, color="#595959")
     fig.savefig(os.path.join(CH, "fig-risk-km.png"), bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
@@ -290,10 +290,9 @@ def main():
     ax.axvline(1, color=GRAY, ls="--", lw=1)
     ax.set_yticks([]); ax.set_xscale("log")
     ax.set_xlabel("发生率比 IRR（外派／内廷，对数轴）")
-    ax.set_title("图B　外派 vs 内廷：性质变化的发生率比", fontsize=10.5, fontweight="bold", loc="left")
     ax.grid(alpha=.2, axis="x")
-    fig.text(.5, .02, "点估计 %.2f，bootstrap 95%% CI %.2f—%.2f；试点样本，未控制朝代与品级。" % (irr, irr_ci[0], irr_ci[1]),
-             ha="center", fontsize=7.2, color="#666666")
+    fig.text(.5, -0.07, "点估计 %.2f，bootstrap 95%% CI %.2f—%.2f；试点样本，未控制朝代与品级。" % (irr, irr_ci[0], irr_ci[1]),
+             ha="center", fontsize=7.2, color="#595959")
     fig.savefig(os.path.join(CH, "fig-risk-irr.png"), bbox_inches="tight", facecolor="white")
     plt.close(fig)
 

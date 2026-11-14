@@ -22,10 +22,14 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data"); os.makedirs(DATA, exist_ok=True)
 CH = os.path.join(BASE, "assets", "charts"); os.makedirs(CH, exist_ok=True)
 
-plt.rcParams.update({"font.family": ["SimHei", "Microsoft YaHei"], "axes.unicode_minus": False,
-                     "figure.dpi": 180, "savefig.dpi": 180, "font.size": 10})
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
 
-RED, BLUE, GREEN, GOLD, GRAY = "#b3261e", "#1f4e79", "#2e6b4f", "#a8791f", "#5f6368"
+RED, BLUE, GREEN, GOLD, GRAY = "#D55E00", "#0072B2", "#009E73", "#D55E00", "#595959"
 ROUTE_CN = {"北": "北线（官驿）", "西": "西线（黑茶）", "东": "东线（花炮）", "南": "南线（矿产）"}
 ROUTE_COL = {"北": RED, "西": BLUE, "东": GREEN, "南": GOLD}
 
@@ -92,7 +96,6 @@ json.dump(stats_out, open(os.path.join(DATA, "gis_stats.json"), "w", encoding="u
 
 # ---------------- figure ----------------
 fig, ax = plt.subplots(figsize=(8.4, 7.2))
-fig.subplots_adjust(left=.06, right=.98, top=.90, bottom=.10)
 for route, seq in ROUTES.items():
     pts = [nodes[n] for n in seq if n in nodes]
     xs, ys = zip(*[xy(p) for p in pts])
@@ -114,14 +117,13 @@ ax.set_aspect("equal")
 ax.set_xlabel("东西向（km，以 113.0°E 为原点）", fontsize=9.2)
 ax.set_ylabel("南北向（km，以 28.2°N 为原点）", fontsize=9.2)
 ax.grid(alpha=.18)
-ax.set_title("图8　长沙府驿道试点：28 个节点的经纬投影", fontsize=12.5, fontweight="bold", loc="left")
 handles = [plt.Line2D([], [], color=ROUTE_COL[r], lw=2, label=ROUTE_CN[r]) for r in ROUTES]
 handles += [plt.Line2D([], [], marker="o", color=GRAY, ls="", label="A 级坐标"),
             plt.Line2D([], [], marker="s", color=GRAY, ls="", label="B 级"),
             plt.Line2D([], [], marker="^", color=GRAY, ls="", label="C 级")]
 ax.legend(handles=handles, fontsize=7.6, frameon=False, loc="lower left", ncol=2)
 fig.text(.5, .02, "注：距离为经纬投影近似；节点置信度 A/B/C 见表；C 级点只示意，不用于精确里程。",
-         ha="center", fontsize=7.6, color="#666666")
+         ha="center", fontsize=7.6, color="#595959")
 fig.savefig(os.path.join(CH, "fig08.png"), bbox_inches="tight", facecolor="white")
 plt.close(fig)
 

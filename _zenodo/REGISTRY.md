@@ -7,7 +7,7 @@
 | 01 | 书 | `entropy-spiral` | 错位的时间 | 396 | 10.5281/zenodo.24029909 | 10.5281/zenodo.23217100 | lyp0746/entropy-spiral |
 | 02 | 书 | `capacity-cascade` | 遗忘的边界 | 318 | 10.5281/zenodo.24029873 | 10.5281/zenodo.23323276 | lyp0746/capacity-cascade |
 | 03 | 书 | `distinction-evolution` | 区分的语言 | 285 | 10.5281/zenodo.24029812 | 10.5281/zenodo.23345012 | lyp0746/distinction-evolution |
-| 04 | 书 | `impossibility-triangle` | 选择的代价 | 320 | 10.5281/zenodo.24030720 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
+| 04 | 书 | `impossibility-triangle` | 选择的代价 | 321 | 10.5281/zenodo.24030720 | 10.5281/zenodo.23388628 | lyp0746/impossibility-triangle |
 | 05 | 书 | `interpretation-tradeoff` | 诠释的权衡 | 301 | 10.5281/zenodo.24029980 | 10.5281/zenodo.23416219 | lyp0746/interpretation-tradeoff |
 | 06 | 书 | `emergence-critical` | 涌现的临界 | 313 | 10.5281/zenodo.24030004 | 10.5281/zenodo.23440900 | lyp0746/emergence-critical |
 | 07 | 书 | `knowledge-tradeoffs` | 只能选两样 | 181 | 10.5281/zenodo.24030741 | 10.5281/zenodo.23440905 | lyp0746/knowledge-tradeoffs |
@@ -25,7 +25,7 @@
 | 19 | 论文 | `MonarchCompetition` | 开明君主与两层竞争 | 72 | 10.5281/zenodo.24031412 | 10.5281/zenodo.23695756 | lyp0746/MonarchCompetition |
 | 20 | 论文 | `DomainCrossSection` | 领域的剖面 | 74 | 10.5281/zenodo.24030997 | 10.5281/zenodo.23662889 | （无仓库） |
 | 21 | 论文 | `IsomorphismStrength` | 同构的强度 | 74 | 10.5281/zenodo.24031765 | 10.5281/zenodo.23663026 | （无仓库） |
-| 22 | 论文 | `MemoryAnchor` | 记忆的锚点 | 71 | 10.5281/zenodo.24031174 | 10.5281/zenodo.23665881 | （无仓库） |
-| 23 | 论文 | `MemoryStressTest` | 锚点的下限 | 69 | 10.5281/zenodo.24031308 | 10.5281/zenodo.23667928 | （无仓库） |
+| 22 | 论文 | `MemoryAnchor` | 记忆的锚点 | 72 | 10.5281/zenodo.24031174 | 10.5281/zenodo.23665881 | （无仓库） |
+| 23 | 论文 | `MemoryStressTest` | 锚点的下限 | 70 | 10.5281/zenodo.24031308 | 10.5281/zenodo.23667928 | （无仓库） |
 | 24 | 合集 | `合集` | 有限系统的取舍：系列合集 | 2188/2680 | 10.5281/zenodo.24031817 | 10.5281/zenodo.23613406 | lyp0746/series-workspace |
 | 25 | 论文 | `SeamLedger` | 接缝不在奇点 | 77 | 10.5281/zenodo.24031457 | 10.5281/zenodo.23888992 | （无仓库） |

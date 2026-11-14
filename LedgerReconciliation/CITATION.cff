@@ -9,8 +9,8 @@ abstract: >-
 authors:
   - family-names: "李毅芃"
     given-names: "李毅芃"
-date-released: 2026-11-02
-version: "2026-11-02"
+date-released: "2026-11-14"
+version: "2026-11-14"
 doi: 10.5281/zenodo.23888894
 url: "https://github.com/lyp0746/LedgerReconciliation"
 license: CC-BY-4.0

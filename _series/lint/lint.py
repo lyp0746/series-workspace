@@ -562,6 +562,55 @@ def r24_word_limits(it):
 # ---------------------------------------------------------------- 全局规则
 
 
+
+def r25_crossrefs(it):
+    """节号引用必须能解析：第 N.M 节 / §N.M 指向真实存在的小节"""
+    # 收集本书所有小节号
+    secs = set()
+    if it.kind == "book":
+        for f, txt in it.files.items():
+            for m in re.finditer(r"<h[23][^>]*>\s*(\d+)\.(\d+)", txt):
+                secs.add((int(m.group(1)), int(m.group(2))))
+    elif "paper.md" in it.files:
+        for m in re.finditer(r"^#{3,4}\s*(\d+)\.(\d+)", it.files["paper.md"], re.M):
+            secs.add((int(m.group(1)), int(m.group(2))))
+    if not secs:
+        return []
+    out = []
+    pat = re.compile(r"第\s*(\d+)\.(\d+)\s*节|§\s*(\d+)\.(\d+)")
+    for f, txt in it.files.items():
+        for m in pat.finditer(txt):
+            # 跨书引用（《书名》§x.y）不归本书管
+            if re.search(r"《[^》]*》\s*$", txt[max(0, m.start() - 30):m.start()]):
+                continue
+            a = int(m.group(1) or m.group(3))
+            b = int(m.group(2) or m.group(4))
+            if (a, b) not in secs:
+                out.append(Finding(it.repo, 25, "warn",
+                                   f"引用了不存在的节：{a}.{b}", f))
+    return out
+
+
+
+def r26_subsection_numbers(it):
+    """论文子节号必须与父节号一致（x.k 属于 ## x）"""
+    if it.kind != "paper" or "paper.md" not in it.files:
+        return []
+    parent = None
+    bad = []
+    for i, line in enumerate(it.files["paper.md"].splitlines(), 1):
+        m = re.match(r"^##\s+(\d+)\s", line)
+        if m:
+            parent = int(m.group(1)); continue
+        m = re.match(r"^#{3,4}\s+(\d+)\.(\d+)\s", line)
+        if m and parent is not None and int(m.group(1)) != parent:
+            bad.append((i, f"{m.group(1)}.{m.group(2)}", parent))
+    if not bad:
+        return []
+    return [Finding(it.repo, 26, "warn",
+                    f"子节号与父节不一致：{len(bad)} 处（首处 {bad[0][1]} 在 ## {bad[0][2]} 下）")]
+
+
 def global_rules(items):
     out = []
     # 23 构建脚本壳
@@ -631,7 +680,7 @@ def main():
         for fn in (r01_section_numbers, r02_appendix_order, r03_refs_in_appendix,
                    r04_appendix_count, r05_appendix_ratio, r06_chapter_skeleton,
                    r07_part_intro, r08_part_size, r09_unit_words, r10_dup_paragraph,
-                   r11_dup_h3):
+                   r11_dup_h3, r25_crossrefs, r26_subsection_numbers):
             findings += fn(it)
         findings += r12_series_count(it, n_books, n_papers)
         findings += r13_narrative(it) + r16_banwords(it) + r17_reverse_power(it)

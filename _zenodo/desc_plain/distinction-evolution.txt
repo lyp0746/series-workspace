@@ -2,26 +2,26 @@
 
 核心主张。区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限。本书不把「区分的语言」写成一本无所不包的概论，而是把一个问题做深：一个有限的东西，怎样一边保持结构，一边还能变化。
 
-结构与证据。5 部分、25 章、304 页、附录 A–F、32 幅图；每章保留证据分级（A/B/C 与甲/乙/丙）与可证伪登记，失败与撤回写在正文，不放进脚注。
+结构与证据。5 部分、24 章、304 页、附录 A–F、32 幅图；每章保留证据分级（A/B/C 与甲/乙/丙）与可证伪登记，失败与撤回写在正文，不放进脚注。
 
-版本状态（2026-11-07）。本版为当前编排：书名与副题统一，版式与页码统一，附录收束为 A–F；以概念 DOI 归档，版本 DOI 指向 2026-11-07 这一版。
+版本状态（2026-11-07）。本版为当前编排：书名与副题统一，版式与页码统一，附录收束为 A–F；以概念 DOI 归档，版本 DOI 指向 2026-11-14 这一版。
 
 诚实纪律。结论强度不超过证据强度；能算的给出数，不能算的写明「判不了」；每一条硬约束都写清谁在承担代价，以及这条限制使什么成为可能。
 
 边界。本书给坐标与判据，不给判决；它不替代领域专家的材料，也不把类比写成定理。具体边界见各章末与附录的登记簿。
 
-版本信息。2026-11-07，304 页，25 章，附录 A–F；内容 CC BY 4.0，代码 MIT。
+版本信息。2026-11-07，297 页，24 章，附录 A–F；内容 CC BY 4.0，代码 MIT。
 
 Abstract. The Language of Distinction: How Distinctions Generate Space, Form and Spectrum: Seven Theorems, Thirty-Six Domains, and One Continuum Limit. The book does not attempt an all-encompassing survey; it works one problem through: how does something finite keep its structure while still being able to change? It is organised in 5 parts and 25 chapters, with appendices A–F and 32 figures; every chapter keeps its evidence grades (A/B/C) and falsifiability register, and reports failures and retractions in the body.
 
 Core thesis. How Distinctions Generate Space, Form and Spectrum: Seven Theorems, Thirty-Six Domains, and One Continuum Limit. The book offers coordinates and criteria, not verdicts.
 
-Structure and evidence. 5 parts, 25 chapters, 304 pages, appendices A–F, 32 figures. The apparatus is open: data, scripts and registers are in the repository; the prose keeps a single visible grade per claim rather than hedging every clause.
+Structure and evidence. 5 parts, 25 chapters, 299 pages, appendices A–F, 32 figures. The apparatus is open: data, scripts and registers are in the repository; the prose keeps a single visible grade per claim rather than hedging every clause.
 
-This edition (2026-11-07). Title and subtitle unified; layout and folios unified; appendices consolidated to A–F; residual DOI, series-count and typographic errors corrected; the concept DOI is stable and the version DOI points to this edition.
+This edition (2026-11-14). Title and subtitle unified; layout and folios unified; appendices consolidated to A–F; residual DOI, series-count and typographic errors corrected; the concept DOI is stable and the version DOI points to this edition.
 
 Discipline. Conclusion strength does not exceed evidence strength; what can be computed is computed, what cannot is marked as undecidable; every hard constraint names who pays for it and what it makes possible.
 
 Boundaries. The book gives coordinates and criteria, not verdicts; it does not replace field expertise, and it does not dress an analogy as a theorem. See the chapter ends and the register appendices for specific limits.
 
-Edition. 2026-11-07, 304 pages, 25 chapters, appendices A–F; content CC BY 4.0, code MIT.
+Edition. 2026-11-07, 299 pages, 25 chapters, appendices A–F; content CC BY 4.0, code MIT.

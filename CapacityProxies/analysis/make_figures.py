@@ -20,20 +20,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from data import proxies as P
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]; break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200, "font.size": 9,
-                     "axes.titlesize": 9.6, "axes.labelsize": 9, "axes.edgecolor": "#444",
-                     "axes.grid": True, "grid.color": "#e8e8e8", "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3 = "#2f6f9f", "#b3701f", "#a8322d"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3 = "#0072B2", "#E69F00", "#D55E00"
 
 
 def tables():
@@ -73,7 +72,7 @@ def tables():
 
 def fig01():
     fig, ax = plt.subplots(figsize=(6.8, 3.6)); ax.set_xlim(0,10); ax.set_ylim(0,5); ax.axis("off")
-    for i,(t,c) in enumerate([("容量\n（槽位数）","#dbe7f1"),("压缩\n（并镇／通货门）","#f7efe2"),("遗忘\n（保留率／合格率）","#f2e6e6")]):
+    for i,(t,c) in enumerate([("容量\n（槽位数）","#D1EBF9"),("压缩\n（并镇／通货门）","#FBEFD6"),("遗忘\n（保留率／合格率）","#f2e6e6")]):
         x = 1.2 + i*3.0
         ax.add_patch(FancyBboxPatch((x,2.4),2.4,1.0,boxstyle="round,pad=.05",fc=c,ec="#666"))
         ax.text(x+1.2,2.9,t,ha="center",va="center",fontsize=9,linespacing=1.5)
@@ -82,9 +81,9 @@ def fig01():
     ax.text(1.2,1.85,"分期槽位：顶层边界数 → 通货门占比 → 门不再出现")
     ax.text(1.2,1.35,"编码槽位：驿铺条目数 → 并镇／撤县 → 地名保留率")
     ax.text(1.2,.85,"标签槽位：日均新建量 → 星标门槛 → 合格率")
-    ax.text(.3,4.6,"图 1　三个代理共用一条链：容量 → 压缩 → 遗忘",fontsize=9.8,fontweight="bold")
+    
     ax.text(.3,.25,"注：三个代理都不是容量本身，只是它的可见痕迹（正文 2.3）。",fontsize=7,color="#555")
-    fig.tight_layout(); fig.savefig(ROOT/"fig01_chain.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig01_chain.png"); plt.close(fig)
 
 
 def fig02():
@@ -96,9 +95,8 @@ def fig02():
     ax.set_xticks(range(len(med))); ax.set_xticklabels([f"{a}—{b}" for a,b in [(1,2),(3,4),(5,6),(7,20)]], fontsize=8.6)
     ax.set_xlabel("一部来源的顶层边界数（槽位）"); ax.set_ylabel("通货门占比（中位）")
     ax.set_ylim(0,.62)
-    ax.set_title("图 2　分期槽位：槽位越多，越少依赖通货门（分箱单调）", fontsize=9.4, loc="left")
     ax.text(.98,.92,f"Pearson r={P.SLOT_R:.2f}（槽位≥2 的 51 部）", transform=ax.transAxes, ha="right", fontsize=7.6, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT/"fig02_slots.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig02_slots.png"); plt.close(fig)
 
 
 def fig03():
@@ -110,9 +108,8 @@ def fig03():
     xs = np.linspace(min(x),max(x),10)
     k,b = np.polyfit(x,y,1); ax.plot(xs, k*xs+b, ls="--", lw=1, color="#999")
     ax.set_xlabel("驿铺条目数（槽位）"); ax.set_ylabel("地名保留率（%）")
-    ax.set_title("图 3　编码槽位：槽位越多，保留率越低（与直觉相反）", fontsize=9.4, loc="left")
     ax.text(.98,.92,f"r={P.C_R:.2f}；与撤县年数 r={P.C_AGE_R4:.2f} 混淆", transform=ax.transAxes, ha="right", fontsize=7.4, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT/"fig03_counties.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig03_counties.png"); plt.close(fig)
 
 
 def fig04():
@@ -121,9 +118,10 @@ def fig04():
     ax.scatter(x, y, s=48, color=C3, zorder=3, edgecolor="white", lw=.6)
     for n,a,b in P.PERIODS: ax.annotate(n,(a,b),xytext=(6,-10),textcoords="offset points",fontsize=7.4)
     ax.set_xscale("log"); ax.set_xlabel("日均新建（对数）"); ax.set_ylabel("合格率（%）")
-    ax.set_title("图 4　标签槽位：流入越大，合格率反而越高（n=4）", fontsize=9.4, loc="left")
-    ax.text(.98,.92,f"r={P.T_R:.2f}；rho={P.T_RHO:.2f}", transform=ax.transAxes, ha="right", fontsize=7.4, color="#555")
-    fig.tight_layout(); fig.savefig(ROOT/"fig04_periods.png",bbox_inches="tight"); plt.close(fig)
+    ax.margins(y=.16)
+    ax.text(.02,.03,f"r={P.T_R:.2f}；rho={P.T_RHO:.2f}", transform=ax.transAxes, ha="left",
+            va="bottom", fontsize=7.4, color="#595959")
+    figsave(ROOT/"fig04_periods.png"); plt.close(fig)
 
 
 def fig05():
@@ -135,8 +133,7 @@ def fig05():
     for i,r in enumerate(rs): ax.text(r + (0.02 if r>=0 else -0.02), i, f"{r:.2f}", va="center",
                                        ha="left" if r>=0 else "right", fontsize=8.4)
     ax.set_xlim(-1,1.1); ax.set_xlabel("相关系数（容量 → 遗忘 的方向）")
-    ax.set_title("图 5　三个代理，三种结论：一弱支持、一混淆、一反向", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig05_verdict.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig05_verdict.png"); plt.close(fig)
 
 
 def fig06():
@@ -144,18 +141,16 @@ def fig06():
     cores=["记住","看见","跟上","选择","讲述","临界"]; vals=[3,3,1,1,1,1]
     ax.barh(cores, vals, color=[C1,C1,"#b9c9d6","#b9c9d6","#b9c9d6","#b9c9d6"], zorder=3)
     ax.invert_yaxis(); ax.set_xlabel("被用到的次数")
-    ax.set_title("图 6　与六核心的接口：主核是「记住」，其余是配角", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig06_interface.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig06_interface.png"); plt.close(fig)
 
 
 def fig07():
     sts=["成立","支持","部分","待检验","开放","证伪","撤回"]; vals=[0,1,1,2,2,1,0]
     fig, ax = plt.subplots(figsize=(6.2,2.7))
-    ax.bar(sts, vals, color=[C1,C1,C2,"#9a9a9a","#9a9a9a",C3,"#6b2b26"], zorder=3)
+    ax.bar(sts, vals, color=[C1,C1,C2,"#595959","#595959",C3,"#D55E00"], zorder=3)
     for i,v in enumerate(vals): ax.text(i, v+.06, str(v), ha="center", fontsize=8.6)
     ax.set_ylim(0,3); ax.set_ylabel("命题数")
-    ax.set_title("图 7　本文自评：七条命题中一条被证伪、两条开放", fontsize=9.2, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig07_self.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig07_self.png"); plt.close(fig)
 
 
 def table_gates():
@@ -203,8 +198,7 @@ def fig08():
     ax.axhline(.734, color=C2, ls="--", lw=1)
     ax.text(len(cum)*.55, .76, "前十门 = 73.4%", fontsize=8, color=C2)
     ax.set_xlabel("门的名次（按出现频次）"); ax.set_ylabel("累计覆盖比例")
-    ax.set_title("图 8　门的集中度：十个门覆盖七成边界，余下才是“私有门”", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig08_gates.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig08_gates.png"); plt.close(fig)
 
 
 if __name__ == "__main__":

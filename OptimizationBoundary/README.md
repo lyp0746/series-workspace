@@ -2,7 +2,7 @@
 
 **二十个越界案例、四个前提，以及「优化不是第七个核心」的一次划界**
 
-李毅芃 · 2026-10-24 · 工作论文（62 页，CC BY 4.0）
+李毅芃 · 2026-10-24 · 工作论文（63 页，CC BY 4.0）
 
 *The Boundary of Optimization: Objective Functions, Search Spaces and Stopping Rules*
 
@@ -20,7 +20,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `优化的边界_四前提与越界的二十个案例.pdf` | 排版稿（A4，62 页） |
+| `优化的边界_四前提与越界的二十个案例.pdf` | 排版稿（A4，63 页） |
 | `优化的边界_四前提与越界的二十个案例.html` | 单文件网页版 |
 | `source/paper.md` | 正文源（含表占位符） |
 | `fig01`–`fig08` | 图，由 `analysis/make_figures.py` 生成 |
@@ -42,4 +42,4 @@ bash release.sh
 
 本篇与前六篇共用一套记账纪律；`related_identifiers` 指向系列入口与其余各篇。
 
-**Zenodo**：10.5281/zenodo.23611782（概念 DOI 10.5281/zenodo.23611781），62 页。
+**Zenodo**：10.5281/zenodo.23611782（概念 DOI 10.5281/zenodo.23611781），63 页。

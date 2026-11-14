@@ -20,21 +20,19 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "analysis"))
 from data import ledger as L
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]; break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C_OK, C_PART, C_FAIL, C_OPEN = "#2f6f9f", "#b3701f", "#a8322d", "#9a9a9a"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C_OK, C_PART, C_FAIL, C_OPEN = "#009E73", "#E69F00", "#D55E00", "#595959"
 ROWS = L.rows(); S = L.stats()
 
 
@@ -133,9 +131,9 @@ def table_ledger():
 # ---------------- 图 ----------------
 def fig01():
     fig, ax = plt.subplots(figsize=(6.8, 4.4)); ax.set_xlim(0,10); ax.set_ylim(0,6.4); ax.axis("off")
-    layers = [("起点","看见","对象：划一道线",4.9,"#dbe7f1"),
-              ("约束","记住 ／ 跟上","容量与时钟：限定取舍的条件",3.9,"#e6ecdf"),
-              ("枢纽","选择","C-A-T：至多取二",2.9,"#f7efe2"),
+    layers = [("起点","看见","对象：划一道线",4.9,"#D1EBF9"),
+              ("约束","记住 ／ 跟上","容量与时钟：限定取舍的条件",3.9,"#F7F19A"),
+              ("枢纽","选择","C-A-T：至多取二",2.9,"#FBEFD6"),
               ("元层","讲述","置信度分配：给竞争命题定价",1.9,"#f2e6e6"),
               ("门槛","临界","规则何时换",0.9,"#e9e9e9")]
     for i,(tag,k,desc,y,c) in enumerate(layers):
@@ -145,14 +143,14 @@ def fig01():
         ax.text(4.9,y+.31,desc,fontsize=7.8,va="center",color="#333")
         if i<4:
             ax.add_patch(FancyArrowPatch((5,y-.06),(5,y-.32),arrowstyle="-|>",mutation_scale=10,lw=1,color="#666"))
-    ax.text(1.2,6.05,"图 1　六核心不是六项并列，而是五层依赖（本图只画依赖，不画覆盖）",fontsize=9.6,fontweight="bold")
+    
     ax.text(1.2,.25,"注：层与层之间是\"换算规则\"而非\"推导\"；边上的规则见正文 4 章与表 2—表 3。",fontsize=7,color="#555")
-    fig.tight_layout(); fig.savefig(ROOT/"fig01_layers.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig01_layers.png"); plt.close(fig)
 
 
 def fig02():
     papers = L.PAPERS; sts = ["成立","支持","部分","待检验","开放","证伪","撤回"]
-    cols = {"成立":"#2f6f9f","支持":"#5b8fb9","部分":"#b3701f","待检验":"#c9c9c9","开放":"#8a8a8a","证伪":"#a8322d","撤回":"#6b2b26"}
+    cols = {"成立":"#0072B2","支持":"#56B4E9","部分":"#D55E00","待检验":"#c9c9c9","开放":"#595959","证伪":"#D55E00","撤回":"#D55E00"}
     fig, ax = plt.subplots(figsize=(7.2,3.4))
     bottom = np.zeros(len(papers))
     for st in sts:
@@ -161,31 +159,31 @@ def fig02():
         bottom += np.array(vals)
     for i,p in enumerate(papers):
         ax.text(i, bottom[i]+.15, str(int(bottom[i])), ha="center", fontsize=8)
-    ax.set_ylabel("命题数"); ax.set_title(f"图 2　48 条登记命题的状态：已关闭 {S['closed']}，未核销 {S['open_']}，撤回 {S['withdrawn']}", fontsize=9.4, loc="left")
+    ax.set_ylabel("命题数"); 
     ax.legend(fontsize=7.2, frameon=False, ncol=7, loc="upper center", bbox_to_anchor=(.5,-.12))
-    fig.tight_layout(); fig.savefig(ROOT/"fig02_status.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig02_status.png"); plt.close(fig)
 
 
 def fig03():
     cores = L.CORES; sts = ["成立","支持","部分","待检验","开放","证伪","撤回"]
     M = np.array([[sum(1 for r in ROWS if r["core"]==c and r["status"]==s) for s in sts] for c in cores])
     fig, ax = plt.subplots(figsize=(6.2,3.2))
-    im = ax.imshow(M, cmap="Blues")
+    im = ax.imshow(M, cmap=CM_BLUE)
     ax.set_xticks(range(len(sts))); ax.set_xticklabels(sts, fontsize=8)
     ax.set_yticks(range(len(cores))); ax.set_yticklabels(cores, fontsize=9)
     for i in range(len(cores)):
         for j in range(len(sts)):
             if M[i,j]: ax.text(j,i,int(M[i,j]),ha="center",va="center",fontsize=8.5,
                                color="white" if M[i,j]>3 else "#222")
-    ax.grid(False); ax.set_title("图 3　核心 × 状态：证伪集中在「看见」与「选择」", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig03_core_status.png",bbox_inches="tight"); plt.close(fig)
+    ax.grid(False); 
+    figsave(ROOT/"fig03_core_status.png"); plt.close(fig)
 
 
 def fig04():
     cores = L.CORES; scales = ["命题","共同体","制度","个体","谱系"]
     M = np.array([[S["core_scale"][c][s] for s in scales] for c in cores])
     fig, ax = plt.subplots(figsize=(6.2,3.0))
-    ax.imshow(M, cmap="Oranges")
+    ax.imshow(M, cmap=CM_ORANGE)
     ax.set_xticks(range(len(scales))); ax.set_xticklabels(scales, fontsize=8.6)
     ax.set_yticks(range(len(cores))); ax.set_yticklabels(cores, fontsize=9)
     for i in range(len(cores)):
@@ -193,8 +191,7 @@ def fig04():
             ax.text(j,i,int(M[i,j]) if M[i,j] else "0",ha="center",va="center",fontsize=9,
                     color="white" if M[i,j]>4 else "#222")
     ax.grid(False)
-    ax.set_title("图 4　核心 × 尺度：个体层与谱系层是两列空格", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig04_core_scale.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig04_core_scale.png"); plt.close(fig)
 
 
 def fig05():
@@ -204,16 +201,15 @@ def fig05():
     x = np.arange(len(sts)); w=.26
     for i,g in enumerate(grades):
         ax.bar(x+(i-1)*w, M[i], w, label=f"{g} 级", zorder=3,
-               color={"A":"#1f4e79","B":"#5b8fb9","C":"#b9c9d6"}[g])
+               color={"A":"#0072B2","B":"#56B4E9","C":"#b9c9d6"}[g])
     ax.set_xticks(x); ax.set_xticklabels(sts, fontsize=8.2); ax.set_ylabel("命题数")
     ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 5　等级 × 状态：C 级命题占 44%，且多集中在「待检验／开放」", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig05_grade.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig05_grade.png"); plt.close(fig)
 
 
 def fig06():
     fig, ax = plt.subplots(figsize=(7.0,3.4)); ax.set_xlim(0,10); ax.set_ylim(0,4.4); ax.axis("off")
-    ax.text(.2,4.1,"图 6　失败模式矩阵：每个核心的误读都对应一个检查项",fontsize=9.4,fontweight="bold")
+    
     cores = L.CORES
     for i,c in enumerate(cores):
         x = .2 + (i%3)*3.25; y = 2.55 - (i//3)*1.9
@@ -221,11 +217,11 @@ def fig06():
         ax.text(x+.12,y+1.38,c,fontsize=9.2,fontweight="bold")
         txt = {"看见":"把切得细当切得对","记住":"把被想起当必然","跟上":"用快变量解释慢变量",
                "选择":"把调参当取舍","讲述":"把置信度当证明","临界":"把边界当机制"}[c]
-        ax.text(x+.12,y+.62,txt,fontsize=7.8,color="#a8322d")
+        ax.text(x+.12,y+.62,txt,fontsize=7.8,color="#D55E00")
         chk = {"看见":"换条线，结论还成立？","记住":"没有解码器，凭什么读出？","跟上":"两个钟同量级吗？",
                "选择":"预算无限还需要让出？","讲述":"换种分级，结论翻转？","临界":"两侧像两个相吗？"}[c]
         ax.text(x+.12,y+.22,chk,fontsize=7.4,color="#333")
-    fig.tight_layout(); fig.savefig(ROOT/"fig06_failmodes.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig06_failmodes.png"); plt.close(fig)
 
 
 def fig07():
@@ -234,24 +230,22 @@ def fig07():
     left  = [3, 3, 1, 1, 2]
     right = [1, 1, 3, 3, 2]
     x = np.arange(len(labels))
-    ax.bar(x-.19, left, .36, color="#2f6f9f", label="前一篇的口径", zorder=3)
-    ax.bar(x+.19, right, .36, color="#b3701f", label="后一篇的口径", zorder=3)
+    ax.bar(x-.19, left, .36, color="#0072B2", label="前一篇的口径", zorder=3)
+    ax.bar(x+.19, right, .36, color="#D55E00", label="后一篇的口径", zorder=3)
     ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=7.8)
     ax.set_yticks([]); ax.set_ylabel("（示意：刻度强弱）")
     ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 7　五处同名不同物：跨篇冲突不解决，六核心就会互相借尺度", fontsize=9.4, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig07_conflicts.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig07_conflicts.png"); plt.close(fig)
 
 
 def fig08():
     sts = ["成立","支持","部分","待检验","开放","证伪","撤回"]
     counts = [S["by_status"][s] for s in sts]
     fig, ax = plt.subplots(figsize=(6.4,2.8))
-    ax.bar(sts, counts, color=[C_OK,C_OK,C_PART,C_OPEN,C_OPEN,C_FAIL,"#6b2b26"], zorder=3)
+    ax.bar(sts, counts, color=[C_OK,C_OK,C_PART,C_OPEN,C_OPEN,C_FAIL,"#D55E00"], zorder=3)
     for i,v in enumerate(counts): ax.text(i, v+.15, str(v), ha="center", fontsize=8.4)
     ax.set_ylabel("命题数"); ax.set_ylim(0, max(counts)*1.25)
-    ax.set_title("图 8　本文自评：六条命题中三条「待检验」、两条「成立」、一条「开放」", fontsize=9.2, loc="left")
-    fig.tight_layout(); fig.savefig(ROOT/"fig08_self.png",bbox_inches="tight"); plt.close(fig)
+    figsave(ROOT/"fig08_self.png"); plt.close(fig)
 
 
 if __name__ == "__main__":

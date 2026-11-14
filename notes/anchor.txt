@@ -1,9 +1,0 @@
-knowledge-tradeoffs    date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当前”“目前”“最近
-distinction-evolution  date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当代”“目前”“当前
-capacity-cascade       date=2026-11-12  锚=截至 2026 年 10 月（凡正文中出现“当代”“目前”“当前
-entropy-spiral         date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当代”“目前”“当前
-impossibility-triangle date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当代”“目前”“当前
-interpretation-tradeoff date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当代”“目前”“当前
-emergence-critical     date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当代”“目前”“当前
-mind-forks             date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当前”“目前”“最近
-hotspot-bills          date=2026-11-05  锚=截至 2026 年 10 月（凡正文中出现“当前”“目前”“最近

@@ -23,29 +23,26 @@ def _figure(*a, **k):
 plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import matplotlib.font_manager as fm
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from data import schemes as S
 
-for cand in ["Microsoft YaHei", "SimHei", "Source Han Sans SC", "Noto Sans CJK SC"]:
-    if any(cand in f.name for f in fm.fontManager.ttflist):
-        plt.rcParams["font.sans-serif"] = [cand]
-        break
-plt.rcParams.update({"axes.unicode_minus": False, "figure.dpi": 200, "savefig.dpi": 200,
-                     "font.size": 9, "axes.titlesize": 9.6, "axes.labelsize": 9,
-                     "axes.edgecolor": "#444", "axes.grid": True, "grid.color": "#e8e8e8",
-                     "grid.linewidth": .6, "figure.facecolor": "white"})
-C1, C2, C3, C4, C5 = "#2f6f9f", "#b3701f", "#a8322d", "#9a9a9a", "#4f7a4f"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+C1, C2, C3, C4, C5 = "#0072B2", "#E69F00", "#D55E00", "#595959", "#009E73"
 
 ROWS = S.rows()
 ST = S.stats()
 
 
 def save(fig, name):
-    fig.savefig(ROOT / name, bbox_inches="tight")
+    figsave(ROOT / name)
     plt.close(fig)
     print("  " + name)
 
@@ -168,16 +165,16 @@ def fig01():
 
     box(3.6, 4.55, 2.8, 1.1, "裁判 Judge\n带锚裁决 · A/B/C · 阈值 τ", "#f2e6e6")
     for i, x in enumerate((.35, 3.75, 7.15)):
-        box(x, 2.65, 2.5, 1.15, ["回忆者 A\n时间线索", "回忆者 B\n空间线索", "回忆者 C\n人物线索"][i], "#dbe7f1", 7.9)
+        box(x, 2.65, 2.5, 1.15, ["回忆者 A\n时间线索", "回忆者 B\n空间线索", "回忆者 C\n人物线索"][i], "#D1EBF9", 7.9)
     box(.35, .55, 9.3, 1.15, "书记员 Clerk：字段级硬日志（时间戳 · 控件树 · 坐标 · 停留 · 动作 · 结果）\n"
-                            "不由生成模型写，不参与回忆，只被对账", "#e6ecdf", 8.0)
+                            "不由生成模型写，不参与回忆，只被对账", "#F7F19A", 8.0)
     for x in (1.6, 5.0, 8.4):
         ax.add_patch(FancyArrowPatch((x, 2.6), (x, 1.75), arrowstyle="-|>", mutation_scale=10, lw=1, color="#888"))
         ax.add_patch(FancyArrowPatch((x, 3.85), (4.6, 4.5), arrowstyle="-|>", mutation_scale=10, lw=1, color="#888"))
     ax.add_patch(FancyArrowPatch((5.0, 1.75), (5.0, 2.6), arrowstyle="-|>", mutation_scale=10,
                                  lw=1.2, color=C2, ls="--"))
     ax.text(5.1, 2.15, "锚点复核", fontsize=7, color=C2)
-    ax.text(.2, 5.95, "图 1　三层不是三个 Agent，是三种职能", fontsize=9.8, fontweight="bold")
+    
     ax.text(.2, .15, "注：异构只在中层；底层与顶层如果也用同一个模型，就退化成「自问自答」。",
             fontsize=7, color="#555")
     save(fig, "fig01_stack.png")
@@ -191,7 +188,7 @@ def fig02():
                    1 if r["judge"] == "带锚裁决" else (0.5 if r["judge"] in ("交叉", "自评") else 0)]
                   for r in ROWS])
     fig, ax = plt.subplots(figsize=(4.6, 5.4))
-    ax.imshow(M, cmap="Blues", vmin=0, vmax=1.6, aspect="auto")
+    ax.imshow(M, cmap=CM_BLUE, vmin=0, vmax=1.6, aspect="auto")
     ax.set_xticks(range(3)); ax.set_xticklabels(cols, fontsize=8.6)
     ax.set_yticks(range(len(ids))); ax.set_yticklabels(ids, fontsize=7.4)
     for i in range(M.shape[0]):
@@ -199,7 +196,6 @@ def fig02():
             ax.text(j, i, {1: "●", .5: "△", 0: "○"}[M[i, j]], ha="center", va="center",
                     fontsize=8.5, color="white" if M[i, j] == 1 else "#333")
     ax.grid(False)
-    ax.set_title("图 2　三件套覆盖：11 个现有方案没有一格同时为实心", fontsize=9.0, loc="left")
     save(fig, "fig02_trio.png")
 
 
@@ -210,7 +206,7 @@ def fig03():
     recall = [1.0, 1.3, 2.4]
     x = np.arange(3)
     ax.bar(x - .19, store, .36, label="每条占用（token，左轴）", color=C1, zorder=3)
-    ax2 = ax.twinx()
+    ax2 = ax.twinx(); ax2.grid(False)
     ax2.plot(x + .19, recall, "o-", color=C2, lw=1.8, ms=7, label="可唤起信息（相对，右轴）")
     ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=9)
     ax.set_ylabel("每条占用 token"); ax2.set_ylabel("可唤起信息（相对）")
@@ -220,7 +216,6 @@ def fig03():
         ax2.text(i + .19, r + .12, f"{r}×", ha="center", fontsize=8, color=C2)
     h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
     ax.legend(h1 + h2, l1 + l2, fontsize=7.4, frameon=False, loc="upper right")
-    ax.set_title("图 3　容量账（示意）：节省来自重建，不来自存储", fontsize=9.4, loc="left")
     save(fig, "fig03_capacity.png")
 
 
@@ -242,7 +237,6 @@ def fig04():
     ax.set_xlabel("参与重建的独立模型数（奇数，避免平票）")
     ax.set_ylabel("多数派出错的概率")
     ax.set_ylim(0, .25); ax.set_xticks(n); ax.legend(fontsize=7.6, frameon=False)
-    ax.set_title("图 4　投票只在「独立」时才是防线：同源时它退化成一个模型", fontsize=9.2, loc="left")
     save(fig, "fig04_correlation.png")
 
 
@@ -257,12 +251,12 @@ def fig05():
 
     box(.3, 3.4, 2.6, 1.1, "症状\n重复／认错人／模板化", "#f2efe6")
     box(3.5, 3.4, 3.0, 1.1, "机制\n窗口满 · 摘要漂移 · 检索噪声", "#f2e6e6")
-    box(7.1, 3.4, 2.6, 1.1, "本文补丁\n字段残余 · 空间键 · 锚点", "#dbe7f1")
+    box(7.1, 3.4, 2.6, 1.1, "本文补丁\n字段残余 · 空间键 · 锚点", "#D1EBF9")
     box(.3, 1.2, 4.3, 1.1, "补丁也解决不了的\n线索缺失、账号处置、成本", "#fff", 7.8)
     box(5.2, 1.2, 4.5, 1.1, "仍必须人环的\n高风险动作（转账、公开发言）", "#fff", 7.8)
     for x in (1.6, 5.0, 8.4):
         ax.add_patch(FancyArrowPatch((x, 3.35), (x, 2.4), arrowstyle="-|>", mutation_scale=10, lw=.9, color="#999"))
-    ax.text(.2, 4.8, "图 5　死亡解剖：症状不指向病因，机制才指向补丁", fontsize=9.6, fontweight="bold")
+    
     save(fig, "fig05_death.png")
 
 
@@ -281,11 +275,11 @@ def fig06():
             ax.add_patch(FancyArrowPatch((1.95 + i * 1.95, 3.4), (2.1 + i * 1.95, 3.4),
                                          arrowstyle="-|>", mutation_scale=9, lw=.9, color="#888"))
     for i, t in enumerate(["当前情境", "五类线索", "粗筛 + 精排", "多路重建", "带锚裁决", "行动/叫停"]):
-        step(.2 + i * 1.62, .9, t, "#dbe7f1", 7.0)
+        step(.2 + i * 1.62, .9, t, "#D1EBF9", 7.0)
         if i < 5:
             ax.add_patch(FancyArrowPatch((1.87 + i * 1.62, 1.3), (1.99 + i * 1.62, 1.3),
                                          arrowstyle="-|>", mutation_scale=9, lw=.9, color="#888"))
-    ax.text(.2, 4.15, "图 6　query-driven（上）与 cue-driven（下）：后者由情境发起", fontsize=9.6, fontweight="bold")
+    
     ax.text(.2, .25, "注：上排是「问什么查什么」，下排是「我在哪、刚做了什么、现在该想起什么」。",
             fontsize=7, color="#555")
     save(fig, "fig06_cue.png")
@@ -300,13 +294,13 @@ def fig07():
                                     fc=fc, ec="#666", lw=.9))
         ax.text(x + w / 2, y + h / 2, t, ha="center", va="center", fontsize=fs, linespacing=1.5)
 
-    box(.3, 3.6, 3.0, 1.0, "看见\n索引＝划线（五类线索）", "#dbe7f1")
-    box(3.6, 3.6, 3.0, 1.0, "记住\n残余＋压缩＋遗忘", "#e6ecdf")
+    box(.3, 3.6, 3.0, 1.0, "看见\n索引＝划线（五类线索）", "#D1EBF9")
+    box(3.6, 3.6, 3.0, 1.0, "记住\n残余＋压缩＋遗忘", "#F7F19A")
     box(6.9, 3.6, 2.8, 1.0, "讲述\n裁判的 A/B/C", "#f2e6e6")
-    box(.3, 1.4, 3.0, 1.0, "跟上\n重建耗时 vs 回复窗口", "#f7efe2")
-    box(3.6, 1.4, 3.0, 1.0, "选择\n算力换保真", "#f7efe2")
+    box(.3, 1.4, 3.0, 1.0, "跟上\n重建耗时 vs 回复窗口", "#FBEFD6")
+    box(3.6, 1.4, 3.0, 1.0, "选择\n算力换保真", "#FBEFD6")
     box(6.9, 1.4, 2.8, 1.0, "临界\n分歧阈值 τ", "#f2efe6")
-    ax.text(.2, 5.2, "图 7　六核心在这套架构里的位置：三个主核、三个借用", fontsize=9.6, fontweight="bold")
+    
     ax.text(.2, .7, "注：主核是「记住」「讲述」「临界」；「看见/跟上/选择」提供约束条件，不新增判据。",
             fontsize=7, color="#555")
     save(fig, "fig07_six.png")
@@ -327,7 +321,6 @@ def fig08():
         ax.text(max(v, 0) + .02, y, {1.0: "支持", .75: "部分", .5: "待测", 0.0: "撤回"}[v],
                 va="center", fontsize=7.2, color=cols[v])
     ax.set_yticks([]); ax.set_xlim(0, 1.3); ax.set_xticks([0, .5, 1])
-    ax.set_title("图 8　自证：十条命题里有一条被自己撤回", fontsize=9.4, loc="left")
     save(fig, "fig08_self.png")
 
 

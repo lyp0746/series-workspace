@@ -1,0 +1,502 @@
+{
+ "n_sources": 46,
+ "loo": [
+  {
+   "source": "AP 世界史（2011 框架）",
+   "n": 191,
+   "top10": 0.7016,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6985,
+   "n_templates": 36
+  },
+  {
+   "source": "AP 世界史：现代（课程框架）",
+   "n": 191,
+   "top10": 0.7068,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.7059,
+   "n_templates": 36
+  },
+  {
+   "source": "Acton《剑桥近代史》",
+   "n": 190,
+   "top10": 0.7053,
+   "null_mean": 0.1025,
+   "null_q95": 0.1105,
+   "p": 0.0,
+   "top10_template": 0.7111,
+   "n_templates": 36
+  },
+  {
+   "source": "Bayly《现代世界的诞生 1780—1914》",
+   "n": 194,
+   "top10": 0.701,
+   "null_mean": 0.1014,
+   "null_q95": 0.1134,
+   "p": 0.0,
+   "top10_template": 0.6978,
+   "n_templates": 36
+  },
+  {
+   "source": "Bentley & Ziegler《传统与相遇》第6版",
+   "n": 190,
+   "top10": 0.7,
+   "null_mean": 0.1025,
+   "null_q95": 0.1105,
+   "p": 0.0,
+   "top10_template": 0.6963,
+   "n_templates": 36
+  },
+  {
+   "source": "Bentley《世界史中的跨文化互动与分期》（AHR 1996）",
+   "n": 193,
+   "top10": 0.6943,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.6884,
+   "n_templates": 36
+  },
+  {
+   "source": "Britannica《欧洲史》条目",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Bulliet《大地与人民》第6版",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Coffin & Stacey《西方文明》第17版",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6889,
+   "n_templates": 36
+  },
+  {
+   "source": "Davies《欧洲史》",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Hobsbawm《年代四部曲》",
+   "n": 191,
+   "top10": 0.7016,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6985,
+   "n_templates": 36
+  },
+  {
+   "source": "Judge & Langdon《联系：世界史》第3版",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Kishlansky《西方文明》第7版",
+   "n": 188,
+   "top10": 0.7021,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6889,
+   "n_templates": 36
+  },
+  {
+   "source": "Langer《世界史百科全书》第5版",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "McKay《西方社会史》第11版",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "McNeill《世界史》第4版",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Noble《西方文明：超越边界》第7版",
+   "n": 188,
+   "top10": 0.6915,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6866,
+   "n_templates": 36
+  },
+  {
+   "source": "Osterhammel《世界的转型》",
+   "n": 194,
+   "top10": 0.6959,
+   "null_mean": 0.1014,
+   "null_q95": 0.1134,
+   "p": 0.0,
+   "top10_template": 0.6906,
+   "n_templates": 36
+  },
+  {
+   "source": "Palmer/Colton《现代世界史》第11版",
+   "n": 190,
+   "top10": 0.6895,
+   "null_mean": 0.1025,
+   "null_q95": 0.1105,
+   "p": 0.0,
+   "top10_template": 0.6889,
+   "n_templates": 36
+  },
+  {
+   "source": "Perry《西方文明简史》第11版",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6889,
+   "n_templates": 36
+  },
+  {
+   "source": "Pomeranz《大分流》",
+   "n": 194,
+   "top10": 0.701,
+   "null_mean": 0.1014,
+   "null_q95": 0.1134,
+   "p": 0.0,
+   "top10_template": 0.6978,
+   "n_templates": 36
+  },
+  {
+   "source": "Roberts《企鹅世界史》第6版",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6838,
+   "n_templates": 36
+  },
+  {
+   "source": "Spielvogel《世界史》第8版",
+   "n": 191,
+   "top10": 0.6963,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6912,
+   "n_templates": 36
+  },
+  {
+   "source": "Spielvogel《西方文明史简编》第9版",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Spodek《世界的历史》第4版",
+   "n": 191,
+   "top10": 0.6963,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6912,
+   "n_templates": 36
+  },
+  {
+   "source": "Stavrianos《全球史》第7版",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Stearns《世界文明：全球视角》第7版",
+   "n": 191,
+   "top10": 0.6963,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6912,
+   "n_templates": 36
+  },
+  {
+   "source": "Wikipedia《Early modern period》",
+   "n": 193,
+   "top10": 0.6995,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "Wikipedia《List of time periods》",
+   "n": 191,
+   "top10": 0.7016,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6861,
+   "n_templates": 36
+  },
+  {
+   "source": "Wikipedia《Periodization》",
+   "n": 193,
+   "top10": 0.6995,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "《中国大百科全书·世界历史》",
+   "n": 189,
+   "top10": 0.6984,
+   "null_mean": 0.1027,
+   "null_q95": 0.1164,
+   "p": 0.0,
+   "top10_template": 0.6815,
+   "n_templates": 36
+  },
+  {
+   "source": "《中外历史纲要（下）》人教版",
+   "n": 188,
+   "top10": 0.6968,
+   "null_mean": 0.1031,
+   "null_q95": 0.1117,
+   "p": 0.0,
+   "top10_template": 0.6917,
+   "n_templates": 36
+  },
+  {
+   "source": "《剑桥世界史》",
+   "n": 192,
+   "top10": 0.7031,
+   "null_mean": 0.1019,
+   "null_q95": 0.1146,
+   "p": 0.0,
+   "top10_template": 0.7007,
+   "n_templates": 36
+  },
+  {
+   "source": "《剑桥中世纪史》",
+   "n": 193,
+   "top10": 0.6995,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.6884,
+   "n_templates": 36
+  },
+  {
+   "source": "人教版《世界历史》九年级",
+   "n": 189,
+   "top10": 0.6931,
+   "null_mean": 0.1027,
+   "null_q95": 0.1164,
+   "p": 0.0,
+   "top10_template": 0.6866,
+   "n_templates": 36
+  },
+  {
+   "source": "刘宗绪《世界近代史》",
+   "n": 193,
+   "top10": 0.6943,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.6884,
+   "n_templates": 36
+  },
+  {
+   "source": "北师大版《世界历史》九年级",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "华东师大版《世界历史》九年级",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "吴于廑、齐世荣《世界史》六卷本",
+   "n": 192,
+   "top10": 0.6979,
+   "null_mean": 0.1019,
+   "null_q95": 0.1146,
+   "p": 0.0,
+   "top10_template": 0.6934,
+   "n_templates": 36
+  },
+  {
+   "source": "周一良、吴于廑《世界通史》",
+   "n": 192,
+   "top10": 0.6927,
+   "null_mean": 0.1019,
+   "null_q95": 0.1146,
+   "p": 0.0,
+   "top10_template": 0.6861,
+   "n_templates": 36
+  },
+  {
+   "source": "岳麓版《世界历史》九年级",
+   "n": 191,
+   "top10": 0.6911,
+   "null_mean": 0.1023,
+   "null_q95": 0.1099,
+   "p": 0.0,
+   "top10_template": 0.6929,
+   "n_templates": 37
+  },
+  {
+   "source": "王斯德《世界现代史》",
+   "n": 193,
+   "top10": 0.6943,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.6884,
+   "n_templates": 36
+  },
+  {
+   "source": "白寿彝《中国通史》",
+   "n": 192,
+   "top10": 0.7083,
+   "null_mean": 0.1019,
+   "null_q95": 0.1146,
+   "p": 0.0,
+   "top10_template": 0.708,
+   "n_templates": 36
+  },
+  {
+   "source": "苏联科学院《世界通史》十卷本（中译）",
+   "n": 192,
+   "top10": 0.6927,
+   "null_mean": 0.1019,
+   "null_q95": 0.1146,
+   "p": 0.0,
+   "top10_template": 0.6861,
+   "n_templates": 36
+  },
+  {
+   "source": "范文澜《中国通史简编》",
+   "n": 189,
+   "top10": 0.7196,
+   "null_mean": 0.1027,
+   "null_q95": 0.1164,
+   "p": 0.0,
+   "top10_template": 0.7239,
+   "n_templates": 36
+  },
+  {
+   "source": "钱穆《国史大纲》",
+   "n": 193,
+   "top10": 0.7047,
+   "null_mean": 0.1017,
+   "null_q95": 0.114,
+   "p": 0.0,
+   "top10_template": 0.7029,
+   "n_templates": 36
+  }
+ ],
+ "by_tradition": [
+  {
+   "dropped": "european",
+   "n": 108,
+   "top10": 0.75,
+   "null_mean": 0.1253,
+   "null_q95": 0.1574
+  },
+  {
+   "dropped": "global",
+   "n": 150,
+   "top10": 0.7667,
+   "null_mean": 0.1112,
+   "null_q95": 0.1333
+  },
+  {
+   "dropped": "china",
+   "n": 140,
+   "top10": 0.7929,
+   "null_mean": 0.1136,
+   "null_q95": 0.1429
+  }
+ ],
+ "baseline": {
+  "n": 195,
+  "top10": 0.6974,
+  "n_templates": 35
+ },
+ "summary": {
+  "loo_n": 46,
+  "top10_min": 0.6895,
+  "top10_median": 0.6968,
+  "top10_max": 0.7196,
+  "template_min": 0.6815,
+  "template_max": 0.7239,
+  "all_above_q95": true
+ }
+}

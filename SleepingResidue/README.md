@@ -2,7 +2,7 @@
 
 **二十四个延迟承认案例的三标记检验、两个必要条件与一份负面清单**
 
-李毅芃 · 2026-10-24 · 工作论文（74 页，13 图，8 表，10 附录，CC BY 4.0）
+李毅芃 · 2026-10-24 · 工作论文（75 页，13 图，8 表，10 附录，CC BY 4.0）
 
 *Residuals Outside the Line: Why Buried Theories Return, and Why Some Never Do*
 

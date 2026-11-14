@@ -31,22 +31,17 @@ plt.figure = _figure
 
 from matplotlib.patches import FancyBboxPatch, Polygon, Rectangle
 from matplotlib.ticker import FuncFormatter
-
-plt.rcParams.update({
-    "font.family": ["SimHei", "Microsoft YaHei"],
-    "axes.unicode_minus": False,
-    "figure.dpi": 180,
-    "savefig.dpi": 180,
-    "axes.edgecolor": "#333333",
-    "axes.linewidth": 0.8,
-    "font.size": 10,
-    "figure.facecolor": "white",
-})
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
-RED, BLUE, GREEN, GOLD, GRAY = "#b3261e", "#1f4e79", "#2e6b4f", "#a8791f", "#5f6368"
-P_RED, P_BLUE, P_GREEN, P_GOLD = "#fbe9e7", "#e8eff6", "#e6f1ea", "#faf1dd"
+RED, BLUE, GREEN, GOLD, GRAY = "#D55E00", "#0072B2", "#009E73", "#D55E00", "#595959"
+P_RED, P_BLUE, P_GREEN, P_GOLD = "#FAEBDF", "#E1F2FB", "#e6f1ea", "#FBF1DA"
 PATH_CN = {"ritual": "礼制与相职", "inner": "内廷（侍从型）",
            "outer": "外派（监察副贰型）", "military": "军职型"}
 PATH_COL = {"ritual": GOLD, "inner": RED, "outer": BLUE, "military": GREEN}
@@ -71,7 +66,7 @@ def card(ax, x, y, w, h, fc, ec, title, body, tcol, tsize=11, bsize=8.4):
     ax.text(x + 0.03, y + h - 0.055, title, transform=ax.transAxes, fontsize=tsize,
             fontweight="bold", color=tcol, va="top", zorder=2)
     ax.text(x + 0.03, y + h - 0.125, body, transform=ax.transAxes, fontsize=bsize,
-            color="#333333", va="top", linespacing=1.55, zorder=2)
+            color="#000000", va="top", linespacing=1.55, zorder=2)
 
 
 def write_cases():
@@ -107,7 +102,7 @@ def fig01():
             (C_, "C　看得准", "center", "bottom", 0.00, 0.035),
             (A_, "A　拼得上", "center", "top", 0.00, -0.035),
             (T_, "T　传得下去", "center", "top", 0.00, -0.035)]:
-        ax.plot([V[0]], [V[1]], "o", ms=9, color="#222222", zorder=5)
+        ax.plot([V[0]], [V[1]], "o", ms=9, color="#000000", zorder=5)
         ax.text(V[0] + dx, V[1] + dy, name, ha=ha, va=va, fontsize=13.5, fontweight="bold")
 
     # edge labels, placed on the edges but pushed toward the centroid, no overlaps
@@ -127,7 +122,7 @@ def fig01():
     axr = fig.add_axes([0.635, 0.10, 0.35, 0.80]); axr.axis("off")
     axr.set_xlim(0, 1); axr.set_ylim(0, 1)
     axr.text(0, 0.985, "三条路径，各让出一项", fontsize=11.5, fontweight="bold", va="top")
-    card(axr, 0.00, 0.745, 1.00, 0.205, P_GRAY := "#f1f1f1", "#9e9e9e",
+    card(axr, 0.00, 0.745, 1.00, 0.205, P_GRAY := "#f1f1f1", "#595959",
          "正官体系　保 A、T", "品秩、编制、职掌齐备；程序繁复、层级多。\n"
          "账单：对具体事务既慢又远 → 三公虚化、尚书台阁化。", GRAY)
     card(axr, 0.00, 0.505, 1.00, 0.205, P_RED, RED,
@@ -137,14 +132,12 @@ def fig01():
          "外派使职　保 C、A", "监察、都督、节度：贴近地方，兼理军民财政。\n"
          "账单：中央政令难达，T 崩塌即割据。", BLUE)
     axr.text(0.0, 0.215, "共同机制：想补第三项，就必须支付起家时依赖的那一项。",
-             fontsize=8.8, color="#444444", va="top", wrap=True)
+             fontsize=8.8, color="#000000", va="top", wrap=True)
     axr.text(0.0, 0.150, "所以“禁戒”只能关掉一个名，关不掉让渡本身。",
-             fontsize=8.8, color="#444444", va="top")
+             fontsize=8.8, color="#000000", va="top")
 
-    fig.suptitle("图1　官制的三项要求与三条路径：至多同时满足两项", fontsize=13,
-                 fontweight="bold", y=0.965)
-    fig.text(0.5, 0.035, "注：三角是组织坐标，不是可行域的精确形状；ψ>0 是三角成立的条件，ψ≈0 时三项可同时逼近满格。",
-             ha="center", fontsize=8, color="#666666")
+    fig.text(0.5, -0.07, "注：三角是组织坐标，不是可行域的精确形状；ψ>0 是三角成立的条件，ψ≈0 时三项可同时逼近满格。",
+             ha="center", fontsize=8, color="#595959")
     save(fig, "fig01.png")
 
 
@@ -167,21 +160,19 @@ def fig07():
     ]
     for x, y, t, col, ex in data:
         ax.text(x, y, t, fontsize=12, fontweight="bold", color=col, va="top")
-        ax.text(x, y - 0.42, ex, fontsize=8.6, color="#333333", va="top", linespacing=1.7)
+        ax.text(x, y - 0.42, ex, fontsize=8.6, color="#000000", va="top", linespacing=1.7)
 
     ax.text(0.06, 0.14, "保 A、T，让出 C", fontsize=9, color=GRAY)
     ax.text(1.06, 0.14, "军权 = C＋A；诏令权 = C＋T\n两权交集是 C；重合者占满三项", fontsize=9, color=RED)
 
-    ax.axhline(1, color="#333333", lw=1.3)
-    ax.axvline(1, color="#333333", lw=1.3)
+    ax.axhline(1, color="#000000", lw=1.3)
+    ax.axvline(1, color="#000000", lw=1.3)
     ax.set_xlabel("诏令权（C＋T）　→", fontsize=10.5, fontweight="bold")
     ax.set_ylabel("兵权（C＋A）　→", fontsize=10.5, fontweight="bold")
 
-    fig.suptitle("图7　诏令权与兵权的四象限：两权合一即占满三项", fontsize=13,
-                 fontweight="bold", y=0.955)
-    fig.text(0.5, 0.045, "注：中古的禅代多循“先录尚书事（诏令）、再大将军／都督中外诸军事（兵权）、"
+    fig.text(0.5, -0.07, "注：中古的禅代多循“先录尚书事（诏令）、再大将军／都督中外诸军事（兵权）、"
                          "后相国加九锡”的顺序；该顺序是路径描述，不是充分条件。",
-             ha="center", fontsize=8, color="#666666")
+             ha="center", fontsize=8, color="#595959")
     save(fig, "fig07.png")
 
 
@@ -206,14 +197,13 @@ def fig04():
             y = n - 1 - i
             for k, t in enumerate(items):
                 ax.text(j, y + (0.19 if k == 0 else -0.05), t, ha="center", va="center",
-                        fontsize=7.8, color="#222222")
+                        fontsize=7.8, color="#000000")
         for j, c in enumerate(cols):
-            ax.text(j, n - 0.30, c, ha="center", va="bottom", fontsize=8.4, color="#444444")
+            ax.text(j, n - 0.30, c, ha="center", va="bottom", fontsize=8.4, color="#000000")
         ax.set_xlim(-0.5, m - 0.5); ax.set_ylim(-0.55, n - 0.10)
         ax.set_xticks([]); ax.set_yticks([])
         for s in ["top", "right", "left", "bottom"]:
             ax.spines[s].set_visible(False)
-        ax.set_title(title, loc="left", fontsize=11, fontweight="bold")
 
     cols1 = ["西周", "春秋战国", "秦汉", "魏晋", "南北朝", "隋唐前期",
              "中晚唐", "五代", "宋", "元", "明", "清"]
@@ -254,11 +244,9 @@ def fig04():
     }
     swim(ax2, cols2, lanes2, cells2, "（b）1901 — 2026：现代转型的四条线")
 
-    fig.suptitle("图4　官制流变的事件网格：每一格是“谁在长”，不是“谁取代谁”", fontsize=13,
-                 fontweight="bold", y=0.96)
-    fig.text(0.5, 0.025, "注：按时代分列，格内列出该时代活跃的主要官称；同一官职可跨列存续，"
+    fig.text(0.5, -0.07, "注：按时代分列，格内列出该时代活跃的主要官称；同一官职可跨列存续，"
                          "此图只标“首次出现或转折”。“典签”同时属内廷与外派，按其主要功能两列并见。",
-             ha="center", fontsize=7.8, color="#666666")
+             ha="center", fontsize=7.8, color="#595959")
     save(fig, "fig04.png")
 
 
@@ -294,7 +282,7 @@ def fig05():
     for k, x in xs.items():
         ax.text(x, top, k, fontsize=9.6, fontweight="bold",
                 ha="left" if k in ("时期", "代表官职") else "center")
-    ax.plot([0.10, 10.30], [top - 0.30, top - 0.30], color="#999999", lw=1.0)
+    ax.plot([0.10, 10.30], [top - 0.30, top - 0.30], color="#595959", lw=1.0)
 
     y = top - 0.95
     for p, n, share, main_rang, reps, path in rows:
@@ -305,17 +293,15 @@ def fig05():
             ax.add_patch(Rectangle((xs[key] - 0.42, y - 0.34), 0.84, 0.68,
                                    fc=plt.cm.Greens(0.12 + 0.70 * s), ec="white", lw=1.2))
             ax.text(xs[key], y, "%d%%" % round(100 * s), fontsize=7.8, ha="center",
-                    va="center", color=("#10351f" if s > 0.55 else "#333333"))
+                    va="center", color=("#009E73" if s > 0.55 else "#000000"))
         ax.text(xs["让出(主频)"], y, main_rang, fontsize=8.4, va="center", ha="center",
-                color="#444444")
+                color="#000000")
         ax.text(xs["代表官职"], y, reps, fontsize=7.4, va="center")
         y -= 1.0
 
-    fig.suptitle("图5　分期编码汇总（n=%d）：每一期里，哪一项最常被让出" % len(CASES),
-                 fontsize=13, fontweight="bold", y=0.963)
-    fig.text(0.5, 0.022, "注：C／A／T 列为该时期案例中“保有该项”的比例（同一案例可同时保两项，故三列不互补）；"
+    fig.text(0.5, -0.07, "注：C／A／T 列为该时期案例中“保有该项”的比例（同一案例可同时保两项，故三列不互补）；"
                          "“让出”为主频项。逐案编码见附录 A 与 cases.csv。",
-             ha="center", fontsize=7.8, color="#666666")
+             ha="center", fontsize=7.8, color="#595959")
     save(fig, "fig05.png")
 
 
@@ -347,7 +333,7 @@ def fig02():
     fig.subplots_adjust(left=0.085, right=0.985, top=0.80, bottom=0.16, wspace=0.20)
 
     ax1.plot(lams, sums3, color=RED, lw=2.4)
-    ax1.axhline(3, color="#9e9e9e", lw=0.9, ls=":")
+    ax1.axhline(3, color="#595959", lw=0.9, ls=":")
     ax1.set_xlabel("交互惩罚强度 λ", fontsize=9.8)
     ax1.set_ylabel("可达的最大 c + a + t", fontsize=9.8)
     ax1.set_ylim(2.35, 3.10); ax1.set_xlim(0, 0.62)
@@ -356,7 +342,7 @@ def fig02():
                   fontweight="bold", loc="left")
     ax1.text(0.03, 3.055, "λ = 0：三项可同时满格（三角不成立）", fontsize=8.2, color=RED)
     ax1.text(0.035, 2.44, "缺口随 λ 扩大", fontsize=8.2, color=RED)
-    ax1.text(0.30, 2.38, "c + a + t + λψ ≤ K", fontsize=10, color="#333333",
+    ax1.text(0.30, 2.38, "c + a + t + λψ ≤ K", fontsize=10, color="#000000",
              bbox=dict(fc="#f4f4f4", ec="#cccccc", pad=4))
 
     ax2.set_xlim(0, 1); ax2.set_ylim(-0.12, 1.0); ax2.axis("off")
@@ -372,7 +358,7 @@ def fig02():
              ((0.22, 0.16), (0.78, 0.16), "共保 A", 0.055)]
     for (x1, y1), (x2, y2), lab, off in edges:
         ax2.annotate("", xy=(x2, y2), xytext=(x1, y1),
-                     arrowprops=dict(arrowstyle="<->", color="#9e9e9e", lw=1.2,
+                     arrowprops=dict(arrowstyle="<->", color="#595959", lw=1.2,
                                      shrinkA=26, shrinkB=26))
         mx, my = (x1 + x2) / 2, (y1 + y2) / 2
         dx, dy = (y2 - y1), -(x2 - x1)
@@ -381,16 +367,14 @@ def fig02():
                  color=GRAY, ha="center", va="center",
                  bbox=dict(fc="white", ec="none", pad=1.5))
     ax2.text(0.50, -0.03, "三条边 = 三种“两项组合”；补上第三项，就要换掉原来两项之一",
-             ha="center", va="center", fontsize=8.6, color="#333333")
+             ha="center", va="center", fontsize=8.6, color="#000000")
     ax2.text(0.50, -0.10, "轮换 = 在三边之间换位；禁戒 = 只拆掉其中一条边",
-             ha="center", va="center", fontsize=8.2, color="#666666")
+             ha="center", va="center", fontsize=8.2, color="#595959")
     ax2.set_title("(b) 轮换：三条边上只有两项，换位即换账", fontsize=10.6,
                   fontweight="bold", loc="left")
 
-    fig.suptitle("图2　记账不等式与轮换的结构（a 为数值演示，b 为关系示意）", fontsize=12.5,
-                 fontweight="bold", y=0.965)
-    fig.text(0.5, 0.03, "注：ψ 取两两乘积的均值；λ 与 K 为归一化后的示意值，不代表任何实测代价。",
-             ha="center", fontsize=7.8, color="#666666")
+    fig.text(0.5, -0.07, "注：ψ 取两两乘积的均值；λ 与 K 为归一化后的示意值，不代表任何实测代价。",
+             ha="center", fontsize=7.8, color="#595959")
     save(fig, "fig02.png")
 
 
@@ -424,23 +408,21 @@ def fig06():
         data.append([max(c[5] - c[4], 0.5) for c in CASES if c[3] == path])
         labels.append(PATH_SHORT[path]); cols.append(PATH_COL[path])
     bp = bx.boxplot(data, tick_labels=labels, patch_artist=True, widths=0.5,
-                    medianprops=dict(color="#222222", lw=1.5))
+                    medianprops=dict(color="#000000", lw=1.5))
     for patch, col in zip(bp["boxes"], cols):
         patch.set_facecolor(col); patch.set_alpha(0.30); patch.set_edgecolor(col)
     for i, d in enumerate(data):
         bx.scatter(np.full(len(d), i + 1) + rng.normal(0, 0.045, len(d)), d,
                    s=20, color=cols[i], alpha=0.75, zorder=3)
-        bx.text(i + 1, 480, "n=%d" % len(d), ha="center", fontsize=8, color="#444444")
+        bx.text(i + 1, 480, "n=%d" % len(d), ha="center", fontsize=8, color="#000000")
     bx.set_yscale("log"); bx.set_ylim(0.4, 800)
     bx.set_ylabel("年（对数轴）", fontsize=9.6)
     bx.set_title("(b) 两组中位数重叠：时滞不能区分路径", fontsize=10.5, fontweight="bold", loc="left")
     bx.grid(alpha=0.20, axis="y")
 
-    fig.suptitle("图6　从起家到正官化的时滞（全样本；年代为约值）", fontsize=12.5,
-                 fontweight="bold", y=0.96)
-    fig.text(0.5, 0.03, "注：内廷中位数 34 年、外派 29 年（Mann–Whitney p≈0.33）：差异不显著，"
+    fig.text(0.5, -0.07, "注：内廷中位数 34 年、外派 29 年（Mann–Whitney p≈0.33）：差异不显著，"
                         "故“内廷快、外派慢”作为假说被本样本打掉，时滞不能用作区分两条线的证据。",
-             ha="center", fontsize=7.8, color="#666666")
+             ha="center", fontsize=7.8, color="#595959")
     save(fig, "fig06.png")
 
 
@@ -458,13 +440,13 @@ def fig09():
     curves = [(90, "汉唐常驿　≈90 km/日", GOLD),
               (150, "宋元急脚　≈150 km/日", GREEN),
               (250, "唐宋急递　≈250 km/日", BLUE),
-              (300, "清代加急　≈300 km/日", "#7b4b94")]
+              (300, "清代加急　≈300 km/日", "#CC79A7")]
     for v, lab, col in curves:
         ax.plot(d, tau(v), color=col, lw=1.9, label=lab)
     ax.plot(d, np.full_like(d, L / T_ev), color=RED, lw=1.6, ls="--",
             label="电报以后：只剩组织时延 L/T")
 
-    ax.axhline(1.0, color="#9e9e9e", lw=0.9)
+    ax.axhline(1.0, color="#595959", lw=0.9)
     ax.fill_between(d, 0, 1, color=P_BLUE, alpha=0.55, lw=0)
     ax.fill_between(d, 1, 1.9, color=P_RED, alpha=0.50, lw=0)
     ax.text(2970, 1.16, "τ > 1：必须预先授权", ha="right", va="bottom", fontsize=9, color=RED)
@@ -472,9 +454,9 @@ def fig09():
 
     for x, y, lab, dx, dy in [(1100, tau(250)[np.argmin(abs(d - 1100))], "范阳—长安（755）", -90, 0.22),
                               (1900, tau(300)[np.argmin(abs(d - 1900))], "广州—北京（1673）", -90, 0.22)]:
-        ax.plot([x], [y], "o", ms=7, mfc="white", mec="#222222", mew=1.4, zorder=5)
+        ax.plot([x], [y], "o", ms=7, mfc="white", mec="#000000", mew=1.4, zorder=5)
         ax.annotate(lab, xy=(x, y), xytext=(x + dx, y + dy), fontsize=8.2,
-                    ha="right", arrowprops=dict(arrowstyle="-", color="#888888", lw=0.7))
+                    ha="right", arrowprops=dict(arrowstyle="-", color="#595959", lw=0.7))
 
     ax.set_xlim(0, 3000); ax.set_ylim(0, 1.9)
     ax.set_xlabel("边镇到都城的距离 d（km，直线近似）", fontsize=10)
@@ -482,11 +464,9 @@ def fig09():
     ax.grid(alpha=0.20)
     ax.legend(fontsize=8.2, loc="upper left", frameon=False)
 
-    fig.suptitle("图9　τ 随距离与通信速度变化：授权的必要性，不等于失控的充分性",
-                 fontsize=12.5, fontweight="bold", y=0.965)
-    fig.text(0.5, 0.045, "参数：L = 12 日（议决与拟诏），T_event = 60 日（事态巩固）；曲线为示意模型。"
+    fig.text(0.5, -0.07, "参数：L = 12 日（议决与拟诏），T_event = 60 日（事态巩固）；曲线为示意模型。"
                          "范阳（τ≈0.45）与广州（τ≈0.41）都在 τ<1 时出事。", ha="center",
-             fontsize=7.8, color="#666666")
+             fontsize=7.8, color="#595959")
     save(fig, "fig09.png")
 
 
@@ -542,13 +522,13 @@ def fig08():
                  fontweight="bold", loc="left")
     for i, lab in [(2, "汉末"), (10, "唐末"), (13, "宋"), (18, "清")]:
         ax.annotate(lab, xy=(i, bottoms[i] + 0.12), xytext=(i, bottoms[i] + 0.95),
-                    ha="center", fontsize=7.4, color="#333333",
-                    arrowprops=dict(arrowstyle="-", color="#999999", lw=0.7))
+                    ha="center", fontsize=7.4, color="#000000",
+                    arrowprops=dict(arrowstyle="-", color="#595959", lw=0.7))
 
     fusion = [0.25, 0.85, 0.95, 0.35, 0.60, 0.80, 0.55, 0.40, 0.30, 0.30,
               0.95, 0.85, 0.35, 0.30, 0.55, 0.45, 0.50, 0.45, 0.20, 0.55,
               0.60, 0.55, 0.35, 0.45]
-    fc = [("#d98b84" if v > 0.5 else "#8fa8c4") for v in fusion]
+    fc = [("#CC79A7" if v > 0.5 else "#56B4E9") for v in fusion]
     bx.bar(xs, fusion, width=0.66, color=fc, edgecolor="white", lw=0.6)
     bx.axhline(0.5, color=RED, lw=0.9, ls="--")
     bx.text(len(xs) - 0.6, 0.53, "阈值", ha="right", fontsize=7.6, color=RED)
@@ -560,12 +540,10 @@ def fig08():
     bx.set_title("(b) 线数不预测稳定；共同项是“是否有一条线占满三项”", fontsize=10.6,
                  fontweight="bold", loc="left")
     bx.text(0.02, 0.93, "红：存在融合线（临界风险）", transform=bx.transAxes,
-            fontsize=8.0, color="#b3261e")
+            fontsize=8.0, color="#D55E00")
     bx.text(0.02, 0.86, "蓝：无融合线（多线牵制或顶点驻留）", transform=bx.transAxes,
-            fontsize=8.0, color="#3f5f88")
+            fontsize=8.0, color="#0072B2")
 
-    fig.suptitle("图8　并立线的数量与融合：一个被案例表部分反驳的假说", fontsize=12.5,
-                 fontweight="bold", y=0.965)
     save(fig, "fig08.png")
 
 
@@ -578,7 +556,7 @@ def fig03():
     ax.add_patch(FancyBboxPatch((0.3, 3.70), 9.4, 1.45, boxstyle="round,pad=0.05,rounding_size=0.12",
                                 fc=P_BLUE, ec=BLUE, lw=1.4))
     ax.text(0.55, 4.92, "慢层：品秩与官阶", fontsize=10.5, fontweight="bold", color=BLUE)
-    ax.text(0.55, 4.64, "稳定、可传承、可比较", fontsize=8.2, color="#33506b")
+    ax.text(0.55, 4.64, "稳定、可传承、可比较", fontsize=8.2, color="#009E73")
     for i, t in enumerate(["汉：秩石／比秩", "魏晋：九品官品", "唐宋：散阶·寄禄官",
                            "明清：九品十八阶", "2019：职级序列"]):
         ax.text(0.55 + i * 1.82, 3.97, t, fontsize=8.0)
@@ -586,7 +564,7 @@ def fig03():
     ax.add_patch(FancyBboxPatch((0.3, 1.30), 9.4, 1.45, boxstyle="round,pad=0.05,rounding_size=0.12",
                                 fc=P_RED, ec=RED, lw=1.4))
     ax.text(0.55, 2.52, "快层：差遣与使职", fontsize=10.5, fontweight="bold", color=RED)
-    ax.text(0.55, 2.24, "随事而设、随事而罢", fontsize=8.2, color="#6d2620")
+    ax.text(0.55, 2.24, "随事而设、随事而罢", fontsize=8.2, color="#D55E00")
     for i, t in enumerate(["汉：领／录尚书事", "唐：同平章事·节度使", "宋：差遣·权知",
                            "明清：巡抚·军机章京", "当代：专班·督办·巡视"]):
         ax.text(0.55 + i * 1.82, 1.57, t, fontsize=8.0)
@@ -599,12 +577,10 @@ def fig03():
         ax.text(x + 0.16, 3.22, lab, ha="left", va="center", fontsize=7.8,
                 color=GOLD, linespacing=1.5)
 
-    ax.set_title("图3　快慢分层：权力走快层，身份走慢层", fontsize=12.5,
-                 fontweight="bold", loc="left", pad=12)
     ax.text(0, 5.72, "功能：让“调配权力”与“承受身份”解耦——不推翻品秩体系，也能换人、换事。",
-            fontsize=8.6, color="#444444")
+            fontsize=8.6, color="#000000")
     ax.text(0, 0.55, "代价：名与实脱节 → 冗官、冗费，以及“名不正”的政治攻击（ψ 的制度形态）。",
-            fontsize=8.6, color="#444444")
+            fontsize=8.6, color="#000000")
     save(fig, "fig03.png")
 
 
@@ -639,7 +615,7 @@ def fig10():
     ax.grid(alpha=0.18)
     ax.set_title("(a) 一阶：崩解有滞后，回不去", fontsize=10.6, fontweight="bold", loc="left")
     ax.annotate("跳变点", xy=(-hsp, -0.77), xytext=(-1.15, -0.15), fontsize=8.2,
-                color="#444444", arrowprops=dict(arrowstyle="->", color="#888888", lw=0.8))
+                color="#000000", arrowprops=dict(arrowstyle="->", color="#595959", lw=0.8))
 
     h2 = np.linspace(-1, 1, 400)
     eta = np.sqrt(np.clip(h2, 0, None))
@@ -650,10 +626,8 @@ def fig10():
     bx.set_title("(b) 二阶：日常轮换，连续可逆", fontsize=10.6, fontweight="bold", loc="left")
     bx.text(-0.95, 0.78, "η ~ (h − h_c)^β\n无潜热、无滞后", fontsize=8.8, color=GREEN)
 
-    fig.suptitle("图10　两种“变天”：日常轮换是二阶，体制崩解是一阶（类比模型，C 级）",
-                 fontsize=12.2, fontweight="bold", y=0.96)
-    fig.text(0.5, 0.03, "注：模型取 U(η) = −η²/2 + η⁴/4 − hη；社会历史中的 η 无法独立测量，"
-                        "此图只作方向示意，不构成相变判定。", ha="center", fontsize=7.8, color="#666666")
+    fig.text(0.5, -0.07, "注：模型取 U(η) = −η²/2 + η⁴/4 − hη；社会历史中的 η 无法独立测量，"
+                        "此图只作方向示意，不构成相变判定。", ha="center", fontsize=7.8, color="#595959")
     save(fig, "fig10.png")
 
 
@@ -692,14 +666,13 @@ def fig11():
     ax.legend(fontsize=8.4, loc="lower left", frameon=False)
     for x, lab in [(1880, "电报"), (1930, "电话"), (1995, "互联网"), (2012, "移动政务")]:
         ax.axvline(x, color="#b0b0b0", lw=0.8, ls="-.")
-        ax.text(x + 1.5, 72, lab, rotation=90, va="top", fontsize=7.8, color="#555555")
+        ax.text(x + 1.5, 72, lab, rotation=90, va="top", fontsize=7.8, color="#000000")
     ax.annotate("地板：组织时延\n不随带宽下降", xy=(2024, 5.0), xytext=(1972, 0.30),
                 fontsize=8.4, color=GOLD,
                 arrowprops=dict(arrowstyle="->", color=GOLD, lw=0.9))
-    ax.set_title("图11　τ 的两次断崖与一个地板", fontsize=12.5, fontweight="bold", loc="left")
-    fig.text(0.5, 0.045, "参数：北京—广州 1900 km；技术速度取分段常数。纵轴是同一次请示—批复闭环的时延量级，"
+    fig.text(0.5, -0.07, "参数：北京—广州 1900 km；技术速度取分段常数。纵轴是同一次请示—批复闭环的时延量级，"
                          "不是任何具体事件的实测；组织时延为示意值。", ha="center",
-             fontsize=7.8, color="#666666")
+             fontsize=7.8, color="#595959")
     save(fig, "fig11.png")
 
 
@@ -732,10 +705,8 @@ def fig12():
 
     ax.set_xlabel("并立线数（1 → 5+）", fontsize=10)
     ax.set_ylabel("单线融合度（是否有一线占满三项）", fontsize=10, labelpad=8)
-    ax.set_title("图12　四种演化模式的定位图（编码地图，不是测量）", fontsize=12.5,
-                 fontweight="bold")
-    fig.text(0.5, 0.045, "注：坐标为本文对史料的定性编码。这张图的作用，是让“属于哪种模式”成为可争论的问题，"
-                         "而不是给出精确位置。", ha="center", fontsize=7.8, color="#666666")
+    fig.text(0.5, -0.07, "注：坐标为本文对史料的定性编码。这张图的作用，是让“属于哪种模式”成为可争论的问题，"
+                         "而不是给出精确位置。", ha="center", fontsize=7.8, color="#595959")
     save(fig, "fig12.png")
 
 

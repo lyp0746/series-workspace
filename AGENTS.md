@@ -2,7 +2,7 @@
 
 > 本文件是**宪法**，不是编年史：只写“任何时候都成立”的规则与**当前**状态指针。
 > 版本流水写 `_series/versions/CHANGELOG.md`；结构规范 `_series/spec/skeleton.md`（v2，已冻结）；
-> 校阅账 `_series/lint/REPORT.md`（`python _series/lint/lint.py` 生成；18 条在役规则，编号 r01–r24）。
+> 校阅账 `_series/lint/REPORT.md`（`python _series/lint/lint.py` 生成；20 条在役规则，编号 r01–r26）。
 > **规范与本文冲突时，以规范为准；本文与 `inventory.tsv` 冲突时，以 `inventory.tsv` 的件数为准。**
 
 ---
@@ -52,13 +52,15 @@
 8. 产物文件名**不带件数**（`00-合集-印刷版.pdf`）；一个产物一个 tag。
 9. **已发布的 DOI 与资产名不改名、不覆盖**；修订只能发新版本（概念 DOI 不变，版本 DOI 变）。
 10. 禁止词：必然／注定／不可避免／无法消除／死路。张力写清，宿命不写。
+11. **大改必过自检**：改章、并节、搬家、批量替换、重排论文之后，先照 `_series/review/SELF-CHECK.md` 跑一遍（lint／页数／字符数断言／抽样读），再报告“完成”。
+12. **时间线与数据声明**：全系列以 2026 年为叙事时间线。每件正文前必须有一句声明（书在前置页、论文在摘要前）：定量结论给快照日与仓库原始快照；**读者无法在公开记录核到的条目按 C 级（情景／构造）读，不按 A 级读**。声明不是免责，是把可核性写清楚。
 
 ## 4 命令
 
 ```bash
 PY="/mnt/d/0_Code/Iris Series/.venv/Scripts/python.exe"
 
-"$PY" _series/lint/lint.py            # 全校阅：24 件 → _series/lint/REPORT.md（有 error 退出码 1）
+"$PY" _series/lint/lint.py            # 全校阅：24 件 → _series/lint/REPORT.md（含 r25 节引用可解析；有 error 退出码 1）
 cd <book> && "$PY" build_book.py --pdf   # 书：HTML + A4 PDF（无头 Chrome，不是 weasyprint）
 cd <paper> && "$PY" analysis/assemble.py && "$PY" generate_publication_suite.py   # 论文：表注入 → HTML/PDF
 bash scripts/build.sh                  # 书的全量：audit → 印刷 → 电子版 → EPUB → Markdown
@@ -115,11 +117,12 @@ cd 合集 && "$PY" build_collection.py   # 合集：印刷版 + 电子版（两�
 - 改稿顺序固定：**结构 → 论证 → 文字**，不并行；每次改稿以 lint 0 error 为提交条件。
 - 分级在装置（表与附录），不在每句；正文一句精确限定即可，不表演式谦逊。
 
-## 8 当前状态（2026-11-12，指针而非账本）
+## 8 当前状态（2026-11-14，指针而非账本）
 
 - 全系列 **lint error 0 / warn 0**（24 件）。
-- 结构：九本书 19–26 章、附录 A–F；十五篇论文 12–16 节；合集 24 件。
+- 结构：九本书 **19—25 章**（六本已设枢纽章：遗忘 25、选择 24、心灵 24、涌现 24、诠释 25、区分 24）、附录 A–F；十五篇论文 **12—18 节**（已瘦身 9 篇，小节 40—77）；合集 24 件。
 - 各件页数见 `inventory.tsv`（取自印刷版 PDF 实际页数）；正文与元数据不许另写一份。
+- **每次大改后先过 `_series/review/SELF-CHECK.md`**（结构／内容／引用／改号／复盘六节），再谈完成。
 - 逐件问题、修单与评分见 `_series/review/REPORT-2026-11.md` 与 `ITEMS.md`（后者覆盖 23 件，早于第十五篇，属历史报告）。
 - 已执行的写作计划存档在 `_series/review/PLAN-ARCHIVE.md`（其中的篇号与页数为当时值）。
 - 版本流水见 `_series/versions/CHANGELOG.md`；更名历史见 `_series/versions/AGENTS-编年史-2026-10-28.md`。
@@ -132,6 +135,9 @@ cd 合集 && "$PY" build_collection.py   # 合集：印刷版 + 电子版（两�
 4. 表注与表体分页：`paper.css` 用 `caption.cap { break-after: avoid }` + 首行 `break-after: avoid` 压住。
 5. 重跑一次性脚本前先读它的 README：`notes/restructure/renumber.py` 之类跑两次会整体平移一档。
 6. `_series/tools/make_figures` 类脚本重生成时可能与仓库里已发布的 SVG 有几何差异（画布/标注 y）——改动前先 diff，别静默改掉已发布图。
+7. **批量软化禁词会误伤定义术语**：曾把“必然”整体替成“会”，于是《选择的代价》的“必然性的三个等级（L0/L1/L2）”变成“会性”，两处半句不成立。批量替换要按词边界、先看样本 diff、替换后 grep 新词；表号、定义号里出现的词先进白名单。
+8. **源文件里的 `{{D:...}}` 是构建期替换的占位符**（数据注入），`output/` 里已替换干净；直接读 `source/` 会看到占位符，属正常，不要手工填数。
+9. **论文图件写在仓库根、正文读 `assets/figures/`**：脚本跑完必须同步（Hunan、SeamLedger 例外，它们直接写目标目录）。`_series/tools/figstyle.savefig()` 会打印 `! overlap`，改完先看这一行。
 
 ## 10 已完成的更名（不再回退）
 

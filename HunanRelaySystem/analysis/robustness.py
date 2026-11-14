@@ -14,9 +14,13 @@ from scipy import stats
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data"); os.makedirs(DATA, exist_ok=True)
 CH = os.path.join(BASE, "assets", "charts"); os.makedirs(CH, exist_ok=True)
-plt.rcParams.update({"font.family": ["SimHei", "Microsoft YaHei"], "axes.unicode_minus": False,
-                     "figure.dpi": 180, "savefig.dpi": 180, "font.size": 10})
-RED, BLUE, GREEN, GOLD, GRAY = "#b3261e", "#1f4e79", "#2e6b4f", "#a8791f", "#5f6368"
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "_series", "tools"))
+from figstyle import setup, savefig as figsave, PALETTE, CYCLE, seqmap  # noqa: E402
+plt = setup()
+CM_BLUE, CM_ORANGE = seqmap("blue"), seqmap("orange")
+CM_RED, CM_GREEN, CM_PURPLE = seqmap("vermillion"), seqmap("green"), seqmap("purple")
+RED, BLUE, GREEN, GOLD, GRAY = "#D55E00", "#0072B2", "#009E73", "#D55E00", "#595959"
 
 # ---------------- 1. toponym ----------------
 # (county, years since conversion, retention %, n stations)
@@ -74,7 +78,6 @@ json.dump(out, open(os.path.join(DATA, "robustness.json"), "w", encoding="utf-8"
 # ---------------- figure ----------------
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10.6, 4.2),
                                gridspec_kw={"width_ratios": [1, 1.1]})
-fig.subplots_adjust(left=.08, right=.98, top=.82, bottom=.20, wspace=.30)
 
 names = [k for k, _, _ in jack] + ["全样本"]
 vals = [b for _, _, b in jack] + [beta[1]]
@@ -96,10 +99,8 @@ ax2.set_title("(b) 成本节省的蒙特卡洛分布", fontsize=10.2, fontweight
 ax2.legend(fontsize=7.8, frameon=False)
 ax2.grid(alpha=.18, axis="y")
 
-fig.suptitle("图9　两项稳健性检验：地名斜率对单县不敏感，成本节省集中在 20%—40%",
-             fontsize=11.8, fontweight="bold", y=.97)
 fig.text(.5, .03, "注：地名样本 n=6，斜率只作县际截面描述；成本为参数区间（陆运 25—35、水运 8—15、全陆 50—70 两/吨）下的 2 万次抽样。",
-         ha="center", fontsize=7.4, color="#666666")
+         ha="center", fontsize=7.4, color="#595959")
 fig.savefig(os.path.join(CH, "fig09.png"), bbox_inches="tight", facecolor="white")
 plt.close(fig)
 
