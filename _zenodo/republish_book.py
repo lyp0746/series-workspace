@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import api
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATE = "2026-11-07"
+DATE = "2026-11-14"
 RDM_TYPE = {"book": {"id": "publication-book"},
             "preprint": {"id": "publication-preprint"}}
 CREATOR = {"person_or_org": {"type": "personal", "name": "李毅芃",
