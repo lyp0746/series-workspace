@@ -281,3 +281,8 @@ lint：$PY /mnt/d/0_Article/_series/lint/lint.py（必须 0 error / 0 warn）。
 - 24 件全部发布新版本（DOI 回写 inventory／CITATION／README／registry），合集发布 **10.5281/zenodo.24242851**（概念 23613406 不变）。
 - 发布节奏：每件 `rights=cc-by-4.0`、subjects 16—24、creators、version=2026-11-14、description 星号 0，逐件断言后发布。
 - 全部提交并 push；工作区干净；lint 0/0。
+
+**Zenodo 描述统一（2026-11-15 完成）**
+- 25 条描述重写为统一骨架（中文七段／英文七段，不混排）；日期 2026-11-14；短条目补结果段（遗忘 2726、残余 2796、优化 1898、容量代理 2116）。
+- 14 篇论文英文段中的中文书名已清除；线上与本地逐条核对，25/25 一致。
+- 用 metadata-only 通道更新，未产生新版本、DOI 不变。
