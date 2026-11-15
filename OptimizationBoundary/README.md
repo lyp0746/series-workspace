@@ -42,4 +42,4 @@ bash release.sh
 
 本篇与前六篇共用一套记账纪律；`related_identifiers` 指向系列入口与其余各篇。
 
-**Zenodo**：10.5281/zenodo.23611782（概念 DOI 10.5281/zenodo.23611781），63 页。
+**Zenodo**：10.5281/zenodo.24242084（概念 DOI 10.5281/zenodo.23611781），63 页。

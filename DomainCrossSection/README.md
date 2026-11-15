@@ -62,4 +62,4 @@ bash release.sh
 | 互相印证（预算的位置） | 《优化的边界》 |
 | 姊妹篇 | 《同构的强度》 |
 
-**Zenodo**：版本 DOI [10.5281/zenodo.23695806](https://doi.org/10.5281/zenodo.23695806)；概念 DOI 10.5281/zenodo.23662889；75 页。
+**Zenodo**：版本 DOI [10.5281/zenodo.24242419](https://doi.org/10.5281/zenodo.23695806)；概念 DOI 10.5281/zenodo.23662889；75 页。

@@ -62,4 +62,4 @@ bash release.sh
 | **互证**（优化四前提＝M37 断点） | 《优化的边界》 |
 | 姊妹篇 | 《领域的剖面》 |
 
-**Zenodo**：版本 DOI [10.5281/zenodo.23695810](https://doi.org/10.5281/zenodo.23695810)；概念 DOI 10.5281/zenodo.23663026；74 页。
+**Zenodo**：版本 DOI [10.5281/zenodo.24242450](https://doi.org/10.5281/zenodo.23695810)；概念 DOI 10.5281/zenodo.23663026；74 页。

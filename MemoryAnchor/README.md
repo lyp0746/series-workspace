@@ -63,4 +63,4 @@ bash release.sh
 1. **本文没有实验。** 所有性能主张都是推理，最高证据等级 B；T9 已撤回。真正可执行的路在附录 D（替身实验：4 个仿 GUI 页 × 3 种记忆条件 × 4 个指标 + 预设否证条件）。
 2. **`schemes.csv` 是编码库，不是性能数据。** 请勿把它当成 benchmark 引用。
 
-**Zenodo**：版本 DOI [10.5281/zenodo.23665882](https://doi.org/10.5281/zenodo.23665882)；概念 DOI 10.5281/zenodo.23665881；73 页。
+**Zenodo**：版本 DOI [10.5281/zenodo.24242487](https://doi.org/10.5281/zenodo.23665882)；概念 DOI 10.5281/zenodo.23665881；73 页。
