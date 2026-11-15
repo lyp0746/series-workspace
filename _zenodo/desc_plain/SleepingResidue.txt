@@ -4,7 +4,7 @@
 
 方法与结构。全文 12 节，附录不超过 6 件。
 
-主要结果。
+主要结果。①十八例恢复的沉寂期中位 37.5 年（15—2156），解码器出现到被承认的中位滞后 0 年（18/18 ≤5）；②三例重发明全部发生在可被新框架重建之时（3/3 对 2/18，Fisher p=0.0075）；③决定能否恢复的不是命中几条，而是有没有解码器（恢复 18/18，非恢复 0/6）；④恢复是分层的：方法 17/18、作者 13/18、术语 10/18；⑤两条结构性沉默路径：载体销毁与残余被吸收。
 
 贡献。本件的贡献有三：把「线外的残余」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
 
@@ -19,7 +19,7 @@ Background.This is item 12 of the series, following 谁在切时间轴; it tests
 
 Method and structure.12 sections, at most six appendices.
 
-Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+Results.(i) For 18 recovered cases the median dormancy is 37.5 years (15–2156); the median lag from decoder availability to recognition is zero (18/18 within five years). (ii) All three reinventions occurred when a new framework could rebuild the claim (3/3 vs 2/18, Fisher p=0.0075). (iii) What decides recovery is not the number of markers hit but the presence of a decoder (18/18 vs 0/6). (iv) Recovery is layered: method 17/18, author 13/18, terminology 10/18. (v) Two structural paths to silence: carrier destruction and residue absorption.
 
 Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
 

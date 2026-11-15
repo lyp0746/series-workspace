@@ -4,7 +4,7 @@
 
 方法与结构。全文 18 节，附录不超过 6 件。
 
-主要结果。
+主要结果。①分期槽位：分箱单调但线性相关很弱（r=−0.245），门比槽位更集中；②编码槽位：六县方向为负但不可判——重编码后 r 从 −0.36 翻到 +0.12，暴露层级混用；③标签槽位：四期方向相反（流入越大合格率越高），三个解释无法分开；④三代理交叉验证一正一负一零；⑤结论：容量不是单向保护，三个代理不可通约。
 
 贡献。本件的贡献有三：把「容量的三个代理」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
 
@@ -19,7 +19,7 @@ Background.This is item 17 of the series, following 优化的边界; it tests th
 
 Method and structure.18 sections, at most six appendices.
 
-Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+Results.(i) Periodisation slots: bins are monotone but the linear correlation is weak (r = −0.245), and gates cluster more than slots. (ii) Coding slots: the six-county direction is negative but undecidable—recoding at village level flips r from −0.36 to +0.12, exposing a level mix. (iii) Label slots: the four periods run the other way (larger inflow, higher pass rate), and three explanations cannot be separated. (iv) Cross-validation of the three proxies gives one positive, one negative, one zero. (v) Capacity is not one-directional protection; the three proxies are incommensurable.
 
 Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
 

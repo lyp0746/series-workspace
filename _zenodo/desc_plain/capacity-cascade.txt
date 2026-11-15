@@ -4,7 +4,7 @@
 
 方法与结构。7 部分、25 章、324 页、附录 A–F、28 幅图。新增第 12 章《对账：离线计算为什么需要真值》，并把第四部分重写为“离线、窗口与调度”：睡眠（第 10 章）、梦作为内源重组（第 11 章）、对账作为有真值的离线计算（第 12 章）、潜意识（第 13 章）、元认知（第 14 章）。 全书 7 部分、25 章，附录 A–F。
 
-主要结果。有限容量下的记忆、智能与自我。本书不写概论，只把一个问题的所有侧面做深：一个有限的东西，怎样一边保持结构，一边还能变化。本版的改动集中在一处——把“离线计算”拆成两个方向。
+主要结果。①容量不是数，而是随干扰衰减的曲线，半衰点可测；②多时间尺度级联是有限容量下的必要结构，单一时间常数无法同时获得适应与稳定；③大模型的位置偏差是随位置累积的更新误差，上下文漂移是目标在长上下文里被反复重估；④离线计算须拆成内源重组与对账两条路，只有后者能变正确（0.639 对 0.643，存储降到 1/5）；⑤三件套（书记员、异构重建、带锚裁决）在真实系统中仍不齐备。
 
 贡献。本件的贡献有三：把「遗忘的边界」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
 
@@ -19,7 +19,7 @@ Background.This is item 2 of the series, following Desynchronized Time; it tests
 
 Method and structure.7 parts, 25 chapters, appendices A–F.
 
-Results.How does something finite keep its structure while still being able to change? This edition makes one structural change: offline computation is split into two directions.
+Results.(i) Capacity is a curve that decays with interference, not a number; its half-point is measurable. (ii) A multi-timescale cascade is necessary under finite capacity: no single time constant can buy both adaptation and stability. (iii) Positional bias in LLMs is an update error accumulating with position; context drift is the goal being re-priced over long contexts. (iv) Offline computation splits into endogenous recombination and reconciliation; only the latter can become correct (0.639 vs 0.643, storage at one fifth). (v) The trio—clerk, heterogeneous reconstruction, anchored adjudication—is still nowhere complete in deployed systems.
 
 Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
 

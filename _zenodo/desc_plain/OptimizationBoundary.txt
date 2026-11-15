@@ -4,7 +4,7 @@
 
 方法与结构。全文 14 节，附录不超过 6 件。
 
-主要结果。
+主要结果。①二十个越界案例：目标越界最常见、停止规则越界后果最重、预算越界最少被记录；②越界的代价总是延后支付；③四种出口重复出现，构成类型学；④进化不是优化：缺目标、缺可分离的搜索空间、缺停止规则；⑤九格检查表把四前提变成可逐项核对的工具。
 
 贡献。本件的贡献有三：把「优化的边界」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
 
@@ -19,7 +19,7 @@ Background.This is item 16 of the series, following 被点燃的生态; it tests
 
 Method and structure.14 sections, at most six appendices.
 
-Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+Results.(i) Twenty coded cases: target overreach is the most common, stopping-rule overreach the most severe, budget overreach the least recorded. (ii) The cost of overreach is always paid later. (iii) Four exits recur, forming a typology. (iv) Evolution is not optimisation: it lacks a target, a separable search space and a stopping rule. (v) A nine-cell checklist turns the four premises into items one can check one by one.
 
 Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
 
