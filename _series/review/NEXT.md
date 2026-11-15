@@ -276,3 +276,8 @@ lint：$PY /mnt/d/0_Article/_series/lint/lint.py（必须 0 error / 0 warn）。
 未发布（9 篇 + 合集）：优化的边界、容量的三个代理、六张账单的对账、开明君主、领域的剖面、同构的强度、记忆的锚点、锚点的下限、接缝不在奇点；合集。
 
 续发方法：`python _zenodo/go_papers.py <slug…>`（自动建版本、可续传上传、PUT 元数据、发布、回写 DOI）；网络慢时会留下草稿，重跑前先用 legacy depositions 按标题找草稿 ID，再用 `upload_resume.py <slug> <id>` 续传，避免重复建版本。合集用 `_zenodo/publish_collection.py`（先 `GET /versions`）。
+
+**Zenodo 全量完成（2026-11-15）**
+- 24 件全部发布新版本（DOI 回写 inventory／CITATION／README／registry），合集发布 **10.5281/zenodo.24242851**（概念 23613406 不变）。
+- 发布节奏：每件 `rights=cc-by-4.0`、subjects 16—24、creators、version=2026-11-14、description 星号 0，逐件断言后发布。
+- 全部提交并 push；工作区干净；lint 0/0。

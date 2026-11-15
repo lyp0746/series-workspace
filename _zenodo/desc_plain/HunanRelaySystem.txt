@@ -1,0 +1,30 @@
+中文摘要。本文以两条家族记忆为入口：20 世纪 40—50 年代，作者的祖父在长沙—社港一线经营水运，目睹北盛码头竹排满河；20 世纪 80—90 年代，作者的父亲在浏阳南乡工作，亲历大瑶花炮经济对县级财政的支撑。两条记忆相隔四十年，夹住驿道体系最后一段可观察的生命。以此为契机，本文重建明清湘中（长沙、衡州、永州、常德四府为重点）的驿铺网络，并用《错位的时间》的 GEPF 三层模型统摄其演化：底层地理—人口（G、P，慢变量）、中层经济（E，中速）、上层财政—制度（F，快变量）；层间通过运输成本、税基与基础设施投资形成闭环，外生冲击造成重置。
+
+背景与问题。本件是《有限系统的取舍》系列第 13 件，接在《线外的残余》之后，处理「明清湘中驿道体系的 GEPF 三层分析」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 12 节，附录不超过 6 件。
+
+主要结果。（1）驿铺 510+ 处、驿船 150+ 艘、驿夫约 3,000 名，形成省际—府内—县内三层结构；（2）三种距离必须分开：驿间约 30 里、铺间约 10 里，而实测 8—10 km 是现代镇间道路距离，不是驿制间距；（3）密度与商品类型的关系未能通过 GIS 试点检验：28 个关键节点重算，官驿北线 12.8 km、东线 16.2 km、西线 22.7 km、南线 70.6 km（p=0.19），表 5 的 3.7—9.0 km 为全铺段均值，不能与关键镇距离混读，H4 撤回为待检验；（4）北盛、社港、沙市、益阳四枢纽构成“短距陆运＋长距水运”，成本约 30＋10 两/吨，比全陆路 60 两/吨省 25%—33%；（5）年支出约 174,850 两，交易额／支出约 114:1，但不是社会收益—成本比；（6）撤县设市与地名保留率呈县际截面负相关，但强度有限（y = 72.3 − 0.89T，R² = 0.58，n = 6，斜率 95% CI −1.95—0.17），宁乡为上方离群点；（7）三百年分五阶段，1913 裁驿与 1993／2017 撤县设市是两次制度层重置。
+
+贡献。本件的贡献有三：把「明清湘中驿道体系的 GEPF 三层分析」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。逐铺重建以四府为重点，不是九府四州等精度；地名分析是县际截面，不是面板，不能读成“每年下降 2.82%”；数量均为 B/C 级估计；四条线路 n=4，只作描述；家族记忆为 C 级，只用于机制存在性。
+
+版本信息。2026-11-14，75 页；全文 12 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23480795
+。
+
+Abstract.The paper begins with two family memories — a grandfather running boats on the Laodao River in the 1940s–50s, and a father working in Liuyang’s southern district in the 1980s–90s — and uses them to frame a reconstruction of the Ming–Qing relay network of central Hunan. The evolution is organised with the GEPF three-layer model: a slow geographical–demographic layer (G, P), a medium economic layer (E), and a fast fiscal–institutional layer (F), coupled by transport cost, tax base and infrastructure investment and periodically reset by exogenous shocks. Results: 510+ relay stations, 150+ boats and about 3,000 workers; three distinct distance regimes; corridor density that does not reproduce from the 28 key nodes (north 12.8 km, east 16.2 km, west 22.7 km, south 70.6 km; p=0.19), so the density hypothesis is withdrawn pending full station-level geocoding; four intermodal hubs saving 25–33%; an annual expenditure of about 174,850 liang and a trade/expenditure ratio of 114:1 that is not a social benefit–cost ratio; a cross-county toponym-retention regression that is negative but weak (y = 72.3 − 0.89T, R² = 0.58, n = 6, slope CI −1.95 to 0.17), with Ningxiang as an upward outlier; and five phases ending with the 1913 abolition and post-1990 toponym erosion. Limits: four prefectures only, a cross-section rather than a panel, B/C-grade quantities, n=4 for corridor comparison, and family memory as grade-C evidence.
+
+Background.This is item 13 of the series, following 线外的残余; it tests the series motif on the material named in the title.
+
+Method and structure.12 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 75 pages; 12 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23480795
+.
+

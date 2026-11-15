@@ -1,0 +1,30 @@
+中文摘要。本书处理一个被反复提出、却极少被严格表述的问题：大语言模型的键值缓存、AI 智能体的上下文窗口与人类的记忆—学习系统，是否由同一机制主导？答案是一次有意的“降级”：三者不是同构的，而是同约束的——受同一组信息论约束（压缩、干扰、遗忘），却运行在相差九个数量级的时间尺度上，形成从毫秒到终身的“容量级联”。遗忘因此不是记忆的失败，而是学习的边界条件。
+
+背景与问题。本件是《有限系统的取舍》系列第 2 件，接在《错位的时间》之后，处理「遗忘的边界」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。7 部分、25 章、324 页、附录 A–F、28 幅图。新增第 12 章《对账：离线计算为什么需要真值》，并把第四部分重写为“离线、窗口与调度”：睡眠（第 10 章）、梦作为内源重组（第 11 章）、对账作为有真值的离线计算（第 12 章）、潜意识（第 13 章）、元认知（第 14 章）。 全书 7 部分、25 章，附录 A–F。
+
+主要结果。有限容量下的记忆、智能与自我。本书不写概论，只把一个问题的所有侧面做深：一个有限的东西，怎样一边保持结构，一边还能变化。本版的改动集中在一处——把“离线计算”拆成两个方向。
+
+贡献。本件的贡献有三：把「遗忘的边界」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。本书给坐标与判据，不给判决；不替代领域专家材料，也不把类比写成定理。第 12 章与第 22 章只用工程材料的“结构”，不用其“幅度”；第 11 章的“梦=正则化”仍是最低等级假说，并且现在有了一个明确的对照物：2026 年到场的是对账那一半，不是内源重组那一半。
+
+版本信息。2026-11-14，324 页；全书 7 部分、25 章，附录 A–F。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23323276
+。
+
+Abstract.The Boundary of Forgetting: Memory, Intelligence and the Self under Finite Capacity. The KV cache of a language model, the context window of an agent and human memory are not isomorphic but iso-constrained: bound by one set of information-theoretic limits across roughly nine orders of magnitude in timescale. Forgetting is therefore the condition of learning, not its failure.
+
+Background.This is item 2 of the series, following Desynchronized Time; it tests the series motif on the material named in the title.
+
+Method and structure.7 parts, 25 chapters, appendices A–F.
+
+Results.How does something finite keep its structure while still being able to change? This edition makes one structural change: offline computation is split into two directions.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 324 pages; 7 parts, 25 chapters, appendices A–F. Content CC BY 4.0; concept DOI 10.5281/zenodo.23323276
+.
+

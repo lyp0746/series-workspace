@@ -1,0 +1,30 @@
+中文摘要。有些命题提出时无人反对也无人理睬，几十年后才被“重新发现”：孟德尔沉寂 34 年，魏格纳 48 年，玻尔兹曼 36 年。本文把这种“延迟承认”当作记忆问题处理：命题被埋没不是因为共同体忘了它，而是因为旧范式把它压进了线外；它能回来也不是因为有人重读旧文献，而是因为另一套工具使旧残余重新可读。
+
+背景与问题。本件是《有限系统的取舍》系列第 12 件，接在《谁在切时间轴》之后，处理「线外的残余」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 12 节，附录不超过 6 件。
+
+主要结果。
+
+贡献。本件的贡献有三：把「线外的残余」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。工作论文/预印本。n=24，全部比例限于样本内；单一编码者、无 κ；“解码器”为事后归因（已说明锁死不等于因果）；样本只含“有名字”的案例，沉默比例严重低估。
+
+版本信息。2026-11-14，75 页；全文 12 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23601748
+。
+
+Abstract.Some propositions are neither refuted nor used. Coding twenty-four cases of delayed recognition (eighteen recoveries, three re-inventions, three permanent silences), the paper shows that the median silence is 37.5 years while the median lag from decoder availability to recognition is zero (never above five); that the old-paradigm coordinate predicts the return path; that re-invention occurs only where the proposition is re-derivable from the new framework's own resources (3/3 versus 2/18, Fisher p=0.0075); and that the three markers cannot be used as a score, since two permanently silent theories also hit two of three — what separates them is a necessary condition, the decoder (18/18 versus 0/6). Recovery is layered: method 17/18, authorship 13/18, terminology 10/18.
+
+Background.This is item 12 of the series, following 谁在切时间轴; it tests the series motif on the material named in the title.
+
+Method and structure.12 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 75 pages; 12 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23601748
+.
+

@@ -1,0 +1,30 @@
+中文摘要。《遗忘的边界》的容量—压缩—遗忘有一个始终没补上的缺口：容量从未被测量。本文给容量找三个可数的代理，用三篇既有论文的原始数据检验一句直觉——「容量越大，忘得越少」。
+
+背景与问题。本件是《有限系统的取舍》系列第 17 件，接在《优化的边界》之后，处理「容量的三个代理」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 18 节，附录不超过 6 件。
+
+主要结果。
+
+贡献。本件的贡献有三：把「容量的三个代理」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。见正文各章末与附录登记簿。
+
+版本信息。2026-11-14，62 页；全文 18 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23611798
+。
+
+Abstract.Three countable proxies for capacity are proposed and tested on existing data. Periodization slots support the intuition; coding slots are confounded with time; label slots run against it. Capacity is not unidirectional protection.
+
+Background.This is item 17 of the series, following 优化的边界; it tests the series motif on the material named in the title.
+
+Method and structure.18 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 62 pages; 18 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23611798
+.
+

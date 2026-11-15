@@ -1,0 +1,30 @@
+中文摘要。分期不是事实，是切线。同一段时间轴，欧洲中心教材在 476、1500、1789、1914 下刀，全球史教材在 1000、1500、1750、1914 下刀，中国教材在 1500、1640、1917、1945 下刀；十四部前现代与非欧洲编年史里，五部根本不印绝对年份。本文把六十部来源编码成 252 条时间轴边界，检验十条预先写定的命题与一条识别性结果。
+
+背景与问题。本件是《有限系统的取舍》系列第 11 件，接在《术语的账单》之后，处理「谁在切时间轴」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 6 节，附录不超过 6 件。
+
+主要结果。
+
+贡献。本件的贡献有三：把「谁在切时间轴」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。不评价哪个分期正确；核心语料非抽样；只编码年份与时期名；编码依据目录与课程框架；单一编码者自曝，扩展环无复编；分区距离依赖窗口；核心语料中非洲为 0 条。
+
+版本信息。2026-11-14，68 页；全文 6 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23573011
+。
+
+Abstract.Periodization is not a fact but a cut. On one timeline, Western-civilization textbooks cut at 476, 1500, 1789 and 1914; global-history textbooks at 1000, 1500, 1750 and 1914; Chinese textbooks at 1500, 1640, 1917 and 1945. Among fourteen premodern and non-European chronicles, five print no absolute year at all. This paper codes sixty sources into 252 boundary entries and tests ten pre-registered propositions plus one identification result. Boundary years are concentrated (top ten 69.7% vs 10.1% under a uniform null), but the mechanism is template replication: forty world/regional sources use only 32 distinct top-level cut sets; the three traditions place different gates (global 64% at 1000–1225 and 71% at 1750±15; Chinese 82% at 1640 and 91% at 1917; Eurocentric 13%/7% and 0%/0%); 1500 is shared (73%/71%/64%). The crossing curve is an identity with the marginal distribution (R²=1.0000) and is demoted to a derived display. Partition distance is higher within traditions (0.65) than between (0.51; permutation p=0.0005), yet tradition explains only 29% of variance. 1500 survives but its exclusivity reverses (0.40/1.00/0.14); only 1500 and 1914 travel across all three traditions. Four propositions are not supported: W4 runs backwards, the second half of W5 fails, W6 has direction but no strength, and W9's level component fails (κ=0.53).
+
+Background.This is item 11 of the series, following 术语的账单; it tests the series motif on the material named in the title.
+
+Method and structure.6 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 68 pages; 6 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23573011
+.
+

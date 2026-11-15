@@ -1,0 +1,30 @@
+中文摘要。中国官制反复出现同一形状的循环：低阶的侍从、监察或副贰之职因特殊事件骤获实权，其持有者借此废立、专擅或割据之后，该职遭禁戒、虚化，而权力转注入新的低阶职位。既有研究以“皇权与相权”“内朝与外朝”“监察区变行政区”概括这一现象，但对三点回答不足：循环为何不能靠废除终止；内廷与外派两条路径为何走向不同的失控形态；历代为何反复把兵权与诏令权分开。
+
+背景与问题。本件是《有限系统的取舍》系列第 14 件，接在《明清湘中驿道体系的 GEPF 三层分析》之后，处理「轮换的让渡」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 14 节，附录不超过 6 件。
+
+主要结果。
+
+贡献。本件的贡献有三：把「轮换的让渡」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。本文是工作论文/预印本：121 例由单一编码者完成，未做第二编码者一致性检验；ψ 未被测量；中古史料个别年代与职名有争议；现代部分只能给方向，不能做对照实验；参考文献页码未逐条核对。
+
+版本信息。2026-11-14，109 页；全文 14 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23497841
+。
+
+Abstract.Chinese officialdom displays a recurring shape: a low-ranking attendant, censor or deputy acquires real power in a crisis; after its holder deposes an emperor, monopolises authority or secedes, the office is proscribed and hollowed out, and power migrates to a new low-ranking post. Existing scholarship documents the facts but leaves three questions open: why proscription never ends the cycle; why the inner-court and outposted paths produce different failure modes; and why designers repeatedly separate military from edict authority. Using the completeness–composability–transfer (C–A–T) triangle as an analytical instrument (a framework, not a theorem; precondition ψ&gt;0), the paper operationalises the three requirements, states seven falsifiable propositions, and codes 121 offices across 24 periods from the Western Zhou to 2026. Findings: the three paths correspond to three two-vertex combinations; adding A costs C, while not adding A weakens cross-dynasty transfer; proscription has five forms, all targeting the name rather than the configuration; the number of parallel lines does not predict stability—the common factor is a “fusion line” holding all three vertices; temporal mismatch τ explains why delegation is necessary, not why it fails; daily rotation is second-order while fusion lines produce first-order collapse; and there are four evolution modes. Three negative results are reported, including the retraction of the author’s earlier claim that coordinates sum to a constant.
+
+Background.This is item 14 of the series, following 明清湘中驿道体系的 GEPF 三层分析; it tests the series motif on the material named in the title.
+
+Method and structure.14 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 109 pages; 14 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23497841
+.
+

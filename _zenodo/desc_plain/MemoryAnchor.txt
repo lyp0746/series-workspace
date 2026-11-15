@@ -1,0 +1,30 @@
+中文摘要。2026 年社交平台上出现了一批「自己在动」的账号：让 DeepSeek 一类模型长时自主行动——自动剪辑发布、自动评论、自动进直播间互动。它们开局几天很热闹，然后在第四到第七天之间安静下来。社区诊断是「记不住了」。本文认为方向错了：不是容量不够，而是电容花在了不该花的地方——存了全量对话，却没有一条能对账的硬记录；压成摘要，却在一次次压缩里漂移；检索按「问了什么」而不是按「我在哪」。
+
+背景与问题。本件是《有限系统的取舍》系列第 22 件，接在《同构的强度》之后，处理「记忆的锚点」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 13 节，附录不超过 6 件。
+
+主要结果。
+
+贡献。本件的贡献有三：把「记忆的锚点」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。见正文各章末与附录登记簿。
+
+版本信息。2026-11-14，73 页；全文 13 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23665881
+。
+
+Abstract.Memory in humans is not "store all, read by index" but "store reconstructable traces, index by many cues, rebuild on the spot": episodic traces carry time and place, retrieval depends on the encoding context, space is the cheapest index chain, and recall is reconstruction rather than playback. A three-layer architecture follows — a Clerk writing field-level hard logs (not by a generative model), heterogeneous recallers (random-forest style: different models, parameters and cue subsets), and a Judge that only accepts anchors (A with anchor, B partial, C none; none plus high risk escalates to a human). Twelve designs are coded on six variables: none of the eleven existing ones carries all three pieces; anchor ownership is 3/12; voting helps only when participants are independent (per-model error 0.2, shared-source correlation 0.7 → eleven models still err 14%); and failure modes are only weakly related to capacity (window-full 2/12 vs. retrieval noise and summary drift 5/12). The paper dissects the "dead in days" case, states a counter-example where episodic memory is unnecessary, and draws the boundary of the Tibetan oral-transmission analogy: scripture has a canonical text, memory does not. No experiments were run; one of the ten claims is retracted by the author.
+
+Background.This is item 22 of the series, following 同构的强度; it tests the series motif on the material named in the title.
+
+Method and structure.13 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 73 pages; 13 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23665881
+.
+

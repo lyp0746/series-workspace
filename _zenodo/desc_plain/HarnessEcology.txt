@@ -1,0 +1,30 @@
+中文摘要。2026 年 8 月 13 日 DeepSeek 的插件框架 Harness 开源，当日到次日出现一次数量级的新建仓库跳变；十周之后，围绕“技能”的另一条仓库线仍在加速。两条线常被合称“一个生态”，也常被当作“社区涌现”的当代样本。本文用 103 条 GitHub 公开接口查询（快照 2026-10-23）检验这个说法，判据取自《涌现的临界》第三章的三标记（序参量跃变、临界慢化、宏观更好用）与第十八章 18.5 节为“技术转型”写下的升级条款（给出“采用率阈值 + 可观测的事前信号”则由隐喻级升为诊断级）。
+
+背景与问题。本件是《有限系统的取舍》系列第 15 件，接在《轮换的让渡》之后，处理「被点燃的生态」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 12 节，附录不超过 6 件。
+
+主要结果。
+
+贡献。本件的贡献有三：把「被点燃的生态」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。工作论文/预印本。计数不是行为，标签不是社区，快照不是面板；只覆盖一个平台上的两条 topic 线，不提供对任何具体平台的政策判断；计数是活数据，重跑会得到略大的数，故 `data/raw/` 中的抓取时刻是结果的一部分；Cordis／Koishi 与 Harness 的架构关系为生态内说法，本文未核验。
+
+版本信息。2026-11-14，73 页；全文 12 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23601731
+。
+
+Abstract.On 13 August 2026 DeepSeek open-sourced its plugin framework Harness; within a day a new-repository series jumped by an order of magnitude, and ten weeks later a second series around “skills” was still accelerating. The two are often called one ecosystem and treated as a contemporary specimen of community emergence. Using 103 queries against the public GitHub search API (snapshot 2026-10-23), the paper tests that claim with the three markers of the author’s monograph on emergence (order-parameter jump, critical slowing down, macroscopic predictive advantage). Results: (1) the jump aligns exactly with the launch, but the pre-launch baseline is 23.9 repositories per day, not zero, and 651 “pre-launch” repositories are largely retro-tagged; (2) five measurement resolutions over the same month yield two opposite directions, from +62% to −61%, a spread far larger than the data error, with the sign flip located between the ★≥1 and ★≥10 thresholds; (3) the two topic lines share only 414 repositories (Jaccard 0.7%), so “Harness and its companion skills community” does not hold at the label level. The three-marker verdict is zero of three with two cells unmeasurable, i.e. the criterion is inapplicable rather than refuted. Five negative results are reported, and a “measurability gate” is proposed: before applying the markers, ask whether each required quantity can be obtained at all.
+
+Background.This is item 15 of the series, following 轮换的让渡; it tests the series motif on the material named in the title.
+
+Method and structure.12 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 73 pages; 12 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23601731
+.
+

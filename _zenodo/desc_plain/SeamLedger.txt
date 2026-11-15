@@ -1,0 +1,30 @@
+中文摘要。「量子力学与广义相对论根本矛盾」是一句被说了五十年的话。本文不做科普复述，也不站队某个纲领，而把它拆成 30 条可逐条核对的账目，按「量子一侧记什么／引力一侧记什么／冲突属于哪一类／落在哪个核心／在哪个尺度／能不能测／证据几级」重新编码。结果是四类：逻辑矛盾 4 条、接口缺失 13 条、记账冲突 8 条、定理边界 5 条。真正的逻辑矛盾只占 13.3%，而且没有一条已被直接测量；四条 A 级账目全部落在「已测」或「已证定理」一侧。越是被称作「根本」的冲突，越缺少实验接触；越是有实验接触的冲突，越已经被结算成定理或上限。
+
+背景与问题。本件是《有限系统的取舍》系列第 24 件，接在《锚点的下限》之后，处理「接缝不在奇点」这一支：把母题落到一类可核对的材料上。
+
+方法与结构。全文 16 节，附录不超过 6 件。
+
+主要结果。类型：逻辑矛盾 4（13.3%）、接口缺失 13（43.3%）、记账冲突 8（26.7%）、定理边界 5（16.7%）。尺度：普朗克 10、宇宙 8、视界 7、实验室 5。可测性：直接 4、间接 12、不可测 14。等级：A 4、B 17、C 9。四种直接可测的账目（贝尔、纠缠/光锥、普朗克色散、真空能）全部已经有结算形式；四条逻辑矛盾没有一条被直接测量。六组物理侧的「同名不同物」：定域、真空、信息、对称性、背景、熵。六个候选纲领的声称覆盖：弦论/全息 17/30、圈量子引力 14/30、因果集/CDT 11/30、量子参考系 9/30、渐近安全 6/30、类比引力 3/30；没有一个超过 60%。
+
+贡献。本件的贡献有三：把「接缝不在奇点」写成可检验的条件；给出可复算的读数或结构；公开边界、失败与撤回。
+
+边界。30 条不是全体；类型边界有判断成分。保守读法下逻辑矛盾 2 条，基准 4 条，宽松 9 条；因此「只有四条」是基准编码，不是定理。单一编码者，没有第二编码者与 κ。可测性是「当前」的，不是永远的。覆盖矩阵只记录「声称处理」，不记录「成功」。十条命题中三条成立、两条部分、两条待检验、一条开放、一条被本文自己证伪、一条撤回；本文把 T9 的证伪与 T10 的撤回保留在登记簿里，不删除。
+
+版本信息。2026-11-14，77 页；全文 16 节，附录不超过 6 件。内容 CC BY 4.0；概念 DOI 10.5281/zenodo.23888992
+。
+
+Abstract.“Quantum mechanics and general relativity are fundamentally incompatible” is a sentence repeated for fifty years. This paper neither popularises it nor takes sides among programmes. It breaks the sentence into 30 auditable ledger items, coded on what quantum theory and general relativity each put on their side, which kind of conflict this is, which of six cores it belongs to, at which scale, whether it is measurable, and at what evidence grade. The result: 4 logical contradictions, 13 missing interfaces, 8 accounting conflicts, and 5 theorem boundaries. Logical contradictions are only 13.3%, and not one has been directly measured; all four A-grade items sit on the “measured” or “proved theorem” side.
+
+Background.This is item 24 of the series, following 锚点的下限; it tests the series motif on the material named in the title.
+
+Method and structure.16 sections, at most six appendices.
+
+Results.The paper reports its readings with explicit failure conditions; the Abstract lists the headline numbers.
+
+Contributions.It contributes three things: it states the problem as checkable conditions; gives reproducible readings or structures; and publishes its boundaries, failures and retractions.
+
+Boundaries.See chapter ends and the register appendices; conclusion strength never exceeds evidence strength.
+
+Edition.2026-11-14, 77 pages; 16 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23888992
+.
+
