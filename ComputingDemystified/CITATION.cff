@@ -12,13 +12,13 @@ authors:
 date-released: "2026-11-14"
 version: "2026-11-14"
 license: CC-BY-4.0
-doi: 10.5281/zenodo.23773629
+doi: 10.5281/zenodo.24239957
 concept-doi: 10.5281/zenodo.23531430
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23531430
     description: "Concept DOI (all versions)"
-url: "https://doi.org/10.5281/zenodo.23773629"
+url: "https://doi.org/10.5281/zenodo.24239957"
 keywords:
   - 计算机术语
   - 还原论

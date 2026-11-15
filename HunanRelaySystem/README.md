@@ -5,7 +5,7 @@
 
 **李毅芃** · 2026-10-24 · CC BY 4.0
 
-**最新版 DOI**：[10.5281/zenodo.23529087](https://doi.org/10.5281/zenodo.23529087)
+**最新版 DOI**：[10.5281/zenodo.24241086](https://doi.org/10.5281/zenodo.23529087)
 （概念 DOI：[10.5281/zenodo.23480795](https://doi.org/10.5281/zenodo.23480795)）
 
 ---

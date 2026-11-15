@@ -255,3 +255,14 @@ lint：$PY /mnt/d/0_Article/_series/lint/lint.py（必须 0 error / 0 warn）。
 - Zenodo 本地元数据（`.zenodo.json`／`desc/`／`desc_plain/`）日期统一 2026-11-14，页数/章数与 inventory 对齐。
 - **未做**：git 提交、GitHub release/tag、Zenodo 发布、`release/` 重打（等“收口”指令）。
 - 已知软肋：合集附录页码暂空；跨书引用未机器校验；A3 分级为启发式；2026 为已声明的近未来情景。
+
+## 发布执行记录（2026-11-15 凌晨）
+
+- **release/**：9 本书 `release.sh` 重打；15 篇论文 `release.sh` 重打；合集 `release.sh` 重打（印刷 1960 页）。
+- **git**：9 书仓 + 工作区仓，各提交一次，tag `edition-2026-11-14`，已 push。
+- **GitHub release**：9 本书各 1 个（`edition-2026-11-14`）；工作区仓 1 个（15 篇 PDF + 合集 PDF/EPUB/MD）。
+- **Zenodo**：`错位的时间` 已发布 **10.5281/zenodo.24227057**（概念 DOI 不变），inventory／CITATION／README／registry 已更新。
+  `遗忘的边界` 已建草稿并上传（id 24227057 之外的另一草稿），但 53MB 级上传在 600s 读超时下中断；其余 23 件未发。
+  **原因**：夜间网络吞吐不足，单文件超时。下一轮用可续传、更长超时或分批小文件重试。
+- **Downloads**：26 个 PDF 已按标题原样替换。
+- **清理**：`_temp/`、`__pycache__/`、合集中间件删除（约 180MB）。

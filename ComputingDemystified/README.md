@@ -5,7 +5,7 @@
 
 **李毅芃** · 2026-10-24 · CC BY 4.0
 
-**DOI**：[10.5281/zenodo.23531431](https://doi.org/10.5281/zenodo.23531431)　·　
+**DOI**：[10.5281/zenodo.24239957](https://doi.org/10.5281/zenodo.23531431)　·　
 [Zenodo 记录](https://zenodo.org/records/23531431)
 （概念 DOI：[10.5281/zenodo.23531430](https://doi.org/10.5281/zenodo.23531430)）
 
