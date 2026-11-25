@@ -52,3 +52,12 @@ SleepingResidue/*.html
 WorldPeriodization/*.html
 _series/ghtok
 *.log
+
+# ── 单行本构建用的本地虚拟环境 ──
+/.venv/
+
+# 单行本产物（可由 md 重建）
+合集/单行本/out/
+
+# 粗码是独立仓库，不纳入本仓
+/resolution-grain/

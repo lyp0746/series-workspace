@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import api
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATE = "2026-11-14"
+DATE = None   # 由 slug 仓的 .zenodo.json 决定（版本一律用日期）
 RDM_TYPE = {"book": {"id": "publication-book"},
             "preprint": {"id": "publication-preprint"}}
 CREATOR = {"person_or_org": {"type": "personal", "name": "李毅芃",
@@ -40,6 +40,13 @@ def reg(slug):
 def zenodo_json(slug):
     p = os.path.join(ROOT, slug, ".zenodo.json")
     return json.load(io.open(p, encoding="utf-8")) if os.path.exists(p) else {}
+
+
+def _date(slug):
+    global DATE
+    if not DATE:
+        DATE = zenodo_json(slug).get("version") or "2026-11-20"
+    return DATE
 
 
 def title_of(slug):
@@ -83,6 +90,7 @@ def _rel(r):
 
 def metadata(slug, draft):
     z = zenodo_json(slug)
+    _date(slug)
     kind = "preprint" if (z.get("publication_type") == "preprint") else "book"
     base = draft.get("metadata") or {}
     # 相关标识优先取本地 .zenodo.json（2026-11-02 起每件重新生成，不照抄上一版）
@@ -143,6 +151,8 @@ def up(slug, did):
         requests.delete("%s/%s" % (base, urllib.parse.quote(key)), headers=H, timeout=300)
         print("   -", key)
     folder = os.path.join(ROOT, slug, "release")
+    if os.path.isdir(os.path.join(ROOT, slug, "release-v2")):
+        folder = os.path.join(ROOT, slug, "release-v2")
     names = sorted(f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f)))
     n = 0
     for name in names:

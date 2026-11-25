@@ -29,3 +29,11 @@
 | 23 | 论文 | `MemoryStressTest` | 锚点的下限 | 70 | 10.5281/zenodo.24031308 | 10.5281/zenodo.23667928 | （无仓库） |
 | 24 | 合集 | `合集` | 有限系统的取舍：系列合集 | 2188/2680 | 10.5281/zenodo.24031817 | 10.5281/zenodo.23613406 | lyp0746/series-workspace |
 | 25 | 论文 | `SeamLedger` | 接缝不在奇点 | 77 | 10.5281/zenodo.24031457 | 10.5281/zenodo.23888992 | （无仓库） |
+
+---
+
+## 未入册（不在 `inventory.tsv`，不计入件数）
+
+| slug | 标题 | 记录 ID | 版本 DOI | 概念 DOI | 说明 |
+|---|---|---|---|---|---|
+| resolution-grain | 粗码：为什么越省力分得越粗，而核实为何总是追不上 | 24393431 | 10.5281/zenodo.24393431 | 10.5281/zenodo.24339909 | 系列第十册；作者决定不入 `inventory.tsv`、不进合集；元信息与发布记录见 `_zenodo/published_resolution-grain.json` 与 `resolution-grain.PENDING.md` |

@@ -1,0 +1,13 @@
+access_right
+creators
+description
+doi
+keywords
+language
+license
+publication_date
+related_identifiers
+relations
+resource_type
+title
+version

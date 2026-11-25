@@ -1,0 +1,296 @@
+{
+ "created": "2026-11-20T07:51:18.772024+00:00",
+ "modified": "2026-11-20T07:51:19.487187+00:00",
+ "id": 24390257,
+ "conceptrecid": "24339909",
+ "doi": "10.5281/zenodo.24390257",
+ "conceptdoi": "10.5281/zenodo.24339909",
+ "doi_url": "https://doi.org/10.5281/zenodo.24390257",
+ "metadata": {
+  "title": "粗码:为什么越省力分得越粗,而核实为何总是追不上 / Coarse Codes: How Saving Effort Reshapes Resolution, and Why Verification Trails Behind",
+  "doi": "10.5281/zenodo.24390257",
+  "publication_date": "2026-11-20",
+  "description": "<p><b>中文摘要。</b>同一份力气,花在两个地方,会得到两种完全不同的结果。时间紧、睡得少、后果重的时候,人不是变懒了,而是把有限的码率换了一种花法:环境宽的时候缩支撑,只剩一条隧道;环境窄的时候缩刻度,糊成一片。这本书从一条驻点式开始——在失真与码率的交换里求极小,得 v∗=(T+λ)/(2w)——把它推到个人、群体、社会、文明四层;四层不是阶梯,是一张有环的图。全书七部分三十三章,从一个家庭饭桌上的弃养争吵讲起,到\"这本书在哪里停\"收束。它有推导,也有能复算的读数:两万余条核实记录、四十五部分期方案、十八对语言版本的叙事距离、十二万四千条义项清单、三百九十八个古政体的公开编码、一百二十五个国家的历法采纳年份、一百三十三人的一次梯度测量。所有数字标 A/B/C 等级;结论强度不超过证据强度。</p><p><b>核心主张。</b>一条规则=状态空间上的一次划分;理解=估计这个划分;在\"错了有多疼\"与\"分细要多少钱\"之间取驻点,就得到分辨率。由这一条可推:覆盖面翻倍、精度减半(δ=Δ/2^R);把切点的描述费写进总账,就得两条标度律(赌注抬十倍,类别数涨 √10 或 ∛10);换码要付一次成本,于是去程与回程不对称(带宽=2C)。全书只有一条原理、五个建模假设与一个网络约定;P1—P6 只是六个检索标签,读成两条原理+四个接触面——原理一是预算下的划分极小化,原理二是账可外置、权重可为负;接触面是价格、切法、群体、账。哪一条结论靠哪一条、额外用了什么假设,见附录 A 的推导地图(表 A.1)。</p><p><b>结构与证据。</b>七部分三十三章:舞台(1—3)、个人(4—8)、爱与好奇(9—12)、群体(13—17)、社会(18—23)、文明(24—29)、边界(30—33);六核心(看见、记住、跟上、选择、讲述、临界)各占一章且有专属装置。附录 A 形式化与证明、B 数据与复现(含十二个读数的文件、字节与哈希)、C 协议与稳健性、D 可证伪登记簿(append-only,十五行登记)、E 工具与清单、F 否证线总表(十八条,另有十五条写在正文)。</p><p><b>本版修订。</b>本版重写:加第一部分的舞台,个人层以中心(μ)开篇,单独写\"记住\"与\"跟上\",把\"讲述\"从标签那一章拆出来,给\"临界\"补上阈值与卷积;附录 B—E 补齐;术语表一百二十三条、索引一百零四条;题记与引文二十八处、部分导语七段;图四十三、表一百六十九。正文三十一万九千九百汉字。全部版本指针已从正文清除(版本史只留在仓库的 CHANGELOG 与本条记录里)。</p><p><b>诚实纪律。</b>十三条查不到公开出处的断言逐条降为情景(附录 F);第 33 章单列九处空白并分四类;每一条结论都带\"若看到什么就作废\";数据缺口与\"删了什么\"记在 data/DATA-LEDGER.md;本书没有预注册,三次事先写了判据的检验单列(附录 B.2),其余读数只称读数。</p><p><b>边界。</b>它不主张新第一性(是 Shannon 1948 与 Sims 2003 的应用),不主张人群参数、因果方向、全球普适或政策可操作性。四层与重整化流的关系是形式类比;社会与文明两层是子模型。最薄的一层是\"谁在选\":模型能说方向与位置,说不出\"为什么是这个人、这一年\"。</p><p><b>版本信息。</b>2026-11-20;印刷版 635 页(A4,含封面与四级书签);EPUB 3;网页版与 Markdown(分章)。数据快照:统计类 2026-11-15/16,新闻类 2026-11-16,文献类 2026-11-19。</p><p><b>系列。</b>本系列九本书+十五篇工作论文+一部合集,共用同一母题:复杂系统如何保持结构、如何变化、如何生成新结构。本书是系列之外的第十册,尚未并入合集,也不计入二十四件;件数以 inventory.tsv 为准。</p><p><b>Abstract.</b>The same effort, spent two ways, yields two different results. Under time pressure, sleep debt, and heavy consequences, people do not become lazy: they reallocate a finite bit budget. When the environment is wide they shrink the support and keep a single tunnel; when it is narrow they shrink the resolution and everything blurs. The book starts from one stationarity condition - minimising weighted distortion plus rate cost, v∗=(T+λ)/(2w) - and pushes it to four layers: person, group, society, civilisation. The layers are not a ladder but a graph with loops. Seven parts, thirty-three chapters. It carries derivations and reproducible readings: 21,063 verification records, 45 periodisation schemes, 18 language-pair narrative distances, 124,147 sense entries, 398 polities, 125 calendars, and a 133-person gradient measurement. Every number is graded A/B/C; no conclusion outruns its evidence.</p><p><b>Central claim.</b>A rule is a partition of a state space; understanding is estimating that partition; a resolution sits at the stationarity point between the cost of error and the price of fineness. From this: doubling coverage halves precision; writing the cost of cut points into the ledger gives two scaling laws (a tenfold stake buys the square root or cube root of ten classes); recoding costs once each way, hence asymmetry (bandwidth = 2C). There is one principle, five modelling assumptions and one network convention; P1-P6 are retrieval labels only, read as two principles plus four interfaces.</p><p><b>Structure and evidence.</b>Seven parts, thirty-three chapters: stage (1-3), person (4-8), love and curiosity (9-12), group (13-17), society (18-23), civilisation (24-29), limits (30-33); each of the six cores (seeing, remembering, keeping up, choosing, narrating, tipping) has its own chapter and device. Appendices: A formalisation, B data and reproduction (files, bytes, hashes), C protocols and robustness, D falsification ledger (append-only, fifteen entries), E tools and checklists, F eighteen falsification lines.</p><p><b>What changed in this version.</b>This version is a rewrite: a new opening part (the stage), the personal layer opened by the centre μ, separate chapters on remembering and keeping up, narrating split out of the labelling chapter, tipping extended with thresholds and convolution; appendices B-E completed; glossary of 123 terms and an index of 104 entries; 28 epigraphs and 7 part-level images; 43 figures and 169 tables; 319,900 characters of body text. All internal version pointers have been removed from the book.</p><p><b>Honest discipline.</b>Thirteen unverifiable claims are demoted to scenarios (Appendix F); Chapter 33 lists nine gaps in four classes; every conclusion carries a refutation line; deleted data are logged in data/DATA-LEDGER.md; the book was not preregistered, and the three checks with pre-written criteria are listed separately (B.2).</p><p><b>Boundaries.</b>No new first principle (an application of Shannon 1948 and Sims 2003), no population parameters, no causal direction, no global universality, no policy prescription. The four layers are a formal analogy to renormalisation, not a theorem; the weakest layer is the selector: the model gives direction and position, not the person or the year.</p><p><b>Version.</b>2026-11-20; print edition 635 pages (A4, four-level bookmarks); EPUB 3; web and Markdown. Data snapshots: statistics 2026-11-15/16, news 2026-11-16, literature 2026-11-19.</p><p><b>Series.</b>Nine books, fifteen working papers and one collection share one motif: how complex systems keep structure, change, and generate new structure. This is the tenth volume, outside the registered twenty-four; the count is determined by inventory.tsv alone.</p>",
+  "access_right": "open",
+  "creators": [
+   {
+    "name": "李毅芃",
+    "affiliation": "独立研究者 / Independent Researcher"
+   }
+  ],
+  "keywords": [
+   "粗码",
+   "分辨率",
+   "码率—失真",
+   "理性疏忽",
+   "标签",
+   "核实延迟",
+   "证据等级",
+   "可证伪",
+   "巴别塔",
+   "coarse codes",
+   "resolution",
+   "rate–distortion",
+   "rational inattention",
+   "labels",
+   "verification lag",
+   "falsifiability",
+   "evidence grading"
+  ],
+  "related_identifiers": [
+   {
+    "identifier": "https://github.com/lyp0746/resolution-grain",
+    "relation": "isSupplementedBy",
+    "scheme": "url"
+   },
+   {
+    "identifier": "https://github.com/lyp0746/series-workspace",
+    "relation": "isPartOf",
+    "scheme": "url"
+   },
+   {
+    "identifier": "10.5281/zenodo.24029909",
+    "relation": "isPartOf",
+    "scheme": "doi"
+   },
+   {
+    "identifier": "10.5281/zenodo.24029873",
+    "relation": "isPartOf",
+    "scheme": "doi"
+   },
+   {
+    "identifier": "10.5281/zenodo.24029812",
+    "relation": "isPartOf",
+    "scheme": "doi"
+   },
+   {
+    "identifier": "10.5281/zenodo.24030720",
+    "relation": "isPartOf",
+    "scheme": "doi"
+   },
+   {
+    "identifier": "10.5281/zenodo.24029980",
+    "relation": "isPartOf",
+    "scheme": "doi"
+   },
+   {
+    "identifier": "10.5281/zenodo.24030004",
+    "relation": "isPartOf",
+    "scheme": "doi"
+   }
+  ],
+  "version": "2026-11-20",
+  "language": "zho",
+  "resource_type": {
+   "title": "Book",
+   "type": "publication",
+   "subtype": "book"
+  },
+  "license": {
+   "id": "cc-by-4.0"
+  },
+  "relations": {
+   "version": [
+    {
+     "index": 2,
+     "is_last": true,
+     "parent": {
+      "pid_type": "recid",
+      "pid_value": "24339909"
+     }
+    }
+   ]
+  }
+ },
+ "title": "粗码:为什么越省力分得越粗,而核实为何总是追不上 / Coarse Codes: How Saving Effort Reshapes Resolution, and Why Verification Trails Behind",
+ "links": {
+  "self": "https://zenodo.org/api/records/24390257",
+  "self_html": "https://zenodo.org/records/24390257",
+  "preview_html": "https://zenodo.org/records/24390257?preview=1",
+  "doi": "https://doi.org/10.5281/zenodo.24390257",
+  "self_doi": "https://doi.org/10.5281/zenodo.24390257",
+  "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.24390257",
+  "reserve_doi": "https://zenodo.org/api/records/24390257/draft/pids/doi",
+  "parent": "https://zenodo.org/api/records/24339909",
+  "parent_html": "https://zenodo.org/records/24339909",
+  "parent_doi": "https://doi.org/10.5281/zenodo.24339909",
+  "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.24339909",
+  "self_iiif_manifest": "https://zenodo.org/api/iiif/record:24390257/manifest",
+  "self_iiif_sequence": "https://zenodo.org/api/iiif/record:24390257/sequence/default",
+  "files": "https://zenodo.org/api/records/24390257/files",
+  "media_files": "https://zenodo.org/api/records/24390257/media-files",
+  "thumbnails": {
+   "10": "https://zenodo.org/api/iiif/record:24390257:resolution-grain-print.pdf/full/%5E10,/0/default.jpg",
+   "50": "https://zenodo.org/api/iiif/record:24390257:resolution-grain-print.pdf/full/%5E50,/0/default.jpg",
+   "100": "https://zenodo.org/api/iiif/record:24390257:resolution-grain-print.pdf/full/%5E100,/0/default.jpg",
+   "250": "https://zenodo.org/api/iiif/record:24390257:resolution-grain-print.pdf/full/%5E250,/0/default.jpg",
+   "750": "https://zenodo.org/api/iiif/record:24390257:resolution-grain-print.pdf/full/%5E750,/0/default.jpg",
+   "1200": "https://zenodo.org/api/iiif/record:24390257:resolution-grain-print.pdf/full/%5E1200,/0/default.jpg"
+  },
+  "latest": "https://zenodo.org/api/records/24390257/versions/latest",
+  "latest_html": "https://zenodo.org/records/24390257/latest",
+  "versions": "https://zenodo.org/api/records/24390257/versions",
+  "draft": "https://zenodo.org/api/records/24390257/draft",
+  "access_links": "https://zenodo.org/api/records/24390257/access/links",
+  "access_grants": "https://zenodo.org/api/records/24390257/access/grants",
+  "access_users": "https://zenodo.org/api/records/24390257/access/users",
+  "access_request": "https://zenodo.org/api/records/24390257/access/request",
+  "access": "https://zenodo.org/api/records/24390257/access",
+  "communities": "https://zenodo.org/api/records/24390257/communities",
+  "communities-suggestions": "https://zenodo.org/api/records/24390257/communities-suggestions",
+  "request_deletion": "https://zenodo.org/api/records/24390257/request-deletion",
+  "file_modification": "https://zenodo.org/api/records/24390257/file-modification",
+  "quota_increase": "https://zenodo.org/api/records/24390257/quota-increase",
+  "requests": "https://zenodo.org/api/records/24390257/requests"
+ },
+ "updated": "2026-11-20T07:51:19.487187+00:00",
+ "recid": "24390257",
+ "revision": 3,
+ "files": [
+  {
+   "id": "c78c64c9-3744-4e69-ae4c-03868d64d485",
+   "key": "resolution-grain-markdown.zip",
+   "size": 5047847,
+   "checksum": "md5:83328229e17dac8c2b61b258d6bce439",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain-markdown.zip/content"
+   }
+  },
+  {
+   "id": "69cb037c-e4fa-4a9d-a34a-72e6334bc8d3",
+   "key": "resolution-grain-print.pdf",
+   "size": 14941730,
+   "checksum": "md5:071454add57d30e454b2d78b7afe5b69",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain-print.pdf/content"
+   }
+  },
+  {
+   "id": "5a7fb127-5ce2-49c2-95c6-48c3d1fb4d2a",
+   "key": "resolution-grain.epub",
+   "size": 5830565,
+   "checksum": "md5:2b7103614541e7b4a7a6a1fb729b8cdf",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain.epub/content"
+   }
+  },
+  {
+   "id": "cf043ed0-ac32-4daa-bdf1-0d0b48ffa9b3",
+   "key": "README.md",
+   "size": 2749,
+   "checksum": "md5:828f11428b16850739e624a95d01f66c",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/README.md/content"
+   }
+  },
+  {
+   "id": "1b67641e-94b1-4da4-afd6-d68e5217965f",
+   "key": "SHA256SUMS",
+   "size": 1074,
+   "checksum": "md5:28fb73bccd100de3f8e1b7c8e17d8d5e",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/SHA256SUMS/content"
+   }
+  },
+  {
+   "id": "d71aeee0-c3f6-47e1-a653-91a682a2d5e5",
+   "key": "resolution-grain-ereader.pdf",
+   "size": 14152705,
+   "checksum": "md5:13f1af13e68fcc71cb5bd4148744f320",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain-ereader.pdf/content"
+   }
+  },
+  {
+   "id": "f5a9d5a3-5162-4aaa-8304-5684ab821e98",
+   "key": "resolution-grain-visuals.zip",
+   "size": 6319641,
+   "checksum": "md5:e28d52e842690b63ad6a68f35414f8b3",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain-visuals.zip/content"
+   }
+  },
+  {
+   "id": "d2a99e05-bcce-4af4-9f5d-6617778d0890",
+   "key": "resolution-grain-ereader.html",
+   "size": 7096329,
+   "checksum": "md5:a5a5e25c8076d46e1bda397199fd4d28",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain-ereader.html/content"
+   }
+  },
+  {
+   "id": "4ea360fc-f903-4b08-b583-5080af091c20",
+   "key": "cover.svg",
+   "size": 2198,
+   "checksum": "md5:415c8c16abc699f0c1d001c805ff02ad",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/cover.svg/content"
+   }
+  },
+  {
+   "id": "fc7630c9-beb5-4987-ba3e-415846750964",
+   "key": "MANIFEST.txt",
+   "size": 645,
+   "checksum": "md5:b40480697816d68ccf7b0f3a8736b3ac",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/MANIFEST.txt/content"
+   }
+  },
+  {
+   "id": "5a3aa3dc-da25-457b-beb4-2ca50f78e509",
+   "key": "数据缺口与边界.md",
+   "size": 2045,
+   "checksum": "md5:4c737dbb9173cb2159a1bbf3efbe73bb",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/%E6%95%B0%E6%8D%AE%E7%BC%BA%E5%8F%A3%E4%B8%8E%E8%BE%B9%E7%95%8C.md/content"
+   }
+  },
+  {
+   "id": "d7f09ee0-450c-4d4d-a51e-da388ed3b165",
+   "key": "resolution-grain.html",
+   "size": 7117433,
+   "checksum": "md5:66315ce588a32dc4f7eebea1010733d2",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain.html/content"
+   }
+  },
+  {
+   "id": "bdd99a92-6a2c-4bea-8710-2ddae566c39c",
+   "key": "resolution-grain.md",
+   "size": 1435351,
+   "checksum": "md5:eebc586a1cc6384a8af8300d8123fab1",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/resolution-grain.md/content"
+   }
+  },
+  {
+   "id": "34e1b20d-2f2a-4f9f-951e-2c6ed5e7acd5",
+   "key": "修订说明.md",
+   "size": 2025,
+   "checksum": "md5:df2d7ded12c0c974e6561d4e435b62dd",
+   "links": {
+    "self": "https://zenodo.org/api/records/24390257/files/%E4%BF%AE%E8%AE%A2%E8%AF%B4%E6%98%8E.md/content"
+   }
+  }
+ ],
+ "swh": {},
+ "owners": [
+  {
+   "id": "1926430"
+  }
+ ],
+ "status": "published",
+ "stats": {
+  "downloads": 26,
+  "unique_downloads": 26,
+  "views": 7,
+  "unique_views": 3,
+  "version_downloads": 0,
+  "version_unique_downloads": 0,
+  "version_unique_views": 0,
+  "version_views": 0
+ },
+ "state": "done",
+ "submitted": true
+}

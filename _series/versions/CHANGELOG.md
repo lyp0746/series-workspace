@@ -534,3 +534,12 @@ Smith &amp; von Glahn (2003)、Bol (1992)；第 9 章补 Diamond／Wittfogel／T
 - **P1 引用接线**：区分的语言 ch02/05/08/12/18、选择的代价 ch01/02/05/08/18 各加「文献位置」段，正文首次把文献接进论证。
 - **P2 文风/体例**：AGENTS 增占位符说明；日期体例定为「正文中文、表格 ISO」。
 - 页数变化：mind-forks 330→331、CapacityProxies 63→64、DomainCrossSection 75→74、MemoryStressTest 70→69。
+
+## 2026-11-25　工作区清理（断舍离）
+
+派生件与旧快照不留副本；版本靠本文件与 Zenodo 记录追溯。本次删除：
+
+- `versions/AGENTS-编年史-2026-10-28.md`
+
+重建：`build_book.py --pdf` / `--ereader --pdf`、`build_markdown.py`、`build_epub.py`；
+论文用 `generate_publication_suite.py`。
