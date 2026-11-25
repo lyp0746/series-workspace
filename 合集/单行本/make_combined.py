@@ -24,7 +24,7 @@ OUT_DIR = os.path.join(HERE, "out")
 SANWEN_ROMAN = os.path.join(OUT_DIR, "_sanwen_roman.pdf")
 COVER = os.path.join(OUT_DIR, "_combined_cover.pdf")
 RAW = os.path.join(HERE, "..", "..", "resolution-grain", "output", "book.pdf")
-DEST = os.path.join(HERE, "..", "..", "resolution-grain", "release", "resolution-grain-print.pdf")
+DEST = os.path.join(HERE, "..", "..", "resolution-grain", "release", "resolution-grain-print-combined.pdf")
 
 TITLE = "粗码"
 SUB = "为什么越省力分得越粗，而核实为何总是追不上"
