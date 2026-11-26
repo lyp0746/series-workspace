@@ -1,8 +1,0 @@
-Zenodo 本地描述：只增一句「可视化阅读台」（26 份 html + 26 份 txt），同时把粗码公式里的 v* 改为 <sup>*</sup>
-
-- 每份在「版本信息 / Edition」段之前插入一段中文 + 一段英文，说明本件另附两个离线单文件
-  （<slug>-reader.html 阅读页、<slug>-explorer.html 结构地图），不联网、无外部依赖。
-- 只增不改：DOI、version、publication_date、related_identifiers 一个字未动。
-- 前/后字符：160,099 → 183,903（+23,804）。
-- 校验：26 份 html 的 <b>/<p> 全部配平；description 星号计数 0（粗码的两处 v* 是公式，已改 <sup>*</sup>）。
-- 新增工具 _series/tools/zenodo_add_console.py（幂等：检测到「可视化阅读台」即跳过）。
