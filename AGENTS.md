@@ -66,6 +66,10 @@ cd <paper> && "$PY" analysis/assemble.py && "$PY" generate_publication_suite.py 
 bash scripts/build.sh                  # 书的全量：audit → 印刷 → 电子版 → EPUB → Markdown
 bash release.sh                        # 组装 release/
 cd 合集 && "$PY" build_collection.py   # 合集：印刷版 + 电子版（两遍：先量页，再回填）
+
+"$PY" _series/tools/make_atlas.py --all   # 九本书：assets/<repo>-explorer.html（3D 结构地图）
+"$PY" _series/tools/make_atlas.py --coll  # 合集：合集/合集-explorer.html
+"$PY" _series/tools/publish_viz.py        # 26 件一源三投：assets → release/ → 文集/_可视化/（含哈希对账）
 ```
 
 ## 5 目录契约（两套）
