@@ -309,6 +309,9 @@ h1 small{font-weight:400;color:var(--faint);font-size:14px;margin-left:8px}
 .bar button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .bar .sep{width:1px;height:18px;background:var(--line);margin:0 6px}
 .bar .hint{color:var(--grey);font-size:12px}
+.bar .jump{font:12.5px/1 inherit;padding:7px 13px;color:#fff;background:var(--alt);
+  border-radius:999px;text-decoration:none;white-space:nowrap}
+.bar .jump:hover{filter:brightness(1.08)}
 main{padding:0 30px 10px}
 .view{display:none} .view.on{display:block}
 .stage{display:grid;grid-template-columns:minmax(0,1fr) 232px;gap:16px;align-items:start}
@@ -505,6 +508,10 @@ function drawSpiral(){
   });
   const hi=$('#hint');
   if(hi) hi.textContent=cam.spin?'拖动旋转 · 滚轮缩放 · 悬停看章际引用':'已暂停自动旋转（点“自动旋转”继续）';
+}
+function jumpTo(no){
+  if(DATA.mode==='coll') return;
+  location.href = DATA.slug + '-reader.html#ch' + no;
 }
 function nearest(mx0,my0){
   const [W,H]=[cv.clientWidth,cv.clientHeight];
@@ -704,6 +711,14 @@ function bindDrag(cv,cam,draw){
   cv.addEventListener('pointerdown',e=>{cam.drag=true;cam.spin=false;cam.px=e.clientX;cam.py=e.clientY;
     cv.setPointerCapture(e.pointerId);});
   cv.addEventListener('pointerup',e=>{cam.drag=false;});
+  if(cv.id==='cv-spiral'){
+    cv.addEventListener('click',e=>{
+      if(Math.abs(e.clientX-(cv._dx||0))>4) return;
+      const r=cv.getBoundingClientRect(); const h=nearest(e.clientX-r.left,e.clientY-r.top);
+      if(h) jumpTo(h.n.no);
+    });
+    cv.addEventListener('pointerdown',e=>{cv._dx=e.clientX;});
+  }
   cv.addEventListener('pointermove',e=>{
     if(cam.drag){
       cam.yaw+=(e.clientX-cam.px)*0.008;
@@ -877,6 +892,7 @@ def build_html(d: dict) -> str:
   <button data-f="within">只看部内</button>
   <span class="sep"></span>
   <button id="spin" class="on">自动旋转</button>
+  <a class="jump" href="{d['slug']}-reader.html">正文阅读页 →</a>
   <span class="hint" id="hint"></span>
 </div>
 <main>
@@ -911,7 +927,7 @@ def write(repo: str, name: str, html_text: str):
     if repo == "合集":
         out = os.path.join(base, name)
     else:
-        out = os.path.join(base, "assets", name)
+        out = os.path.join(base, "interactive", name)   # 与阅读页同目录：两页互跳才能用相对链接
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, "w", encoding="utf-8", newline="\n").write(html_text)
     print(f"  {repo}/{os.path.relpath(out, base)}  {len(html_text) / 1024:.0f} KB")

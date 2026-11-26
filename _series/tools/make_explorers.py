@@ -358,11 +358,11 @@ function render() {
     }
   }));
   table(items);
-  document.getElementById('note').textContent = '这是论文的“账本”本身：110 条命题、六核心 × 八种状态。格子深浅＝条数；点有数字的格子可看该格第一条；点表格任意行看全文。';
+  document.getElementById('note').textContent = '这是论文的“账本”本身：'+DATA.length+' 条命题、六核心 × 八种状态。格子深浅＝条数；点有数字的格子可看该格第一条；点表格任意行看全文。';
 }
 """
     html = page("六张账单的对账 · 交互探索器",
-                "110 条登记命题 · 六核心 × 状态 × 等级 × 尺度 · 数据来自 ledger.csv（唯一来源）",
+                f"{len(rows)} 条登记命题 · 六核心 × 状态 × 等级 × 尺度 · 数据来自 ledger.csv（唯一来源）",
                 js, rows)
     html = html.replace("CONFIG_FILTERS", json.dumps(cfg_f, ensure_ascii=False)) \
                .replace("CONFIG_COLS", json.dumps(cfg_cols, ensure_ascii=False)) \

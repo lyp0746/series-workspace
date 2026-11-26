@@ -2,7 +2,8 @@
 """把每件的「结构化地图」投递到三处：仓内 assets/（已在生成时写好）、release/、文集。
 
 一源三投，一次生成，一处对账：
-  源   书   <repo>/assets/<repo>-explorer.html
+  源   书   <repo>/interactive/<repo>-explorer.html（结构地图）
+          <repo>/interactive/<repo>-reader.html（阅读页）
        论文 <repo>/interactive/<原名>.html   （保留各自图表的原始文件，不搬走）
        粗码 <repo>/assets/knowledge-map.html
        合集 合集/合集-explorer.html
@@ -60,7 +61,8 @@ def sha16(p: str) -> str:
 def items():
     out = []
     for b in BOOKS:
-        out.append((b, f"assets/{b}-explorer.html", f"{b}-explorer.html"))
+        out.append((b, f"interactive/{b}-explorer.html", f"{b}-explorer.html"))
+        out.append((b, f"interactive/{b}-reader.html", f"{b}-reader.html"))
     for repo, fn in PAPERS:
         out.append((repo, f"interactive/{fn}", f"{repo}-explorer.html"))
     out.append((GRAIN[0], GRAIN[1], f"{GRAIN[0]}-explorer.html"))
