@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>有限系统的取舍 · 结构化地图</title>
+<style>
+:root{--ink:#1f3b57;--alt:#b5651d;--grey:#8c8c8c;--line:#e2dccd;--wash:#faf8f3;
+      --paper:#fbfaf7;--card:#ffffff;--faint:#6b6255}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:#1c1c1c;
+  font:14px/1.65 "Noto Sans SC","Microsoft YaHei",-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased}
+header{padding:26px 30px 6px}
+h1{font-size:21px;margin:0 0 5px;font-weight:600;color:var(--ink);letter-spacing:.2px}
+h1 small{font-weight:400;color:var(--faint);font-size:14px;margin-left:8px}
+.sub{color:var(--faint);font-size:12.5px;max-width:1000px;line-height:1.75}
+.cards{display:flex;gap:10px;flex-wrap:wrap;padding:14px 30px 4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:9px 14px;min-width:104px}
+.card .k{font-size:11px;color:var(--grey);letter-spacing:.06em}
+.card .v{font-size:20px;font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums;margin-top:1px}
+.card .v small{font-size:11.5px;font-weight:400;color:var(--grey);margin-left:3px}
+.bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:14px 30px 8px}
+.bar button{font:12.5px/1 inherit;padding:7px 13px;border:1px solid var(--line);
+  background:#fff;color:#3d3d3d;border-radius:999px;cursor:pointer;transition:.15s}
+.bar button:hover{border-color:#c9c0a9}
+.bar button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bar .sep{width:1px;height:18px;background:var(--line);margin:0 6px}
+.bar .hint{color:var(--grey);font-size:12px}
+main{padding:0 30px 10px}
+.view{display:none} .view.on{display:block}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 232px;gap:16px;align-items:start}
+canvas{width:100%;height:620px;display:block;background:#fff;border:1px solid var(--line);
+  border-radius:14px;cursor:grab;touch-action:none;
+  box-shadow:0 1px 2px rgba(31,59,87,.04),0 8px 24px rgba(31,59,87,.04)}
+canvas:active{cursor:grabbing}
+aside{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;
+  font-size:12.5px;color:#3d3d3d;position:sticky;top:14px}
+aside h3{margin:0 0 8px;font-size:12px;letter-spacing:.1em;color:var(--grey);font-weight:600}
+.lg{display:flex;align-items:center;gap:7px;margin:5px 0;cursor:pointer;border-radius:6px;padding:2px 4px}
+.lg:hover{background:var(--wash)}
+.lg i{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.lg b{font-weight:500}
+.lg span{color:var(--grey);margin-left:auto;font-variant-numeric:tabular-nums}
+.foot{margin:16px 30px 40px;border:1px solid var(--line);border-radius:12px;background:var(--wash);
+  padding:14px 18px;font-size:12.5px;color:#4a463d;line-height:1.85}
+.foot b{color:var(--ink)}
+.foot .lb{font-size:11px;letter-spacing:.1em;color:var(--grey);text-transform:uppercase;
+  display:block;margin:8px 0 2px}
+.tip{position:fixed;pointer-events:none;background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:9px 12px;font-size:12.5px;box-shadow:0 8px 26px rgba(31,59,87,.14);
+  opacity:0;transition:opacity .12s;max-width:300px;z-index:9;line-height:1.7}
+.tip b{color:var(--ink)} .tip em{color:var(--alt);font-style:normal}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+input[type=search],select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;
+  background:#fff;font:12.5px/1 inherit;font-family:inherit}
+input[type=search]{min-width:280px}
+.ledger{display:grid;grid-template-columns:330px minmax(0,1fr);gap:14px;align-items:start}
+.list{background:#fff;border:1px solid var(--line);border-radius:12px;max-height:620px;overflow:auto}
+.list .row{padding:8px 12px;border-bottom:1px solid #f0ece1;cursor:pointer;font-size:12.5px}
+.list .row:hover{background:var(--wash)} .list .row.on{background:#f6efe0}
+.list .row .n{color:var(--alt);font-variant-numeric:tabular-nums;margin-right:7px;font-weight:600}
+.list .row .w{color:var(--grey);font-size:11px;margin-left:6px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  max-height:620px;overflow:auto}
+.panel h2{font-size:15px;margin:0 0 2px;color:var(--ink);font-weight:600}
+.panel .meta{color:var(--grey);font-size:11.5px;margin-bottom:10px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:7px 9px;border-bottom:1px solid #f0ece1;text-align:left;vertical-align:top}
+th{background:var(--wash);position:sticky;top:0;color:var(--ink);font-weight:600}
+.figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:10px}
+.figs .thumb{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px;
+  display:flex;flex-direction:column;gap:5px;overflow:hidden}
+.figs .thumb img{width:100%;height:118px;object-fit:contain;background:#fff}
+.figs .thumb .cap{font-size:10.5px;color:var(--grey);text-align:center;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.figs .tiny{border-style:dashed;color:#6b6255;font-size:11px;padding:7px 9px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+@media (max-width:980px){.stage,.ledger{grid-template-columns:1fr}aside{position:static}
+  canvas{height:460px}}
+</style></head><body>
+<header>
+  <h1>有限系统的取舍<small>九卷与十五篇：二十四件的位置</small></h1>
+  <div class="sub">二十四件在同一张桌上看：位置＝阅读顺序，颜色＝部，虚线＝轨道。</div>
+</header>
+<div class="cards"><div class="card"><div class="k">件</div><div class="v">24<small></small></div></div><div class="card"><div class="k">部</div><div class="v">4<small></small></div></div><div class="card"><div class="k">轨道</div><div class="v">23<small>段</small></div></div><div class="card"><div class="k">书</div><div class="v">9<small></small></div></div><div class="card"><div class="k">论文</div><div class="v">15<small></small></div></div></div>
+<div class="bar"><button data-v="spiral">二十四件 · 3D 螺旋</button><button data-v="matrix">部 × 部 · 3D 柱阵</button>
+  <span class="sep"></span>
+  <button data-f="all" class="on">全部引用</button>
+  <button data-f="cross">只看跨部</button>
+  <button data-f="within">只看部内</button>
+  <span class="sep"></span>
+  <button id="spin" class="on">自动旋转</button>
+  <span class="hint" id="hint"></span>
+</div>
+<main>
+  <div class="view on" id="v-spiral">
+    <div class="stage"><canvas id="cv-spiral"></canvas><aside><h3>四部（九卷＋十五篇）</h3><div id="legend"></div><h3 style="margin-top:14px">怎么读</h3><div style="color:#6b6255;font-size:12px;line-height:1.8">螺旋＝阅读顺序（虚线＝轨道，23 段）；颜色＝所属部（四部）；点等大——这一页不编度数。柱阵的高＝部与部之间的阅读衔接数。</div></aside></div>
+  </div>
+  <div class="view" id="v-matrix">
+    <p class='sub' style='padding:0 0 8px'>高＝引用条数；对角＝部内互引。拖动旋转，悬停看具体一格。</p>
+    <div class="stage"><canvas id="cv-matrix"></canvas>
+      <aside><h3>坐标</h3><div id="pkey" style="font-size:12px;line-height:1.95;color:#4a463d"></div>
+      <h3 style="margin-top:12px">读法</h3><div style="color:#6b6255;font-size:12px;line-height:1.8">
+      横向＝被引的一方，纵深＝引用的一方，高＝条数；对角线（深蓝）＝部内互引，赭石＝跨部。
+      <b>高是条数，不是强度。</b></div></aside></div>
+  </div>
+  <div class="view" id="v-ledger"><div class="panel">这一件没有附录表格；表目见正文各章。</div></div>
+  
+</main>
+<div class="foot"><b>读法与边界</b><span class='lb'>数据</span><div>件数、部属、体裁、核心、DOI 全部取自 <code>合集/build_collection.py</code>；节数为各仓 <code>source/</code> 实测。</div><span class='lb'>等级</span><div>A（结构与元数据，可重跑）／C（“位置说明什么”是本书的读法）。</div><span class='lb'>不能主张什么</span><div>① 螺旋上的先后是阅读顺序，不是重要性顺序；② 点的大小是引用度数，不是分量；③ 四部是编排，不是分类学；④ 同一核心不等于同一结论。</div></div>
+<div class="tip" id="tip"></div>
+<script>
+const DATA={"mode": "coll", "slug": "合集", "title": "有限系统的取舍", "sub": "九卷与十五篇：二十四件的位置", "parts": [{"i": 0, "name": "第一部　九卷（专著）", "chapters": [0, 1, 2, 3, 4, 5, 6, 7, 8]}, {"i": 1, "name": "第二部　实证（一—六）", "chapters": [9, 10, 11, 12, 13, 14]}, {"i": 2, "name": "第三部　方法（七—十三）", "chapters": [15, 16, 17, 18, 19, 21]}, {"i": 3, "name": "第四部　跨域（十四）与阶段总账（十五）", "chapters": [20, 22, 23]}], "nodes": [{"no": 1, "t": "只能选两样", "sub": "从来不及、会忘记到说不清——六个核心，看懂复杂世界的取舍", "p": 0, "k": "书", "label": "卷一", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 2, "t": "区分的语言", "sub": "区分如何生成空间、形式与谱——七条定理、三十六个领域与一次连续极限", "p": 0, "k": "书", "label": "卷二", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 3, "t": "遗忘的边界", "sub": "有限容量下的记忆、智能与自我", "p": 0, "k": "书", "label": "卷三", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 4, "t": "错位的时间", "sub": "为什么我们总是来不及：社会系统的时间错配与可控性边界", "p": 0, "k": "书", "label": "卷四", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 5, "t": "选择的代价", "sub": "完备、可组合与可传递的三维权衡——复杂知识系统如何形成、演化与更新", "p": 0, "k": "书", "label": "卷五", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 6, "t": "诠释的权衡", "sub": "历史研究中的置信度、权衡与理论流变——从人物还原到范式转移的五个应用", "p": 0, "k": "书", "label": "卷六", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 7, "t": "涌现的临界", "sub": "为什么有些变化回不去：临界、涌现与形式化的边界", "p": 0, "k": "书", "label": "卷七", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 8, "t": "心灵的分岔", "sub": "从无意识到可观察——心理学流派的六次划线", "p": 0, "k": "书", "label": "卷八", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 9, "t": "热点的账单", "sub": "用六个核心，诊断过去一年的热搜与争论", "p": 0, "k": "书", "label": "卷九", "core": "", "doi": "", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 10, "t": "术语的账单", "sub": "从芯片到 Agent 的八十个计算机概念", "p": 1, "k": "实证", "label": "论文一", "core": "看见", "doi": "10.5281/zenodo.23888687", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 11, "t": "谁在切时间轴", "sub": "六十部世界史分期，附一份自证方案", "p": 1, "k": "实证", "label": "论文二", "core": "看见＋讲述", "doi": "10.5281/zenodo.23888712", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 12, "t": "线外的残余", "sub": "被埋没的理论为何被重新发现，为何永久沉默", "p": 1, "k": "实证", "label": "论文三", "core": "记住", "doi": "10.5281/zenodo.23888767", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 13, "t": "明清湘中驿道体系的 GEPF 三层分析", "sub": "家族记忆、商品流向与地名侵蚀", "p": 1, "k": "实证", "label": "论文四", "core": "跟上", "doi": "10.5281/zenodo.23888788", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 14, "t": "轮换的让渡", "sub": "中国官制三千年（西周—2026）", "p": 1, "k": "实证", "label": "论文五", "core": "选择", "doi": "10.5281/zenodo.23888825", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 15, "t": "被点燃的生态", "sub": "两个社区、五种口径与三个标记", "p": 1, "k": "实证", "label": "论文六", "core": "临界", "doi": "10.5281/zenodo.23888876", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 16, "t": "优化的边界", "sub": "目标函数、搜索空间与六核心的停止规则", "p": 2, "k": "方法", "label": "论文七", "core": "接口", "doi": "10.5281/zenodo.23888389", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 17, "t": "容量的三个代理", "sub": "分期槽位、编码槽位与标签槽位", "p": 2, "k": "方法", "label": "论文八", "core": "记住（代理）", "doi": "10.5281/zenodo.23888410", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 18, "t": "领域的剖面", "sub": "四个问题、二十个领域与八十字段的审计", "p": 2, "k": "方法", "label": "论文九", "core": "看见（操作化）", "doi": "10.5281/zenodo.23888430", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 19, "t": "同构的强度", "sub": "对偶、泛性质、不变量与四十条断裂探针", "p": 2, "k": "方法", "label": "论文十", "core": "看见＋讲述（跨域）", "doi": "10.5281/zenodo.23888475", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 20, "t": "记忆的锚点", "sub": "情景唤起、异构重建与日志裁决", "p": 2, "k": "方法", "label": "论文十一", "core": "记住（架构）", "doi": "10.5281/zenodo.23888495", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 21, "t": "锚点的下限", "sub": "情景记忆的模拟对照实验与 0.57 的覆盖率阈值", "p": 3, "k": "测试", "label": "论文十二", "core": "记住（测试）", "doi": "10.5281/zenodo.23888587", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 22, "t": "开明君主与两层竞争", "sub": "agent 价目表上的执行、方向与代价承担者", "p": 2, "k": "方法", "label": "论文十三", "core": "选择＋讲述（价格）", "doi": "10.5281/zenodo.23888650", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 23, "t": "接缝不在奇点", "sub": "量子力学与广义相对论的三十道裂缝", "p": 3, "k": "跨域", "label": "论文十四", "core": "看见＋跟上（物理）", "doi": "10.5281/zenodo.23888993", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}, {"no": 24, "t": "六张账单的对账", "sub": "六核心的可测代理、失败模式与尺度边界", "p": 3, "k": "阶段总账", "label": "论文十五", "core": "阶段总账（覆盖一—十五）", "doi": "10.5281/zenodo.23888894", "d": 1, "i": 0, "o": 0, "secs": 0, "s": []}], "edges": [{"a": 1, "b": 2, "w": 1, "cross": false}, {"a": 2, "b": 3, "w": 1, "cross": false}, {"a": 3, "b": 4, "w": 1, "cross": false}, {"a": 4, "b": 5, "w": 1, "cross": false}, {"a": 5, "b": 6, "w": 1, "cross": false}, {"a": 6, "b": 7, "w": 1, "cross": false}, {"a": 7, "b": 8, "w": 1, "cross": false}, {"a": 8, "b": 9, "w": 1, "cross": false}, {"a": 9, "b": 10, "w": 1, "cross": true}, {"a": 10, "b": 11, "w": 1, "cross": false}, {"a": 11, "b": 12, "w": 1, "cross": false}, {"a": 12, "b": 13, "w": 1, "cross": false}, {"a": 13, "b": 14, "w": 1, "cross": false}, {"a": 14, "b": 15, "w": 1, "cross": false}, {"a": 15, "b": 16, "w": 1, "cross": true}, {"a": 16, "b": 17, "w": 1, "cross": false}, {"a": 17, "b": 18, "w": 1, "cross": false}, {"a": 18, "b": 19, "w": 1, "cross": false}, {"a": 19, "b": 20, "w": 1, "cross": false}, {"a": 20, "b": 21, "w": 1, "cross": true}, {"a": 21, "b": 22, "w": 1, "cross": true}, {"a": 22, "b": 23, "w": 1, "cross": true}, {"a": 23, "b": 24, "w": 1, "cross": false}], "tables": [], "figs": {"svg": [], "png": []}, "meta": {"chapters": 24, "parts": 4, "edges": 23, "mentions": 23, "pairs": 23, "tables": 0, "svg": 0, "png": 0, "sections": 2338, "unwritten": 0}};
+const PAL=["#1f3b57", "#2f5677", "#4a7ba6", "#8fa8bd", "#b5651d", "#c08a4e", "#9c6b3f"];
+const RGB={"ink":"rgba(31,59,87,1)","alt":"rgba(181,101,29,1)"};
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const TIP=$('#tip');
+const M=DATA.meta, PARTS=DATA.parts, NODES=DATA.nodes, EDGES=DATA.edges;
+let FILTER='all', FILTERV='all';
+const PCOL=PARTS.map((p,i)=>PAL[i%PAL.length]);
+const MAXD=Math.max(1,...NODES.map(n=>n.d));
+const crossOK=e=>e.cross;
+function label(n){return DATA.mode==='coll'?n.label:'第'+n.no+'章'}
+
+/* ---------------- 3D 基础：旋转 → 透视 → 自适应取景 ---------------- */
+function rot(p,cam){
+  const cy=Math.cos(cam.yaw),sy=Math.sin(cam.yaw);
+  const x=p[0]*cy-p[2]*sy, z0=p[0]*sy+p[2]*cy;
+  const cp=Math.cos(cam.pitch),sp=Math.sin(cam.pitch);
+  return [x, p[1]*cp-z0*sp, p[1]*sp+z0*cp];
+}
+function persp(v){
+  /* f 必须远大于场景尺寸（网格可到 ±2.6），否则近处除零、远处爆炸 */
+  const f=6.4, d=Math.max(1.2, v[2]+f), k=f/d;
+  return [v[0]*k, v[1]*k, v[2]];
+}
+/* 给定一组 3D 点，算出把全部点框进画布的变换；zoom 是读者的缩放 */
+function framing(pts3,cam,W,H,zoom,pad){
+  const P=pts3.map(p=>persp(rot(p,cam)));
+  let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  P.forEach(p=>{x0=Math.min(x0,p[0]);x1=Math.max(x1,p[0]);
+                y0=Math.min(y0,p[1]);y1=Math.max(y1,p[1]);});
+  const w=Math.max(0.001,x1-x0), h=Math.max(0.001,y1-y0);
+  const s=Math.min((W-pad*2)/w,(H-pad*2)/h)*zoom;
+  const ox=W/2-(x0+x1)/2*s, oy=H/2+(y0+y1)/2*s;
+  return v=>[v[0]*s+ox, -v[1]*s+oy, v[2]];
+}
+
+/* ---------------- 视图一：3D 螺旋（章际引用） ---------------- */
+let cam={yaw:-0.55,pitch:0.46,zoom:1,spin:true,drag:false,px:0,py:0,hover:null};
+const cv=$('#cv-spiral'), cx=cv.getContext('2d');
+function buildGeo(){
+  const N=NODES.length, TURN=19;            /* 一圈约 19 章：与《粗码》那张图同一口径 */
+  const R=1.05, HGT=1.30;
+  NODES.forEach((n,i)=>{
+    const th=2*Math.PI*i/TURN;
+    const y=-(i/Math.max(1,N-1)-.5)*HGT;
+    n.p3=[Math.cos(th)*R, y, Math.sin(th)*R];
+  });
+}
+function resize(c){
+  const r=c.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1);
+  c.width=Math.round(r.width*dpr); c.height=Math.round(r.height*dpr);
+  const g=c.getContext('2d'); g.setTransform(dpr,0,0,dpr,0,0);
+  return [r.width,r.height];
+}
+function ctrlOf(A,B){
+  const m=[(A[0]+B[0])/2,(A[1]+B[1])/2,(A[2]+B[2])/2];
+  const rad=Math.hypot(m[0],m[2])||1, k=1.55, r=Math.hypot(m[0],m[2])*k;
+  return [m[0]/rad*r, m[1]*0.96, m[2]/rad*r];
+}
+function framePts(){
+  const pts=NODES.map(n=>n.p3);
+  EDGES.forEach(e=>{const A=NODES[e.a-1],B=NODES[e.b-1];
+    if(A&&B) pts.push(ctrlOf(A.p3,B.p3));});
+  return pts;
+}
+function drawSpiral(){
+  const [W,H]=resize(cv); cx.clearRect(0,0,W,H);
+  const T=framing(framePts(),cam,W,H,cam.zoom,46);
+  const P=NODES.map(n=>T(persp(rot(n.p3,cam))));
+  /* 阅读轨道：分段画，近处实、远处虚（深度提示） */
+  for(let i=1;i<P.length;i++){
+    const a=P[i-1], b=P[i], z=(a[2]+b[2])/2, k=Math.min(1,Math.max(0.12,(1.6-z)/2.4));
+    cx.beginPath(); cx.moveTo(a[0],a[1]); cx.lineTo(b[0],b[1]);
+    cx.strokeStyle='rgba(120,124,132,'+(0.10+0.22*k).toFixed(3)+')';
+    cx.setLineDash([2,5]); cx.lineWidth=0.9+0.7*k; cx.stroke(); cx.setLineDash([]);
+  }
+  const HI=cam.hover;
+  /* 引用弧 */
+  const arcs=[];
+  EDGES.forEach(e=>{
+    if(FILTER==='cross'&&!e.cross) return;
+    if(FILTER==='within'&&e.cross) return;
+    const A=NODES[e.a-1], B=NODES[e.b-1]; if(!A||!B) return;
+    const a=T(persp(rot(A.p3,cam))), b=T(persp(rot(B.p3,cam)));
+    const c=T(persp(rot(ctrlOf(A.p3,B.p3),cam)));
+    arcs.push({a,b,c,z:(a[2]+b[2]+c[2])/3,e});
+  });
+  arcs.sort((p,q)=>p.z-q.z);
+  arcs.forEach(o=>{
+    const on=HI&&(o.e.a===HI.no||o.e.b===HI.no);
+    cx.beginPath(); cx.moveTo(o.a[0],o.a[1]);
+    cx.quadraticCurveTo(o.c[0],o.c[1],o.b[0],o.b[1]);
+    cx.strokeStyle=o.e.cross?RGB.alt:RGB.ink;
+    cx.globalAlpha=on?0.85:(o.e.cross?0.26:0.12);
+    cx.lineWidth=on?1.6:(o.e.cross?Math.min(2.2,0.8+o.e.w*0.45):0.8);
+    cx.stroke();
+    /* 箭头：指到被引的那一头 */
+    if(on||o.e.cross){
+      const t=0.94, x=t*t*o.b[0]+2*t*(1-t)*o.c[0]+(1-t)*(1-t)*o.a[0];
+      const y=t*t*o.b[1]+2*t*(1-t)*o.c[1]+(1-t)*(1-t)*o.a[1];
+      const ang=Math.atan2(o.b[1]-y,o.b[0]-x), L=on?6:4.4;
+      cx.beginPath(); cx.moveTo(o.b[0],o.b[1]);
+      cx.lineTo(o.b[0]-L*Math.cos(ang-0.42),o.b[1]-L*Math.sin(ang-0.42));
+      cx.lineTo(o.b[0]-L*Math.cos(ang+0.42),o.b[1]-L*Math.sin(ang+0.42));
+      cx.closePath(); cx.globalAlpha=on?0.8:(o.e.cross?0.22:0.0);
+      cx.fillStyle=o.e.cross?RGB.alt:RGB.ink; cx.fill();
+    }
+    cx.globalAlpha=1;
+  });
+  /* 节点 */
+  const top5=new Set([...NODES].sort((a,b)=>b.d-a.d).slice(0,5).map(n=>n.no));
+  const order=NODES.map((n,i)=>({n,p:P[i]})).sort((a,b)=>a.p[2]-b.p[2]);
+  order.forEach(({n,p})=>{
+    const near=HI&&(n.no===HI.no||EDGES.some(e=>(e.a===HI.no&&e.b===n.no)||(e.b===HI.no&&e.a===n.no)));
+    const dim=HI&&!near;
+    const dep=Math.min(1,Math.max(0,(1.9-p[2])/2.6));
+    const r=(3.2+5.2*Math.sqrt(n.d/MAXD))*(0.82+0.38*dep);
+    if(top5.has(n.no)||near){
+      cx.beginPath(); cx.arc(p[0],p[1],r+3.4,0,7);
+      cx.fillStyle=PCOL[n.p%PCOL.length]; cx.globalAlpha=dim?0.10:0.16; cx.fill();
+    }
+    cx.beginPath(); cx.arc(p[0],p[1],r,0,7);
+    cx.fillStyle=PCOL[n.p%PCOL.length];
+    cx.globalAlpha=dim?0.26:(0.60+0.40*dep); cx.fill();
+    cx.lineWidth=1.3; cx.strokeStyle='#fff'; cx.stroke();
+    const showLbl=!dim;
+    if(showLbl){
+      const t2=DATA.mode==='coll'?n.label:'第'+n.no+'章';
+      const dx2=p[0]-W/2, dy2=p[1]-H/2, L2=Math.hypot(dx2,dy2)||1, off=r+8;
+      const tx=p[0]+dx2/L2*off, ty=p[1]+dy2/L2*off;
+      cx.globalAlpha=0.94;
+      cx.font=(r>5.4?'600 ':'')+(NODES.length>30?10.5:11.5)+'px "Noto Sans SC",sans-serif';
+      cx.textAlign=(dx2>8?'left':(dx2<-8?'right':'center'));
+      cx.textBaseline='middle';
+      cx.lineWidth=3.6; cx.strokeStyle='rgba(255,255,255,.94)';
+      cx.strokeText(t2,tx,ty);
+      cx.fillStyle='#243447'; cx.fillText(t2,tx,ty);
+    }
+    cx.globalAlpha=1;
+  });
+  const hi=$('#hint');
+  if(hi) hi.textContent=cam.spin?'拖动旋转 · 滚轮缩放 · 悬停看章际引用':'已暂停自动旋转（点“自动旋转”继续）';
+}
+function nearest(mx0,my0){
+  const [W,H]=[cv.clientWidth,cv.clientHeight];
+  const T=framing(framePts(),cam,W,H,cam.zoom,46);
+  let best=null,bd=16;
+  NODES.forEach(n=>{const p=T(persp(rot(n.p3,cam)));
+    const d=Math.hypot(p[0]-mx0,p[1]-my0);
+    if(d<bd){bd=d;best={n,p};}});
+  return best;
+}
+
+/* ---------------- 视图二：部×部 3D 地形（阶梯面） ---------------- */
+let mcam={yaw:-0.60,pitch:0.42,zoom:1,drag:false,px:0,py:0,hover:null};
+const mv=$('#cv-matrix'), mx=mv.getContext('2d');
+let MAT=null, MVMAX=1;
+function buildMatrix(){
+  const P=PARTS.length, m=[];
+  for(let i=0;i<P;i++) m.push(new Array(P).fill(0));
+  EDGES.forEach(e=>{const a=NODES[e.a-1],b=NODES[e.b-1]; if(a&&b) m[a.p][b.p]+=e.w;});
+  MAT=m; MVMAX=Math.max(1,...m.flat());
+}
+function cells(){
+  const P=MAT.length, gap=0.06, out=[];
+  for(let i=0;i<P;i++)for(let j=0;j<P;j++){
+    const v=MAT[i][j];
+    out.push({i,j,v,h:0.05+(v/MVMAX)*1.05,
+      x0:(i-P/2+0.5),z0:(j-P/2+0.5),s:(1-gap)/2});
+  }
+  return out;
+}
+function drawMatrix(){
+  const [W,H]=resize(mv); mx.clearRect(0,0,W,H);
+  const P=MAT.length, half=P/2, CS=cells();
+  /* 取景：把全部柱体的顶角与底角都算进去 */
+  const ext=[];
+  CS.forEach(c=>{
+    [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([a,b])=>{
+      ext.push([c.x0+a*c.s,0,c.z0+b*c.s]);
+      ext.push([c.x0+a*c.s,c.h,c.z0+b*c.s]);
+    });
+  });
+  const T=framing(ext,mcam,W,H,mcam.zoom,78);
+  const pr=p=>T(persp(rot(p,mcam)));
+  /* 底座网格 */
+  mx.strokeStyle='rgba(31,59,87,.09)'; mx.lineWidth=1;
+  for(let k=0;k<=P;k++){
+    const x=-half+k;
+    let a=pr([x,0,-half]), b=pr([x,0,half]);
+    mx.beginPath(); mx.moveTo(a[0],a[1]); mx.lineTo(b[0],b[1]); mx.stroke();
+    a=pr([-half,0,x]); b=pr([half,0,x]);
+    mx.beginPath(); mx.moveTo(a[0],a[1]); mx.lineTo(b[0],b[1]); mx.stroke();
+  }
+  /* 空单元：只留一层极薄的底片（不铺板，避免把“没有”画成“有”） */
+  CS.filter(c=>c.v===0).forEach(c=>{
+    const q=[[c.x0-c.s,0,c.z0-c.s],[c.x0+c.s,0,c.z0-c.s],
+             [c.x0+c.s,0,c.z0+c.s],[c.x0-c.s,0,c.z0+c.s]].map(pr);
+    mx.beginPath(); mx.moveTo(q[0][0],q[0][1]);
+    for(let k=1;k<4;k++) mx.lineTo(q[k][0],q[k][1]);
+    mx.closePath(); mx.fillStyle='rgba(31,59,87,.03)'; mx.fill();
+    mx.strokeStyle='rgba(31,59,87,.10)'; mx.lineWidth=.7; mx.stroke();
+  });
+  /* 有值的单元：按深度画（画家算法） */
+  const faces=[];
+  CS.filter(c=>c.v>0).forEach(c=>{
+    const {x0,z0,s,h}=c;
+    const v=[[x0-s,0,z0-s],[x0+s,0,z0-s],[x0+s,0,z0+s],[x0-s,0,z0+s]].map(pr);
+    const w=[[x0-s,h,z0-s],[x0+s,h,z0-s],[x0+s,h,z0+s],[x0-s,h,z0+s]].map(pr);
+    [[w[0],w[1],w[2],w[3],1.0],[v[0],v[1],w[1],w[0],0.70],
+     [v[1],v[2],w[2],w[1],0.82],[v[2],v[3],w[3],w[2],0.70],
+     [v[3],v[0],w[0],w[3],0.82]].forEach(q=>{
+      faces.push({q:q.slice(0,4),shade:q[4],
+        z:q.slice(0,4).reduce((a,p)=>a+p[2],0)/4,c});
+    });
+  });
+  faces.sort((a,b)=>a.z-b.z);
+  const HI=mcam.hover;
+  faces.forEach(f=>{
+    const {c}=f, on=HI&&HI.i===c.i&&HI.j===c.j;
+    const base=(c.i===c.j)?'31,59,87':'181,101,29';
+    const inten=c.v/MVMAX;
+    mx.beginPath(); mx.moveTo(f.q[0][0],f.q[0][1]);
+    for(let k=1;k<4;k++) mx.lineTo(f.q[k][0],f.q[k][1]);
+    mx.closePath();
+    mx.fillStyle='rgba('+base+','+(on?0.94:(0.22+0.42*f.shade+0.28*inten)).toFixed(3)+')';
+    mx.fill();
+    mx.strokeStyle='rgba(255,255,255,.5)'; mx.lineWidth=.6; mx.stroke();
+  });
+  CS.filter(c=>c.v>0).forEach(c=>{
+    const p=pr([c.x0,c.h+0.02,c.z0]);
+    mx.font='600 11px "Noto Sans SC",sans-serif'; mx.textAlign='center';
+    mx.fillStyle=(c.i===c.j)?'#1f3b57':'#8a4f14'; mx.globalAlpha=.95;
+    mx.fillText(c.v,p[0],p[1]+3.5); mx.globalAlpha=1;
+  });
+  /* 轴标：只写序号（一…五），部名放到右侧图例里——避免长名互相压 */
+  const CN=['一','二','三','四','五','六','七','八','九'];
+  mx.font='600 12px "Noto Sans SC",sans-serif'; mx.fillStyle='#6b6255';
+  PARTS.forEach((p,i)=>{
+    const a=pr([(i-P/2+0.5),0,half+0.40]);
+    mx.textAlign='center'; mx.fillText(CN[i],a[0],a[1]+4);
+    const b=pr([-half-0.40,0,(i-P/2+0.5)]);
+    mx.textAlign='right'; mx.fillText(CN[i],b[0]-2,b[1]+4);
+  });
+  mx.textAlign='left'; mx.font='11px "Noto Sans SC",sans-serif'; mx.fillStyle='#8c8c8c';
+  mx.fillText('→ 横向：被引的一方　　纵深：引用的一方　　↑ 高：条数',30,26);
+}
+function hitMatrix(mx0,my0){
+  const [W,H]=[mv.clientWidth,mv.clientHeight];
+  const P=MAT.length, half=P/2, CS=cells(), ext=[];
+  CS.forEach(c=>{[[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([a,b])=>{
+    ext.push([c.x0+a*c.s,0,c.z0+b*c.s]); ext.push([c.x0+a*c.s,c.h,c.z0+b*c.s]);});});
+  const T=framing(ext,mcam,W,H,mcam.zoom,78);
+  let best=null,bd=40;
+  CS.forEach(c=>{
+    const p=T(persp(rot([c.x0,c.h,c.z0],mcam)));
+    const d=Math.hypot(p[0]-mx0,p[1]-my0);
+    if(d<bd){bd=d;best={i:c.i,j:c.j};}
+  });
+  return best;
+}
+
+/* ---------------- 视图三：附录台账 ---------------- */
+let TABLES=DATA.tables||[], curT=-1, q='';
+function renderList(){
+  const box=$('#tlist'); box.innerHTML='';
+  const list=TABLES.map((t,i)=>({t,i})).filter(({t})=>
+    !q|| (t.n+t.cap+t.where+t.rows.flat().join(' ')).toLowerCase().includes(q.toLowerCase()));
+  $('#tcount').textContent=list.length+' 张';
+  list.forEach(({t,i})=>{
+    const d=document.createElement('div');
+    d.className='row'+(i===curT?' on':'');
+    d.innerHTML='<span class="n">'+(t.n||'表')+'</span>'+esc(t.cap)+
+      '<span class="w">'+esc(t.where)+' · '+t.rows.length+' 行</span>';
+    d.onclick=()=>{curT=i;renderList();renderPanel();};
+    box.appendChild(d);
+  });
+  if(curT<0&&list.length){curT=list[0].i;renderList();renderPanel();}
+}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function renderPanel(){
+  const t=TABLES[curT]; if(!t) return;
+  const h=['<h2>'+esc(t.n||'表')+'　'+esc(t.cap)+'</h2>',
+    '<div class="meta">'+esc(t.where)+' · '+t.rows.length+' 行 · 数据直接取自正文表格，未重算</div>',
+    '<table><thead><tr>'];
+  (t.head.length?t.head:['—']).forEach(x=>h.push('<th>'+esc(x)+'</th>'));
+  h.push('</tr></thead><tbody>');
+  t.rows.forEach(r=>{h.push('<tr>');r.forEach(c=>h.push('<td>'+esc(c)+'</td>'));h.push('</tr>');});
+  h.push('</tbody></table>');
+  $('#tpanel').innerHTML=h.join('');
+}
+
+/* ---------------- 视图四：图件账（SVG 缩略图内联，PNG 列清单） ---------------- */
+function renderFigs(){
+  const f=DATA.figs||{svg:[],png:[]};
+  const box=$('#figbox'); box.innerHTML='';
+  f.svg.forEach(x=>{
+    const d=document.createElement('div'); d.className='thumb';
+    if(x.d){
+      const im=document.createElement('img'); im.src=x.d; im.alt=x.n; im.loading='lazy';
+      d.appendChild(im);
+      const c=document.createElement('span'); c.className='cap';
+      c.textContent=x.n.replace(/\.svg$/,''); d.appendChild(c);
+    }else{
+      d.className='thumb tiny';
+      d.textContent='▱ '+x.n+(x.bad?'　（SVG 解析失败，未内联）':'');
+    }
+    box.appendChild(d);
+  });
+  const nb=$('#pngbox'); if(!nb) return; nb.innerHTML='';
+  f.png.forEach(x=>{
+    const d=document.createElement('div'); d.className='thumb tiny';
+    d.textContent='▣ '+x.n+'　'+(x.b/1024).toFixed(0)+' KB';
+    nb.appendChild(d);
+  });
+  const fc=$('#figcount');
+  if(fc) fc.textContent=f.svg.length+' SVG（内联 '+f.svg.filter(x=>x.d).length+
+    '）· '+f.png.length+' PNG（只列清单）';
+}
+
+/* ---------------- 切换与交互 ---------------- */
+function setView(v){
+  $$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));
+  $$('[data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  if(v==='spiral') drawSpiral();
+  if(v==='matrix') drawMatrix();
+  if(v==='ledger') renderList();
+  if(v==='figs') renderFigs();
+}
+function bindDrag(cv,cam,draw){
+  cv.addEventListener('pointerdown',e=>{cam.drag=true;cam.spin=false;cam.px=e.clientX;cam.py=e.clientY;
+    cv.setPointerCapture(e.pointerId);});
+  cv.addEventListener('pointerup',e=>{cam.drag=false;});
+  cv.addEventListener('pointermove',e=>{
+    if(cam.drag){
+      cam.yaw+=(e.clientX-cam.px)*0.008;
+      cam.pitch=Math.max(-1.2,Math.min(1.2,cam.pitch+(e.clientY-cam.py)*0.006));
+      cam.px=e.clientX;cam.py=e.clientY;draw();
+    }else{
+      const r=cv.getBoundingClientRect();
+      hoverAt(cv,cam,e.clientX-r.left,e.clientY-r.top,draw);
+    }
+  });
+  cv.addEventListener('pointerleave',()=>{TIP.style.opacity=0;cam.hover=null;draw();});
+  cv.addEventListener('wheel',e=>{e.preventDefault();
+    cam.zoom=Math.max(0.55,Math.min(2.4,cam.zoom*(e.deltaY<0?1.08:0.93)));draw();},{passive:false});
+}
+function hoverAt(cv,cam,mx0,my0,draw){
+  const box=cv.getBoundingClientRect();
+  if(cv.id==='cv-spiral'){
+    const h=nearest(mx0,my0);
+    if(h){
+      const n=h.n; cam.hover=n;
+      TIP.innerHTML='<b>'+esc(label(n))+'　'+esc(n.t)+'</b><br>'+
+        '<em>'+esc(PARTS[n.p].name)+'</em><br>'+
+        '被引 <b>'+n.i+'</b> · 引出 <b>'+n.o+'</b> · 合计 '+n.d+
+        (n.secs?(' · '+n.secs+' 节'):'')+
+        (n.core?('<br>'+esc(n.core)):'')+
+        (n.sub?('<br><span style="color:#8c8c8c">'+esc(n.sub)+'</span>'):'');
+      TIP.style.opacity=1;
+      TIP.style.left=Math.min(innerWidth-330,h.p[0]+box.left+16)+'px';
+      TIP.style.top=Math.max(8,h.p[1]+box.top-6)+'px';
+    }else{TIP.style.opacity=0;cam.hover=null;}
+    draw();
+  }else if(cv.id==='cv-matrix'){
+    const b=hitMatrix(mx0,my0);
+    if(b){mcam.hover=b;
+      TIP.innerHTML='<b>'+esc(PARTS[b.i].name)+'</b> → <b>'+esc(PARTS[b.j].name)+'</b><br>'+
+        '<em>'+MAT[b.i][b.j]+' 条</em>'+(b.i===b.j?'（部内互引）':'（跨部）');
+      TIP.style.opacity=1;
+      TIP.style.left=Math.min(innerWidth-390,mx0+box.left+16)+'px';
+      TIP.style.top=(my0+box.top-6)+'px';
+    }else{TIP.style.opacity=0;mcam.hover=null;}
+    draw();
+  }
+}
+function tick(){
+  if(cam.spin&&$('#v-spiral').classList.contains('on')){cam.yaw+=0.0022;drawSpiral();}
+  requestAnimationFrame(tick);
+}
+window.addEventListener('resize',()=>{drawSpiral();drawMatrix();});
+document.addEventListener('DOMContentLoaded',()=>{
+  buildGeo(); buildMatrix();
+  bindDrag(cv,cam,drawSpiral); bindDrag(mv,mcam,drawMatrix);
+  $$('[data-v]').forEach(b=>b.onclick=()=>setView(b.dataset.v));
+  $$('[data-f]').forEach(b=>b.onclick=()=>{
+    FILTERV=b.dataset.f; $$('[data-f]').forEach(x=>x.classList.toggle('on',x===b));
+    FILTER=FILTERV; drawSpiral();
+  });
+  $('#spin').onclick=()=>{cam.spin=!cam.spin; $('#spin').classList.toggle('on',cam.spin);};
+  const qEl=$('#q'); if(qEl) qEl.oninput=e=>{q=e.target.value; renderList();};
+  const pk=$('#pkey'), CN2=['一','二','三','四','五','六','七'];
+  if(pk) PARTS.forEach((p,i)=>{
+    const d=document.createElement('div');
+    d.innerHTML='<b>'+CN2[i]+'</b>　'+esc(p.name.replace(/^第.部分[　 ]?/,''))+
+      '<span style="color:#8c8c8c">（'+p.chapters.length+'）</span>';
+    pk.appendChild(d);
+  });
+  const leg=$('#legend');
+  PARTS.forEach((p,i)=>{
+    const n=NODES.filter(x=>x.p===i).length;
+    const d=document.createElement('div'); d.className='lg';
+    d.innerHTML='<i style="background:'+PCOL[i%PCOL.length]+'"></i><b>'+esc(p.name)+'</b><span>'+n+'</span>';
+    leg.appendChild(d);
+  });
+  setView('spiral'); tick();
+});
+
+</script>
+</body></html>
