@@ -64,12 +64,15 @@ def do_repo(repo, tag):
             print(f"  {repo:22} 建 release 失败 {st}"); return False
     rid = rel["id"]
     have = {a["name"]: a["size"] for a in rel.get("assets", [])}
+    have_id = {a["name"]: a["id"] for a in rel.get("assets", [])}
     up = 0
     for f in files:
         p = os.path.join(rel_dir, f)
         name = ALIAS.get(f, f)
         if have.get(name) == os.path.getsize(p):
             continue
+        if name in have_id:            # 同名旧资产必须先删，否则 422 already_exists
+            call(f"{api}/releases/assets/{have_id[name]}", "DELETE")
         try:
             with open(p, "rb") as fh:
                 r = requests.post(f"https://uploads.github.com/repos/lyp0746/{repo}/releases/{rid}/assets",

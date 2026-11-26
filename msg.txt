@@ -1,13 +1,8 @@
-修正论文台账套娃：15 篇的 <repo>-explorer.html 换回真正的 CSV 交互台账
+Zenodo 本地描述：只增一句「可视化阅读台」（26 份 html + 26 份 txt），同时把粗码公式里的 v* 改为 <sup>*</sup>
 
-上一轮把文件归位到 assets/ 时，build_paper 挑台账源的过滤条件太松（排除了 reader 却没收体积），
-14 篇把自己的 <repo>-reader.html 当成台账拷成了 <repo>-explorer.html —— 结果：
-  ① index 上点「结构/台账 →」打开的是另一份阅读页；
-  ② 阅读页底部「交互台账」iframe 里套娃加载了整篇论文自己。
-
-修：
-- 15 篇一律取 interactive/ 下 <400 KB 的原始数据探索器（term-explorer / periodization-explorer …），
-  写入 assets/<repo>-explorer.html 与 release/，覆盖掉那 14 个几 MB 的假台账。
-- 生成器加死条件：排除 reader、排除 ≥400 KB 的文件，防下次再犯。
-
-实测：15 篇 explorer 体积 9–303 KB，reader 768–5555 KB；iframe 内无 #rbar（不再套娃）。
+- 每份在「版本信息 / Edition」段之前插入一段中文 + 一段英文，说明本件另附两个离线单文件
+  （<slug>-reader.html 阅读页、<slug>-explorer.html 结构地图），不联网、无外部依赖。
+- 只增不改：DOI、version、publication_date、related_identifiers 一个字未动。
+- 前/后字符：160,099 → 183,903（+23,804）。
+- 校验：26 份 html 的 <b>/<p> 全部配平；description 星号计数 0（粗码的两处 v* 是公式，已改 <sup>*</sup>）。
+- 新增工具 _series/tools/zenodo_add_console.py（幂等：检测到「可视化阅读台」即跳过）。

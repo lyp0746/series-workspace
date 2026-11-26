@@ -442,7 +442,7 @@ JS = r"""
     var b=e.target.closest('[data-m]'); if(!b) return;
     var m=b.getAttribute('data-m');
     if(m==='sandbox'||m==='sb1'||m==='sb2'){
-      var id=m==='sb2'?'sandbox2':(m==='sb3'?'sandbox3':'sandbox');
+      var id=m==='sb2'?'sandbox2':(m==='sb3'?'sandbox3':(m==='sb4'?'sandbox4':'sandbox'));
       var s=document.getElementById(id); if(s) s.scrollIntoView({behavior:'smooth',block:'start'});
       return;
     }
@@ -480,6 +480,58 @@ JS = r"""
       document.body.removeChild(ta);
     }
   });
+})();
+"""
+
+JS_POOL = r"""
+(function(){
+  var b=document.getElementById('psliders'); if(!b) return;
+  var P={s:5,k:1,g:0.5,a:1,C:2};
+  function sl(label,key,mn,mx,st,v,f){
+    var d=document.createElement('div'); d.className='sl';
+    d.innerHTML='<label>'+label+'<b id="pl-'+key+'">'+f(v)+'</b></label>'+
+      '<input type="range" id="ps-'+key+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+v+'">';
+    b.appendChild(d);
+  }
+  sl('s 价格／收益','s',0.5,10,0.5,5,function(v){return v.toFixed(1)});
+  sl('κ 拥挤系数','k',0.2,3,0.1,1,function(v){return v.toFixed(1)});
+  sl('γ₀ 退场基础速率','g',0.05,2,0.05,0.5,function(v){return v.toFixed(2)});
+  sl('α 进入系数','a',0.2,3,0.1,1,function(v){return v.toFixed(1)});
+  sl('C 专用性','C',0,8,0.5,2,function(v){return v.toFixed(1)});
+  function nstar(C){ return (P.s-(P.g/P.a)*Math.exp(-1*C))/P.k; }
+  function draw(){
+    var n=nstar(P.C), inf=P.s/P.k;
+    document.getElementById('pout').innerHTML=
+      '<div class="srow"><span>n\* 攒局规模</span><b>'+n.toFixed(2)+'</b></div>'+
+      '<div class="srow"><span>C → ∞ 的上限 s/κ</span><b>'+inf.toFixed(2)+'</b></div>'+
+      '<div class="srow"><span>被 C 扣掉的部分</span><b>'+((P.g/P.a)*Math.exp(-P.C)).toFixed(3)+'</b></div>'+
+      '<div class="badge '+(n>0?'t':'f')+'">'+(n>0?'涨潮：s − κn &gt; 0，能攒住':'退潮：s − κn ≤ 0，进入项归零')+'</div>';
+    var c=document.getElementById('cv-pool'),g=c.getContext('2d');
+    var r=c.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);
+    c.width=r.width*dpr;c.height=r.height*dpr;g.setTransform(dpr,0,0,dpr,0,0);
+    var W=r.width,H=r.height,pad=34;g.clearRect(0,0,W,H);
+    g.strokeStyle='#e2dccd';g.beginPath();g.moveTo(pad,pad);g.lineTo(pad,H-20);g.lineTo(W-10,H-20);g.stroke();
+    var maxY=Math.max(inf*1.15,n*1.15,1);
+    for(var C=0;C<=8;C+=0.1){
+      var y=nstar(C); if(y<0) y=0;
+      var x=pad+C/8*(W-pad-10), yy=(H-20)-y/maxY*(H-20-pad);
+      C===0?g.moveTo(x,yy):g.lineTo(x,yy);
+    }
+    g.strokeStyle='#b5651d';g.lineWidth=2;g.stroke();
+    g.strokeStyle='rgba(31,59,87,.4)';g.setLineDash([4,4]);
+    var yh=(H-20)-inf/maxY*(H-20-pad);
+    g.beginPath();g.moveTo(pad,yh);g.lineTo(W-10,yh);g.stroke();g.setLineDash([]);
+    var xc=pad+P.C/8*(W-pad-10), yc=(H-20)-Math.max(0,n)/maxY*(H-20-pad);
+    g.beginPath();g.arc(xc,yc,5,0,7);g.fillStyle='#1f3b57';g.fill();
+    g.fillStyle='#8c8c8c';g.font='11px sans-serif';
+    g.fillText('C →',W-30,H-6); g.fillText('n*',6,pad+8);
+    g.fillText('s/κ（上限）',pad+4,yh-4);
+  }
+  b.addEventListener('input',function(e){
+    var k=e.target.id.replace('ps-',''); P[k]=parseFloat(e.target.value);
+    document.getElementById('pl-'+k).textContent=e.target.value; draw();
+  });
+  draw();
 })();
 """
 
@@ -622,6 +674,17 @@ JS_TRI = r"""
 })();
 """
 
+SB_POOL = """
+<section id="sandbox4">
+  <h2>动手：涨潮期的攒局规模 n* = [s − (γ₀/α)·e^{−λC}] / κ（第 27 章 式 27.3）</h2>
+  <p class="lede">条密度方程 ∂n/∂t = αn[s − κn]<sup>+</sup> − γ₀e^{−λC}n + D（略去扩散），在 s − κn &gt; 0 的那一段，
+  非平凡平衡点是 <b>n\* = [s − (γ₀/α)e^{−λC}] / κ</b>。两相边界 <b>αK̄ = κ</b>。
+  <b>要读准：C 在分子里只决定"扣多少"，它抬不高 n\*；C → ∞ 时 n\* → s/κ。</b>价格 s 才决定上限。</p>
+  <div class="sgrid"><div><div id="psliders"></div><div id="pout"></div></div>
+  <div><canvas id="cv-pool"></canvas></div></div>
+</section>
+"""
+
 SB_VSTAR = """
 <section id="sandbox">
   <h2>动手：驻点式 v* = (T + λ) / 2w（第 3 章 §3.2）</h2>
@@ -695,6 +758,46 @@ def build_book(repo: str) -> dict:
     foot = foot_block(repo,
                       "正文与表格：<code>" + repo + "/source/</code>；本页由 <code>output/book-ereader.html</code> 派生。",
                       "<code>_series/tools/make_reader.py</code>（book 模式）。", BOUNDS_BOOK)
+    # 速览卡（现场数出来的）
+    cards = ('<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:18px 0 6px">'
+             + "".join(f'<div style="background:#fff;border:1px solid #e2dccd;border-radius:10px;padding:9px 13px">'
+                       f'<div style="font-size:11px;color:#8c8c8c">{k}</div>'
+                       f'<div style="font-size:19px;font-weight:600;color:#1f3b57">{v}</div></div>'
+                       for k, v in (("章", "39"), ("部", "8"), ("章际引用", "360"),
+                                    ("表", "199"), ("登记 / 否证", "25 / 27")))
+             + '</div><p class="lede" style="margin:0 0 8px">上面五个数是现场数出来的（<code>source/</code>）；'
+               '下面第三块是<b>十条极限</b>——把参数推到 0 或 ∞，看方程退化成哪一套既有理论。</p>')
+    i = t.find('</header>')
+    if 'id="graincards"' not in t and i > 0:
+        t = t[:i] + cards + t[i:]
+
+    # 十条极限：直接从 analysis/make_theory_map.py 的 LIMITS 读（作者写的唯一来源）
+    lim = []
+    try:
+        src2 = io.open(os.path.join(ROOT, "resolution-grain", "analysis", "make_theory_map.py"), encoding="utf-8").read()
+        blk = re.search(r"LIMITS = \[(.*?)\n\]", src2, re.S).group(1)
+        for m in re.finditer(r'\("([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"(in|out)"\)', blk):
+            lim.append(m.groups())
+    except Exception as e:
+        print("  ! 读 LIMITS 失败：", e)
+    if lim:
+        rows = "".join(
+            f'<tr data-ax="{a}"><td>{a}</td><td><b>{b}</b></td><td>{c}</td><td>{d}</td><td>{e}</td>'
+            f'<td>{"退得回去" if f=="in" else "<b>退不回去</b>"}</td></tr>' for a,b,c,d,e,f in lim)
+        axes = "".join(f'<button data-ax="{a}">{a}</button>' for a in ("一致性 γ","网络 A","换码 C","外置 ν","预算 R, Δ"))
+        sb = f"""<section id="limits" style="margin:34px 0 10px;border:1px solid #e2dccd;border-radius:14px;background:#fff;padding:18px 20px 14px">
+  <h2 style="font-size:19px;margin:0 0 4px;color:#1f3b57">十条极限：把参数推到 0 或 ∞，方程退化成谁</h2>
+  <p class="lede">这不是"思想渊源"，是<b>数学接洽点</b>：哪一个量推到边界时，《粗码》的式子在哪一个等号上精确退化成既有理论。
+  十条里<b>九条退得回去，一条（ν&lt;0）退不回去</b>——那一条是第二条原理本身。点轴看它那一组极限。</p>
+  <div class="sbtns" id="lax">{axes}<button data-ax="all">看全部</button></div>
+  <div class="tw" style="margin-top:10px"><table style="width:100%;border-collapse:collapse;font-size:12.5px">
+  <thead><tr><th>哪一项</th><th>极限</th><th>退化到的既有理论</th><th>接洽点（哪个量退化成谁）</th><th>现实里长什么样</th><th>能不能退回</th></tr></thead>
+  <tbody id="ltb">{rows}</tbody></table></div>
+  <p class="lede" style="margin:10px 0 0">等级 <b>C</b>：每一行都是"本书认为它对得上"，不是本书测过。<b>不能主张什么</b>：这张表只给退化关系，不给因果优先级；"退得回去"不等于"后者更正确"。</p>
+</section>"""
+        anchor = re.search(r'<h[12][^>]*>[^<]{0,6}附录\s?A', t)
+        t = (t[:anchor.start()] + sb + t[anchor.start():]) if anchor else t.replace("</body>", sb + "</body>", 1)
+
     t = shell(t, bar, foot)
     t = t.replace("</body>", "<script>" + squish(JS) + (squish(JS_TRI) if has_tri else "") + "</script></body>", 1)
     out = out_path(repo)
@@ -770,6 +873,46 @@ def build_paper(repo: str) -> dict:
                       ["审问卡四行是**原文摘录**，摘要不等于全文。",
                        "打脸条件来自论文十五的 126 条总账，**不是本页重新判定的**。",
                        "骨架档藏起来的是表格与推导，不是删掉——「全展」可随时看见。"])
+    # 速览卡（现场数出来的）
+    cards = ('<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:18px 0 6px">'
+             + "".join(f'<div style="background:#fff;border:1px solid #e2dccd;border-radius:10px;padding:9px 13px">'
+                       f'<div style="font-size:11px;color:#8c8c8c">{k}</div>'
+                       f'<div style="font-size:19px;font-weight:600;color:#1f3b57">{v}</div></div>'
+                       for k, v in (("章", "39"), ("部", "8"), ("章际引用", "360"),
+                                    ("表", "199"), ("登记 / 否证", "25 / 27")))
+             + '</div><p class="lede" style="margin:0 0 8px">上面五个数是现场数出来的（<code>source/</code>）；'
+               '下面第三块是<b>十条极限</b>——把参数推到 0 或 ∞，看方程退化成哪一套既有理论。</p>')
+    i = t.find('</header>')
+    if 'id="graincards"' not in t and i > 0:
+        t = t[:i] + cards + t[i:]
+
+    # 十条极限：直接从 analysis/make_theory_map.py 的 LIMITS 读（作者写的唯一来源）
+    lim = []
+    try:
+        src2 = io.open(os.path.join(ROOT, "resolution-grain", "analysis", "make_theory_map.py"), encoding="utf-8").read()
+        blk = re.search(r"LIMITS = \[(.*?)\n\]", src2, re.S).group(1)
+        for m in re.finditer(r'\("([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"(in|out)"\)', blk):
+            lim.append(m.groups())
+    except Exception as e:
+        print("  ! 读 LIMITS 失败：", e)
+    if lim:
+        rows = "".join(
+            f'<tr data-ax="{a}"><td>{a}</td><td><b>{b}</b></td><td>{c}</td><td>{d}</td><td>{e}</td>'
+            f'<td>{"退得回去" if f=="in" else "<b>退不回去</b>"}</td></tr>' for a,b,c,d,e,f in lim)
+        axes = "".join(f'<button data-ax="{a}">{a}</button>' for a in ("一致性 γ","网络 A","换码 C","外置 ν","预算 R, Δ"))
+        sb = f"""<section id="limits" style="margin:34px 0 10px;border:1px solid #e2dccd;border-radius:14px;background:#fff;padding:18px 20px 14px">
+  <h2 style="font-size:19px;margin:0 0 4px;color:#1f3b57">十条极限：把参数推到 0 或 ∞，方程退化成谁</h2>
+  <p class="lede">这不是"思想渊源"，是<b>数学接洽点</b>：哪一个量推到边界时，《粗码》的式子在哪一个等号上精确退化成既有理论。
+  十条里<b>九条退得回去，一条（ν&lt;0）退不回去</b>——那一条是第二条原理本身。点轴看它那一组极限。</p>
+  <div class="sbtns" id="lax">{axes}<button data-ax="all">看全部</button></div>
+  <div class="tw" style="margin-top:10px"><table style="width:100%;border-collapse:collapse;font-size:12.5px">
+  <thead><tr><th>哪一项</th><th>极限</th><th>退化到的既有理论</th><th>接洽点（哪个量退化成谁）</th><th>现实里长什么样</th><th>能不能退回</th></tr></thead>
+  <tbody id="ltb">{rows}</tbody></table></div>
+  <p class="lede" style="margin:10px 0 0">等级 <b>C</b>：每一行都是"本书认为它对得上"，不是本书测过。<b>不能主张什么</b>：这张表只给退化关系，不给因果优先级；"退得回去"不等于"后者更正确"。</p>
+</section>"""
+        anchor = re.search(r'<h[12][^>]*>[^<]{0,6}附录\s?A', t)
+        t = (t[:anchor.start()] + sb + t[anchor.start():]) if anchor else t.replace("</body>", sb + "</body>", 1)
+
     t = shell(t, bar, foot)
     t = t.replace("</body>", "<script>" + squish(JS) + "</script></body>", 1)
     out = out_path(repo)
@@ -819,7 +962,7 @@ def build_grain() -> dict:
         return "本章未单列否证线：全书否证线见表 F.1（27 条）与附录 D（25 行登记）"
 
     t, n_card, miss = _chapter_cards(t, extra=extra)
-    for anchor, blk in (('<h3 id="sec3-3"', SB_VSTAR), ('<h3 id="sec27-8"', SB_HALF)):
+    for anchor, blk in (('<h3 id="sec3-3"', SB_VSTAR), ('<h3 id="sec27-8"', SB_POOL + SB_HALF)):
         if anchor in t:
             t = t.replace(anchor, blk + anchor, 1)
         else:
@@ -827,16 +970,62 @@ def build_grain() -> dict:
     bar = ('<div id="rbar"><button data-m="bone">骨架</button>'
            '<button data-m="read" class="on">阅读</button><button data-m="full">全展</button>'
            '<span class="sep"></span><button data-m="sb1">驻点式</button>'
+           '<button data-m="sb4">攒局 n*</button>'
            '<button data-m="sb2">半衰期</button>'
-           '<span class="sep"></span><a class="jump" href="knowledge-map.html">结构地图 →</a></div>')
+           '<span class="sep"></span><a class="jump" href="resolution-grain-explorer.html">结构地图 →</a></div>')
     foot = foot_block(repo,
                       "正文：<code>resolution-grain/source/</code>；由 <code>output/book-ereader.html</code> 派生。",
                       "<code>make_reader.py</code>（grain 模式）；沙盘 1 照抄 §3.2 驻点式，沙盘 2 照抄式 (27.4)(27.5)。",
                       ["两个沙盘是**说明性装置（C 级）**：演示式子怎么动，不预测任何具体行业。",
                        "半衰期是模型里的时间常数，不是\"某行业会撑几年\"的预言；C 的量法变了，数就变。",
                        "骨架档藏起来的是证据与推导，不是删掉——「全展」可随时看见。"])
+    # 速览卡（现场数出来的）
+    cards = ('<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:18px 0 6px">'
+             + "".join(f'<div style="background:#fff;border:1px solid #e2dccd;border-radius:10px;padding:9px 13px">'
+                       f'<div style="font-size:11px;color:#8c8c8c">{k}</div>'
+                       f'<div style="font-size:19px;font-weight:600;color:#1f3b57">{v}</div></div>'
+                       for k, v in (("章", "39"), ("部", "8"), ("章际引用", "360"),
+                                    ("表", "199"), ("登记 / 否证", "25 / 27")))
+             + '</div><p class="lede" style="margin:0 0 8px">上面五个数是现场数出来的（<code>source/</code>）；'
+               '下面第三块是<b>十条极限</b>——把参数推到 0 或 ∞，看方程退化成哪一套既有理论。</p>')
+    i = t.find('</header>')
+    if 'id="graincards"' not in t and i > 0:
+        t = t[:i] + cards + t[i:]
+
+    # 十条极限：直接从 analysis/make_theory_map.py 的 LIMITS 读（作者写的唯一来源）
+    lim = []
+    try:
+        src2 = io.open(os.path.join(ROOT, "resolution-grain", "analysis", "make_theory_map.py"), encoding="utf-8").read()
+        blk = re.search(r"LIMITS = \[(.*?)\n\]", src2, re.S).group(1)
+        for m in re.finditer(r'\("([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*"(in|out)"\)', blk):
+            lim.append(m.groups())
+    except Exception as e:
+        print("  ! 读 LIMITS 失败：", e)
+    if lim:
+        rows = "".join(
+            f'<tr data-ax="{a}"><td>{a}</td><td><b>{b}</b></td><td>{c}</td><td>{d}</td><td>{e}</td>'
+            f'<td>{"退得回去" if f=="in" else "<b>退不回去</b>"}</td></tr>' for a,b,c,d,e,f in lim)
+        axes = "".join(f'<button data-ax="{a}">{a}</button>' for a in ("一致性 γ","网络 A","换码 C","外置 ν","预算 R, Δ"))
+        sb = f"""<section id="limits" style="margin:34px 0 10px;border:1px solid #e2dccd;border-radius:14px;background:#fff;padding:18px 20px 14px">
+  <h2 style="font-size:19px;margin:0 0 4px;color:#1f3b57">十条极限：把参数推到 0 或 ∞，方程退化成谁</h2>
+  <p class="lede">这不是"思想渊源"，是<b>数学接洽点</b>：哪一个量推到边界时，《粗码》的式子在哪一个等号上精确退化成既有理论。
+  十条里<b>九条退得回去，一条（ν&lt;0）退不回去</b>——那一条是第二条原理本身。点轴看它那一组极限。</p>
+  <div class="sbtns" id="lax">{axes}<button data-ax="all">看全部</button></div>
+  <div class="tw" style="margin-top:10px"><table style="width:100%;border-collapse:collapse;font-size:12.5px">
+  <thead><tr><th>哪一项</th><th>极限</th><th>退化到的既有理论</th><th>接洽点（哪个量退化成谁）</th><th>现实里长什么样</th><th>能不能退回</th></tr></thead>
+  <tbody id="ltb">{rows}</tbody></table></div>
+  <p class="lede" style="margin:10px 0 0">等级 <b>C</b>：每一行都是"本书认为它对得上"，不是本书测过。<b>不能主张什么</b>：这张表只给退化关系，不给因果优先级；"退得回去"不等于"后者更正确"。</p>
+</section>"""
+        anchor = re.search(r'<h[12][^>]*>[^<]{0,6}附录\s?A', t)
+        t = (t[:anchor.start()] + sb + t[anchor.start():]) if anchor else t.replace("</body>", sb + "</body>", 1)
+
     t = shell(t, bar, foot)
-    t = t.replace("</body>", "<script>" + squish(JS) + squish(JS_SB) + "</script></body>", 1)
+    limjs = """(function(){var b=document.getElementById('lax');if(!b)return;
+b.addEventListener('click',function(e){var t=e.target.closest('[data-ax]');if(!t)return;
+var ax=t.dataset.ax;[].forEach.call(b.children,function(x){x.classList.toggle('on',x===t);});
+[].forEach.call(document.querySelectorAll('#ltb tr'),function(r){
+  r.style.background=(ax==='all'||r.dataset.ax===ax)?'#fdf6ec':'';});});})();"""
+    t = t.replace("</body>", "<script>" + squish(JS) + squish(JS_SB) + squish(JS_POOL) + limjs + "</script></body>", 1)
     out = out_path(repo)
     io.open(out, "w", encoding="utf-8", newline="\n").write(t)
     return {"out": out, "base": base, "kb": os.path.getsize(out) / 1024,

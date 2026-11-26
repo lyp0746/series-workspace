@@ -27,4 +27,5 @@ Boundaries.See chapter ends and the register appendices; conclusion strength nev
 
 Edition.2026-11-14, 89 pages; 12 sections, at most six appendices. Content CC BY 4.0; concept DOI 10.5281/zenodo.23611757
 .
-
+可视化阅读台。本件另附两个离线单文件页面（仓库 assets/ 下）：阅读页 LedgerReconciliation-reader.html（三档＋章末审问卡，四行原文摘录）与结构地图 LedgerReconciliation-explorer.html（3D 章际螺旋、部×部矩阵、附录台账）。不联网、无外部依赖、双击即开。
+Reading console. Two offline single-file pages: a reading console with three density levels and per-chapter audit cards, and a structure map with a chapter-citation spiral and the appendix ledgers.
