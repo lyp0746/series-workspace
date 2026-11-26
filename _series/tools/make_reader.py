@@ -739,9 +739,12 @@ def build_paper(repo: str) -> dict:
     t = (t[:mk.start()] + card + t[mk.start():]) if mk else t.replace("</body>", card + "</body>", 1)
 
     # 台账：同目录 <repo>-explorer.html，iframe 懒加载
+    # 只认「轻量数据台账」：排除 reader 与任何 >400 KB 的整篇正文（否则会把阅读页误当台账）
     exps = [x for x in sorted(glob.glob(os.path.join(ROOT, repo, "interactive", "*.html")))
             + sorted(glob.glob(os.path.join(ROOT, repo, "assets", "*.html")))
-            if os.path.basename(x) != f"{repo}-explorer.html"]
+            if "reader" not in os.path.basename(x)
+            and os.path.basename(x) != f"{repo}-explorer.html"
+            and os.path.getsize(x) < 400 * 1024]
     ledger_url = ""
     if exps:
         dst = os.path.join(ROOT, repo, "assets", f"{repo}-explorer.html")
