@@ -150,7 +150,7 @@ def load_figs(repo: str):
     import base64
     import glob as _glob
     a = os.path.join(ROOT, repo, "assets")
-    svg, budget = [], 1.6 * 1024 * 1024
+    svg, budget = [], 3.2 * 1024 * 1024
     import xml.etree.ElementTree as _ET
     for p in sorted(_glob.glob(os.path.join(a, "svg", "*.svg"))):
         raw = open(p, "rb").read()
@@ -160,7 +160,7 @@ def load_figs(repo: str):
             svg.append({"n": os.path.basename(p), "d": None, "b": len(raw),
                         "bad": True})
             continue
-        if len(raw) > 80 * 1024 or budget - len(raw) * 1.34 < 0:
+        if len(raw) > 220 * 1024 or budget - len(raw) * 1.34 < 0:
             svg.append({"n": os.path.basename(p), "d": None, "b": len(raw)})
             continue
         budget -= len(raw) * 1.34
